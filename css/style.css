@@ -1,0 +1,193 @@
+body {
+  overflow-x: hidden;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #505962;
+}
+
+/* navigation */
+
+.navbar {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: .9rem;
+  letter-spacing: 0.1rem;
+  background: rgba(0, 0, 0, 0.6)!important;
+}
+
+.navbar-brand {
+  font-size: 2rem;
+}
+
+.navbar-nav li {
+  padding-right: 0.7rem;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #fff;
+  padding-top: 0.8rem;
+  font-size: 16px;
+}
+
+.navbar-dark .navbar-nav .nav-link.active,
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #1ebba3;
+}
+
+/* landing page */
+
+.landing .home-inner {
+  background: url(../img/businessd.svg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+}
+
+.home-inner .caption {
+  padding: 200px 0;
+  color: #000;
+}
+
+.home-inner .caption h1 {
+  font-size: 70px;
+  font-weight: 700;
+  letter-spacing: .3rem;
+  text-shadow: 0.1rem 0.1rem 0.8rem black;
+  padding-bottom: 1rem;
+}
+
+.heading h1{
+  font-weight: 700;
+  text-align: center;
+}
+
+/* about */
+#about {
+  margin: 60px;
+}
+
+#how {
+  margin: 70px 0;
+}
+
+.phone {
+  background: #fff;
+  padding: 30px 15px;
+  border-radius: 10px;
+}
+
+/* footer */
+
+footer {
+  background: #40474e;
+  color: #fff;
+  padding: 20px 0;
+}
+
+
+footer hr {
+  background: #fff;
+}
+
+.footer-icons {
+  margin-top: 60px;
+}
+
+.footer-icons a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  background-color: #33383b;
+  border-radius: 2px;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 35px;
+  margin-right: 3px;
+  margin-bottom: 5px;
+}
+
+.contact-info i {
+  background-color: #33383b;
+    color: #ffffff;
+    font-size: 25px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 42px;
+    margin: 10px 15px;
+    vertical-align: middle;
+}
+.contact-info div {
+  display: flex;
+}
+
+.contact-info p span {
+    display: block;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 2;
+}
+
+.contact-info p {
+  font-size: 18px;
+}
+
+
+/* about */
+.heading-container {
+  background: linear-gradient(45deg, #000000c7, #00000094),url('../img/bitcoin2.jpg');
+  background-position: center;
+  background-size: cover;
+  padding-top: 70px;
+}
+
+.heading-container h1 {
+  padding: 30px 0;
+  text-align: center;
+  font-size: 70px;
+  font-weight: 900;
+  color: #fff;
+}
+
+
+
+/* plan */
+
+#intro {
+  margin: 60px 0;
+}
+
+#plan {
+  margin: 60px 0;
+}
+
+#login {
+  margin: 100px 0;
+}
+
+.authPage {
+  background: linear-gradient(45deg, #000000c7, #00000094),url('../img/auth.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+  
+}
+
+.form-container form{
+  background: #505962;
+  padding: 30px;
+  color: #fff;
+}
+
+.text-container {
+  background: rgb(78, 238, 78);
+  color: #fff;
+  padding: 6px;
+  margin: 30px 0;
+}
+
+.text-container h3 {
+  font-size: 16px;
+  font-weight: 900;
+}
