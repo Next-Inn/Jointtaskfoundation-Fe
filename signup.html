@@ -30,22 +30,22 @@
         <div class="collapse navbar-collapse " id="navbarResponsive">
            <ul class="navbar-nav ml-auto">
                <li class="nav-item">
-                   <a href="/index.html" class="nav-link">Home</a>
+                   <a href="index.html" class="nav-link">Home</a>
                 </li>
                <li class="nav-item">
-                   <a href="/about.html"class="nav-link">About</a>
+                   <a href="about.html"class="nav-link">About</a>
                 </li>
                <li class="nav-item">
-                   <a href="/plan.html" class="nav-link">Marketing Plan</a>
+                   <a href="plan.html" class="nav-link">Marketing Plan</a>
                 </li>
                 <li class="nav-item">
                     <a href="#contact" class="nav-link">Contact</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/login.html" class="nav-link">Log in</a>
+                    <a href="login.html" class="nav-link">Log in</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/signup.html" class="nav-link">Sign Up</a>
+                    <a href="signup.html" class="nav-link">Sign Up</a>
                 </li>
            </ul> 
         </div>
@@ -58,7 +58,8 @@
            <div class="row">
                <div class="col-md-2"></div>
                <div class="col-md-8 form-container">
-                <form action="">
+                <form action="" id="regForm">
+                  <div class="tab">
                     <div class="text-container">
                         <h3>Sponsor Information</h3>
                     </div>
@@ -92,45 +93,122 @@
                         </div>
                       </div>
                     </div>
+                  </div>
+
+                  <div class="tab">
                     <div class="text-container">
                         <h3>Package and Payment Information</h3>
                     </div>
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <input type="password" placeholder="password" class="form-control">
+                          <select class="form-control" id="selPackage">
+                            <option>Joining package</option>
+                            <option>adjoining</option>
+                            <option>me</option>
+                            <option>thwem</option>
+                          </select>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <input type="password" placeholder="password" class="form-control">
+                          <select class="form-control" id="selPayMode">
+                            <option>E-Wallet</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                          </select>
                         </div>
                       </div>
                     </div>
-
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <input type="password" placeholder="password" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <input type="text" placeholder="E-Wallet ID" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <input type="password" placeholder="E-Wallet Password" class="form-control">
+                        </div>
+                      </div>
+                    </div>
                     <div class="text-container">
                         <h3>Personal Information</h3>
                     </div>
-                    <div class="form-group">
-                      <input type="password" placeholder="password" class="form-control">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <input type="text" placeholder="First Name" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <input type="text" placeholder="Last Name" class="form-control">
+                        </div>
+                      </div>
                     </div>
-                    <div class="form-group">
-                      <input type="password" placeholder="password" class="form-control">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <input type="Email" placeholder="password" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <input type="tel" placeholder="Mobile Number" class="form-control">
+                        </div>
+                      </div>
                     </div>
                     <div class="text-container">
                         <h3>Security Question & Answer</h3>
                     </div>
-                    <div class="form-group">
-                      <input type="password" placeholder="password" class="form-control">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <select class="form-control" id="securityQuestion">
+                            <option>What is the name of your first School?</option>
+                            <option>What is your mother's maiden name?</option>
+                            <option>Whats your secret?</option>
+                            <option>What's your first pet's name</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <input type="text" placeholder="Your Answer" class="form-control" id="secretAnswer">
+                        </div>
+                      </div>
                     </div>
+                  
                     <p>Already have an account? Click <a href="/login.html"><strong>Log in</strong></a> instead</p>
                     <button class="btn btn-success btn-block">Log In</button>
+                  </div>
+                    <div style="overflow:auto;">
+                      <div style="float:right;" class="my-3">
+                        <button class="btn btn-success" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                        <button class="btn btn-primary" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                      </div>
+                    </div>
+                    
+                    <!-- Circles which indicates the steps of the form: -->
+                    <div style="text-align:center;margin-top:40px;">
+                      <span class="step"></span>
+                      <span class="step"></span>
+                    </div>
                  </form>
                </div>
                <div class="col-md-3"></div>
            </div>
        </div>
    </section>
+
+  
    <footer class="text-center">
     <div class="container">
       <div class="row">
