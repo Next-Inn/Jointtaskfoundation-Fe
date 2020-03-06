@@ -1,3 +1,27 @@
+// Navbar color change
+const navList = document.querySelector(".navbar");
+window.onscroll = function(){
+  if(document.body.scrollTop < 0 || document.documentElement.scrollTop > 5){
+    navList.classList.add("nav-colored");
+    navList.classList.remove("nav-transparent");
+  }else{
+    navList.classList.add("nav-transparent");
+    navList.classList.remove("nav-colored");
+  }
+}
+
+// const navList = document.getElementById("navBar");
+// window.onscroll = function(){
+//   if(document.body.scrollTop < 0 || document.documentElement.scrollTop > 5){
+//     navBar.classList.add("navTransparent");
+//     navBar.classList.remove("navBar");
+//   }else{
+//     navBar.classList.add("navBar");
+//     navBar.classList.remove("navTransparent");
+//   }
+// }
+
+// Sign up page
 var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab
 
