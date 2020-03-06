@@ -1,6 +1,13 @@
+
+:root {
+  --main-bg-color: #23395d;
+  --main-txt-color: blue;
+  --white: #fff;
+  --main-padding: 15px;
+}
 body {
   overflow-x: hidden;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Nunito', sans-serif;
   color: #505962;
 }
 
@@ -11,11 +18,29 @@ body {
   font-weight: 700;
   font-size: .9rem;
   letter-spacing: 0.1rem;
-  background: rgba(0, 0, 0, 0.6)!important;
+}
+
+.nav-transparent {
+  background: rgba(0, 0, 0, 0.18)!important;
+  transition:2s;
+}
+
+.nav-colored {
+  background: var(--main-bg-color) !important;
+  color: #fff !important;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: .9rem;
+  letter-spacing: 0.1rem;
+  transition:2s;
 }
 
 .navbar-brand {
   font-size: 2rem;
+}
+p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
 }
 
 .navbar-nav li {
@@ -34,12 +59,20 @@ body {
 }
 
 /* landing page */
+.landing {
+  padding-top: 0px;
+}
 
-.landing .home-inner {
-  background: url(../img/businessd.svg) no-repeat;
-  background-size: cover;
-  background-position: center;
-  height: 500px;
+.btn-blue {
+  background: #fff;
+  color: #000;
+  border: 1px solid #000;
+}
+
+.btn-blue:hover {
+  background: var(--main-bg-color);
+  color: #fff;
+  border: 1px solid var(--main-bg-color);
 }
 
 .home-inner .caption {
@@ -58,38 +91,66 @@ body {
 .heading h1{
   font-weight: 700;
   text-align: center;
+  font-family: 'Oswald', sans-serif;
+  margin-top: 40px;
+  margin-bottom: 30px;
+
+
 }
 
+#why-section {
+  margin: 80px 0;
+}
+
+#why-section h3 {
+  font-weight: 800;
+}
+
+#why-section i {
+  color: var(--main-bg-color);
+  margin-bottom: 10px;
+}
 /* about */
 #about {
-  margin: 60px;
+  margin: 120px 0;
 }
 
 #how {
-  margin: 70px 0;
+  margin-top: 100px;
+  background: url('../img/downloads-bg.jpg') center;
+  color: #fff;
+  padding: 60px 0;
+  text-align: center;
 }
 
-.phone {
-  background: #fff;
-  padding: 30px 15px;
-  border-radius: 10px;
+
+.carousel {
+  height: 600px;
 }
+.carousel img {
+  height: 600px;
+  width: 100%;
+}
+
 
 /* footer */
 
 footer {
-  background: #40474e;
+  background:var(--main-bg-color);
   color: #fff;
-  padding: 20px 0;
+  padding-top: 20px;
+  padding-bottom: 2px;
+  font-size: 14px;
+  font-family: 'Nunito', sans-serif;
 }
 
+.contact-info {
+  list-style: none;
+  padding: 0px;
+}
 
 footer hr {
   background: #fff;
-}
-
-.footer-icons {
-  margin-top: 60px;
 }
 
 .footer-icons a {
@@ -97,7 +158,6 @@ footer hr {
   width: 35px;
   height: 35px;
   cursor: pointer;
-  background-color: #33383b;
   border-radius: 2px;
   font-size: 20px;
   color: #ffffff;
@@ -108,16 +168,16 @@ footer hr {
 }
 
 .contact-info i {
-  background-color: #33383b;
     color: #ffffff;
-    font-size: 25px;
+    font-size: 20px;
     width: 38px;
     height: 38px;
-    border-radius: 50%;
     text-align: center;
     line-height: 42px;
-    margin: 10px 15px;
+    margin: 10px 8px;
     vertical-align: middle;
+    border: 2px solid #ffe484;
+    padding: 0px 4px;
 }
 .contact-info div {
   display: flex;
@@ -135,7 +195,28 @@ footer hr {
 }
 
 
+.quick-links a {
+  text-decoration: none;
+  color: #fff !important;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.quick-links a:before {
+  font-family: "Font Awesome 5 Free";
+  left: 0;
+  font-size: 15px;
+  color: #fff;
+  content: "\f04";
+  font-weight: bold;
+  padding-right: 11px;
+}
+
 /* about */
+
+#about-section {
+  margin-top: 80px;
+}
 .heading-container {
   background: linear-gradient(45deg, #000000c7, #00000094),url('../img/bitcoin2.jpg');
   background-position: center;
@@ -151,6 +232,10 @@ footer hr {
   color: #fff;
 }
 
+#aim {
+  margin: 20px 0;
+}
+
 
 
 /* plan */
@@ -164,7 +249,7 @@ footer hr {
 }
 
 #login {
-  margin: 100px 0;
+  margin: 150px 0 100px 0;
 }
 
 .authPage {
@@ -174,17 +259,34 @@ footer hr {
   
 }
 
+.form-container {
+  margin: auto;
+}
+
 .form-container form{
-  background: #505962;
+  background: var(--white);
   padding: 30px;
-  color: #fff;
+}
+
+.form-container form a {
+  color: var(--main-txt-color);
+  text-decoration: none;
+}
+
+.form-container form a:hover {
+  color: var(--main-bg-color);
+
+}
+
+.form-container h3 i {
+  color: var(--main-bg-color);
 }
 
 .text-container {
-  background: rgb(78, 238, 78);
+  background: var(--main-bg-color);
   color: #fff;
   padding: 6px;
-  margin: 30px 0;
+  margin: 20px 0;
 }
 
 .text-container h3 {
@@ -204,7 +306,7 @@ footer hr {
   height: 15px;
   width: 15px;
   margin: 0 2px;
-  background-color: #fff;
+  background-color: rgb(172, 167, 167);
   border: none;
   border-radius: 50%;
   display: inline-block;
