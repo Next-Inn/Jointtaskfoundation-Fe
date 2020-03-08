@@ -1,0 +1,135 @@
+:root {
+	--main-bg-color: #23395d;
+	--main-txt-color: blue;
+	--white: #fff;
+	--main-padding: 15px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#sidebar {
+    width: 100px;
+	bottom: 0;
+    float: none;
+    height: 100vh;
+    left: 0;
+    position: fixed;
+    top: 0;
+    background: var(--main-bg-color);
+    color: var(--white);
+    padding: 8px 0px;
+    text-align: center;
+    display: block;
+    z-index: 1;
+    color: #fff;
+    font-weight: 600;
+}
+
+#sidebar .navbar-brand {
+    font-size: 30px;
+}
+
+#sidebar ul {
+    list-style: none;
+    /* padding: 3px; */
+}
+
+#sidebar ul li {
+    margin: 8px 0;
+}
+
+#sidebar ul li a:hover {
+    border-left: 4px solid #fff;
+    /* background: red; */
+}
+
+
+#sidebar a {
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+#sidebar ul li i {
+    display: block;
+    /* width: 35px; */
+    margin: 3px auto;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+
+.main {
+    background: rgba(203, 203, 210, 0.15);
+    position: relative;
+    float: right;
+    width: calc(100% - 100px);
+}
+
+.navbar {
+    border: 0;
+    font-size: 1rem;
+    border-radius: 0;
+    min-height: 50px;
+    max-height: 61px;
+    border-bottom: 2px solid var(--main-bg-color);
+    background: #fff !important;
+}
+
+.main .content {
+    padding: 30px 15px;
+    min-height: calc(100vh - 160px);
+    margin-top: 30px;
+}
+
+.card {
+border-radius: 12px;
+    box-shadow: 0 6px 10px -4px rgba(0,0,0,.15);
+    background-color: #fff;
+    color: #252422;
+    margin-bottom: 20px;
+    position: relative;
+    border: 0 none;
+    transition: transform .3s cubic-bezier(.34,2,.6,1),box-shadow .2s ease;
+}
+
+.card-header {
+    background: #fff;
+    border-radius: 12px;
+}
+.card-stats .card-body .numbers .card-category {
+    color: var(--main-bg-color);
+    font-size: 18px;
+    line-height: 1.4em;
+    font-weight: 600;
+}
+
+.card-stats .card-body .numbers p {
+    margin-bottom: 0;
+    text-align: right;
+}
+
+.card-stats .card-body .numbers .card-title {
+    font-size: 28px;
+    font-weight: 900;
+}
+
+.card-stats .icon-big {
+    font-size: 3em;
+    min-height: 64px;
+}
+
+
+
+.main-footer {
+    background: rgba(203, 203, 210, 0.15);
+    position: relative;
+    float: right;
+    width: calc(100% - 100px);
+    padding: 10px;
+}
