@@ -310,6 +310,18 @@ footer hr {
 	font-weight: 900;
 }
 
+/* contact page */
+#contact-section {
+  margin: 100px 0;
+}
+
+#contact-section .heading h1 {
+  margin-top: 5px;
+}
+
+.img-box {
+	margin: 35px 0;
+}
 /* signup */
 
 /* Hide all steps by default: */
