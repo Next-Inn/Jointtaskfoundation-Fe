@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NANO</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Nunito&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet"> -->
+    <!-- Custom styles for this template -->
+    <link href="../css/dashboard.css" rel="stylesheet">
+    <link href="../css/font-awesome.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <link href="../css/owl.carousel.min.css" rel="stylesheet">
+    <link href="../css/owl.theme.default.min.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <section id="sidebar">
+      <a href="#" class="navbar-brand">MLM</a>
+      <ul class="navbar-nav nav-sidebar text-center" id="">
+        <li class="nav-item" >
+          <a href="dashboard.html" class="nav-link " id="dashboard">
+            <i class="fa fa-home"></i>Home</a>
+        </li>
+        <li class="nav-item" >
+          <a href="user_list.html" class="nav-link activeClass" id="userList">
+            <i class="fa fa-users"></i>Users</a>
+        </li>
+        <li class="nav-item" >
+          <a href="#" class="nav-link " id="parcelDetail">
+            <i class="fas fa-sign-out-alt"></i>Log out</a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="main">
+        <nav class="navbar navbar-expand navbar-light">
+          <div class="hidden-lg togle-btn" onclick="toggleSidebar()">
+              <span><i class="fa fa-bars"></i></span>
+            </div> 
+          <ul class="navbar-nav ml-auto hidden-sm">
+              <!-- <li class="nav-item ">
+                <a class="nav-link" href="#"><i class="fas fa-question-circle pr-1"></i><span class="hidden-sm">support</span></a>
+              </li> -->
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa fa-bell"></i></a>
+              </li>
+              
+            </ul>
+            <div class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle color-cc" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="https://via.placeholder.com/50">
+              </a>
+              <div class="dropdown-menu profile-drop" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item profile-drop" href="profile.html">profile</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item profile-drop" href="#">logout</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item profile-drop" href="edit.html">edit</a>
+              </div>
+          </div>
+        </nav>
+
+        <div class="content">
+          <div class="container">
+            <div class="page-header">
+                <h3 class="page-title pull-right"> Data table </h3>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Tables</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Data table</li>
+                  </ol>
+                </nav>
+              </div>
+              <div class="card">
+                  <div class="card-body">
+                      <h4 class="card-title">User List</h4>
+                      <div class="row">
+                          <div class="col-12">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="dataTables_length" id="order-listing_length">
+                                        <label>Show 
+                                            <select name="order-listing_length" aria-controls="order-listing" class="custom-select custom-select-sm form-control">
+                                                <option value="5">5</option>
+                                                <option value="10">10</option>
+                                                <option value="15">15</option>
+                                                <option value="-1">All</option>
+                                            </select> 
+                                            entries
+                                        </label>
+                                    </div>
+                                </div>
+                                        
+                                <div class="col-sm-12 col-md-6">
+                                    <div id="order-listing_filter" class="dataTables_filter">
+                                        <label>
+                                            <input type="search" class="form-control" placeholder="Search" aria-controls="order-listing">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                      </div>
+
+                      <div class="row">
+                          <div class="col-12">
+                            <table class="table table-striped">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Username</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Date of Reg</th>
+                                    <th scope="col">Stage</th>
+                                    <th scope="col">Actions</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark Otto</td>
+                                    <td>M-Otto</td>
+                                    <td>m-otto@gmail.com</td>
+                                    <td>1st Feb 2020</td>
+                                    <td><label class="badge badge-info">Stage 2 (Sapphire)</label></td>
+                                    <td><button class="btn btn-outline-primary">View</button></td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob Thornton</td>
+                                    <td>Thornton</td>
+                                    <td>fat@gmail.com</td>
+                                    <td>21st dec 2020</td>
+                                    <td><label class="badge badge-danger">Stage 1 (Copper)</label></td>
+                                    <td><button class="btn btn-outline-primary">View</button></td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">3</th>
+                                    <td>Larry Bird</td>
+                                    <td>the Bird</td>
+                                    <td>LarryB@gmail.com</td>
+                                    <td>1st Feb 2020</td>
+                                    <td><label class="badge badge-success">Stage 3 (Ruby)</label></td>
+                                    <td><button class="btn btn-outline-primary">View</button></td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">4</th>
+                                    <td>Mark Otto</td>
+                                    <td>M-Otto</td>
+                                    <td>m-otto@gmail.com</td>
+                                    <td>1st Feb 2020</td>
+                                    <td><label class="badge badge-info">Stage 2 (Sapphire)</label></td>
+                                    <td><button class="btn btn-outline-primary">View</button></td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">5</th>
+                                    <td>Mark Otto</td>
+                                    <td>M-Otto</td>
+                                    <td>m-otto@gmail.com</td>
+                                    <td>1st Feb 2020</td>
+                                    <td><label class="badge badge-info">Stage 2 (Sapphire)</label></td>
+                                    <td><button class="btn btn-outline-primary">View</button></td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">6</th>
+                                    <td>Mark Otto</td>
+                                    <td>M-Otto</td>
+                                    <td>m-otto@gmail.com</td>
+                                    <td>1st Feb 2020</td>
+                                    <td><label class="badge badge-info">Stage 2 (Sapphire)</label></td>
+                                    <td><button class="btn btn-outline-primary">View</button></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                          </div>
+                      </div>
+
+                      <div class="row">
+                          <div class="col-sm-12 col-md-5">
+                              <div class="dataTables_info" id="order-listing_info" role="status" aria-live="polite">Showing 1 to 10 of 10 entries</div>
+                            </div>
+                            <div class="col-sm-12 col-md-7">
+                                <div class="dataTables_paginate paging_simple_numbers" id="order-listing_paginate">
+                                    <ul class="pagination">
+                                        <li class="paginate_button page-item previous disabled" id="order-listing_previous"><a href="#" aria-controls="order-listing" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
+                                        </li>
+                                        <li class="paginate_button page-item active"><a href="#" aria-controls="order-listing" data-dt-idx="1" tabindex="0" class="page-link">1</a>
+                                        </li>
+                                        <li class="paginate_button page-item next disabled" id="order-listing_next">
+                                            <a href="#" aria-controls="order-listing" data-dt-idx="2" tabindex="0" class="page-link">Next</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+        
+        
+    </section>
+    <footer class="main-footer">
+      <strong>Copyright &copy; 2020 <a href="#">HackTeam</a>.</strong>
+      All rights reserved.
+      <div class="pull-right d-none d-sm-inline-block">
+        <b>Version</b> 3.0.2
+      </div>
+    </footer>
+    
+  </body>
+</html>

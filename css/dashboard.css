@@ -46,6 +46,10 @@ body {
     /* background: red; */
 }
 
+.activeClass {
+    border-left: 4px solid #fff;
+}
+
 
 #sidebar a {
     text-decoration: none;
@@ -76,15 +80,17 @@ body {
     font-size: 1rem;
     border-radius: 0;
     min-height: 50px;
-    max-height: 61px;
-    border-bottom: 2px solid var(--main-bg-color);
+    max-height: 70px;
     background: #fff !important;
+    padding-left: 24px;
+    padding-right: 24px;
 }
 
 .main .content {
     padding: 30px 15px;
     min-height: calc(100vh - 160px);
     margin-top: 30px;
+    background: #f2edf3;
 }
 
 .card {
@@ -132,4 +138,52 @@ border-radius: 12px;
     float: right;
     width: calc(100% - 100px);
     padding: 10px;
+}
+
+
+/* userlist */
+
+.page-header {
+    margin: 0 0 1.5rem 0;
+    display: flex;
+    justify-content: space-between !important;
+}
+
+.page-title {
+    color: #343a40;
+    font-size: 1.125rem;
+    margin-bottom: 0;
+}
+
+.table-striped {
+    clear: both;
+    margin-top: 6px !important;
+    margin-bottom: 6px !important;
+    max-width: none !important;
+    border-collapse: separate !important;
+    border-spacing: 0;
+}
+
+div.dataTables_length label {
+    font-weight: normal;
+    text-align: left;
+    white-space: nowrap;
+}
+
+div.dataTables_filter {
+    text-align: right;
+}
+
+.badge {
+    padding: .5em .7em !important;
+}
+
+div.dataTables_paginate ul.pagination {
+    margin: 2px 0;
+    white-space: nowrap;
+    justify-content: flex-end;
+}
+
+.pagination {
+    overflow-x: scroll;
 }
