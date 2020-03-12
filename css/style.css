@@ -10,14 +10,6 @@ body {
 	color: #505962;
 }
 
-/* navigation */
-
-.navbar {
-	text-transform: uppercase;
-	font-weight: 700;
-	font-size: .9rem;
-	letter-spacing: 0.1rem;
-}
 
 .nav-transparent {
 	background: rgba(0, 0, 0, 0.18) !important;
@@ -33,6 +25,16 @@ body {
 	letter-spacing: 0.1rem;
 	transition: 2s;
 }
+
+/* navigation */
+
+.navbar {
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: .9rem;
+	letter-spacing: 0.1rem;
+}
+
 
 .navbar-brand {
 	font-size: 2rem;

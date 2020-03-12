@@ -1,14 +1,70 @@
-// Navbar color change
-const navList = document.querySelector(".navbar");
-window.onscroll = function(){
-  if(document.body.scrollTop < 0 || document.documentElement.scrollTop > 5){
-    navList.classList.add("nav-colored");
-    navList.classList.remove("nav-transparent");
-  }else{
-    navList.classList.add("nav-transparent");
-    navList.classList.remove("nav-colored");
-  }
+
+//To load template for header and footer
+const header = document.querySelector('#header'),
+	footer = document.querySelector('#footer'),
+	userDashboardHeader = document.querySelector('#userDashboardHeader'),
+	userDashboardfooter = document.querySelector('#userDashboardfooter'),
+	adminDashboardHeader = document.querySelector('#adminDashboardHeader');
+let argUrl = window.location.pathname;
+
+document.addEventListener('DOMContentLoaded', loadDoc);
+function loadDoc() {
+	var xhttp = new XMLHttpRequest();
+	xhttp.open('GET', 'template/header.html', true);
+	xhttp.send();
+	xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) 
+    {
+			header.innerHTML = this.responseText;
+
+			switch (argUrl) {
+				case '/index.html':
+					header.querySelector('#home').classList.add('active');
+					break;
+				case '/about.html':
+					header.querySelector('#about-nav').classList.add('active');
+					break;
+				case '/plan.html':
+					header.querySelector('#plan-nav').classList.add('active');
+					break;
+				case '/contact.html':
+					header.querySelector('#contact-nav').classList.add('active');
+					break;
+				case '/signUp.html':
+					header.querySelector('#signUp-nav').classList.add('active');
+          break;
+        case '/login.html':
+          header.querySelector('#signUp-nav').classList.add('active');
+          break;
+
+				default:
+					break;
+			}
+		}
+	};
+	var xhttp = new XMLHttpRequest();
+	xhttp.open('GET', 'template/footer.html', true);
+	xhttp.send();
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			footer.innerHTML = this.responseText;
+		}
+	};
 }
+
+
+  window.onscroll = function(){
+    const navItem = document.getElementById("navBar");
+    if(document.body.scrollTop < 0 || document.documentElement.scrollTop > 5){
+      navItem.classList.add("nav-colored");
+      navItem.classList.remove("nav-transparent");
+    }else{
+      navItem.classList.add("nav-transparent");
+      navItem.classList.remove("nav-colored");
+    }
+  }
+
+// console.log(navList)
 
 // const navList = document.getElementById("navBar");
 // window.onscroll = function(){

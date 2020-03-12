@@ -22,51 +22,10 @@
 
   </head>
   <body>
-    <section id="sidebar">
-      <a href="#" class="navbar-brand">MLM</a>
-      <ul class="navbar-nav nav-sidebar text-center" id="">
-        <li class="nav-item" >
-          <a href="dashboard.html" class="nav-link activeClass" id="dashboard">
-            <i class="fa fa-home"></i>Home</a>
-        </li>
-        <li class="nav-item" >
-          <a href="user_list.html" class="nav-link" id="placeOrder">
-            <i class="fa fa-users"></i>Users</a>
-        </li>
-        <li class="nav-item" >
-          <a href="#" class="nav-link " id="parcelDetail">
-            <i class="fas fa-sign-out-alt"></i>Log out</a>
-        </li>
-      </ul>
-    </section>
+    <div id="adminDashboardSidebar"></div>
 
     <section class="main">
-        <nav class="navbar navbar-expand">
-          <div class="hidden-lg togle-btn" onclick="toggleSidebar()">
-              <span><i class="fa fa-bars"></i></span>
-            </div> 
-          <ul class="navbar-nav ml-auto hidden-sm">
-              <!-- <li class="nav-item ">
-                <a class="nav-link" href="#"><i class="fas fa-question-circle pr-1"></i><span class="hidden-sm">support</span></a>
-              </li> -->
-              <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-bell"></i></a>
-              </li>
-              
-            </ul>
-            <div class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle color-cc" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="https://via.placeholder.com/50">
-              </a>
-              <div class="dropdown-menu profile-drop" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item profile-drop" href="profile.html">profile</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item profile-drop" href="#">logout</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item profile-drop" href="edit.html">edit</a>
-              </div>
-          </div>
-        </nav>
+      <div id="adminDashboardHeader"></div>
 
         <div class="content">
           <div class="container">
@@ -300,5 +259,14 @@
       </div>
     </footer>
     
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/owl.carousel.min.js"></script>
+    <script src="../js/owlss.js"></script>
+    <script src="../js/dashboard.js"></script>
   </body>
 </html>
