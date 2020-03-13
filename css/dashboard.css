@@ -187,3 +187,64 @@ div.dataTables_paginate ul.pagination {
 .pagination {
     overflow-x: scroll;
 }
+
+
+/* ######################### */
+
+.authPage {
+	background: linear-gradient(45deg, #000000c7, #00000094), url('../img/auth.jpg') no-repeat;
+	background-size: cover;
+	background-position: top;
+}
+
+.auth-section {
+    margin: 100px 0;
+}
+
+.a_sinup .card {
+    padding: 20px;
+}
+
+.auth-section .btn-blue {
+	background: #fff;
+	color: #000;
+	border: 1px solid #000;
+}
+
+.auth-section .a_sinup {
+    margin: 0;
+    padding: 0;
+}
+.auth-section .title {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.auth-section .box {
+    margin: 40px 0;
+    background: #fff;
+    color: var(--main-bg-color);
+    height: 300px;
+}
+
+.auth-title {
+    display: none
+}
+
+@media screen and (max-width: 992px) {
+    .auth-section .box {
+       display: none;
+    }
+
+    .auth-title {
+        display: block
+    }
+  }
+
+.btn-blue:hover {
+	background: var(--main-bg-color);
+	color: #fff;
+	border: 1px solid var(--main-bg-color);
+}
