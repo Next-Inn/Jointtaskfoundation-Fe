@@ -1,13 +1,12 @@
 <template>
     <div>
-        <nuxt/>
+        
         <Sidebar/>
+        <nuxt/>
     </div>
 </template>
 
 <script>
-// import Navbar from '~/components/partials/HomeNavbar'
-
 import Sidebar from '~/components/partials/DashboardSideNav'
 export default {
     components: {

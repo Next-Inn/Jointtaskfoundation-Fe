@@ -3,16 +3,16 @@
         <a href="#" class="navbar-brand">MLM</a>
         <ul class="navbar-nav nav-sidebar text-center" id="">
             <li class="nav-item" >
-            <a href="/dashboard" class="nav-link activeClass" id="dashboard">
-                <i class="fa fa-home"></i>Home</a>
+            <nuxt-link to="/dashboard" class="nav-link activeClass" id="dashboard">
+                <i class="fa fa-home"></i>Home</nuxt-link>
             </li>
             <li class="nav-item" >
-            <a to="/user_list" class="nav-link" id="userList">
-                <i class="fa fa-users"></i>Users</a>
+            <nuxt-link to="/admin/userlist" class="nav-link" id="userList">
+                <i class="fa fa-users"></i>Users</nuxt-link>
             </li>
             <li class="nav-item" >
-            <a to="#" class="nav-link " id="logOut">
-                <i class="fas fa-sign-out-alt"></i>Log out</a>
+            <nuxt-link to="#" class="nav-link " id="logOut">
+                <i class="fas fa-sign-out-alt"></i>Log out</nuxt-link>
             </li>
         </ul>
     </section>
@@ -43,6 +43,7 @@
 
     #sidebar ul {
         list-style: none;
+        margin: 40px 0;
         /* padding: 3px; */
     }
 

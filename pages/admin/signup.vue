@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
          <div class="container">
             <div class="auth-section">
                 <div class="row">
@@ -42,13 +42,13 @@
     </div>
 </template>
 
-<style scoped>
-    .authPage {
-        background: linear-gradient(45deg, #000000c7, #00000094), url('./../../assets/img/bitcoin2.jpg') no-repeat;
-        background-size: cover;
-        background-position: top;
-    }
+<script>
+export default {
+    layout: 'auth'
+}
+</script>
 
+<style scoped>
     .auth-section {
         margin: 100px 0;
     }
