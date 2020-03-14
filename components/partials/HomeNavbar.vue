@@ -25,10 +25,10 @@
               <nuxt-link to="/about" class="nav-link" id="about-nav">About</nuxt-link>
             </li>
             <li class="nav-item">
-              <nuxt-link to="plan" class="nav-link" id="plan-nav">Marketing Plan</nuxt-link>
+              <nuxt-link to="/plan" class="nav-link" id="plan-nav">Marketing Plan</nuxt-link>
             </li>
             <li class="nav-item">
-              <nuxt-link to="contact" class="nav-link" id="contact-nav">Contact</nuxt-link>
+              <nuxt-link to="/contact" class="nav-link" id="contact-nav">Contact</nuxt-link>
             </li>
             <li class="nav-item">
               <nuxt-link to="/user/login" class="nav-link" id="login-nav">Log in</nuxt-link>
