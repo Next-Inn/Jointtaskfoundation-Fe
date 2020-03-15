@@ -159,7 +159,7 @@
                 </div>
                 <p>
                   Already have an account? Click
-                  <a href="/user/login">
+                  <a to="/user/login">
                     <strong>Log in</strong>
                   </a> instead
                 </p>
