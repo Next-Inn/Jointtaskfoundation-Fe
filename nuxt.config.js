@@ -87,7 +87,38 @@ export default {
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
-	axios: {},
+	axios: {
+		baseURL: 'https://jointaskfoundation.herokuapp.com/api/v1'
+	},
+
+	/**
+	 *
+	 * auth module
+	 */
+	auth: {
+		strategies: {
+			local: {
+				endpoints: {
+					login: {
+						url: '/auth/signin',
+						method: 'post',
+						propertyName: 'data.token'
+					},
+					register: {
+						url: '/auth/signup',
+						method: 'post',
+						propertyName: 'data.message'
+					},
+					user: {
+						url: '/auth/me',
+						method: 'get',
+						propertyName: 'data'
+					}
+				}
+			}
+		}
+	},
+
 	/*
   ** Build configuration
   */

@@ -8,7 +8,7 @@
         <div class="row">
           <div class="col-md-12 col-xs-12 form-container">
             <ValidationObserver ref="form">
-              <form action id="regForm shadow">
+              <form action id="regForm shadow" @submit.prevent="onSubmit">
                 <div class="nav">
                   <nuxt-link to="/" class="navbar-brand">JTF</nuxt-link>
                   <h3>Create Your Account</h3>
@@ -100,7 +100,7 @@
                           <ValidationProvider
                             v-if="currentTab === 1"
                             name="address"
-                            rules="required"
+                            rules="required|min:12|max:100"
                             v-slot="{errors, classes}"
                           >
                             <input
@@ -131,7 +131,7 @@
                           <ValidationProvider
                             v-if="currentTab === 1"
                             name="username"
-                            rules="required|alpha_dash"
+                            rules="required|alpha_dash|username:${isExist}"
                             v-slot="{errors, classes}"
                             :bails="false"
                           >
@@ -156,7 +156,7 @@
                           <ValidationProvider
                             v-if="currentTab === 1"
                             name="password"
-                            rules="required|confirmed:confirmation"
+                            rules="required|confirmed:confirmation|min:6"
                             v-slot="{errors, classes}"
                             :bails="false"
                           >
@@ -235,7 +235,7 @@
 
                 <div style="overflow:auto; text-align: center;">
                   <div style="display:flex; justify-content: center;" class="my-3">
-                    <button class="btn btn-blue btn-block" type="button" id="nextBtn">Submit</button>
+                    <button class="btn btn-blue btn-block" type="submit" id="nextBtn">Submit</button>
                   </div>
                   <p>
                     Already have an account? Click
@@ -272,33 +272,25 @@ export default {
       address: '',
       password: '',
       sponsorName: '',
-      confirmPassword: ''
+      confirmPassword: '',
+      isExist: 'false'
     }
   },
 
-  // mounted() {
-  //   // return this.showTab(this.currentTab)
-  // },
+  mounted() {
+    // send the data
+    this.$store.dispatch('user/getUserNames')
+  },
 
   methods: {
-    goToStep(step) {
-      if (step < 1) {
-        return
-      }
-
-      if (step > 2) {
-        this.onSubmit()
-      }
-
-      return (this.currentTab = step)
-    },
-
     onSubmit() {
       this.$refs.form.validate().then(success => {
         if (!success) return
 
         alert('Form is Fully Validated')
 
+        this.name = this.username = this.email = this.phone = this.address = this.password = this.confirmPassword = this.sponsorName =
+          ''
         // wait until the models are updated in the UI
         this.$nextTick(() => {
           this.$refs.form.reset()

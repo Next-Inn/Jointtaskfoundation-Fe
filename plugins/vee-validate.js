@@ -15,6 +15,17 @@ configure({
 	}
 });
 
+// custom validation for username
+extend('username', {
+	validate (value, args) {
+		return args.val === 'false';
+	},
+	params: [
+		'val'
+	],
+	message: 'This Username is already taken'
+});
+
 Object.keys(rules).forEach((rule) => {
 	extend(rule, {
 		...rules[rule], // copies rule configuration
