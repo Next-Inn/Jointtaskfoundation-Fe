@@ -18,26 +18,61 @@
                   <h3>Personal Information</h3>
                 </div>
                 <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-md-12">
                     <div class="form-group">
-                      <input type="text" placeholder="First Name" class="form-control" />
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <input type="text" placeholder="Last Name" class="form-control" />
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Full Name"
+                        v-model="name"
+                        onfocus="this.placeholder=''"
+                        onblur="this.placeholder='Type your fullname'"
+                      />
+                      <span class="alert" v-if="errors.name">{{ errors.name }}*</span>
                     </div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <input type="Email" placeholder="Email" class="form-control" />
+                      <input
+                        type="email"
+                        placeholder="Email"
+                        class="form-control"
+                        v-model="email"
+                        onfocus="this.placeholder=''"
+                        onblur="this.placeholder='Please tpye an Email'"
+                      />
+                      <span class="alert" v-if="errors.email">{{ errors.email }}*</span>
                     </div>
                   </div>
+
                   <div class="col-md-6">
                     <div class="form-group">
-                      <input type="tel" placeholder="Mobile Number" class="form-control" />
+                      <input
+                        type="tel"
+                        class="form-control"
+                        placeholder="Phone Number"
+                        v-model="phone"
+                        onfocus="this.placeholder=''"
+                        onblur="this.placeholder='Type Your Phone Number'"
+                      />
+                      <span class="alert" v-if="errors.phone">{{ errors.phone }}*</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        placeholder="Full Address"
+                        class="form-control"
+                        v-model="address"
+                        onfocus="this.placeholder=''"
+                        onblur="this.placeholder='Type Your Address'"
+                      />
+                      <span class="alert" v-if="errors.address">{{ errors.address }}*</span>
                     </div>
                   </div>
                 </div>
@@ -45,17 +80,44 @@
                   <h3>User Information</h3>
                 </div>
                 <div class="form-group">
-                  <input type="text" placeholder="Username" class="form-control" />
+                  <input
+                    type="text"
+                    placeholder="Username"
+                    class="form-control"
+                    v-model="phone"
+                    onfocus="this.placeholder=''"
+                    onblur="this.placeholder='Username Must Be Unique'"
+                  />
+                  <span class="alert" v-if="errors.username">{{ errors.username }}*</span>
                 </div>
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <input type="password" placeholder="Password" class="form-control" />
+                      <input
+                        type="password"
+                        placeholder="Password"
+                        class="form-control"
+                        v-model="password"
+                        onfocus="this.placeholder=''"
+                        onblur="this.placeholder='Type Your Password'"
+                      />
+                      <span class="alert" v-if="errors.password">{{ errors.password }}*</span>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <input type="password" placeholder="Confirm password" class="form-control" />
+                      <input
+                        type="password"
+                        placeholder="Confirm password"
+                        class="form-control"
+                        v-model="confirmPassword"
+                        onfocus="this.placeholder=''"
+                        onblur="this.placeholder='Password Must be the Same'"
+                      />
+                      <span
+                        class="alert"
+                        v-if="errors.confirmPassword"
+                      >{{ errors.confirmPassword }}*</span>
                     </div>
                   </div>
                 </div>
@@ -67,11 +129,19 @@
                 <div class="row">
                   <div class="col-12">
                     <div class="form-group">
-                      <input type="text" placeholder="Sponsor ID" class="form-control" />
+                      <input
+                        type="text"
+                        placeholder="Sponsor ID"
+                        class="form-control"
+                        v-model="phone"
+                        onfocus="this.placeholder=''"
+                        onblur="this.placeholder='Type Your Phone Number'"
+                      />
+                      <span class="alert" v-if="errors.phone">{{ errors.phone }}*</span>
                     </div>
                   </div>
                 </div>
-                <div class="text-container">
+                <!-- <div class="text-container">
                   <h3>Package and Payment Information</h3>
                 </div>
                 <div class="row">
@@ -112,9 +182,9 @@
                       <input type="password" placeholder="E-Wallet Password" class="form-control" />
                     </div>
                   </div>
-                </div>
+                </div>-->
               </div>
-              <div class="tab">
+              <!-- <div class="tab">
                 <div class="text-container">
                   <h3>Security Question & Answer</h3>
                 </div>
@@ -141,17 +211,17 @@
                   </div>
                 </div>
                 <button class="btn btn-blue btn-block">Log In</button>
-              </div>
+              </div>-->
               <div style="overflow:auto;">
-                <div style="display:flex;" class="my-3">
+                <div style="display:flex; justify-content: flex-end;" class="my-3">
                   <button
-                    class="btn btn-danger"
+                    class="btn btn-danger mx-2"
                     type="button"
                     id="prevBtn"
                     @click.prevent="nextPrev(-1)"
                   >Previous</button>
                   <button
-                    class="btn btn-blue btn-block"
+                    class="btn btn-blue"
                     type="button"
                     id="nextBtn"
                     @click.prevent="nextPrev(1)"
@@ -187,7 +257,15 @@ export default {
 
   data() {
     return {
-      currentTab: 0
+      currentTab: 0,
+      name: '',
+      username: '',
+      email: '',
+      phone: '',
+      address: '',
+      password: '',
+      confirmPassword: '',
+      errors: {}
     }
   },
 
@@ -212,7 +290,7 @@ export default {
         document.getElementById('nextBtn').innerHTML = 'Next'
       }
       // ... and run a function that displays the correct step indicator:
-      return this.fixStepIndicator(n)
+      // return this.fixStepIndicator(n)
     },
 
     nextPrev(n) {
@@ -245,10 +323,14 @@ export default {
       // A loop that checks every input field in the current tab:
       for (i = 0; i < y.length; i++) {
         // If a field is empty...
+
         if (y[i].value == '') {
           // add an "invalid" class to the field:
           y[i].className += ' invalid'
           // and set the current valid status to false:
+          if (y[i].placeholder == 'Full Name')
+            return (this.errors.name = 'Please fill your full name')
+
           valid = false
         }
       }
@@ -258,18 +340,18 @@ export default {
           ' finish'
       }
       return valid // return the valid status
-    },
-
-    fixStepIndicator(n) {
-      // This function removes the "active" class of all steps...
-      var i,
-        x = document.getElementsByClassName('step')
-      for (i = 0; i < x.length; i++) {
-        x[i].className = x[i].className.replace(' active', '')
-      }
-      //... and adds the "active" class to the current step:
-      x[n].className += ' active'
     }
+
+    // fixStepIndicator(n) {
+    //   // This function removes the "active" class of all steps...
+    //   var i,
+    //     x = document.getElementsByClassName('step')
+    //   for (i = 0; i < x.length; i++) {
+    //     x[i].className = x[i].className.replace(' active', '')
+    //   }
+    //   //... and adds the "active" class to the current step:
+    //   x[n].className += ' active'
+    // }
   }
 }
 </script>
