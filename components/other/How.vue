@@ -25,7 +25,7 @@
 <style scoped>
 #how {
   margin-top: 100px;
-  background: url('./../../assets/img/night.png');
+  background: url('./../../assets/img/downloads-bg.jpg');
   background-size: 100% 100%;
   background-attachment: fixed;
   min-height: 65vh;

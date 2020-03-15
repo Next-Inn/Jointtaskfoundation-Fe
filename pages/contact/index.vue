@@ -14,7 +14,7 @@
           </div>
           <div class="col-md-6">
             <div class="heading">
-              <h1>Write to us</h1>
+              <h1 class="text-center">Write to us</h1>
             </div>
             <p class="text-center">We are just a call away</p>
 

@@ -18,7 +18,7 @@
               </div>
               <p>
                 Don't have an account? Click
-                <a href="/user/signup">
+                <a to="/user/signup">
                   <strong>Sign up</strong>
                 </a> to create one
               </p>
