@@ -1,7 +1,7 @@
 const state = () => ({
 	user: '',
 	users: '',
-	userNames: []
+	usernames: ''
 });
 
 export const mutations = {
@@ -12,7 +12,7 @@ export const mutations = {
 		state.user = payload;
 	},
 	SET_USERNAME (state, payload) {
-		state.userNames = payload;
+		state.usernames = payload;
 	}
 };
 
@@ -45,5 +45,5 @@ export const actions = {
 export const getters = {
 	getAllUsers: (state) => state.users,
 	getSingleUser: (state) => state.user,
-	getAllUserNames: (state) => state.userNames
+	getAllUserNames: (state) => state.usernames
 };

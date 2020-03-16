@@ -8,7 +8,7 @@
         <div class="row">
           <div class="col-md-12 col-xs-12 form-container">
             <ValidationObserver ref="form">
-              <form action id="regForm shadow" @submit.prevent="onSubmit">
+              <form action id="regForm shadow" @submit.prevent="onSubmit" role="form">
                 <div class="nav">
                   <nuxt-link to="/" class="navbar-brand">JTF</nuxt-link>
                   <h3>Create Your Account</h3>
@@ -30,6 +30,7 @@
                             v-slot="{errors, classes}"
                           >
                             <input
+                              autocomplete="on"
                               type="text"
                               class="form-control"
                               :class="classes"
@@ -38,6 +39,7 @@
                               onfocus="this.placeholder=''"
                               onblur="this.placeholder='Fullname'"
                             />
+                            <i v-show="errors[0]" class="fa fa-warning"></i>
                             <span>{{ errors[0] }}</span>
                           </ValidationProvider>
                         </keep-alive>
@@ -63,6 +65,7 @@
                               onfocus="this.placeholder=''"
                               onblur="this.placeholder='Email'"
                             />
+                            <i v-show="errors[0]" class="fa fa-warning"></i>
                             <span>{{ errors[0] }}</span>
                           </ValidationProvider>
                         </keep-alive>
@@ -88,6 +91,7 @@
                               onfocus="this.placeholder=''"
                               onblur="this.placeholder='Number'"
                             />
+                            <i v-show="errors[0]" class="fa fa-warning"></i>
                             <span>{{ errors[0] }}</span>
                           </ValidationProvider>
                         </keep-alive>
@@ -112,6 +116,7 @@
                               onfocus="this.placeholder=''"
                               onblur="this.placeholder='Address'"
                             />
+                            <i v-show="errors[0]" class="fa fa-warning"></i>
                             <span>{{ errors[0] }}</span>
                           </ValidationProvider>
                         </keep-alive>
@@ -131,7 +136,7 @@
                           <ValidationProvider
                             v-if="currentTab === 1"
                             name="username"
-                            rules="required|alpha_dash|username:${isExist}"
+                            rules="required|alpha_dash|uniqueName"
                             v-slot="{errors, classes}"
                             :bails="false"
                           >
@@ -144,6 +149,7 @@
                               onfocus="this.placeholder=''"
                               onblur="this.placeholder='Username Must Be Unique'"
                             />
+                            <i v-show="errors[0]" class="fa fa-warning"></i>
                             <span>{{ errors[0] }}</span>
                           </ValidationProvider>
                         </keep-alive>
@@ -169,6 +175,7 @@
                               onfocus="this.placeholder=''"
                               onblur="this.placeholder='Password'"
                             />
+                            <i v-show="errors[0]" class="fa fa-warning"></i>
                             <span>{{ errors[0] }}</span>
                           </ValidationProvider>
                         </keep-alive>
@@ -194,6 +201,7 @@
                               onfocus="this.placeholder=''"
                               onblur="this.placeholder='Confirm Password'"
                             />
+                            <i v-show="errors[0]" class="fa fa-warning"></i>
                             <span>{{ errors[0] }}</span>
                           </ValidationProvider>
                         </keep-alive>
@@ -226,6 +234,7 @@
                             onfocus="this.placeholder=''"
                             onblur="this.placeholder='Sponsor Name'"
                           />
+                          <i v-show="errors[0]" class="fa fa-warning"></i>
                           <span>{{ errors[0] }}</span>
                         </ValidationProvider>
                       </keep-alive>
@@ -255,7 +264,12 @@
 
 <script>
 import Banner from './../../components/other/Banner'
-import { ValidationProvider, ValidationObserver } from 'vee-validate'
+import {
+  ValidationProvider,
+  ValidationObserver,
+  extend,
+  validate
+} from 'vee-validate'
 
 export default {
   components: { Banner, ValidationProvider, ValidationObserver },
@@ -273,16 +287,49 @@ export default {
       password: '',
       sponsorName: '',
       confirmPassword: '',
-      isExist: 'false'
+      users: ''
     }
   },
 
   mounted() {
-    // send the data
-    this.$store.dispatch('user/getUserNames')
+    this.userNameDb()
+    // return console.log(this.users)
+    // define custome validation for username
+
+    //add custom validation
+    extend('uniqueName', {
+      validate: this.uniqueUserName,
+      getMessage: (field, params, data) => data.message
+    })
   },
 
+  computed: {},
+
   methods: {
+    uniqueUserName(value) {
+      new Promise(resolve => {
+        setTimeout(() => {
+          if (users.indexOf(value) == -1) {
+            return resolve({
+              valid: true
+            })
+          }
+
+          return resolve({
+            valid: false,
+            data: {
+              message: `${value} is already taken!!!!...`
+            }
+          })
+        }, 200)
+      })
+    },
+
+    // async uniqueUserName() {},
+    userNameDb() {
+      return (this.users = this.$store.getters['user/getAllUserNames'])
+    },
+
     onSubmit() {
       this.$refs.form.validate().then(success => {
         if (!success) return

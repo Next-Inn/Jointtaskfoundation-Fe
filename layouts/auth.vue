@@ -5,7 +5,12 @@
 </template>
 
 <script>
-export default {}
+export default {
+  mounted() {
+    // send the data
+    this.$store.dispatch('user/getUserNames')
+  }
+}
 </script>
 
 <style scoped>
