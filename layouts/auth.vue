@@ -8,7 +8,6 @@
 export default {
   mounted() {
     // send the data
-    this.$store.dispatch('user/getUserNames')
   }
 }
 </script>

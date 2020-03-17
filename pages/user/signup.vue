@@ -136,8 +136,8 @@
                           <ValidationProvider
                             v-if="currentTab === 1"
                             name="username"
-                            rules="required|alpha_dash|uniqueName"
-                            v-slot="{errors, classes}"
+                            rules="`required|username:${isExist}`"
+                            v-slot="{errors, classes }"
                             :bails="false"
                           >
                             <input
@@ -287,49 +287,80 @@ export default {
       password: '',
       sponsorName: '',
       confirmPassword: '',
-      users: ''
+      usernames: '',
+      isExist: false
     }
   },
 
-  mounted() {
-    this.userNameDb()
-    // return console.log(this.users)
-    // define custome validation for username
-
-    //add custom validation
-    extend('uniqueName', {
-      validate: this.uniqueUserName,
-      getMessage: (field, params, data) => data.message
+  created() {
+    //change to created event handler
+    this.$store.dispatch('user/getUserNames').then(() => {
+      if (this.$store.getters['user/getAllUserNames']) {
+        //wait for user request action to complete before evaluating getters
+        return (this.usernames = this.$store.getters['user/getAllUserNames'])
+      }
     })
   },
 
-  computed: {},
+  mounted() {
+    const username = () => {
+      const that = this
+      // We need to this so we can point to component in timeout
+      clearTimeout(this.timeout)
+      // Clear old timeout on value change
+      this.timeout = setTimeout(function() {
+        if (this.usernames.indexOf(this.username) === -1) {
+          that.isExist = false
+        } else {
+          that.isExist = true
+        }
+      }, 1400)
+    }
+    // const uniqueUserName = value => {
+    //   new Promise(resolve => {
+    //     setTimeout(() => {
+    //       if (this.usernames.indexOf(value) === -1) {
+    //         return resolve({
+    //           valid: false
+    //         })
+    //       }
+    //       return resolve({
+    //         valid: true,
+    //         data: {
+    //           message: `${value} is already taken!!!!...`
+    //         }
+    //       })
+    //     }, 200)
+    //   })
+    // }
+    //   const uniqueUserName = value => {
+    // try {
+    //   setTimeout(async () => {
+    //     if (this.usernames.indexOf(value) === 1) {
+    //       await this.$refs.form.setErrors({
+    //         username: ['This Email Already Exist, Please Find Another!!']
+    //       })
+    //     }
+    //   }, 200)
+    // } catch (e) {
+    //   console, log(e)
+    // }
+    //add custom validation
+    // extend('unique', {
+    //   validate: uniqueUserName,
+    //   getMessage: (field, params, data) => data.message
+    // })
+    extend('username', {
+      validate(value, args) {
+        console.log(args.val)
+        return args.val === 'false'
+      },
+      params: ['val'],
+      message: 'This Username is already taken'
+    })
+  },
 
   methods: {
-    uniqueUserName(value) {
-      new Promise(resolve => {
-        setTimeout(() => {
-          if (users.indexOf(value) == -1) {
-            return resolve({
-              valid: true
-            })
-          }
-
-          return resolve({
-            valid: false,
-            data: {
-              message: `${value} is already taken!!!!...`
-            }
-          })
-        }, 200)
-      })
-    },
-
-    // async uniqueUserName() {},
-    userNameDb() {
-      return (this.users = this.$store.getters['user/getAllUserNames'])
-    },
-
     onSubmit() {
       this.$refs.form.validate().then(success => {
         if (!success) return
