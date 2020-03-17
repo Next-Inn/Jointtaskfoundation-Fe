@@ -15,7 +15,7 @@ export default {
 <style scoped>
 .auth {
   background: url('../assets/img/abs.jpg');
-  height: 100vh;
+  min-height: 100vh;
   background-size: 100% 100%;
   background-position: center;
   display: flex;

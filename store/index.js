@@ -16,8 +16,12 @@ export const getters = {
 	},
 
 	async getToken () {
-		if (process.client) {
-			return localStorage.getItem('auth._token.local');
+		try {
+			if (process.client) {
+				return await localStorage.getItem('auth._token.local');
+			}
+		} catch (error) {
+			console.log(error);
 		}
 	}
 };
