@@ -136,7 +136,7 @@
                           <ValidationProvider
                             v-if="currentTab === 1"
                             name="username"
-                            rules="`required|username:${isExist}`"
+                            rules="required|alpha_num|username"
                             v-slot="{errors, classes }"
                             :bails="false"
                           >
@@ -303,60 +303,14 @@ export default {
   },
 
   mounted() {
-    const username = () => {
-      const that = this
-      // We need to this so we can point to component in timeout
-      clearTimeout(this.timeout)
-      // Clear old timeout on value change
-      this.timeout = setTimeout(function() {
-        if (this.usernames.indexOf(this.username) === -1) {
-          that.isExist = false
-        } else {
-          that.isExist = true
-        }
-      }, 1400)
-    }
-    // const uniqueUserName = value => {
-    //   new Promise(resolve => {
-    //     setTimeout(() => {
-    //       if (this.usernames.indexOf(value) === -1) {
-    //         return resolve({
-    //           valid: false
-    //         })
-    //       }
-    //       return resolve({
-    //         valid: true,
-    //         data: {
-    //           message: `${value} is already taken!!!!...`
-    //         }
-    //       })
-    //     }, 200)
-    //   })
-    // }
-    //   const uniqueUserName = value => {
-    // try {
-    //   setTimeout(async () => {
-    //     if (this.usernames.indexOf(value) === 1) {
-    //       await this.$refs.form.setErrors({
-    //         username: ['This Email Already Exist, Please Find Another!!']
-    //       })
-    //     }
-    //   }, 200)
-    // } catch (e) {
-    //   console, log(e)
-    // }
-    //add custom validation
-    // extend('unique', {
-    //   validate: uniqueUserName,
-    //   getMessage: (field, params, data) => data.message
-    // })
     extend('username', {
-      validate(value, args) {
-        console.log(args.val)
-        return args.val === 'false'
-      },
-      params: ['val'],
-      message: 'This Username is already taken'
+      message:
+        'This {_field_} is Already Taken By Another User, Please Try Another!!!.',
+      validate: value => {
+        // ...
+        if (this.usernames.includes(value) === true) return false
+        return true
+      }
     })
   },
 
