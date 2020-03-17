@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col-md-12 col-xs-12 form-container">
             <form action>
-              <div class="nav mb-4">
+              <div class="nav mb-2">
                 <nuxt-link to="/" class="navbar-brand">JTF</nuxt-link>
                 <h3>Sign In</h3>
               </div>
@@ -14,15 +14,26 @@
                 <input type="email" placeholder="Email" class="form-control" />
               </div>
               <div class="form-group">
-                <input type="password" placeholder="password" class="form-control" />
+                <input
+                  type="password"
+                  placeholder="password"
+                  class="form-control"
+                />
               </div>
               <p>
                 Don't have an account? Click
-                <a to="/user/signup">
+                <nuxt-link to="/user/signup">
                   <strong>Sign up</strong>
-                </a> to create one
+                </nuxt-link>
+                to create one
               </p>
               <button class="btn btn-blue btn-block">Log In</button>
+              <div class="text-center mt-4">
+                <p>
+                  Forgot Password, Please
+                  <nuxt-link to="/forgot_password">Click here</nuxt-link>
+                </p>
+              </div>
             </form>
           </div>
         </div>
@@ -30,7 +41,6 @@
     </section>
   </div>
 </template>
-
 
 <script>
 import Banner from './../../components/other/Banner'
