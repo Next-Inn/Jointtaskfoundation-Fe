@@ -8,12 +8,7 @@
         <div class="row">
           <div class="col-md-12 col-xs-12 form-container">
             <ValidationObserver ref="form">
-              <form
-                action
-                id="regForm shadow"
-                @submit.prevent="onSubmit"
-                role="form"
-              >
+              <form action id="regForm shadow" @submit.prevent="onSubmit" role="form">
                 <div class="nav">
                   <nuxt-link to="/" class="navbar-brand">JTF</nuxt-link>
                   <h3>Create Your Account</h3>
@@ -167,7 +162,7 @@
                           <ValidationProvider
                             v-if="currentTab === 1"
                             name="password"
-                            rules="required|confirmed:confirmation|min:6"
+                            rules="required|min:8|checkPassword|confirmed:confirmation"
                             v-slot="{ errors, classes }"
                             :bails="false"
                           >
@@ -226,12 +221,13 @@
                         <ValidationProvider
                           v-if="currentTab === 1"
                           name="sponsorName"
-                          rules="required|min:3|alpha_num|max:10"
+                          rules="required|min:3|alpha_num|sponsor"
                           v-slot="{ errors, classes }"
                           :bails="false"
                         >
                           <input
                             type="text"
+                            autocomplete="on"
                             placeholder="Sponsor Name"
                             class="form-control"
                             :class="classes"
@@ -248,24 +244,14 @@
                 </div>
 
                 <div style="overflow:auto; text-align: center;">
-                  <div
-                    style="display:flex; justify-content: center;"
-                    class="my-3"
-                  >
-                    <button
-                      class="btn btn-blue btn-block"
-                      type="submit"
-                      id="nextBtn"
-                    >
-                      Submit
-                    </button>
+                  <div style="display:flex; justify-content: center;" class="my-3">
+                    <button class="btn btn-blue btn-block" type="submit" id="nextBtn">Submit</button>
                   </div>
                   <p>
                     Already have an account? Click
                     <nuxt-link to="/user/login">
                       <strong>Log in</strong>
-                    </nuxt-link>
-                    instead
+                    </nuxt-link>instead
                   </p>
                 </div>
               </form>
@@ -325,7 +311,7 @@ export default {
     // custom rules for username validations
     extend('username', {
       message:
-        'This {_field_} is Already Taken By Another User, Please Try Another!!!.',
+        'This {_field_} 😤 is Already Taken By Another User, Please Try Another!!!.',
       validate: value => {
         // ...
         if (this.checkUsernames.includes(value) === true) return false
@@ -333,13 +319,37 @@ export default {
       }
     })
 
+    //give sponsors autocomplete uername support
+    extend('sponsor', {
+      message:
+        'This {_field_} does Not Exist 😤, Please Check Spelling And Try Again!!',
+      validate: value => {
+        if (this.checkUsernames.includes(value) === false) return false
+        return true
+      }
+    })
+
     // custom rules for Email validations
     extend('CheckEmail', {
       message:
-        'This {_field_} is Already Taken By Another User, Please Try Another!!!.',
+        'This {_field_} is Already Taken By Another User 🧐, Please Try Another!!!.',
       validate: value => {
         // ...
         if (this.checkEmails.includes(value) === true) return false
+        return true
+      }
+    })
+
+    const x = new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])')
+
+    // custom validation for password
+    extend('checkPassword', {
+      message:
+        '{_field_} should contain at least one Uppercase letter, one lowercase letter, and at least one digit',
+      validate: value => {
+        if (!x.test(value)) {
+          return false
+        }
         return true
       }
     })
@@ -365,12 +375,12 @@ export default {
           }
 
           // using nuxt auth system
-          await this.$axios.post('register', user)
+          await this.$axios.post('/auth/signup', user)
 
           this.name = this.username = this.email = this.phone = this.address = this.password = this.confirmPassword = this.sponsorName =
             ''
           // router to user dashoard
-          this.$router.push('/dashboard')
+          this.$router.push('/verify/verifyUser')
 
           // wait until the models are updated in the UI
           this.$nextTick(() => {
@@ -403,8 +413,9 @@ export default {
 
 span {
   color: red;
-  font-size: 10px;
+  font-size: 11px;
   font-style: italic;
+  margin-top: 5px;
 }
 
 .form-container {
