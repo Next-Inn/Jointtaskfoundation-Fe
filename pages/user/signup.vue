@@ -8,7 +8,7 @@
         <div class="row">
           <div class="col-md-12 col-xs-12 form-container">
             <ValidationObserver ref="form">
-              <form action id="regForm shadow">
+              <form action id="regForm shadow" @submit.prevent="onSubmit" role="form">
                 <div class="nav">
                   <nuxt-link to="/" class="navbar-brand">JTF</nuxt-link>
                   <h3>Create Your Account</h3>
@@ -30,6 +30,7 @@
                             v-slot="{errors, classes}"
                           >
                             <input
+                              autocomplete="on"
                               type="text"
                               class="form-control"
                               :class="classes"
@@ -38,6 +39,7 @@
                               onfocus="this.placeholder=''"
                               onblur="this.placeholder='Fullname'"
                             />
+                            <i v-show="errors[0]" class="fa fa-warning"></i>
                             <span>{{ errors[0] }}</span>
                           </ValidationProvider>
                         </keep-alive>
@@ -50,7 +52,7 @@
                           <ValidationProvider
                             v-if="currentTab === 1"
                             name="email"
-                            rules="required|min:3|email|max:100"
+                            rules="required|min:3|email|max:100|CheckEmail"
                             :bails="false"
                             v-slot="{errors, classes}"
                           >
@@ -63,6 +65,7 @@
                               onfocus="this.placeholder=''"
                               onblur="this.placeholder='Email'"
                             />
+                            <i v-show="errors[0]" class="fa fa-warning"></i>
                             <span>{{ errors[0] }}</span>
                           </ValidationProvider>
                         </keep-alive>
@@ -88,6 +91,7 @@
                               onfocus="this.placeholder=''"
                               onblur="this.placeholder='Number'"
                             />
+                            <i v-show="errors[0]" class="fa fa-warning"></i>
                             <span>{{ errors[0] }}</span>
                           </ValidationProvider>
                         </keep-alive>
@@ -100,7 +104,7 @@
                           <ValidationProvider
                             v-if="currentTab === 1"
                             name="address"
-                            rules="required"
+                            rules="required|min:12|max:100"
                             v-slot="{errors, classes}"
                           >
                             <input
@@ -112,6 +116,7 @@
                               onfocus="this.placeholder=''"
                               onblur="this.placeholder='Address'"
                             />
+                            <i v-show="errors[0]" class="fa fa-warning"></i>
                             <span>{{ errors[0] }}</span>
                           </ValidationProvider>
                         </keep-alive>
@@ -131,8 +136,8 @@
                           <ValidationProvider
                             v-if="currentTab === 1"
                             name="username"
-                            rules="required|alpha_dash"
-                            v-slot="{errors, classes}"
+                            rules="required|alpha_num|username"
+                            v-slot="{errors, classes }"
                             :bails="false"
                           >
                             <input
@@ -144,6 +149,7 @@
                               onfocus="this.placeholder=''"
                               onblur="this.placeholder='Username Must Be Unique'"
                             />
+                            <i v-show="errors[0]" class="fa fa-warning"></i>
                             <span>{{ errors[0] }}</span>
                           </ValidationProvider>
                         </keep-alive>
@@ -156,7 +162,7 @@
                           <ValidationProvider
                             v-if="currentTab === 1"
                             name="password"
-                            rules="required|confirmed:confirmation"
+                            rules="required|confirmed:confirmation|min:6"
                             v-slot="{errors, classes}"
                             :bails="false"
                           >
@@ -169,6 +175,7 @@
                               onfocus="this.placeholder=''"
                               onblur="this.placeholder='Password'"
                             />
+                            <i v-show="errors[0]" class="fa fa-warning"></i>
                             <span>{{ errors[0] }}</span>
                           </ValidationProvider>
                         </keep-alive>
@@ -194,6 +201,7 @@
                               onfocus="this.placeholder=''"
                               onblur="this.placeholder='Confirm Password'"
                             />
+                            <i v-show="errors[0]" class="fa fa-warning"></i>
                             <span>{{ errors[0] }}</span>
                           </ValidationProvider>
                         </keep-alive>
@@ -226,6 +234,7 @@
                             onfocus="this.placeholder=''"
                             onblur="this.placeholder='Sponsor Name'"
                           />
+                          <i v-show="errors[0]" class="fa fa-warning"></i>
                           <span>{{ errors[0] }}</span>
                         </ValidationProvider>
                       </keep-alive>
@@ -235,7 +244,7 @@
 
                 <div style="overflow:auto; text-align: center;">
                   <div style="display:flex; justify-content: center;" class="my-3">
-                    <button class="btn btn-blue btn-block" type="button" id="nextBtn">Submit</button>
+                    <button class="btn btn-blue btn-block" type="submit" id="nextBtn">Submit</button>
                   </div>
                   <p>
                     Already have an account? Click
@@ -255,7 +264,12 @@
 
 <script>
 import Banner from './../../components/other/Banner'
-import { ValidationProvider, ValidationObserver } from 'vee-validate'
+import {
+  ValidationProvider,
+  ValidationObserver,
+  extend,
+  validate
+} from 'vee-validate'
 
 export default {
   components: { Banner, ValidationProvider, ValidationObserver },
@@ -272,33 +286,58 @@ export default {
       address: '',
       password: '',
       sponsorName: '',
-      confirmPassword: ''
+      confirmPassword: '',
+      checkUsernames: '',
+      checkEmails: '',
+      isExist: false
     }
   },
 
-  // mounted() {
-  //   // return this.showTab(this.currentTab)
-  // },
+  created() {
+    //change to created event handler
+    this.$store.dispatch('user/getUserNamesAndEmails').then(() => {
+      if (this.$store.getters['user/getAllUserNames']) {
+        //wait for user request action to complete before evaluating getters
+
+        this.checkUsernames = this.$store.getters['user/getAllUserNames']
+        return (this.checkEmails = this.$store.getters['user/getAllEmails'])
+      }
+    })
+  },
+
+  mounted() {
+    // custom rules for username validations
+    extend('username', {
+      message:
+        'This {_field_} is Already Taken By Another User, Please Try Another!!!.',
+      validate: value => {
+        // ...
+        if (this.checkUsernames.includes(value) === true) return false
+        return true
+      }
+    })
+
+    // custom rules for Email validations
+    extend('CheckEmail', {
+      message:
+        'This {_field_} is Already Taken By Another User, Please Try Another!!!.',
+      validate: value => {
+        // ...
+        if (this.checkEmails.includes(value) === true) return false
+        return true
+      }
+    })
+  },
 
   methods: {
-    goToStep(step) {
-      if (step < 1) {
-        return
-      }
-
-      if (step > 2) {
-        this.onSubmit()
-      }
-
-      return (this.currentTab = step)
-    },
-
     onSubmit() {
       this.$refs.form.validate().then(success => {
         if (!success) return
 
         alert('Form is Fully Validated')
 
+        this.name = this.username = this.email = this.phone = this.address = this.password = this.confirmPassword = this.sponsorName =
+          ''
         // wait until the models are updated in the UI
         this.$nextTick(() => {
           this.$refs.form.reset()
