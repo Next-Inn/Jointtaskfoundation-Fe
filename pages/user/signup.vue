@@ -52,7 +52,7 @@
                           <ValidationProvider
                             v-if="currentTab === 1"
                             name="email"
-                            rules="required|min:3|email|max:100"
+                            rules="required|min:3|email|max:100|CheckEmail"
                             :bails="false"
                             v-slot="{errors, classes}"
                           >
@@ -287,28 +287,43 @@ export default {
       password: '',
       sponsorName: '',
       confirmPassword: '',
-      usernames: '',
+      checkUsernames: '',
+      checkEmails: '',
       isExist: false
     }
   },
 
   created() {
     //change to created event handler
-    this.$store.dispatch('user/getUserNames').then(() => {
+    this.$store.dispatch('user/getUserNamesAndEmails').then(() => {
       if (this.$store.getters['user/getAllUserNames']) {
         //wait for user request action to complete before evaluating getters
-        return (this.usernames = this.$store.getters['user/getAllUserNames'])
+
+        this.checkUsernames = this.$store.getters['user/getAllUserNames']
+        return (this.checkEmails = this.$store.getters['user/getAllEmails'])
       }
     })
   },
 
   mounted() {
+    // custom rules for username validations
     extend('username', {
       message:
         'This {_field_} is Already Taken By Another User, Please Try Another!!!.',
       validate: value => {
         // ...
-        if (this.usernames.includes(value) === true) return false
+        if (this.checkUsernames.includes(value) === true) return false
+        return true
+      }
+    })
+
+    // custom rules for Email validations
+    extend('CheckEmail', {
+      message:
+        'This {_field_} is Already Taken By Another User, Please Try Another!!!.',
+      validate: value => {
+        // ...
+        if (this.checkEmails.includes(value) === true) return false
         return true
       }
     })

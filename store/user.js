@@ -1,7 +1,8 @@
 const state = () => ({
 	user: '',
 	users: '',
-	usernames: ''
+	checkUsernames: '',
+	checkEmails: ''
 });
 
 export const mutations = {
@@ -11,8 +12,9 @@ export const mutations = {
 	SET_USER (state, payload) {
 		state.user = payload;
 	},
-	SET_USERNAME (state, payload) {
-		state.usernames = payload;
+	SET_USERNAME_EMAIL (state, payload) {
+		state.checkUsernames = payload.usernames;
+		state.checkEmails = payload.emails;
 	}
 };
 
@@ -20,22 +22,29 @@ export const actions = {
 	async getUsers ({ commit }) {
 		try {
 			let { data } = await this.$axios.$get('/profile/users');
-			commit('SET_USERS', data);
+			commit('SET_USER', data);
 		} catch (e) {
 			console.log(e);
 		}
 	},
 
-	async getUserNames ({ commit }) {
+	async getUserNamesAndEmails ({ commit }) {
 		try {
 			let usernames = [];
-			const { data } = await this.$axios.$get('/auth/usernames');
+			let emails = [];
+			const { data } = await this.$axios.$get('/auth/usernames/email');
 
 			data.forEach((user) => {
 				usernames.push(user.username);
+				emails.push(user.email);
 			});
 
-			commit('SET_USERNAME', usernames);
+			const payload = {
+				usernames,
+				emails
+			};
+
+			commit('SET_USERNAME_EMAIL', payload);
 		} catch (e) {
 			return console.log(e);
 		}
@@ -45,5 +54,6 @@ export const actions = {
 export const getters = {
 	getAllUsers: (state) => state.users,
 	getSingleUser: (state) => state.user,
-	getAllUserNames: (state) => state.usernames
+	getAllUserNames: (state) => state.checkUsernames,
+	getAllEmails: (state) => state.checkEmails
 };
