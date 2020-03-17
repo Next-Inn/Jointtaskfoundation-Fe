@@ -45,7 +45,9 @@ export default {
 	/*
   ** Plugins to load before mounting the App
   */
-	plugins: [],
+	plugins: [
+		'~/plugins/vee-validate.js'
+	],
 	/*
   ** Nuxt.js dev-modules
   */
@@ -85,7 +87,38 @@ export default {
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
-	axios: {},
+	axios: {
+		baseURL: 'https://jointaskfoundation.herokuapp.com/api/v1'
+	},
+
+	/**
+	 *
+	 * auth module
+	 */
+	auth: {
+		strategies: {
+			local: {
+				endpoints: {
+					login: {
+						url: '/auth/signin',
+						method: 'post',
+						propertyName: 'data.token'
+					},
+					register: {
+						url: '/auth/signup',
+						method: 'post',
+						propertyName: 'data.message'
+					},
+					user: {
+						url: '/auth/me',
+						method: 'get',
+						propertyName: 'data'
+					}
+				}
+			}
+		}
+	},
+
 	/*
   ** Build configuration
   */
@@ -93,6 +126,9 @@ export default {
 		/*
     ** You can extend webpack config here
     */
+		transpile: [
+			'vee-validate/dist/rules'
+		],
 		extend (config, ctx) {}
 	}
 };

@@ -5,7 +5,11 @@
 </template>
 
 <script>
-export default {}
+export default {
+  mounted() {
+    // send the data
+  }
+}
 </script>
 
 <style scoped>
