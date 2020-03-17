@@ -44,7 +44,7 @@
 import DashboardNav from './../../components/partials/DashboardNavbar'
 
 export default {
-    layout: 'dashboard',
+    layout: 'Udashboard',
     components: {
         DashboardNav
     }
