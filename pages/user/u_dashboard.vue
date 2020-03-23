@@ -103,6 +103,7 @@
 import DashboardNav from './../../components/partials/DashboardNavbar'
 
 export default {
+     middleware: ['redirectIfAuthenticated'],
     layout: 'Udashboard',
     components: {
         DashboardNav

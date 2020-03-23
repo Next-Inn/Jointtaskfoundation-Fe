@@ -4,17 +4,19 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12 col-xs-12 form-container">
-            <form action>
+            <form >
               <div class="nav mb-4">
                 <nuxt-link to="/" class="navbar-brand">JTF</nuxt-link>
                 <h3>Sign In</h3>
               </div>
-
               <div class="form-group">
-                <input type="email" placeholder="Email" class="form-control" />
+                <input type="text" placeholder="Username" class="form-control" v-model="userInfo.username" />
               </div>
               <div class="form-group">
-                <input type="password" placeholder="password" class="form-control" />
+                <input type="email" placeholder="Email" class="form-control" v-model="userInfo.email" />
+              </div>
+              <div class="form-group">
+                <input type="password" placeholder="password" class="form-control" v-model="userInfo.password"/>
               </div>
               <p>
                 Don't have an account? Click
@@ -22,7 +24,7 @@
                   <strong>Sign up</strong>
                 </a> to create one
               </p>
-              <button class="btn btn-blue btn-block">Log In</button>
+              <button class="btn btn-blue btn-block" @click.prevent="loginUser">Log In</button>
             </form>
           </div>
         </div>
@@ -35,8 +37,28 @@
 <script>
 import Banner from './../../components/other/Banner'
 export default {
+  //  middleware: ['redirectIfAuthenticated'],
   components: { Banner },
-  layout: 'auth'
+  layout: 'auth',
+  data() {
+    return {
+      userInfo: {}
+    }
+  },
+  methods: {
+    async loginUser() {
+            const { username, email, password } = this.userInfo; 
+            const user = this.$auth.loginWith('local', {
+                  data: {
+                    username,
+                    email,
+                    password
+                  }
+                })
+    console.log(user)
+            return this.$router.push('/dashboard')    
+        }
+  }
 }
 </script>
 

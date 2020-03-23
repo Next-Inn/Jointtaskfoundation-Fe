@@ -272,6 +272,7 @@ import {
 } from 'vee-validate'
 
 export default {
+  //  middleware: ['redirectIfAuthenticated'],
   components: { Banner, ValidationProvider, ValidationObserver },
 
   layout: 'auth',
