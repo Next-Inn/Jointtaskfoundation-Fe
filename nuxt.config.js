@@ -62,7 +62,8 @@ export default {
 		'@nuxtjs/axios',
 		'@nuxtjs/pwa',
 		// Doc: https://github.com/nuxt-community/dotenv-module
-		'@nuxtjs/dotenv'
+		'@nuxtjs/dotenv',
+		'@nuxtjs/auth',
 	],
 
 	bootstrapVue: {
@@ -114,9 +115,13 @@ export default {
 						method: 'get',
 						propertyName: 'data'
 					}
-				}
+				},
+				tokenType: 'Bearer'
 			}
-		}
+		},
+		localStorage: {
+			prefix: 'auth.'
+		  },
 	},
 
 	/*
