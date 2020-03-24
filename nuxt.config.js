@@ -37,7 +37,12 @@ export default {
 	/*
   ** Customize the progress-bar color
   */
-	loading: { color: '#00f' },
+	loadingIndicator: {
+		color: '#1655b8',
+		height: '5px',
+		name: 'circle',
+		duration: 5000
+	},
 	/*
   ** Global CSS
   */
@@ -62,7 +67,8 @@ export default {
 		'@nuxtjs/axios',
 		'@nuxtjs/pwa',
 		// Doc: https://github.com/nuxt-community/dotenv-module
-		'@nuxtjs/dotenv'
+		'@nuxtjs/dotenv',
+		'@nuxtjs/auth'
 	],
 
 	bootstrapVue: {
@@ -113,7 +119,8 @@ export default {
 						url: '/auth/me',
 						method: 'get',
 						propertyName: 'data'
-					}
+					},
+					logout: false
 				}
 			}
 		}

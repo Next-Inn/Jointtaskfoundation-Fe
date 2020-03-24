@@ -28,7 +28,7 @@
         <div class="dropdown-menu profile-drop" aria-labelledby="navbarDropdown">
           <a class="dropdown-item profile-drop" href="/profile">profile</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item profile-drop" href="#">logout</a>
+          <a class="dropdown-item profile-drop" href="#" @click.prevent="logout">logout</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item profile-drop" href="/edit">edit</a>
         </div>
@@ -38,7 +38,14 @@
 </template>
 
 <script>
-export default {}
+export default {
+  methods: {
+    async logout() {
+      await this.$auth.logout()
+      this.$router.push('/')
+    }
+  }
+}
 </script>
 
 <style scoped>

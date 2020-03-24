@@ -6,18 +6,22 @@ export const mutations = {};
 
 export const actions = {};
 
-// export const getters = {
-// 	isAuthenticated (state) {
-// 		return state.auth.loggedIn;
-// 	},
+export const getters = {
+	isAuthenticated (state) {
+		return state.auth.loggedIn;
+	},
 
-// 	loggedInUser (state) {
-// 		return state.auth.user;
-// 	},
+	loggedInUser (state) {
+		return state.auth.user;
+	},
 
-// 	async getToken () {
-// 		if (process.client) {
-// 			return localStorage.getItem('auth._token.local');
-// 		}
-// 	}
-// };
+	async getToken () {
+		try {
+			if (process.client) {
+				return await localStorage.getItem('auth._token.local');
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	}
+};
