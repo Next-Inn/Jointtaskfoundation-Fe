@@ -331,14 +331,24 @@ export default {
   },
 
   methods: {
-    onSubmit() {
+    async onSubmit() {
       this.$refs.form.validate().then(success => {
         if (!success) return
 
-        alert('Form is Fully Validated')
+        // alert('Form is Fully Validated')
 
         this.name = this.username = this.email = this.phone = this.address = this.password = this.confirmPassword = this.sponsorName =
-          ''
+          '';
+        const registered =  this.$axios.$post('/auth/signup', {
+               name: this.name,
+               email: this.email,
+               username: this.username,
+               password: this.password,
+               role: 'user',
+               phone: this.phone,
+               address: this.address,
+           });
+           console.log(registered);
         // wait until the models are updated in the UI
         this.$nextTick(() => {
           this.$refs.form.reset()
