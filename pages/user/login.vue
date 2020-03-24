@@ -70,7 +70,7 @@ export default {
       errors: ''
     }
   },
-  // middleware: ['redirectIfAuthenticated'],
+  middleware: ['redirectIfAuthenticated'],
   methods: {
     async onSubmit() {
       const data = {

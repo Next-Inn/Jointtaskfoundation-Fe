@@ -37,9 +37,10 @@ export default {
 	/*
   ** Customize the progress-bar color
   */
-	loading: {
+	loadingIndicator: {
 		color: '#1655b8',
 		height: '5px',
+		name: 'circle',
 		duration: 5000
 	},
 	/*
