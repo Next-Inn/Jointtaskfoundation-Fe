@@ -37,7 +37,12 @@ export default {
 	/*
   ** Customize the progress-bar color
   */
-	loading: { color: '#00f' },
+	loadingIndicator: {
+		color: '#1655b8',
+		height: '5px',
+		name: 'circle',
+		duration: 5000
+	},
 	/*
   ** Global CSS
   */
@@ -114,9 +119,15 @@ export default {
 						url: '/auth/me',
 						method: 'get',
 						propertyName: 'data'
+<<<<<<< HEAD
 					}
 				},
 				tokenType: 'Bearer'
+=======
+					},
+					logout: false
+				}
+>>>>>>> c9a721a8f43b38252d34423e0a668771f4c775dd
 			}
 		},
 		localStorage: {

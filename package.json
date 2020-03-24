@@ -13,7 +13,11 @@
   },
   "dependencies": {
     "@nuxtjs/auth": "^4.9.0",
+<<<<<<< HEAD
     "@nuxtjs/axios": "^5.9.5",
+=======
+    "@nuxtjs/axios": "^5.3.6",
+>>>>>>> c9a721a8f43b38252d34423e0a668771f4c775dd
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/pwa": "^3.0.0-0",
     "bootstrap": "^4.1.3",
