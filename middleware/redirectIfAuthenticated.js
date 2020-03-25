@@ -1,7 +1,7 @@
-export default function ({ app, redirect }) {
-    if (app.$auth.loggedIn) {
-        return redirect({
-            name: 'makereport',
-        })
-    }
+export default function ({ app, redirect, route }) {
+  if (app.$auth.loggedIn) {
+    return redirect({
+      name: 'index'
+    })
+  }
 }

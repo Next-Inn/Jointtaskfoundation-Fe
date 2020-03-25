@@ -15,21 +15,21 @@
                         <form>
                             <div class="form-group">
                             <label for="name">Name:</label>
-                            <input type="email" class="form-control" placeholder="Enter Your name">
+                            <input type="text" class="form-control" placeholder="Enter Your name" v-model="userInfo.name">
                             </div>
                             <div class="form-group">
                             <label for="email">Email address:</label>
-                            <input type="email" class="form-control" placeholder="Enter email">
+                            <input type="email" class="form-control" placeholder="Enter email" v-model="userInfo.email">
                             </div>
                             <div class="form-group">
                             <label for="email">Username:</label>
-                            <input type="text" class="form-control" placeholder="Enter Username">
+                            <input type="text" class="form-control" placeholder="Enter Username" v-model="userInfo.username">
                             </div>
                             <div class="form-group">
                             <label for="pwd">Password:</label>
-                            <input type="password" class="form-control" placeholder="Enter password" id="pwd">
+                            <input type="password" class="form-control" placeholder="Enter password" id="pwd" v-model="userInfo.password">
                             </div>
-                            <button type="submit" class="btn btn-blue btn-block">Submit</button>
+                            <button type="submit" class="btn btn-blue btn-block" @click.prevent="registerUser">Submit</button>
                         </form>
                         
                         </div>
@@ -44,8 +44,39 @@
 
 <script>
 export default {
-     middleware: ['redirectIfGuest'],
-    layout: 'auth'
+    layout: 'auth',
+    data() {
+        return {
+            userInfo: {}
+        }
+    },
+    methods: {
+        async registerUser() {
+            // alert('hello want to create an account ')
+           const { name, email, password, username } = this.userInfo; 
+           const registered = await this.$axios.$post('/auth/signup', {
+               name,
+               email,
+               username,
+               password,
+               role: 'user',
+               phone: '08067488682',
+               address: "5, address, Lagos State",
+           });
+        //    this.$auth.login({data: this.userInfo});
+           await this.$auth.loginWith('local', {
+                data: {
+                    username,
+                    password,
+                    email
+                }
+            })
+            console.log(registered)
+           return this.$router.push('/dasboard')
+        }
+    }
+    
+    
 }
 </script>
 

@@ -1,21 +1,17 @@
 <template>
-  <div class="auth">
+  <div class="verify">
     <nuxt />
   </div>
 </template>
 
 <script>
-export default {
-  mounted() {
-    // send the data
-  }
-}
+export default {}
 </script>
 
 <style scoped>
-.auth {
-  background: url('../assets/img/abs.jpg');
-  min-height: 100vh;
+.verify {
+  background: url('../assets/img/green.jpg');
+  height: 100vh;
   background-size: 100% 100%;
   background-position: center;
   display: flex;
