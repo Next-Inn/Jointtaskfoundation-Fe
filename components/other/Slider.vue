@@ -16,7 +16,7 @@
             </div>
           </div>
           <div class="carousel-item">
-            <img class="d-block img-fluid" src="https://s19.postimg.cc/nenabzsnn/slide4.jpg" alt="">
+            <img class="d-block img-fluid" src="../../assets/img/slider2.jpg" alt="">
             <div class="carousel-caption d-none d-md-block">
               <h3>Mountain</h3>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci esse vitae exercitationem fugit,
@@ -24,7 +24,7 @@
             </div>
           </div>
           <div class="carousel-item">
-            <img class="d-block img-fluid" src="https://s19.postimg.cc/nenabzsnn/slide4.jpg" alt="">
+            <img class="d-block img-fluid" src="../../assets/img/slider3.jpg" alt="">
             <div class="carousel-caption d-none d-md-block">
               <h3>Mountain</h3>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci esse vitae exercitationem fugit,
