@@ -10,7 +10,7 @@
 
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="d-block img-fluid" src="https://s19.postimg.cc/nenabzsnn/slide4.jpg" alt="sime">
+            <img class="d-block img-fluid" src="../../assets/img/slider1.jpg" alt="sime">
             <div class="carousel-caption d-none d-md-block">
               <h1>Mountain</h1>
             </div>

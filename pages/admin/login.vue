@@ -3,21 +3,21 @@
         <div class="auth-section">
             <div class="row">
                 <div class="col-md-3"></div>
-                <div class="col-md-4 col-8 a_sinup">
+                <div class="col-md-4 col-8 a_sinup" @submit.prevent="loginAdmin">
                     <div class="card">
                         <h3 class="text-center py-3 auth-title">Admin Log In</h3>
                     <form>
                         <div class="form-group">
                         <label for="email">Email address:</label>
-                        <input type="email" class="form-control" placeholder="Enter email">
+                        <input type="email" class="form-control" placeholder="Enter email" v-model="userInfo.email">
                         </div>
                         <div class="form-group">
                         <label for="Username">Username:</label>
-                        <input type="text" class="form-control" placeholder="Enter Username">
+                        <input type="text" class="form-control" placeholder="Enter Username" v-model="userInfo.username">
                         </div>
                         <div class="form-group">
                         <label for="pwd">Password:</label>
-                        <input type="password" class="form-control" placeholder="Enter password" id="pwd">
+                        <input type="password" class="form-control" placeholder="Enter password" id="pwd" v-model="userInfo.password">
                         </div>
                         <button type="submit" class="btn btn-blue btn-block">Submit</button>
                     </form>
@@ -40,7 +40,27 @@
 <script>
 export default {
      middleware: ['redirectIfGuest'],
-    layout: 'auth'
+    layout: 'auth',
+    data() {
+        return {
+            userInfo: {}
+        }
+    },
+    methods: {
+        async loginAdmin() {
+            const {email, password } = this.userInfo
+           await this.$auth.loginWith('local', {
+                data: {
+                    username,
+                    password,
+                    email
+                }
+            })
+            console.log(registered)
+           return this.$router.push('/dashboard')
+        }
+          
+    }
 }
 </script>
 
