@@ -119,15 +119,9 @@ export default {
 						url: '/auth/me',
 						method: 'get',
 						propertyName: 'data'
-<<<<<<< HEAD
-					}
-				},
-				tokenType: 'Bearer'
-=======
 					},
 					logout: false
 				}
->>>>>>> c9a721a8f43b38252d34423e0a668771f4c775dd
 			}
 		},
 		localStorage: {

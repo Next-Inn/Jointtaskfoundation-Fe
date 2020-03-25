@@ -221,7 +221,7 @@
                         <ValidationProvider
                           v-if="currentTab === 1"
                           name="sponsorName"
-                          rules="required|min:3|alpha_num|sponsor"
+                          rules="min:3|alpha_num|sponsor"
                           v-slot="{ errors, classes }"
                           :bails="false"
                         >

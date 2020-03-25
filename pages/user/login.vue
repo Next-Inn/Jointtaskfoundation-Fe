@@ -87,7 +87,7 @@ export default {
         this.errors = e.response ? e.response.data.error : true
       }
       if (!this.errors) {
-        this.$router.push('/dashboard')
+        this.$router.push('/user/u_dashboard')
       }
     },
     checkEmail(email) {
