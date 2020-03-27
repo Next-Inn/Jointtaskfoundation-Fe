@@ -126,7 +126,13 @@ export default {
 		},
 		localStorage: {
 			prefix: 'auth.'
-		  },
+		},
+		redirect: {
+			login: '/login',
+			logout: '/',
+			callback: '/login',
+			home: '/'
+		}
 	},
 
 	/*

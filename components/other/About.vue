@@ -7,17 +7,14 @@
         </div>
         <div class="col-md-6">
           <div class="heading">
-            <h1>About MLM</h1>
+            <h1 class="text-center">About JTF</h1>
           </div>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae magni, voluptatum aliquam qui, ullam
-            vitae sunt aspernatur maiores excepturi soluta illum corporis tenetur, recusandae nulla tempore! Ullam,
-            saepe eligendi quisquam culpa sequi necessitatibus sunt possimus maxime. Dicta, aliquam.
+            Jointtask Foundation is a marketing company birthed to raise people finanially. It is no news that many people in our country barely have a decent meal or life. joint task foundation is here to turn that around. We desire to transform the life of people who are under living into a high quality life. Together we can make that happen.
           </p>
 
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae magni, voluptatum aliquam qui, ullam
-            vitae sunt aspernatur maiores e!
+            The founding members are all networkers who have experienced different kinds of connections all over the world. We believe that experiencing financial freedom does not really need to cost a fortune.  Come along with us in this journey of financial experience.
           </p>
           <button class="btn btn-blue">Read More</button>
         </div>

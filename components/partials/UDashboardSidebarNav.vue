@@ -15,12 +15,28 @@
                 <i class="fa fa-microphone"></i>Report</nuxt-link>
             </li>
             <li class="nav-item" >
-            <nuxt-link to="#" class="nav-link " id="logOut">
+            <nuxt-link to="#" class="nav-link " id="logOut" @click="logout">
                 <i class="fas fa-sign-out-alt"></i>Log out</nuxt-link>
             </li>
         </ul>
     </section>
 </template>
+
+<script>
+export default {
+    computed: {
+        user(){
+            return this.$store.getters.loggedInUser
+        }
+    },
+    methods: {
+        async logout() {
+            await this.$auth.logout()
+            this.$router.push('/')
+        }
+    }
+}
+</script>
 
 <style scoped>
     #sidebar {
