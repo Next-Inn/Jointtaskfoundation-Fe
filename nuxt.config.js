@@ -46,13 +46,16 @@ export default {
 	/*
   ** Global CSS
   */
-	css: [],
+	css: ['~assets/css/animate.css'],
 	/*
   ** Plugins to load before mounting the App
   */
 	plugins: [
 		'~/plugins/vee-validate.js'
 	],
+	pageTransition: {
+		name: 'bounce'
+	},
 	/*
   ** Nuxt.js dev-modules
   */

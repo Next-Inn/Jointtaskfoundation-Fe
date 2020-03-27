@@ -1,5 +1,5 @@
 <template>
-  <section id="how">
+  <section id="how" class="fadeInDown">
     <div class="container">
       <div class="heading">
         <h1>How it Works</h1>
@@ -7,15 +7,15 @@
       <div class="row how_details">
         <div class="col-md-4">
           <h4 class="text-center">Create an Account</h4>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, aliquam?</p>
+          <p>Create an account with someone and do all the necessary strings attached</p>
         </div>
         <div class="col-md-4">
           <h4 class="text-center">Get People</h4>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, totam?</p>
+          <p>Get downliners to register under you</p>
         </div>
         <div class="col-md-4">
           <h4 class="text-center">Grow and Blow</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, ipsam.</p>
+          <p>Keep getting more people and keep growing. Soon you will be the envy of people.</p>
         </div>
       </div>
     </div>
