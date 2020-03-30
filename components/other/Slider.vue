@@ -12,13 +12,13 @@
           <div class="carousel-item active">
             <img class="d-block img-fluid" src="../../assets/img/slider4.jpg" alt="sime">
             <div class="carousel-caption d-none d-md-block">
-              <h1>Welcome to Joint task Foundation</h1>
+              <h3>Welcome to Joint task Foundation</h3>
               <p>A place with your future at heart</p>
             </div>
           </div>
           <div class="carousel-item">
             <img class="d-block img-fluid" src="../../assets/img/slider7.jpg" alt="">
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-none d-md-block mb-5">
               <h3>Vision</h3>
               <p>It take vision to desire success. Perhaps you have a burning desire to have a better standard of living. You have a vision of a better future.</p>
             </div>
@@ -79,4 +79,21 @@
       height: 100vh;
       width: 100%;
     }
+
+    h3 {
+      font-size: 40px;
+      font-weight: 900;
+    }
+    p {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .carousel-caption {
+      margin-bottom: 100px;
+      background: #ccc;
+      color: #000;
+      opacity: 0.8;
+    }
+    
 </style>

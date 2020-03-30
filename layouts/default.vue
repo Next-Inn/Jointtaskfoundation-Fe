@@ -27,13 +27,15 @@ export default {
 }
 body {
   overflow-x: hidden;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Neuton', serif;
   color: #505962;
 }
 
-html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+p {
+  font-size: 20px;
+}
+
+/* html {
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -48,7 +50,7 @@ html {
 *:after {
   box-sizing: border-box;
   margin: 0;
-}
+} */
 
 .btn-blue {
   background: #fff;
@@ -61,4 +63,9 @@ html {
   color: #fff;
   border: 1px solid var(--main-bg-color);
 }
+
+/* gs, */
+
+
+/* gs, */
 </style>

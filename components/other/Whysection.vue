@@ -1,27 +1,32 @@
 <template>
     <div id="why-section">
         <div class="container">
-        <div class="heading text-center my-5">
-          <h1>Why Choose Us?</h1>
+        <div class="heading text-center my-5" data-aos="fade-down" data-aos-duration="2000">
+          <h1>Our Services</h1>
+          <p>As an organization, our partners enjoys the full benefits of a life-changing opportunities and service support </p>
         </div>
 
         <div class="row text-center why_section_details">
-          <div class="col-md-4">
+          <div class="col-md-3" data-aos="fade-right" data-aos-duration="2000">
             <!-- <i class="fa fa-diamond"></i> -->
-            <i class="fa fa-signal fa-3x"></i>
-            <h3>Reliable</h3>
-            <p>Security of funds has always bbeen the fear of people but then we have you covered.</p>
+            <i class="fas fa-hamburger fa-3x"></i>
+            <h3>Nutrition</h3>
+            <p>Drive HUNGER strife from our homes</p>
           </div>
-          <div class="col-md-4">
-            <i class="fa fa-cog fa-3x"></i>
-            <h3>Grow</h3>
-            <p>Mlm doesnt make you commute a lot. you could make a lot from the confines of your house thus growing</p>
+          <div class="col-md-3" data-aos="fade-up" data-aos-duration="2000">
+            <i class="fa fa-graduation-cap fa-3x"></i>
+            <h3>Education</h3>
+            <p>Promote educational quality in our society</p>
           </div>
-          <div class="col-md-4">
-            <i class="fa fa-diamond fa-3x"></i>
-            <h3>Profit Spinner</h3>
-            <p>The sole goal of a business is to make profit. Of course, why not? Mlm helps to see that you get a whole
-              lot.</p>
+          <div class="col-md-3" data-aos="fade-up" data-aos-duration="2000">
+            <i class="fas fa-briefcase fa-3x"></i>
+            <h3>Employment</h3>
+            <p>Employ and Empower ourselves.</p>
+          </div>
+          <div class="col-md-3" data-aos="fade-left" data-aos-duration="2000">
+            <i class="fas fa-money fa-3x"></i>
+            <h3>Investment</h3>
+            <p>Invest together for a better tomorrow.</p>
           </div>
         </div>
       </div>

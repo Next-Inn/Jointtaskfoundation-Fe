@@ -12,10 +12,6 @@
                         <input type="email" class="form-control" placeholder="Enter email" v-model="userInfo.email">
                         </div>
                         <div class="form-group">
-                        <label for="Username">Username:</label>
-                        <input type="text" class="form-control" placeholder="Enter Username" v-model="userInfo.username">
-                        </div>
-                        <div class="form-group">
                         <label for="pwd">Password:</label>
                         <input type="password" class="form-control" placeholder="Enter password" id="pwd" v-model="userInfo.password">
                         </div>
@@ -39,7 +35,7 @@
 
 <script>
 export default {
-     middleware: ['redirectIfGuest'],
+    //  middleware: ['redirectIfGuest'],
     layout: 'auth',
     data() {
         return {
@@ -51,12 +47,11 @@ export default {
             const {email, password } = this.userInfo
            await this.$auth.loginWith('local', {
                 data: {
-                    username,
                     password,
                     email
                 }
             })
-            console.log(registered)
+            
            return this.$router.push('/dashboard')
         }
           

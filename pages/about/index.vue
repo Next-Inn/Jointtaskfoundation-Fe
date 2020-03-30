@@ -18,13 +18,12 @@
               <h1>About JTF</h1>
             </div>
             <p>
-            Jointtask Foundation is a marketing company birthed to raise people finanially. It is no news that many people in our country barely have a decent meal or life. joint task foundation is here to turn that around. We desire to transform the life of people who are under living into a high quality life. Together we can make that happen.
-          </p>
+              Joint Task Foundation is a Multi Level Marketing born out of passion in offering a life changing opportunities. The founding members are all networkers who come together towards achieving a great success. 
+            </p>
 
-          <p>
-            The founding members are all networkers who have experienced different kinds of connections all over the world. We believe that experiencing financial freedom does not really need to cost a fortune.  Come along with us in this journey of financial experience.
-          </p>
-          <p>We want to partner with various people who are willing to bring ideas to the table. two good heads they say, are better than one. This partnership will increase your worth as a partner. We will help both privileged and less privileged individuals move to a beneficial point of being of great help to our larger society. We shall take you through an experience of personal development, impactful projects and financial prosperity.</p>
+            <p>
+              Joint Task Foundation is about helping and enriching humanity across the globe by empowering individuals and cooperate bodies. We are here to work with you and through you empower others.
+            </p>
           </div>
         </div>
       </div>
@@ -62,6 +61,10 @@ export default {
 #about {
   margin: 120px 0;
   min-height: 75vh;
+}
+
+#about p {
+  text-align: justify;
 }
 
 #about-section {
