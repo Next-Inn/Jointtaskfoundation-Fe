@@ -39,6 +39,7 @@
 
 <script>
 export default {
+     middleware: ['redirectIfGuest'],
     layout: 'auth'
 }
 </script>

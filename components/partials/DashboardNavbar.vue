@@ -12,6 +12,15 @@
             <i class="fa fa-bell"></i>
           </a>
         </li>
+        <template v-if="!$auth.user">
+          <nuxt-link to="/user/signup" variant="danger">Sign Up</nuxt-link>
+          <nuxt-link to="/user/login">Log in</nuxt-link>
+        </template>
+        <template v-else>
+          <nuxt-link to="#">Welcome {{ $auth.user.name }}</nuxt-link>
+          <nuxt-link to="#" @click.prevent="logout" variant="danger">Logout</nuxt-link>
+        </template>
+        
       </ul>
       <div class="nav-item dropdown">
         <a
@@ -26,9 +35,10 @@
           <img src="https://via.placeholder.com/50" />
         </a>
         <div class="dropdown-menu profile-drop" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item profile-drop" href="/profile">profile</a>
+            <a class="dropdown-item profile-drop" href="/profile">profile</a>
+          
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item profile-drop" href="#">logout</a>
+          <a class="dropdown-item profile-drop" href="#" @click.prevent="logout">logout</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item profile-drop" href="/edit">edit</a>
         </div>
@@ -38,7 +48,14 @@
 </template>
 
 <script>
-export default {}
+export default {
+  methods: {
+    async logout() {
+      await this.$auth.logout()
+      this.$router.push('/')
+    }
+  }
+}
 </script>
 
 <style scoped>
