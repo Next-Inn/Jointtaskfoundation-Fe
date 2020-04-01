@@ -60,7 +60,7 @@ export default {
 <style scoped>
 #about {
   margin: 120px 0;
-  min-height: 75vh;
+  min-height: 70vh;
 }
 
 #about p {
@@ -69,7 +69,7 @@ export default {
 
 #about-section {
   padding: 100px 0 50px;
-  min-height: 90vh;
+  min-height: 75vh;
 }
 
 #aim {
