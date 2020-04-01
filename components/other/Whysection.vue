@@ -35,8 +35,8 @@
 
 <style scoped>
     #why-section {
-        margin: 140px 0 100px;
-        min-height: 75vh;
+        margin: 100px 0 70px;
+        min-height: 70vh;
     }
 
     .why_section_details {

@@ -27,7 +27,7 @@
 
 <style scoped>
 #about {
-  margin: 120px 0;
+  margin: 80px 0;
   min-height: 75vh;
 }
 

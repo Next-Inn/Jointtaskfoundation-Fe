@@ -10,21 +10,21 @@
 
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="d-block img-fluid" src="../../assets/img/slider4.jpg" alt="sime">
+            <img class="d-block img-fluid" src="../../assets/img/The-future-of-networking-1024x553.jpg" alt="sime">
             <div class="carousel-caption d-none d-md-block">
               <h3>Welcome to Joint task Foundation</h3>
               <p>A place with your future at heart</p>
             </div>
           </div>
           <div class="carousel-item">
-            <img class="d-block img-fluid" src="../../assets/img/slider7.jpg" alt="">
-            <div class="carousel-caption d-none d-md-block mb-5">
-              <h3>Vision</h3>
+            <img class="d-block img-fluid" src="../../assets/img/business.jpg" alt="">
+            <div class="carousel-caption d-none d-md-block mb-5" data-aos="fade-up">
+              <h3 >Vision</h3>
               <p>It take vision to desire success. Perhaps you have a burning desire to have a better standard of living. You have a vision of a better future.</p>
             </div>
           </div>
           <div class="carousel-item">
-            <img class="d-block img-fluid" src="../../assets/img/slider2.jpg" alt="">
+            <img class="d-block img-fluid" src="../../assets/img/boss.jpg" alt="">
             <div class="carousel-caption d-none d-md-block">
               <h3>Unique</h3>
               <p>Do you want to stand out from the crowd? Become the envy of many by just a few steps.</p>
@@ -91,9 +91,8 @@
 
     .carousel-caption {
       margin-bottom: 100px;
-      background: #ccc;
-      color: #000;
-      opacity: 0.8;
+      color: #fff;
+      
     }
     
 </style>

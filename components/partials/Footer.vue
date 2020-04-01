@@ -69,7 +69,7 @@ footer {
 	background: var(--main-bg-color);
 	color: #fff;
 	min-height: 91vh;
-	padding: 150px 0 10px;
+	padding: 80px 0 10px;
 	font-size: 18px;
 	/* font-family: 'Nunito', sans-serif; */
 }
