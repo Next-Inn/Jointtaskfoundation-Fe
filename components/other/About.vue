@@ -2,24 +2,23 @@
   <div id="about">
     <div class="container">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6" data-aos="fade-up-right" data-aos-duration="2000">
           <img src="./../../assets/img/bitcoin2.jpg" alt="about-image" class="img-fluid" />
         </div>
-        <div class="col-md-6">
-          <div class="heading">
-            <h1>About MLM</h1>
+        <div class="col-md-6" data-aos="fade-down" data-aos-duration="2000">
+          <div class="heading" >
+            <h1 class="text-center">About JTF</h1>
           </div>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae magni, voluptatum aliquam qui, ullam
-            vitae sunt aspernatur maiores excepturi soluta illum corporis tenetur, recusandae nulla tempore! Ullam,
-            saepe eligendi quisquam culpa sequi necessitatibus sunt possimus maxime. Dicta, aliquam.
+            Joint Task Foundation is a Multi Level Marketing born out of passion in offering a life changing opportunities. The founding members are all networkers who come together towards achieving a great success. 
           </p>
 
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae magni, voluptatum aliquam qui, ullam
-            vitae sunt aspernatur maiores e!
+            Joint Task Foundation is about helping and enriching humanity across the globe by empowering individuals and cooperate bodies. We are here to work with you and through you empower others.
           </p>
-          <button class="btn btn-blue">Read More</button>
+          <div class="text-center">
+            <button class="btn btn-blue">Read More</button>
+          </div>
         </div>
       </div>
     </div>
@@ -28,7 +27,11 @@
 
 <style scoped>
 #about {
-  margin: 120px 0;
+  margin: 80px 0;
   min-height: 75vh;
+}
+
+#about p {
+  text-align: justify;
 }
 </style>

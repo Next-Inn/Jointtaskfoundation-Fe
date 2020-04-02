@@ -12,11 +12,11 @@ export default {
 		],
 		link: [
 			{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-			{ rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap' },
+			{ rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Caladea|Neuton&display=swap' },
 			{
 				rel: 'stylesheet',
 				type: 'text/css',
-				href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'
+				href: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'
 			}
 		],
 		script: [
@@ -30,6 +30,10 @@ export default {
 			},
 			{
 				src: 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js',
+				type: 'text/javascript'
+			},
+			{
+				src: 'https://kit.fontawesome.com/f021fb80c9.js',
 				type: 'text/javascript'
 			}
 		]
@@ -51,8 +55,10 @@ export default {
   ** Plugins to load before mounting the App
   */
 	plugins: [
-		'~/plugins/vee-validate.js'
+		'~/plugins/vee-validate.js',
+		{ src: "@/plugins/aos", ssr: false }
 	],
+	
 	/*
   ** Nuxt.js dev-modules
   */
@@ -126,7 +132,13 @@ export default {
 		},
 		localStorage: {
 			prefix: 'auth.'
-		  },
+		},
+		redirect: {
+			login: '/login',
+			logout: '/',
+			callback: '/login',
+			home: '/'
+		}
 	},
 
 	/*

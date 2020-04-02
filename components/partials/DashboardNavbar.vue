@@ -13,7 +13,7 @@
           </a>
         </li>
         <template v-if="!$auth.user">
-          <nuxt-link to="/user/signup" variant="danger">Sign Up</nuxt-link>
+          <nuxt-link to="/user/signup">Sign Up</nuxt-link>
           <nuxt-link to="/user/login">Log in</nuxt-link>
         </template>
         <template v-else>
@@ -69,6 +69,9 @@ export default {
   padding-left: 24px;
   padding-right: 24px;
 }
-</style>>
+
+a {
+  margin: 0 10px;
+}
 
 </style>
