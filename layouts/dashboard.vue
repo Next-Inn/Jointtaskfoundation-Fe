@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Sidebar />
+    <Sidebar v-if="open"/>
     <nuxt />
   </div>
 </template>
