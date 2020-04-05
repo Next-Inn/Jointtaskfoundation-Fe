@@ -10,7 +10,6 @@
                 <nuxt-link to="/" class="navbar-brand">JTF</nuxt-link>
                 <h3>Sign In</h3>
               </div>
-
               <div class="form-group">
                 <label>Username or Email</label>
                 <input
@@ -88,7 +87,7 @@ export default {
         this.errors = e.response ? e.response.data.error : true
       }
       if (!this.errors) {
-        this.$router.push('/dashboard')
+        this.$router.push('/user/u_dashboard')
       }
     },
     checkEmail(email) {

@@ -4,12 +4,10 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <h1>MLM</h1>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero delectus ducimus, culpa repellat enim
-              perspiciatis mollitia labore nobis? Aspernatur sed id quia maiores facilis nisi consectetur laboriosam
-              dolorem labore dolore?</p>
+            <h1>JTF</h1>
+            <p>Jointtask Foundation is a marketing company birthed to raise people finanially. It is no news that many people in our country barely have a decent meal or life. joint task foundation is here to turn that around. We desire to transform the life of people who are under living into a high quality life. Together we can make that happen.</p>
           </div>
-          <div class="col-md-2 col-6 quick-links">
+          <div class="col-md-2 col-5 quick-links">
             <h3>Quick Links</h3>
             <ul class="contact-info">
               <li class="mt-4"><a href="index.html">Home</a></li>
@@ -20,7 +18,7 @@
             </ul>
 
           </div>
-          <div class="col-md-4 col-6">
+          <div class="col-md-4 col-7">
             <div class="contact-info-section">
               <h3> Reach Us on...</h3>
               <ul class="contact-info">
@@ -71,9 +69,9 @@ footer {
 	background: var(--main-bg-color);
 	color: #fff;
 	min-height: 91vh;
-	padding: 150px 0 10px;
-	font-size: 14px;
-	font-family: 'Nunito', sans-serif;
+	padding: 80px 0 10px;
+	font-size: 18px;
+	/* font-family: 'Nunito', sans-serif; */
 }
 
 .contact-info {

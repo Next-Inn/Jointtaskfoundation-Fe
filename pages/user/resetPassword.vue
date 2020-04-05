@@ -13,18 +13,25 @@
           <p>Sorry you forgot your password, you can create another here</p>
           <div class="form-group">
             <input
-              type="password"
-              placeholder="New Password"
-              class="form-control"
+              type="email"
+              placeholder="email"
+              class="form-control" v-model="userInfo.email"
             />
           </div>
           <div class="form-group">
             <input
               type="password"
+              placeholder="Password"
+              class="form-control" v-model="userInfo.newPassword"
+            />
+          </div>
+          <!-- <div class="form-group">
+            <input
+              type="password"
               placeholder="Confirm password"
               class="form-control"
             />
-          </div>
+          </div> -->
           <button class="btn btn-blue btn-block">Change Password</button>
         </form>
       </div>
@@ -35,7 +42,24 @@
 
 <script>
 export default {
-  layout: 'auth'
+  layout: 'auth',
+  data() {
+    return {
+      userInfo: {}
+    }
+  },
+  methods: {
+    
+    async resetPassword() {
+      const { email, newPassword} = this.userInfo;
+     const emailed = await this.$axios.$post('/auth/resetpassword', {
+        email,
+        newPassword
+      })
+    this.userInfo = ''
+      // console.log(emailed)
+    }
+  }
 }
 </script>
 
