@@ -7,32 +7,22 @@
                     <div class="row">
                         <div class="col-md-2"></div>
                         <div class="col-md-8">
-                            <div class="card py-3">
+                            <div class="card my-5">
                             <div class="card-body">
                                 <div class="account">
-                                    <p>Account</p>
-                                    <p>Account Name</p>
-                                    <p class="account-details d-flex">007837382827 <span class="balance">N 40,000</span></p>
+                                    <h1 class="text-center">Create a Wallet</h1>
                                 </div>
                                 <form action="" class="py-3">
                                     <div class="form-group">
-                                        <select class="form-control" id="sel1">
-                                            <!-- <option>Access Bank</option>
-                                            <option>UBA</option>
-                                            <option>Zenith Bank</option>
-                                            <option>Sky Bank</option> -->
-                                            
-                                            <option v-for="bank in banks" :value="bank.code" :key="bank.code" >{{ bank.name }}</option>
+                                        <select class="form-control" v-model="walletDetail.bank_code">
+                                            <option v-for="bank in banks" :value="bank.code" :key="bank.code" >{{ bank.name }} ----- {{ bank.code}}</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Enter an amount">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Narration">
+                                        <input type="number" class="form-control" placeholder="Account Number" v-model="walletDetail.account_number">
                                     </div>
 
-                                    <button class="btn btn-blue pull-right" @click.prevent="">Make Payment</button>
+                                    <button class="btn btn-blue pull-right" @click.prevent="createWallet">Create Wallet</button>
                                     
                                 </form>
                             </div>
@@ -67,15 +57,36 @@ export default {
     data() {
         return {
             reward: '',
-            banks: []
+            banks: [],
+            walletDetail: {}
         }
     },
     methods: {
         async getDownlines() {
             const result = await this.$axios.$get('/list-banks')
-           this.banks = result.data;
+            this.banks = result.data;
             console.log(this.banks)
         },
+        async createWallet() {
+           
+            try {
+                const {account_number, bank_code} = this.walletDetail
+                const wallet = this.$axios.$post('/create-wallet', {
+                account_number,
+                bank_code
+            })
+            bank_code: " "
+            account_number: " "
+            console.log(bank_code)
+            console.log(account_number)
+            this.$router.push('/user/u_dashboard')
+            }
+            catch(e) {
+                console.log(e)
+            }
+            
+
+        }
         // async getReward() {
         //     const rewards = await this.$axios.$get('/verify-account-number');
         //     console.log(rewards)
@@ -121,13 +132,8 @@ export default {
         color: #fff;
     }
 
-    .account-details {
+    option {
         justify-content: space-between;
-        align-items: flex-end;
-    }
-
-    .balance {
-        font-size: 40px;
     }
 
     .card {
@@ -144,30 +150,6 @@ export default {
     .card-header {
     background: #fff;
     border-radius: 12px;
-    }
-
-    .card-stats .card-body .numbers .card-category {
-    color: #fff;
-    font-size: 18px;
-    line-height: 1.4em;
-    font-weight: 600;
-    }
-
-    .card-stats .card-body .numbers p {
-    margin-bottom: 0;
-    text-align: right;
-    color: #fff;
-    letter-spacing: 2px;
-    }
-
-    .card-stats .card-body .numbers .balance {
-    font-size: 28px;
-    font-weight: 900;
-    }
-
-    .card-stats .icon-big {
-    font-size: 3em;
-    min-height: 64px;
     }
 
 

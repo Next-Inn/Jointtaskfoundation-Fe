@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav class="navbar navbar-expand shadow navbar-sticky-top">
-      <div class="hidden-lg togle-btn" onclick="toggleSidebar()">
+      <div class="hidden-lg togle-btn" @click="!open">
         <span>
           <i class="fa fa-bars"></i>
         </span>
