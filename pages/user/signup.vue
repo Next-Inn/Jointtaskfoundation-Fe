@@ -1,8 +1,5 @@
 <template>
   <div>
-    <!-- <Banner>
-      <h1 slot="header">Sign Up</h1>
-    </Banner>-->
     <section id="signUp">
       <div class="container-fluid">
         <div class="row">
@@ -245,7 +242,15 @@
 
                 <div style="overflow:auto; text-align: center;">
                   <div style="display:flex; justify-content: center;" class="my-3">
-                    <button class="btn btn-blue btn-block" type="submit" id="nextBtn">Submit</button>
+                    <button
+                      class="btn btn-blue btn-block"
+                      style="display:flex; justify-content: center; align-items: center;"
+                      type="submit"
+                      id="nextBtn"
+                    >
+                      Submit
+                      <ButtonLoader v-if="loading" :loading="loading" />
+                    </button>
                   </div>
                   <p>
                     Already have an account? Click
@@ -265,6 +270,7 @@
 
 <script>
 import Banner from './../../components/other/Banner'
+import ButtonLoader from './../../components/notification/buttonLoader'
 import {
   ValidationProvider,
   ValidationObserver,
@@ -274,7 +280,7 @@ import {
 
 export default {
   //  middleware: ['redirectIfAuthenticated'],
-  components: { Banner, ValidationProvider, ValidationObserver },
+  components: { Banner, ValidationProvider, ValidationObserver, ButtonLoader },
 
   layout: 'auth',
 
@@ -294,11 +300,13 @@ export default {
       checkEmails: '',
       role: 'user',
       error: null,
-      users: ''
+      users: '',
+      loading: false
     }
   },
 
   created() {
+    this.loading = true
     //change to created event handler
     this.$store.dispatch('user/getUserNamesAndEmails').then(() => {
       if (this.$store.getters['user/getAllUserNames']) {
@@ -351,6 +359,8 @@ export default {
         return true
       }
     })
+
+    this.loading = false
   },
 
   methods: {
@@ -358,6 +368,7 @@ export default {
       this.$refs.form.validate().then(async success => {
         // if vee-validate is not a success return to the form
         if (!success) return
+        this.loading = true
         const referer = this.users.find(
           user => user.username === this.sponsorName
         )
@@ -373,10 +384,10 @@ export default {
             phone: this.phone,
             refererId: this.sponsorName === '' ? null : referer.id
           }
-          return console.log(userPayload)
+          // return console.log(userPayload)
           // using nuxt auth system
           await this.$axios.post('/auth/signup', userPayload)
-
+          this.loading = false
           this.name = this.username = this.email = this.phone = this.address = this.password = this.confirmPassword = this.sponsorName =
             ''
           // router to user dashoard
@@ -413,7 +424,7 @@ export default {
 
 span {
   color: red;
-  font-size: 11px;
+  font-size: 12px;
   font-style: italic;
   margin-top: 5px;
 }
