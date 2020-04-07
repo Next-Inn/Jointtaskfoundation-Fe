@@ -56,9 +56,9 @@ export default {
   */
 	plugins: [
 		'~/plugins/vee-validate.js',
-		{ src: "@/plugins/aos", ssr: false }
+		{ src: '~/plugins/aos.js', ssr: false }
 	],
-	
+
 	/*
   ** Nuxt.js dev-modules
   */
@@ -134,9 +134,9 @@ export default {
 			prefix: 'auth.'
 		},
 		redirect: {
-			login: '/login',
+			login: '/user/login',
 			logout: '/',
-			callback: '/login',
+			callback: '/user/login',
 			home: '/'
 		}
 	},
