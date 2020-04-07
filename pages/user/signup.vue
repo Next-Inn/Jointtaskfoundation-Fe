@@ -281,6 +281,7 @@ export default {
   data() {
     return {
       currentTab: 1,
+      loading: false,
       name: '',
       username: '',
       email: '',
@@ -292,7 +293,8 @@ export default {
       checkUsernames: '',
       checkEmails: '',
       role: 'user',
-      error: null
+      error: null,
+      users: ''
     }
   },
 
@@ -300,10 +302,9 @@ export default {
     //change to created event handler
     this.$store.dispatch('user/getUserNamesAndEmails').then(() => {
       if (this.$store.getters['user/getAllUserNames']) {
-        //wait for user request action to complete before evaluating getters
-
-        this.checkUsernames = this.$store.getters['user/getAllUserNames']
-        return (this.checkEmails = this.$store.getters['user/getAllEmails'])
+        this.users = this.$store.getters['user/getAllUserNames']
+        this.checkEmails = this.$store.getters['user/getAllEmails']
+        return (this.checkUsernames = this.users.map(item => item.username))
       }
     })
   },
@@ -319,7 +320,6 @@ export default {
         return true
       }
     })
-
     //give sponsors autocomplete uername support
     extend('sponsor', {
       message:
@@ -329,7 +329,6 @@ export default {
         return true
       }
     })
-
     // custom rules for Email validations
     extend('CheckEmail', {
       message:
@@ -340,9 +339,7 @@ export default {
         return true
       }
     })
-
     const x = new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])')
-
     // custom validation for password
     extend('checkPassword', {
       message:
@@ -361,10 +358,12 @@ export default {
       this.$refs.form.validate().then(async success => {
         // if vee-validate is not a success return to the form
         if (!success) return
-
+        const referer = this.users.find(
+          user => user.username === this.sponsorName
+        )
         try {
           // gather user details
-          const user = {
+          const userPayload = {
             name: this.name,
             username: this.username,
             email: this.email,
@@ -372,11 +371,11 @@ export default {
             address: this.address,
             role: this.role,
             phone: this.phone,
-            sponsorName: this.sponsorName
+            refererId: this.sponsorName === '' ? null : referer.id
           }
-
+          return console.log(userPayload)
           // using nuxt auth system
-          await this.$axios.post('/auth/signup', user)
+          await this.$axios.post('/auth/signup', userPayload)
 
           this.name = this.username = this.email = this.phone = this.address = this.password = this.confirmPassword = this.sponsorName =
             ''
@@ -388,7 +387,7 @@ export default {
             this.$refs.form.reset()
           })
         } catch (err) {
-          this.error = err.response.data.message
+          console.log(err)
         }
       })
     }
