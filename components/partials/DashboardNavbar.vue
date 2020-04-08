@@ -35,12 +35,12 @@
           <img src="https://via.placeholder.com/50" />
         </a>
         <div class="dropdown-menu profile-drop" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item profile-drop" href="/profile">profile</a>
+            <nuxt-link class="dropdown-item profile-drop" to="/user/profile">profile</nuxt-link>
           
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item profile-drop" href="#" @click.prevent="logout">logout</a>
+          <nuxt-link class="dropdown-item profile-drop" to="#" @click.prevent="logout">logout</nuxt-link>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item profile-drop" href="/edit">edit</a>
+          <nuxt-link class="dropdown-item profile-drop" to="/edit">edit</nuxt-link>
         </div>
       </div>
     </nav>

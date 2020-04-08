@@ -75,35 +75,19 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tree">
+                    <div class="tree" >
                         <div class="row">
-                            <div class="col-md-8 col-9 text-center">
+                            <div class="col-md-10 col-9 text-center">
                                 <img src="../../assets/img/93.png" alt="" class="img-fluid small-img">
-                                <h5>Jack Bill <span class="badge badge-success">4</span></h5>
+                                <p>{{$auth.user.name}} <span class="badge badge-success">{{ stage_completed }}</span></p>
                             </div>
-                            <div class="col-md-4 col-3">
+                            <div class="col-md-2 col-3">
                                 <p>Upliner</p>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-8 col-9 text-center">
-                                <div class="pointer text-center"></div>
-                            </div>
-                            <div class="col-md-4 col-3">
-                            
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-8 col-9 text-center">
-                                <img src="../../assets/img/93.png" alt="" class="img-fluid small-img">
-                                <h5>John Doe <span class="badge badge-info">2</span></h5>
-                            </div>
-                            <div class="col-md-4 col-3">
-                                
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-8 col-9 text-center">
+
+                        <div class="row" >
+                            <div class="col-md-10 col-9 text-center">
                                 <div class="row">
                                     <div class="col-md-6 col-6">
                                         <div class="pointer text-center"></div>
@@ -114,21 +98,21 @@
                                 </div>
                                
                             </div>
-                            <div class="col-md-4 col-3">
+                            <div class="col-md-2 col-3">
                                
                             </div>
                         </div>
                         
                         <div class="row">
-                            <div class="col-md-8 col-9 text-center">
+                            <div class="col-md-10 col-9 text-center">
                                 <div class="row">
                                     <div class="col-md-6 col-6">
                                         <img src="../../assets/img/93.png" alt="" class="img-fluid small-img">
-                                        <h5>Sarah Connor <span class="badge badge-info">2</span></h5>
+                                        <p>{{ childrens[0].name}} <span class="badge badge-info">{{childrens[0].stage_completed}}</span></p>
                                     </div>
                                     <div class="col-md-6 col-6">
                                          <img src="../../assets/img/93.png" alt="" class="img-fluid small-img">
-                                        <h5>Jack Bower <span class="badge badge-danger">1</span></h5>
+                                        <p>Jack Bower <span class="badge badge-danger">1</span></p>
                                         <form>
                                             <label class="radio-inline">
                                             <input type="radio" name="optradio" checked>paid
@@ -140,11 +124,525 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-3">
+                            <div class="col-md-2 col-3">
                                 <p>Downliners</p>
                                 
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-md-10 col-9 text-center">
+                                <div class="row">
+                                    <div class="col-md-6 col-6">
+                                        <div class="row">
+                                            <div class="col-md-6 col-6">
+                                                <div class="pointer text-center"></div>
+                                            </div>
+                                            <div class="col-md-6 col-6">
+                                                <div class="pointer text-center"></div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                       <div class="row">
+                                            <div class="col-md-6 col-6">
+                                                <div class="pointer text-center"></div>
+                                            </div>
+                                            <div class="col-md-6 col-6">
+                                                <div class="pointer text-center"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-2 col-3">
+                               
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10 col-9 text-center">
+                                <div class="row">
+                                    <div class="col-md-6 col-6">
+                                        <div class="row">
+                                            <div class="col-md-6 col-6">
+                                               <img src="../../assets/img/93.png" alt="" class="img-fluid small-img">
+                                            <!-- <h5>{{ childrens[0]}} <span class="badge badge-info">{{childrens[0]}}</span></h5> -->
+                                            </div>
+                                            <div class="col-md-6 col-6">
+                                               <img src="../../assets/img/93.png" alt="" class="img-fluid small-img">
+                                             <!-- <h5>{{ childrens[0]}} <span class="badge badge-info">{{childrens[0]}}</span></h5> -->
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                       <div class="row">
+                                            <div class="col-md-6 col-6">
+                                                <img src="../../assets/img/93.png" alt="" class="img-fluid small-img">
+                                            <!-- <h5>{{ childrens[0]}} <span class="badge badge-info">{{childrens[0]}}</span></h5> -->
+                                            </div>
+                                            <div class="col-md-6 col-6">
+                                                <img src="../../assets/img/93.png" alt="" class="img-fluid small-img">
+                                            <!-- <h5>{{ childrens[0]}} <span class="badge badge-info">{{childrens[0]}}</span></h5> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-2 col-3">
+                               
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-10 col-9 text-center">
+                                <div class="row">
+                                    <div class="col-md-6 col-6">
+                                        <div class="row">
+                                            <div class="col-md-6 col-6">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-6">
+                                                        <div class="pointer text-center"></div>
+                                                    </div>
+                                                    <div class="col-md-6 col-6">
+                                                        <div class="pointer text-center"></div>
+                                                    </div>
+                                                </div>
+                                                 
+
+                                            </div>
+                                            <div class="col-md-6 col-6">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-6">
+                                                        <div class="pointer text-center"></div>
+                                                    </div>
+                                                    <div class="col-md-6 col-6">
+                                                        <div class="pointer text-center"></div>
+                                                    </div>
+                                                </div>
+                                                 
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                        <div class="row">
+                                            <div class="col-md-6 col-6">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-6">
+                                                        <div class="pointer text-center"></div>
+                                                    </div>
+                                                    <div class="col-md-6 col-6">
+                                                        <div class="pointer text-center"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-6">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-6">
+                                                        <div class="pointer text-center"></div>
+                                                    </div>
+                                                    <div class="col-md-6 col-6">
+                                                        <div class="pointer text-center"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-2 col-3">
+                               
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10 col-9 text-center">
+                                <div class="row">
+                                    <div class="col-md-6 col-6">
+                                        <div class="row">
+                                            <div class="col-md-6 col-6">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-6">
+                                                       <img src="../../assets/img/93.png" alt="" class="img-fluid small-img">
+                                                    <!-- <h5>{{ childrens[0]}} <span class="badge badge-info">{{childrens[0]}}</span></h5> -->
+                                                    </div>
+                                                    <div class="col-md-6 col-6">
+                                                       <img src="../../assets/img/93.png" alt="" class="img-fluid small-img">
+                                                    <!-- <h5>{{ childrens[0]}} <span class="badge badge-info">{{childrens[0]}}</span></h5> -->
+                                                    </div>
+                                                </div>
+                                                 
+
+                                            </div>
+                                            <div class="col-md-6 col-6">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-6">
+                                                        <img src="../../assets/img/93.png" alt="" class="img-fluid small-img">
+                                                    <!-- <h5>{{ childrens[0]}} <span class="badge badge-info">{{childrens[0]}}</span></h5> -->
+                                                    </div>
+                                                    <div class="col-md-6 col-6">
+                                                        <img src="../../assets/img/93.png" alt="" class="img-fluid small-img">
+                                                    <!-- <h5>{{ childrens[0]}} <span class="badge badge-info">{{childrens[0]}}</span></h5> -->
+                                                    </div>
+                                                </div>
+                                                 
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                        <div class="row">
+                                            <div class="col-md-6 col-6">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-6">
+                                                        <img src="../../assets/img/93.png" alt="" class="img-fluid small-img">
+                                                    <!-- <h5>{{ childrens[0]}} <span class="badge badge-info">{{childrens[0]}}</span></h5> -->
+                                                    </div>
+                                                    <div class="col-md-6 col-6">
+                                                       <img src="../../assets/img/93.png" alt="" class="img-fluid small-img">
+                                                    <!-- <h5>{{ childrens[0]}} <span class="badge badge-info">{{childrens[0]}}</span></h5> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-6">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-6">
+                                                        <img src="../../assets/img/93.png" alt="" class="img-fluid small-img">
+                                                    <!-- <h5>{{ childrens[0]}} <span class="badge badge-info">{{childrens[0]}}</span></h5> -->
+                                                    </div>
+                                                    <div class="col-md-6 col-6">
+                                                        <img src="../../assets/img/93.png" alt="" class="img-fluid small-img">
+                                                    <!-- <h5>{{ childrens[0]}} <span class="badge badge-info">{{childrens[0]}}</span></h5> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-2 col-3">
+                               
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-10 col-9 text-center">
+                                <div class="row">
+                                    <div class="col-md-6 col-6">
+                                        <div class="row">
+                                            <div class="col-md-6 col-6">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-6">
+                                                        <div class="row">
+                                                            <div class="col-md-6 col-6">
+                                                                <div class="pointer text-center"></div>
+                                                            </div>
+                                                            <div class="col-md-6 col-6">
+                                                                <div class="pointer text-center"></div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    <div class="col-md-6 col-6">
+                                                        <div class="row">
+                                                            <div class="col-md-6 col-6">
+                                                                <div class="pointer text-center"></div>
+                                                            </div>
+                                                            <div class="col-md-6 col-6">
+                                                                <div class="pointer text-center"></div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-6">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-6">
+                                                        <div class="row">
+                                                            <div class="col-md-6 col-6">
+                                                                <div class="pointer text-center"></div>
+                                                            </div>
+                                                            <div class="col-md-6 col-6">
+                                                                <div class="pointer text-center"></div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    <div class="col-md-6 col-6">
+                                                        <div class="row">
+                                                            <div class="col-md-6 col-6">
+                                                                <div class="pointer text-center"></div>
+                                                            </div>
+                                                            <div class="col-md-6 col-6">
+                                                                <div class="pointer text-center"></div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                       <div class="row">
+                                            <div class="col-md-6 col-6">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-6">
+                                                        <div class="row">
+                                                            <div class="col-md-6 col-6">
+                                                                <div class="pointer text-center"></div>
+                                                            </div>
+                                                            <div class="col-md-6 col-6">
+                                                                <div class="pointer text-center"></div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    <div class="col-md-6 col-6">
+                                                        <div class="row">
+                                                            <div class="col-md-6 col-6">
+                                                                <div class="pointer text-center"></div>
+                                                            </div>
+                                                            <div class="col-md-6 col-6">
+                                                                <div class="pointer text-center"></div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-6">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-6">
+                                                        <div class="row">
+                                                            <div class="col-md-6 col-6">
+                                                                <div class="pointer text-center"></div>
+                                                            </div>
+                                                            <div class="col-md-6 col-6">
+                                                                <div class="pointer text-center"></div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    <div class="col-md-6 col-6">
+                                                        <div class="row">
+                                                            <div class="col-md-6 col-6">
+                                                                <div class="pointer text-center"></div>
+                                                            </div>
+                                                            <div class="col-md-6 col-6">
+                                                                <div class="pointer text-center"></div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-2 col-3">
+                               
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10 col-9 text-center">
+                                <div class="row">
+                                    <div class="col-md-6 col-6">
+                                        <div class="row">
+                                            <div class="col-md-6 col-6">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-6">
+                                                        <div class="row">
+                                                            <div class="col-md-6 col-6">
+                                                                <img src="../../assets/img/93.png" alt="" class="img-fluid small-img">
+                                                            <p class="text-center">{{ childrens[0].name}} <span class="badge badge-info">{{childrens[0].stage_completed}}</span></p>
+                                                            </div>
+                                                            <div class="col-md-6 col-6">
+                                                                <img src="../../assets/img/93.png" alt="" class="img-fluid small-img">
+                                                            <!-- <h5>{{ childrens[0]}} <span class="badge badge-info">{{childrens[0]}}</span></h5> -->
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    <div class="col-md-6 col-6">
+                                                        <div class="row">
+                                                            <div class="col-md-6 col-6">
+                                                                <img src="../../assets/img/93.png" alt="" class="img-fluid small-img">
+                                                            <!-- <h5>{{ childrens[0]}} <span class="badge badge-info">{{childrens[0]}}</span></h5> -->
+                                                            </div>
+                                                            <div class="col-md-6 col-6">
+                                                                <img src="../../assets/img/93.png" alt="" class="img-fluid small-img">
+                                                            <!-- <h5>{{ childrens[0]}} <span class="badge badge-info">{{childrens[0]}}</span></h5> -->
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-6">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-6">
+                                                        <div class="row">
+                                                            <div class="col-md-6 col-6">
+                                                               <img src="../../assets/img/93.png" alt="" class="img-fluid small-img">
+                                                            <!-- <h5>{{ childrens[0]}} <span class="badge badge-info">{{childrens[0]}}</span></h5> -->
+                                                            </div>
+                                                            <div class="col-md-6 col-6">
+                                                               <img src="../../assets/img/93.png" alt="" class="img-fluid small-img">
+                                                            <!-- <h5>{{ childrens[0]}} <span class="badge badge-info">{{childrens[0]}}</span></h5> -->
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    <div class="col-md-6 col-6">
+                                                        <div class="row">
+                                                            <div class="col-md-6 col-6">
+                                                               <img src="../../assets/img/93.png" alt="" class="img-fluid small-img">
+                                                        <!-- <h5>{{ childrens[0]}} <span class="badge badge-info">{{childrens[0]}}</span></h5> -->
+                                                            </div>
+                                                            <div class="col-md-6 col-6">
+                                                               <img src="../../assets/img/93.png" alt="" class="img-fluid small-img">
+                                                            <!-- <h5>{{ childrens[0]}} <span class="badge badge-info">{{childrens[0]}}</span></h5> -->
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                       <div class="row">
+                                            <div class="col-md-6 col-6">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-6">
+                                                        <div class="row">
+                                                            <div class="col-md-6 col-6">
+                                                                <img src="../../assets/img/93.png" alt="" class="img-fluid small-img">
+                                                            <!-- <h5>{{ childrens[0]}} <span class="badge badge-info">{{childrens[0]}}</span></h5> -->
+                                                            </div>
+                                                            <div class="col-md-6 col-6">
+                                                                <img src="../../assets/img/93.png" alt="" class="img-fluid small-img">
+                                                            <!-- <h5>{{ childrens[0]}} <span class="badge badge-info">{{childrens[0]}}</span></h5> -->
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    <div class="col-md-6 col-6">
+                                                        <div class="row">
+                                                            <div class="col-md-6 col-6">
+                                                                <img src="../../assets/img/93.png" alt="" class="img-fluid small-img">
+                                                            <!-- <h5>{{ childrens[0]}} <span class="badge badge-info">{{childrens[0]}}</span></h5> -->
+                                                            </div>
+                                                            <div class="col-md-6 col-6">
+                                                                <img src="../../assets/img/93.png" alt="" class="img-fluid small-img">
+                                                            <!-- <h5>{{ childrens[0]}} <span class="badge badge-info">{{childrens[0]}}</span></h5> -->
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-6">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-6">
+                                                        <div class="row">
+                                                            <div class="col-md-6 col-6">
+                                                                <img src="../../assets/img/93.png" alt="" class="img-fluid small-img">
+                                                            <!-- <h5>{{ childrens[0]}} <span class="badge badge-info">{{childrens[0]}}</span></h5> -->
+                                                            </div>
+                                                            <div class="col-md-6 col-6">
+                                                                <img src="../../assets/img/93.png" alt="" class="img-fluid small-img">
+                                                            <!-- <h5>{{ childrens[0]}} <span class="badge badge-info">{{childrens[0]}}</span></h5> -->
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    <div class="col-md-6 col-6">
+                                                        <div class="row">
+                                                            <div class="col-md-6 col-6">
+                                                                <img src="../../assets/img/93.png" alt="" class="img-fluid small-img">
+                                                            <!-- <h5>{{ childrens[0]}} <span class="badge badge-info">{{childrens[0]}}</span></h5> -->
+                                                            </div>
+                                                            <div class="col-md-6 col-6">
+                                                                <img src="../../assets/img/93.png" alt="" class="img-fluid small-img">
+                                                            <!-- <h5>{{ childrens[0]}} <span class="badge badge-info">{{childrens[0]}}</span></h5> -->
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-2 col-3">
+                               
+                            </div>
+                        </div>
+
+                        <!-- <div class="row">
+                            <div class="col-md-8 col-9 text-center">
+                                <div class="row">
+                                    <div class="col-md-6 col-6">
+                                        <div class="pointer text-center"></div>
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                        <div class="pointer text-center"></div>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-4 col-3">
+                               
+                            </div>
+                        </div> -->
+
+                        <!-- <div class="row">
+                            <div class="col-md-8 col-9 text-center">
+                                <div class="row">
+                                    <div class="col-md-6 col-6">
+                                        <div class="pointer text-center"></div>
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                        <div class="pointer text-center"></div>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-4 col-3">
+                               
+                            </div>
+                        </div> -->
+
+                        <!-- <div class="row">
+                            <div class="col-md-8 col-9 text-center">
+                                <div class="row">
+                                    <div class="col-md-6 col-6">
+                                        <div class="pointer text-center"></div>
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                        <div class="pointer text-center"></div>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-4 col-3">
+                               
+                            </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -174,13 +672,16 @@ export default {
     data() {
         return {
             reward: '',
-            stage_completed: ''
+            stage_completed: '',
+            childrens: []
         }
     },
     methods: {
         async getDownlines() {
             const emailed = await this.$axios.$get('/user/get-down-lines')
             console.log(emailed)
+            this.childrens = emailed.data.children
+            console.log(this.childrens)
         },
         async getReward() {
            try {
@@ -199,7 +700,8 @@ export default {
         }
     },
     mounted() {
-        this.getReward()
+        this.getReward(),
+        this.getDownlines()
     }
 }
 </script>
@@ -229,7 +731,11 @@ export default {
     }
 
     .small-img {
-        height: 50px;
+        height: 30px;
+    }
+
+    p {
+        font-size: 13px;
     }
 
     .card {
