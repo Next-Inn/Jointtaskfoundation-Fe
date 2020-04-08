@@ -1,11 +1,9 @@
 <template>
   <div>
-    <!-- <Banner>
-      <h1 slot="header">Sign Up</h1>
-    </Banner>-->
     <section id="signUp">
       <div class="container-fluid">
         <div class="row">
+          <Notification v-if="errors" :message="errors" />
           <div class="col-md-12 col-xs-12 form-container">
             <ValidationObserver ref="form">
               <form action id="regForm shadow" @submit.prevent="onSubmit" role="form">
@@ -34,7 +32,7 @@
                               type="text"
                               class="form-control"
                               :class="classes"
-                              placeholder="Full Name"
+                              placeholder="Full Name e.g Ren Moores"
                               v-model="name"
                               onfocus="this.placeholder=''"
                               onblur="this.placeholder='Fullname'"
@@ -221,7 +219,7 @@
                         <ValidationProvider
                           v-if="currentTab === 1"
                           name="sponsorName"
-                          rules="required|min:3|alpha_num|sponsor"
+                          rules="min:3|alpha_num|sponsor"
                           v-slot="{ errors, classes }"
                           :bails="false"
                         >
@@ -245,7 +243,15 @@
 
                 <div style="overflow:auto; text-align: center;">
                   <div style="display:flex; justify-content: center;" class="my-3">
-                    <button class="btn btn-blue btn-block" type="submit" id="nextBtn">Submit</button>
+                    <button
+                      class="btn btn-blue btn-block"
+                      style="display:flex; justify-content: center; align-items: center;"
+                      type="submit"
+                      id="nextBtn"
+                    >
+                      Submit
+                      <ButtonLoader v-if="loading" :loading="loading" />
+                    </button>
                   </div>
                   <p>
                     Already have an account? Click
@@ -265,6 +271,8 @@
 
 <script>
 import Banner from './../../components/other/Banner'
+import ButtonLoader from './../../components/notification/buttonLoader'
+import Notification from './../../components/notification/Notification'
 import {
   ValidationProvider,
   ValidationObserver,
@@ -273,13 +281,21 @@ import {
 } from 'vee-validate'
 
 export default {
-  components: { Banner, ValidationProvider, ValidationObserver },
+  //  middleware: ['redirectIfAuthenticated'],
+  components: {
+    Banner,
+    ValidationProvider,
+    ValidationObserver,
+    ButtonLoader,
+    Notification
+  },
 
   layout: 'auth',
 
   data() {
     return {
       currentTab: 1,
+      loading: false,
       name: '',
       username: '',
       email: '',
@@ -291,18 +307,20 @@ export default {
       checkUsernames: '',
       checkEmails: '',
       role: 'user',
-      error: null
+      errors: '',
+      users: '',
+      loading: false
     }
   },
 
   created() {
+    this.loading = true
     //change to created event handler
     this.$store.dispatch('user/getUserNamesAndEmails').then(() => {
       if (this.$store.getters['user/getAllUserNames']) {
-        //wait for user request action to complete before evaluating getters
-
-        this.checkUsernames = this.$store.getters['user/getAllUserNames']
-        return (this.checkEmails = this.$store.getters['user/getAllEmails'])
+        this.users = this.$store.getters['user/getAllUserNames']
+        this.checkEmails = this.$store.getters['user/getAllEmails']
+        return (this.checkUsernames = this.users.map(item => item.username))
       }
     })
   },
@@ -318,7 +336,6 @@ export default {
         return true
       }
     })
-
     //give sponsors autocomplete uername support
     extend('sponsor', {
       message:
@@ -328,7 +345,6 @@ export default {
         return true
       }
     })
-
     // custom rules for Email validations
     extend('CheckEmail', {
       message:
@@ -339,9 +355,7 @@ export default {
         return true
       }
     })
-
     const x = new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])')
-
     // custom validation for password
     extend('checkPassword', {
       message:
@@ -353,6 +367,8 @@ export default {
         return true
       }
     })
+
+    this.loading = false
   },
 
   methods: {
@@ -360,10 +376,13 @@ export default {
       this.$refs.form.validate().then(async success => {
         // if vee-validate is not a success return to the form
         if (!success) return
-
+        this.loading = true
+        const referer = this.users.find(
+          user => user.username === this.sponsorName
+        )
         try {
           // gather user details
-          const user = {
+          const userPayload = {
             name: this.name,
             username: this.username,
             email: this.email,
@@ -371,12 +390,12 @@ export default {
             address: this.address,
             role: this.role,
             phone: this.phone,
-            sponsorName: this.sponsorName
+            refererId: this.sponsorName === '' ? null : referer.id
           }
-
+          // return console.log(userPayload)
           // using nuxt auth system
-          await this.$axios.post('/auth/signup', user)
-
+          await this.$axios.post('/auth/signup', userPayload)
+          this.loading = false
           this.name = this.username = this.email = this.phone = this.address = this.password = this.confirmPassword = this.sponsorName =
             ''
           // router to user dashoard
@@ -386,8 +405,10 @@ export default {
           this.$nextTick(() => {
             this.$refs.form.reset()
           })
-        } catch (err) {
-          this.error = err.response.data.message
+        } catch (e) {
+          this.errors = e.response
+            ? e.response.data.error
+            : 'Network Error, Please check Your Network and Try again!!'
         }
       })
     }
@@ -413,7 +434,7 @@ export default {
 
 span {
   color: red;
-  font-size: 11px;
+  font-size: 12px;
   font-style: italic;
   margin-top: 5px;
 }

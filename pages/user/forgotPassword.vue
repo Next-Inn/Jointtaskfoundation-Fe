@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-3"></div>
       <div class="col-md-6 form-container text-center">
-        <form action="">
+        <form action="" @submit.prevent="submitEmail">
           <div class="nav mb-4">
             <nuxt-link to="/" class="navbar-brand">JTF</nuxt-link>
             <h3>Forgot Password?</h3>
@@ -12,7 +12,7 @@
           <h2 class="text-center"></h2>
           <p>Reset your password here</p>
           <div class="form-group">
-            <input type="email" placeholder="Email" class="form-control" />
+            <input type="email" placeholder="Email" class="form-control" v-model="email"/>
           </div>
           <button class="btn btn-blue btn-block">Reset Password</button>
         </form>
@@ -24,7 +24,21 @@
 
 <script>
 export default {
-  layout: 'auth'
+  layout: 'auth',
+  data() {
+    return {
+      email: ''
+    }
+  },
+  methods: {
+    async submitEmail() {
+     const emailed = await this.$axios.$post('/auth/forgetpassword', {
+        email: this.email
+      })
+    this.email = ''
+      console.log(emailed)
+    }
+  }
 }
 </script>
 

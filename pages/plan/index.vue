@@ -11,9 +11,9 @@
             <div class="heading">
               <h1>How We Operate</h1>
             </div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi saepe molestias ducimus totam sunt accusamus cupiditate consectetur, architecto labore temporibus fuga nesciunt, cumque officiis enim doloremque voluptatem, ad magni fugit recusandae voluptates ab! Vitae, nemo.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur laborum quos asperiores quam! Vel ab aliquid amet eum hic consectetur perspiciatis quis dolorem sint. Distinctio quas ducimus possimus deleniti voluptatibus!</p>
-          </div>
+            <p>
+            Joint Task Foundation is about helping and enriching humanity across the globe by empowering individuals and cooperate bodies. We are here to work with you and through you empower others.
+          </p></div>
           <div class="col-md-6">
             <img src="./../../assets/img/MLM-Binary-plan.png" alt="plan" class="img-fluid" />
           </div>
