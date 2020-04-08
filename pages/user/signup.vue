@@ -3,6 +3,7 @@
     <section id="signUp">
       <div class="container-fluid">
         <div class="row">
+          <Notification v-if="errors" :message="errors" />
           <div class="col-md-12 col-xs-12 form-container">
             <ValidationObserver ref="form">
               <form action id="regForm shadow" @submit.prevent="onSubmit" role="form">
@@ -31,7 +32,7 @@
                               type="text"
                               class="form-control"
                               :class="classes"
-                              placeholder="Full Name"
+                              placeholder="Full Name e.g Ren Moores"
                               v-model="name"
                               onfocus="this.placeholder=''"
                               onblur="this.placeholder='Fullname'"
@@ -271,6 +272,7 @@
 <script>
 import Banner from './../../components/other/Banner'
 import ButtonLoader from './../../components/notification/buttonLoader'
+import Notification from './../../components/notification/Notification'
 import {
   ValidationProvider,
   ValidationObserver,
@@ -280,7 +282,13 @@ import {
 
 export default {
   //  middleware: ['redirectIfAuthenticated'],
-  components: { Banner, ValidationProvider, ValidationObserver, ButtonLoader },
+  components: {
+    Banner,
+    ValidationProvider,
+    ValidationObserver,
+    ButtonLoader,
+    Notification
+  },
 
   layout: 'auth',
 
@@ -299,7 +307,7 @@ export default {
       checkUsernames: '',
       checkEmails: '',
       role: 'user',
-      error: null,
+      errors: '',
       users: '',
       loading: false
     }
@@ -397,8 +405,10 @@ export default {
           this.$nextTick(() => {
             this.$refs.form.reset()
           })
-        } catch (err) {
-          console.log(err)
+        } catch (e) {
+          this.errors = e.response
+            ? e.response.data.error
+            : 'Network Error, Please check Your Network and Try again!!'
         }
       })
     }
