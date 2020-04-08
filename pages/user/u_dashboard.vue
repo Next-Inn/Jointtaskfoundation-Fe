@@ -113,14 +113,6 @@
                                     <div class="col-md-6 col-6">
                                          <img src="../../assets/img/93.png" alt="" class="img-fluid small-img">
                                         <p>Jack Bower <span class="badge badge-danger">1</span></p>
-                                        <form>
-                                            <label class="radio-inline">
-                                            <input type="radio" name="optradio" checked>paid
-                                            </label>
-                                            <label class="radio-inline">
-                                            <input type="radio" name="optradio">Yet to pay
-                                            </label>
-                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -464,7 +456,7 @@
                                                         <div class="row">
                                                             <div class="col-md-6 col-6">
                                                                 <img src="../../assets/img/93.png" alt="" class="img-fluid small-img">
-                                                            <p class="text-center">{{ childrens[0].name}} <span class="badge badge-info">{{childrens[0].stage_completed}}</span></p>
+                                                            <p class="text-center">{{ childrens[0]}} <span class="badge badge-info">{{childrens[0]}}</span></p>
                                                             </div>
                                                             <div class="col-md-6 col-6">
                                                                 <img src="../../assets/img/93.png" alt="" class="img-fluid small-img">
