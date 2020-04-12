@@ -10,7 +10,6 @@
                 <nuxt-link to="/" class="navbar-brand">JTF</nuxt-link>
                 <h3>Sign In</h3>
               </div>
-
               <div class="form-group">
                 <label>Username or Email</label>
                 <input
@@ -36,7 +35,15 @@
                 <span class="alert" v-if="errors.password">{{ errors.password }}*</span>
               </div>
 
-              <button class="btn btn-blue btn-block">Log In</button>
+              <button
+                class="btn btn-blue btn-block"
+                style="display:flex; justify-content: center; align-items: center;"
+                type="submit"
+                id="nextBtn"
+              >
+                Submit
+                <ButtonLoader v-if="loading" :loading="loading" />
+              </button>
               <div class="text-center mt-4">
                 <p>
                   Don't have an account? Click
@@ -60,19 +67,22 @@
 <script>
 import Banner from './../../components/other/Banner'
 import Notification from './../../components/notification/Notification'
+import ButtonLoader from './../../components/notification/buttonLoader'
 export default {
-  components: { Banner, Notification },
+  components: { Banner, Notification, ButtonLoader },
   layout: 'auth',
   data() {
     return {
       usernameEmail: '',
       password: '',
-      errors: ''
+      errors: '',
+      loading: false
     }
   },
   middleware: ['redirectIfAuthenticated'],
   methods: {
     async onSubmit() {
+      this.loading = true
       const data = {
         password: this.password
       }
@@ -84,11 +94,14 @@ export default {
 
       try {
         await this.$auth.loginWith('local', { data })
+        this.loading = false
       } catch (e) {
-        this.errors = e.response ? e.response.data.error : true
+        this.errors = e.response
+          ? e.response.data.error
+          : 'Network Error, Please check Your Network and Try again!!'
       }
       if (!this.errors) {
-        this.$router.push('/dashboard')
+        this.$router.push('/user/u_dashboard')
       }
     },
     checkEmail(email) {

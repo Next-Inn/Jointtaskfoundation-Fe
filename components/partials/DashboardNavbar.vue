@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav class="navbar navbar-expand shadow navbar-sticky-top">
-      <div class="hidden-lg togle-btn" onclick="toggleSidebar()">
+      <div class="hidden-lg togle-btn" @click="!open">
         <span>
           <i class="fa fa-bars"></i>
         </span>
@@ -12,6 +12,15 @@
             <i class="fa fa-bell"></i>
           </a>
         </li>
+        <template v-if="!$auth.user">
+          <nuxt-link to="/user/signup">Sign Up</nuxt-link>
+          <nuxt-link to="/user/login">Log in</nuxt-link>
+        </template>
+        <template v-else>
+          <nuxt-link to="#">Welcome {{ $auth.user.name }}</nuxt-link>
+          <nuxt-link to="#" @click.prevent="logout" variant="danger">Logout</nuxt-link>
+        </template>
+        
       </ul>
       <div class="nav-item dropdown">
         <a
@@ -26,11 +35,12 @@
           <img src="https://via.placeholder.com/50" />
         </a>
         <div class="dropdown-menu profile-drop" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item profile-drop" href="/profile">profile</a>
+            <nuxt-link class="dropdown-item profile-drop" to="/user/profile">profile</nuxt-link>
+          
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item profile-drop" href="#" @click.prevent="logout">logout</a>
+          <nuxt-link class="dropdown-item profile-drop" to="#" @click.prevent="logout">logout</nuxt-link>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item profile-drop" href="/edit">edit</a>
+          <nuxt-link class="dropdown-item profile-drop" to="/edit">edit</nuxt-link>
         </div>
       </div>
     </nav>
@@ -59,6 +69,9 @@ export default {
   padding-left: 24px;
   padding-right: 24px;
 }
-</style>>
+
+a {
+  margin: 0 10px;
+}
 
 </style>

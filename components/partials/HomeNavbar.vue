@@ -30,12 +30,24 @@
             <li class="nav-item">
               <nuxt-link to="/contact" class="nav-link" id="contact-nav">Contact</nuxt-link>
             </li>
-            <li class="nav-item">
-              <nuxt-link to="/user/login" class="nav-link" id="login-nav">Log in</nuxt-link>
-            </li>
+            <template v-if="!$auth.user">
+             
             <li class="nav-item">
               <nuxt-link to="/user/signup" class="nav-link" id="signUp-nav">Sign Up</nuxt-link>
             </li>
+              <li class="nav-item">
+                <nuxt-link to="/user/login" class="nav-link" id="login-nav">Log in</nuxt-link>
+              </li>
+            </template>
+            <template v-else>
+              <li class="nav-item">
+                <nuxt-link to="#" class="nav-link" id="login-nav"> Welcome {{ $auth.user.name }} </nuxt-link>
+              </li>
+              <li class="nav-item">
+                <nuxt-link to="#" class="nav-link" id="login-nav" @click.prevent="logout">Log out</nuxt-link>
+              </li>
+            </template>
+            
           </ul>
         </div>
       </div>
@@ -62,10 +74,17 @@ export default {
   computed: {
     scroller() {
       return this.isScrolling
+    },
+    user() {
+      return this.$store.getters.loggedInUser
     }
   },
-
   methods: {
+    async logout() {
+      alert('aloo')
+      await this.$auth.logout()
+      this.$router.push('/user/login')
+    },
     scrollFunction() {
       if (
         document.body.scrollTop < 0 ||

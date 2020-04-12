@@ -1,5 +1,5 @@
 <template>
-  <div class="alert alert-danger text-center py-4" role="alert">
+  <div class="alert alert-success text-center py-4" role="alert">
     <strong>{{message}}</strong>
   </div>
 </template>
