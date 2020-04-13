@@ -2172,7 +2172,7 @@
 <script>
 import DashboardNav from './../../components/partials/DashboardNavbar'
 export default {
-  middleware: 'redirectIfGuest',
+  // middleware: 'redirectIfGuest',
   layout: 'dashboard',
   components: {
     DashboardNav

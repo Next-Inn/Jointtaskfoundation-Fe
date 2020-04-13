@@ -63,15 +63,6 @@ export default {
                phone: '08067488682',
                address: "5, address, Lagos State",
            });
-        //    this.$auth.login({data: this.userInfo});
-        //    await this.$auth.loginWith('local', {
-        //         data: {
-        //             username,
-        //             password,
-        //             email
-        //         }
-        //     })
-        //     console.log(registered)
            return this.$router.push('/dashboard')
         }
     }

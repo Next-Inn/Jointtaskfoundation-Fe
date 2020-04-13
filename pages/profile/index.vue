@@ -63,7 +63,7 @@
 <script>
 import DashboardNav from './../../components/partials/DashboardNavbar'
 export default {
-   middleware: ['redirectIfAuthenticated'],
+  //  middleware: ['redirectIfAuthenticated'],
   layout: 'dashboard',
   components: {
     DashboardNav
