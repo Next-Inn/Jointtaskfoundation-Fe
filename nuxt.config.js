@@ -50,13 +50,16 @@ export default {
 	/*
   ** Global CSS
   */
-	css: [],
+	css: [
+		'ant-design-vue/dist/antd.css'
+	],
 	/*
   ** Plugins to load before mounting the App
   */
 	plugins: [
 		'~/plugins/vee-validate.js',
-		{ src: '~/plugins/aos.js', ssr: false }
+		{ src: '~/plugins/aos.js', ssr: false },
+		'@/plugins/antd-ui'
 	],
 
 	/*
@@ -151,6 +154,14 @@ export default {
 		transpile: [
 			'vee-validate/dist/rules'
 		],
-		extend (config, ctx) {}
+		extend (config, ctx) {},
+		babel: {
+			plugins: [
+				[
+					'import',
+					{ libraryName: 'ant-design-vue', style: 'css' }
+				]
+			]
+		}
 	}
 };
