@@ -2,7 +2,8 @@ const state = () => ({
 	user: '',
 	users: '',
 	checkUsernames: '',
-	checkEmails: ''
+	checkEmails: '',
+	email: ''
 });
 
 export const mutations = {
@@ -15,6 +16,9 @@ export const mutations = {
 	SET_USERNAME_EMAIL (state, payload) {
 		state.checkUsernames = payload.usernames;
 		state.checkEmails = payload.emails;
+	},
+	SET_EMAIL (state, payload) {
+		state.email = payload;
 	}
 };
 
@@ -48,6 +52,10 @@ export const actions = {
 		} catch (e) {
 			return console.log(e);
 		}
+	},
+
+	async setEmail ({ commit }, payload) {
+		commit('SET_EMAIL', payload);
 	}
 };
 
@@ -55,5 +63,6 @@ export const getters = {
 	getAllUsers: (state) => state.users,
 	getSingleUser: (state) => state.user,
 	getAllUserNames: (state) => state.checkUsernames,
-	getAllEmails: (state) => state.checkEmails
+	getAllEmails: (state) => state.checkEmails,
+	getSingleEmail: (state) => state.email
 };
