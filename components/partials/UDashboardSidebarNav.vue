@@ -1,6 +1,6 @@
 <template>
     <section id="sidebar">
-        <a href="#" class="navbar-brand">MLM</a>
+        <a href="/" class="navbar-brand">JTF</a>
         <ul class="navbar-nav nav-sidebar text-center" id="">
             <li class="nav-item" >
             <nuxt-link to="/user/u_dashboard" class="nav-link activeClass" id="dashboard">
@@ -15,12 +15,29 @@
                 <i class="fa fa-microphone"></i>Report</nuxt-link>
             </li>
             <li class="nav-item" >
-            <nuxt-link to="#" class="nav-link " id="logOut">
+            <nuxt-link to="#" class="nav-link " id="logOut" @click="logout">
                 <i class="fas fa-sign-out-alt"></i>Log out</nuxt-link>
             </li>
         </ul>
     </section>
 </template>
+
+<script>
+export default {
+    computed: {
+        user(){
+            return this.$store.getters.loggedInUser
+        }
+    },
+    methods: {
+        async logout() {
+            console.log('ayyyyy')
+            await this.$auth.logout(this.user)
+            this.$router.push('/')
+        }
+    }
+}
+</script>
 
 <style scoped>
     #sidebar {

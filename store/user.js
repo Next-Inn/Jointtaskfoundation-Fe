@@ -30,14 +30,14 @@ export const actions = {
 
 	async getUserNamesAndEmails ({ commit }) {
 		try {
-			let usernames = [];
+			let usernames;
 			let emails = [];
-			const { data } = await this.$axios.$get('/auth/usernames/email');
+			const { data } = await this.$axios.$get('/auth/validations');
 
 			data.forEach((user) => {
-				usernames.push(user.username);
 				emails.push(user.email);
 			});
+			usernames = data.map((item) => ({ id: item.uuid, username: item.username }));
 
 			const payload = {
 				usernames,

@@ -1,6 +1,6 @@
 <template>
     <section id="sidebar">
-        <a href="#" class="navbar-brand">MLM</a>
+        <a href="/" class="navbar-brand">JTF</a>
         <ul class="navbar-nav nav-sidebar text-center" id="">
             <li class="nav-item" >
             <nuxt-link to="/dashboard" class="nav-link activeClass" id="dashboard">

@@ -1,7 +1,7 @@
-export default function ({ app, redirect, route }) {
-  if (app.$auth.loggedIn) {
-    return redirect({
-      name: 'index'
-    })
+export default function ({ app, redirect, store }) {
+  // console.log(app)
+  // console.log(app.$auth.loggedIn)
+  if (store.state.authenticated) {
+    return redirect('/user/u_dashboard')
   }
 }
