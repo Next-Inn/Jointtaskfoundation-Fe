@@ -20,7 +20,6 @@
           <nuxt-link to="#">Welcome {{ $auth.user.name }}</nuxt-link>
           <nuxt-link to="#" @click.prevent="logout" variant="danger">Logout</nuxt-link>
         </template>
-        
       </ul>
       <div class="nav-item dropdown">
         <a
@@ -35,10 +34,10 @@
           <img src="https://via.placeholder.com/50" />
         </a>
         <div class="dropdown-menu profile-drop" aria-labelledby="navbarDropdown">
-            <nuxt-link class="dropdown-item profile-drop" to="/user/profile">profile</nuxt-link>
-          
+          <nuxt-link class="dropdown-item profile-drop" to="/user/profile">profile</nuxt-link>
+
           <div class="dropdown-divider"></div>
-          <nuxt-link class="dropdown-item profile-drop" to="#" @click.prevent="logout">logout</nuxt-link>
+          <p class="dropdown-item profile-drop" @click.prevent="logout">logout</p>
           <div class="dropdown-divider"></div>
           <nuxt-link class="dropdown-item profile-drop" to="/edit">edit</nuxt-link>
         </div>
@@ -50,9 +49,9 @@
 <script>
 export default {
   methods: {
-    async logout() {
+    async logout(res) {
       await this.$auth.logout()
-      this.$router.push('/')
+      return res.redirect('/')
     }
   }
 }
@@ -73,5 +72,4 @@ export default {
 a {
   margin: 0 10px;
 }
-
 </style>
