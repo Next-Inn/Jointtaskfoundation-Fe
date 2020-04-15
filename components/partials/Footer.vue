@@ -1,30 +1,44 @@
 <template>
     <div>
         <footer class="footer-layer">
-      <div class="container">
+      <div class="container mt-5 mb-5">
         <div class="row">
-          <div class="col-md-6">
-            <h1>JTF</h1>
-            <p>Jointtask Foundation is a marketing company birthed to raise people finanially. It is no news that many people in our country barely have a decent meal or life. joint task foundation is here to turn that around. We desire to transform the life of people who are under living into a high quality life. Together we can make that happen.</p>
+          <div class="col-md-5">
+            <h3>About JTF</h3>
+            <p class="mt-5">Jointtask Foundation is a marketing company birthed to raise people finanially.  </p>
+           <hr class="color-ccc">
+            <div>
+                <a href="#">
+                <span class="fa fa-facebook"></span>
+              </a>
+              <a href="#">
+                <span class="fa fa-twitter"></span>
+              </a>
+              <a href="#">
+                <span class="fa fa-instagram"></span>
+              </a>
+              <a href="#">
+                <span class="fa fa-google-plus"></span>
+              </a>
+            </div>
           </div>
-          <div class="col-md-2 col-5 quick-links">
+          <div class="col-md-3 col-5 quick-links">
             <h3>Quick Links</h3>
-            <ul class="contact-info">
-              <li class="mt-4"><a href="index.html">Home</a></li>
+            <ul class="contact-info mt-5">
+              <li class=""><a href="index.html">Home</a></li>
               <li class="mt-3"><a href="about.html">About Us</a></li>
               <li class="mt-3"><a href="plan.html">Marketing Plan</a></li>
               <li class="mt-3"><a href="signup.html">Sign Up</a></li>
               <li class="mt-3"><a href="login.html">Login</a></li>
             </ul>
-
           </div>
           <div class="col-md-4 col-7">
             <div class="contact-info-section">
               <h3> Reach Us on...</h3>
-              <ul class="contact-info">
-                <li><i class="fa fa-map-marker"></i><span>21 Revolution Street</span></li>
-                <li><i class="fa fa-phone"></i><span>08067488682, 08090066060</span></li>
-                <li><i class="fa fa-envelope"></i><span>21 Revolution Street</span></li>
+              <ul class="mt-5 contact-info">
+                <li><i class="fa fa-map-marker"></i> 21 Revolution Street</li>
+                <li><i class="fa fa-phone"></i> 08067488682, 08090066060</li>
+                <li><i class="fa fa-envelope"></i> 21 Revolution Street</li>
               </ul>
             </div>
           </div>
@@ -34,21 +48,7 @@
       <div>
         <hr>
         <div class="container">
-          <div class="footer-icons pull-right">
-            <a href="#">
-              <i class="fa fa-facebook"></i>
-            </a>
-            <a href="#">
-              <i class="fa fa-twitter"></i>
-            </a>
-            <a href="#">
-              <i class="fa fa-instagram"></i>
-            </a>
-            <a href="#">
-              <i class="fa fa-google-plus"></i>
-            </a>
-          </div>
-          <p>&copy; Built with pride 2020. </p>
+          <p class="text-center">&copy; Built with pride 2020. </p>
         </div>
       </div>
     </footer>
@@ -67,9 +67,9 @@ export default {
 
 footer {
 	background: var(--main-bg-color);
-	color: #fff;
-	min-height: 91vh;
-	padding: 80px 0 10px;
+	color: #eae6e6;
+	/* min-height: 91vh; */
+	padding: 20px 0;
 	font-size: 18px;
 	/* font-family: 'Nunito', sans-serif; */
 }
@@ -98,10 +98,10 @@ footer hr {
 }
 
 .footer-layer {
-	display: flex;
 	flex-flow: wrap column;
 	align-items: space-between;
-	justify-content: space-between;
+  justify-content: space-between;
+  
 }
 
 .contact-info i {
@@ -111,12 +111,25 @@ footer hr {
 	height: 38px;
 	text-align: center;
 	line-height: 42px;
-	margin: 10px 8px;
+	/* margin: 10px 8px; */
 	vertical-align: middle;
-	border: 2px solid #ffe484;
 	padding: 0px 4px;
 }
-
+.footer-layer span {
+    color: #eae6e6;
+    border: 2px solid #eae6e6;
+    padding: 4px 4px;
+    min-width: 34px;
+    text-align: center;
+    margin-right: 12px;
+    /* transform: skewY(20deg); */
+}
+.footer-layer span:hover {
+    color: #5ef4da;
+    transition:2s;
+    border: 2px dashed #5ef4da;
+     transform:0;
+}
 .contact-info div {
 	display: flex;
 }
@@ -143,9 +156,17 @@ footer hr {
 	font-family: "Font Awesome 5 Free";
 	left: 0;
 	font-size: 15px;
-	color: #fff;
+	color: #eae6e6;
 	content: "\f04";
 	font-weight: bold;
 	padding-right: 11px;
+}
+.footer-layer h3{
+  color:#eae6e6;
+  /* border-bottom:2px solid ; */
+width:max-content;
+}
+.color-ccc{
+  border-color:#ccc;
 }
 </style>

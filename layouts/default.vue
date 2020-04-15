@@ -27,7 +27,7 @@ export default {
 }
 body {
   overflow-x: hidden;
-  font-family: 'Neuton', serif;
+  font-family:'Nunito', sans-serif;
   color: #505962;
 }
 

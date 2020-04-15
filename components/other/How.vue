@@ -70,8 +70,8 @@
 
 <style scoped>
 #how {
-  margin-top: 100px;
-  background: url('./../../assets/img/downloads-bg.jpg');
+  /* margin-top: 100px; */
+  background: linear-gradient(to bottom, rgba(34, 57, 93, 0.89), rgba(34, 57, 93, 0.96)),url(/_nuxt/assets/img/thinking-man.png);
   background-size: 100% 100%;
   background-attachment: fixed;
   min-height: 65vh;
@@ -98,4 +98,22 @@
   justify-content: center;
   align-items: center;
 }
+ .heading h1:after{
+      border-bottom:3px solid #5ef4da;
+      /* height:20px; */
+      width:100px;
+      text-align: center;
+      display:block;
+      padding:5px;
+      content:'';
+      margin:auto;
+    }
+    .heading h1{
+    border-bottom: 1px solid #cccccc;
+    width: max-content;
+    margin: auto;
+    margin-bottom: 29px;
+    color:#ece9e9;
+    font-weight:900;
+    }
 </style>
