@@ -256,8 +256,8 @@
                   <p>
                     Already have an account? Click
                     <nuxt-link to="/user/login">
-                      <strong>Log in</strong>
-                    </nuxt-link>instead
+                      <strong> Log in</strong>
+                    </nuxt-link> instead
                   </p>
                 </div>
               </form>
@@ -433,7 +433,8 @@ export default {
 }
 
 .nav h3 {
-  color: #1655b8;
+  color: #22395d;
+  font-weight: 900;
 }
 
 span {
@@ -445,6 +446,7 @@ span {
 
 .form-container {
   margin: auto;
+  
 }
 
 .form-container form {
@@ -453,7 +455,7 @@ span {
 }
 
 .form-container form a {
-  color: #1655b8;
+  color: #22395d;
   text-decoration: none;
 }
 
@@ -466,24 +468,33 @@ span {
 }
 
 .text-container {
-  background: #1655b8;
-  color: #fff;
+  background: #22395d;
+ color: #d8d9d9;
   padding: 6px;
   margin: 20px 0;
 }
 
 .text-container h3 {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 900;
+  color: #d8d9d9;
 }
 
 .btn-blue {
-  border-color: #1655b8;
-  color: #1655b8;
+  border-color: #22395d;
+  color: #22395d;
+  font-size: 20px;
 }
 
 .btn-blue:hover {
-  background-color: #1655b8 !important;
+  background-color: #22395d !important;
   color: white;
+}
+@media(min-width:1200px){
+  .form-container {
+  margin: auto;
+      width: 50rem;
+}
+
 }
 </style>

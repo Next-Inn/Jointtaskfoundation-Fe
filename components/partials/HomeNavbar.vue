@@ -18,14 +18,17 @@
 
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <nuxt-link to="/" class="nav-link" id="home">Home</nuxt-link>
-            </li>
+            </li> -->
             <li class="nav-item">
-              <nuxt-link to="/about" class="nav-link" id="about-nav">About</nuxt-link>
+              <nuxt-link to="/#about" class="nav-link" id="about-nav">About</nuxt-link>
             </li>
             <li class="nav-item">
               <nuxt-link to="/plan" class="nav-link" id="plan-nav">Marketing Plan</nuxt-link>
+            </li>
+            <li class="nav-item">
+              <nuxt-link to="/#how-benefit" class="nav-link" id="plan-nav">Benefit</nuxt-link>
             </li>
             <li class="nav-item">
               <nuxt-link to="/contact" class="nav-link" id="contact-nav">Contact</nuxt-link>

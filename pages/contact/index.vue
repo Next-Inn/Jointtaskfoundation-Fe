@@ -19,29 +19,31 @@
                 <li class="mt-3"><a href="#"><i class="fa fa-envelope"></i> 21 Revolution Street</a></li>
               </ul>
             </div>
-              <img src="./../../assets/img/woman-baloon.png" alt="about-image" class="img-fluid" />
+              <img src="./../../assets/img/woman-baloon.png" alt="about-image" class="img-fluid p-abs" />
             </div>
           </div>
-          <div class="col-md-6 card-div">
-            <div class="heading">
-              <h1 class="bolder">Write to us</h1>
-              <p class="">Complete the form below and we will be in touch!</p>
-          </div>
-            <form action="#">
-              <div class="form-group mb-2">
-                <input type="text" class="form-control" placeholder="Enter Your Name" id="email" />
-              </div>
-              <div class="form-group mb-2">
-                <input type="email" class="form-control" placeholder="Enter Email" id="pwd" />
-              </div>
-              <div class="form-group mb-2">
-                <input type="text" class="form-control" placeholder="Enter Phone" id="phone" />
-              </div>
-              <div class="form-group mb-2">
-                <textarea name id rows="4" class="form-control" placeholder="Your Message"></textarea>
-              </div>
-              <button type="submit" class="btn btn-blue btn-block">Submit</button>
-            </form>
+          <div class="col-md-6">
+            <div class="card-div">
+              <div class="heading">
+                <h1 class="bolder">Write to us</h1>
+                <p class="">Complete the form below and we will be in touch!</p>
+            </div>
+              <form action="#">
+                <div class="form-group mb-2">
+                  <input type="text" class="form-control" placeholder="Enter Your Name" id="email" />
+                </div>
+                <div class="form-group mb-2">
+                  <input type="email" class="form-control" placeholder="Enter Email" id="pwd" />
+                </div>
+                <div class="form-group mb-2">
+                  <input type="text" class="form-control" placeholder="Enter Phone" id="phone" />
+                </div>
+                <div class="form-group mb-2">
+                  <textarea name id rows="4" class="form-control" placeholder="Your Message"></textarea>
+                </div>
+                <button type="submit" class="btn btn-blue btn-block">Submit</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -60,15 +62,19 @@ export default {
 <style scoped>
 /* contact page */
 #contact-section {
-  margin: 85px 0;
+  /* margin: 85px 0; */
   background: #EBF0F4;
-    padding: 94px 0;
+    padding: 100px 0;
 }
 
 #contact-section .heading h1 {
   margin-top: 5px;
+      color: #22395d;
 }
-
+.p-abs{
+  position:absolute;
+  left:0;
+}
 /* .img-box {
   margin: 35px 0; 
 }*/
@@ -88,7 +94,9 @@ export default {
 	list-style: none;
 	padding: 0px;
 }
-
+.mb-2{
+  margin-bottom:2rem !important;
+}
 .contact-info i {
 	color: #ffffff;
 	font-size: 20px;

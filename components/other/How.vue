@@ -1,6 +1,7 @@
 <template>
+  <div>
   <section id="how">
-    <div class="container">
+    <div class="container mt-3">
       <div class="heading"  data-aos="fade-down" data-aos-duration="2000">
         <h1>Benefits</h1>
         <p>As a partner, you get to enjoy all these benefits</p>
@@ -91,6 +92,7 @@
       </div> -->
     </div>
   </section>
+  </div>
 </template>
 
 <style scoped>
@@ -144,7 +146,7 @@
     width: max-content;
     margin: auto;
     margin-bottom: 29px;
-    color:#ece9e9;
+    color:#fff;
     font-weight:900;
     }
     .screw-icon{
