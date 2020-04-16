@@ -3,7 +3,7 @@
     <nav
       id="navBar"
       class="navbar navbar-expand-md navbar-dark fixed-top"
-      :class="[scroller ? backgroundColored : backgroundTransparent ]"
+      :class="[scroller ? backgroundColored : backgroundTransparent, isHome ? '' : 'nav-bg-color' ]"
     >
       <div class="container">
         <nuxt-link to="/" class="navbar-brand">JTF</nuxt-link>
@@ -77,7 +77,10 @@ export default {
     },
     user() {
       return this.$store.getters.loggedInUser
-    }
+    },
+     isHome() {
+        return this.$route.path == '/';
+      }
   },
   methods: {
     async logout() {
@@ -112,7 +115,9 @@ export default {
 .navbar-brand {
   font-size: 2rem;
 }
-
+.nav-bg-color  {
+background-color:#197a89;
+}
 .navbar-nav li {
   padding-right: 0.7rem;
 }

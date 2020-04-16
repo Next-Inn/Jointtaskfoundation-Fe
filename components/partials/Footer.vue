@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col-md-5">
             <h3>About JTF</h3>
-            <p class="mt-5">Jointtask Foundation is a marketing company birthed to raise people finanially.  </p>
+            <p class="mt-5">Jointtask Foundation is a marketing company birthed to raise people finanially. </p>
            <hr class="color-ccc">
             <div>
                 <a href="#">
@@ -163,8 +163,10 @@ footer hr {
 }
 .footer-layer h3{
   color:#eae6e6;
-  /* border-bottom:2px solid ; */
-width:max-content;
+  /* border-bottom:2px solid ;
+  border-top:2px solid;
+  margin:auto;
+width:max-content; */
 }
 .color-ccc{
   border-color:#ccc;

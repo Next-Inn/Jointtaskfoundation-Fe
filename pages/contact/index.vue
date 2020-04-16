@@ -1,31 +1,43 @@
 <template>
   <div>
-    <Banner>
+    <!-- <Banner>
       <h1 slot="header">Contact</h1>
-    </Banner>
+    </Banner> -->
 
     <section id="contact-section">
       <div class="container">
         <div class="row">
           <div class="col-md-6">
             <div class="img-box">
-              <img src="./../../assets/img/bitcoin.jpg" alt="about-image" class="img-fluid" />
+              <div class="heading">
+                  <h1 class="bolder">Contact Us</h1>
+              </div>
+              <div class="contact-info-section">
+              <ul class="mt-5 contact-info">
+                <li class="mt-3"><a href="#"><i class="fa fa-map-marker"></i> 21 Revolution Street</a></li>
+                <li class="mt-3"><a href="#"><i class="fa fa-phone"></i> 08067488682, 08090066060</a></li>
+                <li class="mt-3"><a href="#"><i class="fa fa-envelope"></i> 21 Revolution Street</a></li>
+              </ul>
+            </div>
+              <img src="./../../assets/img/woman-baloon.png" alt="about-image" class="img-fluid" />
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6 card-div">
             <div class="heading">
-              <h1 class="text-center">Write to us</h1>
-            </div>
-            <p class="text-center">We are just a call away</p>
-
+              <h1 class="bolder">Write to us</h1>
+              <p class="">Complete the form below and we will be in touch!</p>
+          </div>
             <form action="#">
-              <div class="form-group">
+              <div class="form-group mb-2">
                 <input type="text" class="form-control" placeholder="Enter Your Name" id="email" />
               </div>
-              <div class="form-group">
+              <div class="form-group mb-2">
                 <input type="email" class="form-control" placeholder="Enter Email" id="pwd" />
               </div>
-              <div class="form-group">
+              <div class="form-group mb-2">
+                <input type="text" class="form-control" placeholder="Enter Phone" id="phone" />
+              </div>
+              <div class="form-group mb-2">
                 <textarea name id rows="4" class="form-control" placeholder="Your Message"></textarea>
               </div>
               <button type="submit" class="btn btn-blue btn-block">Submit</button>
@@ -48,14 +60,52 @@ export default {
 <style scoped>
 /* contact page */
 #contact-section {
-  margin: 100px 0;
+  margin: 85px 0;
+  background: #EBF0F4;
+    padding: 94px 0;
 }
 
 #contact-section .heading h1 {
   margin-top: 5px;
 }
 
-.img-box {
-  margin: 35px 0;
+/* .img-box {
+  margin: 35px 0; 
+}*/
+.card-div{ 
+  box-shadow: -2px 1px 10px 2px;
+    border-radius: 9px;
+    background: #ffffff;
+    padding: 2rem 1rem;
+}
+.bolder{
+  font-weight: bolder;
+}
+.heading h1{
+  margin: 0;
+}
+.contact-info {
+	list-style: none;
+	padding: 0px;
+}
+
+.contact-info i {
+	color: #ffffff;
+	font-size: 20px;
+	width: 38px;
+	height: 38px;
+	text-align: center;
+	line-height: 42px;
+	/* margin: 10px 8px; */
+	vertical-align: middle;
+	padding: 0px 4px;
+  border: 1px solid;
+    color: #22395d;
+      margin-right: 1rem;
+}
+.contact-info a{
+  font-size: 20px;
+  color: #22395d;
+
 }
 </style>
