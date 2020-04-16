@@ -131,6 +131,8 @@ export default {
 .nav-transparent {
   /* background: rgba(0, 0, 0, 0.18) !important; */
   transition: 2s;
+  border-bottom: 2px solid;
+  
 }
 
 .nav-colored {
@@ -141,5 +143,6 @@ export default {
   font-size: 0.9rem;
   letter-spacing: 0.1rem;
   transition: 2s;
+  border-bottom: 2px solid;
 }
 </style>
