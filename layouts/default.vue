@@ -21,13 +21,13 @@ export default {
 <style>
 :root {
   --main-bg-color: #23395d;
-  --main-txt-color: blue;
+  --main-txt-color: #22395d;
   --white: #fff;
   --main-padding: 15px;
 }
 body {
   overflow-x: hidden;
-  font-family: 'Neuton', serif;
+  font-family:'Nunito', sans-serif;
   color: #505962;
 }
 
@@ -54,8 +54,8 @@ p {
 
 .btn-blue {
   background: #fff;
-  color: #000;
-  border: 1px solid #000;
+  color: #23395d;
+  border: 1px solid #23395d;
 }
 
 .btn-blue:hover {

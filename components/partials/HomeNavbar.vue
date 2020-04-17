@@ -3,7 +3,7 @@
     <nav
       id="navBar"
       class="navbar navbar-expand-md navbar-dark fixed-top"
-      :class="[scroller ? backgroundColored : backgroundTransparent ]"
+      :class="[scroller ? backgroundColored : backgroundTransparent, isHome ? '' : 'nav-bg-color' ]"
     >
       <div class="container">
         <nuxt-link to="/" class="navbar-brand">JTF</nuxt-link>
@@ -18,14 +18,17 @@
 
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <nuxt-link to="/" class="nav-link" id="home">Home</nuxt-link>
-            </li>
+            </li> -->
             <li class="nav-item">
-              <nuxt-link to="/about" class="nav-link" id="about-nav">About</nuxt-link>
+              <nuxt-link to="/#about" class="nav-link" id="about-nav">About</nuxt-link>
             </li>
             <li class="nav-item">
               <nuxt-link to="/plan" class="nav-link" id="plan-nav">Marketing Plan</nuxt-link>
+            </li>
+            <li class="nav-item">
+              <nuxt-link to="/#how-benefit" class="nav-link" id="plan-nav">Benefit</nuxt-link>
             </li>
             <li class="nav-item">
               <nuxt-link to="/contact" class="nav-link" id="contact-nav">Contact</nuxt-link>
@@ -77,7 +80,10 @@ export default {
     },
     user() {
       return this.$store.getters.loggedInUser
-    }
+    },
+     isHome() {
+        return this.$route.path == '/';
+      }
   },
   methods: {
     async logout() {
@@ -112,7 +118,9 @@ export default {
 .navbar-brand {
   font-size: 2rem;
 }
-
+.nav-bg-color  {
+background-color:#197a89;
+}
 .navbar-nav li {
   padding-right: 0.7rem;
 }
@@ -131,6 +139,8 @@ export default {
 .nav-transparent {
   /* background: rgba(0, 0, 0, 0.18) !important; */
   transition: 2s;
+  border-bottom: 2px solid;
+  
 }
 
 .nav-colored {
@@ -141,5 +151,6 @@ export default {
   font-size: 0.9rem;
   letter-spacing: 0.1rem;
   transition: 2s;
+  border-bottom: 2px solid;
 }
 </style>
