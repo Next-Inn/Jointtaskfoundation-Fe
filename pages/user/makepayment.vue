@@ -10,9 +10,9 @@
                             <div class="card py-3">
                             <div class="card-body">
                                 <div class="account">
-                                    <p>Account</p>
-                                    <p>Account Name</p>
-                                    <p class="account-details d-flex">007837382827 <span class="balance">N 40,000</span></p>
+                                    <p class="font-weight-bold">Entrty Fee</p>
+                                    <p class="font-italic">Make entry payment to activate your account</p>
+                                    <p class="account-details d-flex"><span class="balance">N4,000</span></p>
                                 </div>
                                 <form action="" class="py-3">
                                     <div class="form-group">
