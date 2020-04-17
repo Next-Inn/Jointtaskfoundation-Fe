@@ -16,7 +16,7 @@
                                 </div>
                                 <form action="" class="py-3">
                                     <div class="form-group">
-                                        <select class="form-control" id="sel1">
+                                        <select class="form-control">
                                             <!-- <option>Access Bank</option>
                                             <option>UBA</option>
                                             <option>Zenith Bank</option>
