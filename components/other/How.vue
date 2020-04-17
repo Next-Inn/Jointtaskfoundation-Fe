@@ -10,7 +10,7 @@
         
         <div class="col-md-12">
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4 col-6">
               <div class="benefit-box  mb-5" data-aos="fade-up" data-aos-duration="4000">
                 <div class="benefit-text">
                   <div class="screw-icon"><p>1</p></div>
@@ -19,7 +19,7 @@
               </div>
               
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-6">
               <div class="benefit-box  mb-5" data-aos="fade-up" data-aos-duration="4000">
                 <div class="benefit-text">
                   <div class="screw-icon"><p>2</p></div>
@@ -27,7 +27,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4 ">
+            <div class="col-md-4 col-6">
               <div class="benefit-box  mb-5" data-aos="fade-up" data-aos-duration="4000">
                 <div class="benefit-text">  
                   <div class="screw-icon"><p>3</p></div>
@@ -36,7 +36,7 @@
               </div>
               
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-6">
               <div class="benefit-box  mb-5" data-aos="fade-up" data-aos-duration="4000">
                 <div class="benefit-text">  
                   <div class="screw-icon"><p>4</p></div>
@@ -52,7 +52,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-6">
               <div class="benefit-box  mb-5" data-aos="fade-up" data-aos-duration="4000">
                <div class="benefit-text"> 
                   <div class="screw-icon"><p>6</p></div>
@@ -60,7 +60,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-6">
               <div class="benefit-box mb-5" data-aos="fade-up" data-aos-duration="4000">
                 <div class="benefit-text">
                    <div class="screw-icon"><p>7</p></div>
@@ -68,7 +68,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4 ">
+            <div class="col-md-4 col-6">
               <div class="benefit-box mb-5" data-aos="fade-up" data-aos-duration="4000">
                 <div class="benefit-text">
                   <div class="screw-icon"><p>8</p></div>
@@ -76,7 +76,7 @@
                   </div>
               </div> 
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-6">
               <div class="benefit-box mb-5" data-aos="fade-up" data-aos-duration="4000">
                 <div class="benefit-text">
                 <div class="screw-icon"><p>9</p></div>
