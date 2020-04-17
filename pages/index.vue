@@ -4,7 +4,7 @@
     <Whysection/>
     <About id="about"/>
     <How id="how-benefit"/>
-    <Marketplan/>
+    <Marketplan id="plan"/>
   </div>
 </template>
 

@@ -62,22 +62,6 @@
     padding: 10px;
     margin-bottom:5px;
     }
-    .headingh1:after{
-      border-bottom:3px solid #22395d;
-      /* height:20px; */
-      width:100px;
-      text-align: center;
-      display:block;
-      padding:5px;
-      content:'';
-      margin:auto;
-    }
-    .heading h1{
-    border-bottom: 1px solid #cccccc;
-    width: max-content;
-    margin: auto;
-    margin-bottom: 29px;
-    color:#22395d;
-    font-weight:900;
-    }
+  
+   
 </style>

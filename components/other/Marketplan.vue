@@ -9,7 +9,7 @@
         <div class="row">
           <div class="col-md-12 text-center">
             <div class="heading ">
-              <h1>How We Operate</h1>
+              <h1  class="headingh1">How We Operate</h1>
             </div>
             <p>
             Joint Task Foundation is about helping and enriching humanity across the globe by empowering individuals and cooperate bodies. We are here to work with you and through you empower others.
@@ -32,7 +32,7 @@
             >
               <h2 class="mb-0">
                 <button
-                  class="btn"
+                  class="btn head3"
                   type="button"
                   data-toggle="collapse"
                   data-target="#collapseOne"
@@ -87,7 +87,7 @@
             <div class="card-header" id="headingTwo">
               <h2 class="mb-0">
                 <button
-                  class="btn btn-link collapsed"
+                  class="btn btn-link  head3 collapsed"
                   type="button"
                   data-toggle="collapse"
                   data-target="#collapseTwo"
@@ -140,7 +140,7 @@
             <div class="card-header" id="headingThree">
               <h2 class="mb-0">
                 <button
-                  class="btn btn-link collapsed"
+                  class="btn btn-link  head3 collapsed"
                   type="button"
                   data-toggle="collapse"
                   data-target="#collapseThree"
@@ -206,7 +206,11 @@ export default {
 #intro {
   margin: 60px 0;
 }
-
+.head3{
+      font-weight: 900;
+    font-size: 23px;
+    color: #22395d;
+}
 #plan {
   margin: 60px 0;
 }

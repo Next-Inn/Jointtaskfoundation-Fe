@@ -3,7 +3,7 @@
         <footer class="footer-layer">
       <div class="container mt-5 mb-5">
         <div class="row">
-          <div class="col-md-5">
+          <div class="col-md-5 mb-5 ">
             <h3>About JTF</h3>
             <p class="mt-5">Jointtask Foundation is a marketing company birthed to raise people finanially. </p>
            <hr class="color-ccc">
