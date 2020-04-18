@@ -3,6 +3,7 @@ const state = () => ({
 	users: '',
 	checkUsernames: '',
 	checkEmails: '',
+	email: '',
 	children: '',
 	balance: '',
 	stage: ''
@@ -18,6 +19,9 @@ export const mutations = {
 	SET_USERNAME_EMAIL (state, payload) {
 		state.checkUsernames = payload.usernames;
 		state.checkEmails = payload.emails;
+	},
+	SET_EMAIL (state, payload) {
+		state.email = payload;
 	},
 	SET_USER_CHILDREN (state, payload) {
 		state.children = payload;
@@ -60,6 +64,9 @@ export const actions = {
 		}
 	},
 
+	async setEmail ({ commit }, payload) {
+		commit('SET_EMAIL', payload);
+	},	
 	async getDownlines ({ commit }) {
 		try {
 			const { data } = await this.$axios.$get('/user/get-down-lines');
@@ -92,6 +99,7 @@ export const getters = {
 	getSingleUser: (state) => state.user,
 	getAllUserNames: (state) => state.checkUsernames,
 	getAllEmails: (state) => state.checkEmails,
+	getSingleEmail: (state) => state.email,
 	getChildren: (state) => state.children,
 	getBalance: (state) => state.balance,
 	getStage: (state) => state.stage

@@ -396,6 +396,10 @@ export default {
           // using nuxt auth system
           await this.$axios.post('/auth/signup', userPayload)
           this.loading = false
+
+          //set signup user for email token
+          await this.$store.dispatch('user/setEmail', this.email)
+
           this.name = this.username = this.email = this.phone = this.address = this.password = this.confirmPassword = this.sponsorName =
             ''
           // router to user dashoard
