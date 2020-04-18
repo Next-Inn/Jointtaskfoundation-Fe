@@ -47,6 +47,9 @@ export default {
     layout: 'Udashboard',
     components: {
         DashboardNav
+    },
+    methods() {
+        
     }
 }
 </script>
