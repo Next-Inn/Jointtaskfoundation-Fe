@@ -44,7 +44,7 @@
             </template>
             <template v-else>
               <li class="nav-item">
-                <nuxt-link to="#" class="nav-link" id="login-nav"> Welcome {{ $auth.user.name }} </nuxt-link>
+                <nuxt-link to="/user/u_dashboard" class="nav-link" id="login-nav"> Welcome {{ $auth.user.name }} </nuxt-link>
               </li>
               <li class="nav-item">
                 <nuxt-link to="#" class="nav-link" id="login-nav" @click.prevent="logout">Log out</nuxt-link>
