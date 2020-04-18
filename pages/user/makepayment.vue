@@ -114,6 +114,14 @@ export default {
           }
             const payment = this.$axios.$post('/initial-pay',userPayload)
             console.log(payment)
+            payment.then(x => {
+                if (x.data.includes('Please enter OTP')) {
+                    window.prompt(x.data);
+                    // handle sending back otp and reference to the server
+                } else if (x.data.includes('wallet loaded')) {
+                   window.alert(x.data);
+                }
+            }).catch(e => console.log(e));
         }
     },
     mounted() {
