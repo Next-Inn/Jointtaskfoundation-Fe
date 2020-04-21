@@ -1,13 +1,13 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand shadow navbar-sticky-top">
-      <div class="hidden-lg togle-btn" @click="!open">
+    <nav class="navbar navbar-expand shadow navbar-sticky-top ">
+      <div class=" togle-btn" @click="!open">
         <span>
           <i class="fa fa-bars"></i>
         </span>
       </div>
       <ul class="navbar-nav ml-auto hidden-sm">
-        <li class="nav-item">
+        <li class="nav-item d-mobile-no">
           <a class="nav-link" href="#">
             <i class="fa fa-bell"></i>
           </a>
@@ -18,7 +18,7 @@
         </template>
         <template v-else>
           <nuxt-link to="#">Welcome {{ $auth.user.name }}</nuxt-link>
-          <nuxt-link to="#" @click.prevent="logout" variant="danger">Logout</nuxt-link>
+          <nuxt-link to="#" @click.prevent="logout" variant="danger" class="d-mobile-no">Logout</nuxt-link>
         </template>
       </ul>
       <div class="nav-item dropdown">
@@ -72,4 +72,5 @@ export default {
 a {
   margin: 0 10px;
 }
+
 </style>

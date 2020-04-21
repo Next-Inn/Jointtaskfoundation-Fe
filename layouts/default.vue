@@ -81,6 +81,16 @@ p {
       content:'';
       margin:auto;
     }
+    @media(max-width:1200px){
+    .d-mobile-no{
+        display:none
+    }
+}
+  @media(max-width:1200px){
+    .hidden-lg{
+        display:none
+    }
+}
 /* gs, */
 
 

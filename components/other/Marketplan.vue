@@ -4,7 +4,7 @@
       <h1 slot="header">Marketing Plan</h1>
     </Banner> -->
 
-    <section id="intro">
+    <section id="intro" data-aos="fade-up" data-aos-duration="4000">
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center">
@@ -21,7 +21,7 @@
     <section id="plan">
       <div class="container">
         <div class="accordion" id="accordionExample">
-          <div class="card">
+          <div class="card" data-aos="fade-up" data-aos-duration="4000">
             <div
               class="card-header"
               id="headingOne"
@@ -30,7 +30,7 @@
               aria-expanded="true"
               aria-controls="collapseOne"
             >
-              <h2 class="mb-0">
+              <h2 class="mb-0" >
                 <button
                   class="btn head3"
                   type="button"
@@ -48,44 +48,51 @@
               aria-labelledby="headingOne"
               data-parent="#accordionExample"
             >
-              <div class="card-body">
-                <p>You are expected to bring in TWO partners ONLY. This serves as the feeder matrix, feeding stages 2 to stages 8/infinity of this compensation plan. When a member sponsors more than 2 people with his Username, the rest will spill down to down liners.</p>
-                <table class="table table-striped">
-                  <thead>
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">STAGE1 BUILDER</th>
-                      <th scope="col">NO OF PEOPLE</th>
-                      <th scope="col">BONUS</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Level 1</td>
-                      <td>2</td>
-                      <td>1</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Level 2</td>
-                      <td>4</td>
-                      <td>2</td>
-                    </tr>
-                    <tr>
-                      <th scope="row"></th>
-                      <td>Total</td>
-                      <td>6</td>
-                      <td>3</td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div class="card-body" data-aos="fade-up" data-aos-duration="4000">
+               <div class="row">
+                 <div class="col-md-8">
+                    <p>You are expected to bring in TWO partners ONLY. This serves as the feeder matrix, feeding stages 2 to stages 8/infinity of this compensation plan. When a member sponsors more than 2 people with his Username, the rest will spill down to down liners.</p>
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">STAGE1 BUILDER</th>
+                          <th scope="col">NO OF PEOPLE</th>
+                          <th scope="col">BONUS</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Level 1</td>
+                          <td>2</td>
+                          <td>1</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Level 2</td>
+                          <td>4</td>
+                          <td>2</td>
+                        </tr>
+                        <tr>
+                          <th scope="row"></th>
+                          <td>Total</td>
+                          <td>6</td>
+                          <td>3</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                 </div>
+                <div class="col-md-4">
+                  <img src="../../assets/img/2-2-plan.png" alt="">
+                </div>
               </div>
+               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="card" data-aos="fade-up" data-aos-duration="4000">
             <div class="card-header" id="headingTwo">
-              <h2 class="mb-0">
+              <h2 class="mb-0" data-aos="fade-up" data-aos-duration="4000">
                 <button
                   class="btn btn-link  head3 collapsed"
                   type="button"
@@ -102,43 +109,50 @@
               aria-labelledby="headingTwo"
               data-parent="#accordionExample"
             >
-              <div class="card-body">
-                <table class="table table-striped">
-                  <thead>
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">First</th>
-                      <th scope="col">Last</th>
-                      <th scope="col">Handle</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>Larry</td>
-                      <td>the Bird</td>
-                      <td>@twitter</td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div class="card-body" data-aos="fade-up" data-aos-duration="4000">
+                <div class="row">
+                  <div class="col-md-8">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">First</th>
+                          <th scope="col">Last</th>
+                          <th scope="col">Handle</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Mark</td>
+                          <td>Otto</td>
+                          <td>@mdo</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Jacob</td>
+                          <td>Thornton</td>
+                          <td>@fat</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td>Larry</td>
+                          <td>the Bird</td>
+                          <td>@twitter</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                <div class="col-md-4">
+                  <img src="../../assets/img/2-3-plan.png"  class=" img-fluid" alt="">
+                </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="card" data-aos="fade-up" data-aos-duration="4000">
             <div class="card-header" id="headingThree">
-              <h2 class="mb-0">
+              <h2 class="mb-0" data-aos="fade-up" data-aos-duration="4000">
                 <button
                   class="btn btn-link  head3 collapsed"
                   type="button"
@@ -155,8 +169,10 @@
               aria-labelledby="headingThree"
               data-parent="#accordionExample"
             >
-              <div class="card-body">
-                <table class="table table-striped">
+              <div class="card-body" data-aos="fade-up" data-aos-duration="4000">
+                 <div class="row">
+                <div class="col-md-8">
+                    <table class="table table-striped">
                   <thead>
                     <tr>
                       <th scope="col">#</th>
@@ -186,6 +202,11 @@
                     </tr>
                   </tbody>
                 </table>
+                </div>
+                <div class="col-md-4">
+                    <img src="../../assets/img/2-3-plan.png"  class=" img-fluid" alt="">
+                </div>
+                </div>
               </div>
             </div>
           </div>
@@ -209,9 +230,31 @@ export default {
 .head3{
       font-weight: 900;
     font-size: 23px;
-    color: #22395d;
+    color: #e4e0e0;
 }
 #plan {
   margin: 60px 0;
+}
+
+.card-header {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgb(34, 57, 93);
+    border-bottom: 0 solid rgba(172, 14, 14, 0.99);
+    border-top-left-radius: 50px !important;
+    color: #e4e0e0;
+    margin-top: 42px;
+}
+.card{
+  border: 0px;
+  }
+  .btn-link{
+  text-decoration:none;
+  }
+.card-header{
+  margin-top: 17px;
+}
+.card-body{
+    border: 2px solid #5f98ae;
 }
 </style>

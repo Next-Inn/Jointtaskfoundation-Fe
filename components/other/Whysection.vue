@@ -7,23 +7,23 @@
           </div>
 
           <div class="row text-center why_section_details">
-            <div class="col-md-3" data-aos="fade-right" data-aos-duration="2000">
+            <div class="col-md-3 col-6" data-aos="fade-right" data-aos-duration="2000">
               <!-- <i class="fa fa-diamond"></i> -->
               <i class="fas fa-hamburger ourserviceicon fa-3x"></i>
               <h3>Nutrition</h3>
               <p>Drive HUNGER strife from our homes</p>
             </div>
-            <div class="col-md-3" data-aos="fade-up" data-aos-duration="2000">
+            <div class="col-md-3 col-6" data-aos="fade-up" data-aos-duration="2000">
               <i class="fa fa-graduation-cap ourserviceicon fa-3x"></i>
               <h3>Education</h3>
               <p>Promote educational quality in our society</p>
             </div>
-            <div class="col-md-3" data-aos="fade-up" data-aos-duration="2000">
+            <div class="col-md-3 col-6" data-aos="fade-up" data-aos-duration="2000">
               <i class="fas fa-briefcase ourserviceicon fa-3x"></i>
               <h3>Employment</h3>
               <p>Employ and Empower ourselves.</p>
             </div>
-            <div class="col-md-3" data-aos="fade-left" data-aos-duration="2000">
+            <div class="col-md-3 col-6" data-aos="fade-left" data-aos-duration="2000">
               <i class="fas fa-money ourserviceicon fa-3x"></i>
               <h3>Investment</h3>
               <p>Invest together for a better tomorrow.</p>

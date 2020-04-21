@@ -1,7 +1,9 @@
 <template>
-    <section id="sidebar">
+
+    <section id="sidebar" >
+        <!-- <p v-if="!isHidden">click sh me</p> -->
         <a href="/" class="navbar-brand">JTF</a>
-        <ul class="navbar-nav nav-sidebar text-center" id="">
+        <ul class="navbar-nav nav-sidebar text-center" id="" >
             <li class="nav-item" >
             <nuxt-link to="/dashboard" class="nav-link activeClass" id="dashboard">
                 <i class="fa fa-home"></i>Home</nuxt-link>
@@ -17,6 +19,10 @@
         </ul>
     </section>
 </template>
+<script>
+export default {
+}
+</script>
 
 <style scoped>
     #sidebar {
@@ -76,5 +82,7 @@
         text-decoration: none;
         font-size: 24px;
     }
-
+@media(max-width:1200px){
+   #sidebar{ display:none;
+}}
 </style>

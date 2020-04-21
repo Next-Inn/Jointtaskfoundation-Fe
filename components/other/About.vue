@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row mb-5">
         <div class="col-md-6 about-img" data-aos="fade-up-right" data-aos-duration="2000">
-          <img src="../../assets/img/bitcoin2.jpg" alt="about-image" class="img-fluid d-sm-none hidden-sm" />
+          <img src="../../assets/img/bitcoin2.jpg" alt="about-image" class="img-fluid d-xs-none " />
         </div>
         <div class="col-md-6" data-aos="fade-down" data-aos-duration="2000">
           <div class="heading" >
