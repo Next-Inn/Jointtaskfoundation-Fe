@@ -28,11 +28,12 @@
               <h3>Investment</h3>
               <p>Invest together for a better tomorrow.</p>
             </div>
-          </div>
-      </div>
-      <div class="baloon">
+             <div class="baloon">
         <img class="d-block img-fluid" src="../../assets/img/baloon.png" alt="">
       </div>
+          </div>
+      </div>
+     
     </div>
 </template>
 
@@ -41,7 +42,10 @@
         /* margin: 100px 0 70px; */
         min-height: 70vh;
     }
-
+.baloon img{
+  position:absolute;
+  left:0;
+}
     .why_section_details {
         margin: 100px 0;
     }
@@ -62,6 +66,13 @@
     padding: 10px;
     margin-bottom:5px;
     }
-  
+  @media(max-width:1200px){
+     .why_section_details {
+        margin: 0;
+    }
+    .baloon{
+      position: absolute;
+    }
+  }
    
 </style>

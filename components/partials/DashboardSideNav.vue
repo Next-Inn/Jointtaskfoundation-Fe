@@ -1,7 +1,7 @@
 <template>
-
-    <section id="sidebar" >
-        <!-- <p v-if="!isHidden">click sh me</p> -->
+<b-collapse id="nav-collapse" is-nav>
+     <section id="sidebar" >
+        <p v-if="!isHidden">click sh me</p>
         <a href="/" class="navbar-brand">JTF</a>
         <ul class="navbar-nav nav-sidebar text-center" id="" >
             <li class="nav-item" >
@@ -18,6 +18,9 @@
             </li>
         </ul>
     </section>
+    </b-collapse>
+    
+    
 </template>
 <script>
 export default {
@@ -82,7 +85,5 @@ export default {
         text-decoration: none;
         font-size: 24px;
     }
-@media(max-width:1200px){
-   #sidebar{ display:none;
-}}
+
 </style>

@@ -1,22 +1,15 @@
 <template>
   <div>
-    <nav
-      id="navBar"
+    <b-navbar
+      id="navBar" toggleable="lg" 
       class="navbar navbar-expand-md navbar-dark fixed-top"
       :class="[scroller ? backgroundColored : backgroundTransparent, isHome ? '' : 'nav-bg-color' ]"
     >
       <div class="container">
         <nuxt-link to="/" class="navbar-brand">JTF</nuxt-link>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarResponsive"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarResponsive">
+        
+    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+        <b-collapse class="collapse navbar-collapse"  id="nav-collapse" is-nav>
           <ul class="navbar-nav ml-auto">
             <!-- <li class="nav-item">
               <nuxt-link to="/" class="nav-link" id="home">Home</nuxt-link>
@@ -52,9 +45,9 @@
             </template>
             
           </ul>
-        </div>
+        </b-collapse>
       </div>
-    </nav>
+    </b-navbar>
     <!-- end of nav -->
   </div>
 </template>
@@ -123,6 +116,7 @@ background-color:#197a89;
 }
 .navbar-nav li {
   padding-right: 0.7rem;
+ 
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -152,5 +146,12 @@ background-color:#197a89;
   letter-spacing: 0.1rem;
   transition: 2s;
   border-bottom: 2px solid;
+}
+@media(min-width:1200px){
+  .navbar-nav li {
+  padding-right: 0.7rem;
+      position: relative;
+    left: 10rem;
+}
 }
 </style>

@@ -1,12 +1,8 @@
 <template>
-  <div>
-    <nav class="navbar navbar-expand shadow navbar-sticky-top ">
-      <div class=" togle-btn" @click="!open">
-        <span>
-          <i class="fa fa-bars"></i>
-        </span>
-      </div>
-      <ul class="navbar-nav ml-auto hidden-sm">
+
+<div>
+  <b-navbar class="navbar navbar-sticky-top " toggleable="lg" type="dark" variant="info">
+    <ul class="navbar-nav ml-auto hidden-sm">
         <li class="nav-item d-mobile-no">
           <a class="nav-link" href="#">
             <i class="fa fa-bell"></i>
@@ -42,8 +38,15 @@
           <nuxt-link class="dropdown-item profile-drop" to="/edit">edit</nuxt-link>
         </div>
       </div>
-    </nav>
-  </div>
+
+    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+    
+  </b-navbar>
+</div>
+
+
+ 
 </template>
 
 <script>
@@ -58,7 +61,7 @@ export default {
 </script>
 
 <style scoped>
-.navbar {
+/* .navbar {
   border: 0;
   font-size: 1rem;
   border-radius: 0;
@@ -71,6 +74,6 @@ export default {
 
 a {
   margin: 0 10px;
-}
+} */
 
 </style>

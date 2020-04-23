@@ -26,7 +26,7 @@
         <div class="col-md-6">
           <div class="flex-container">
             <div class="flex-body">
-              <p><i class="fa fa-eye"></i></p>
+              <p><i class="fa fa-rocket"></i></p>
             </div>
             <div class="flex-body">
               <h3>Our Mission</h3>
