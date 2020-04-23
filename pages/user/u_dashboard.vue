@@ -79,8 +79,7 @@ export default {
 .main {
   background: rgba(203, 203, 210, 0.15);
   position: relative;
-  float: right;
-  width: calc(100% - 100px);
+  width:100%;
 }
 .main .content {
   padding: 30px 15px;

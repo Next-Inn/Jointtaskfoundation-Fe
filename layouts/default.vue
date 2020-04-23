@@ -81,6 +81,11 @@ p {
       content:'';
       margin:auto;
     }
+@media(min-width:992px){
+    #nav-collapse{
+        display:block !important;
+    }
+}
 /* gs, */
 
 

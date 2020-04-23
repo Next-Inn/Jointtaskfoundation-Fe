@@ -44,7 +44,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4 ">
+            <div class="col-md-4 col-6">
               <div class="benefit-box  mb-5" data-aos="fade-up" data-aos-duration="4000">
                 <div class="benefit-text">
                  <div class="screw-icon"><p>5</p></div>

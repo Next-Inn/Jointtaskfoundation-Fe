@@ -30,7 +30,7 @@ body {
 }
 
 .main {
-  background: rgba(203, 203, 210, 0.15);
+  background: rgba(7, 7, 14, 0.15);
   position: relative;
   float: right;
   width: calc(100% - 100px);
