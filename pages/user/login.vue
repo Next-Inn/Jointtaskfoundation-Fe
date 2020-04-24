@@ -99,6 +99,8 @@ export default {
         this.errors = e.response
           ? e.response.data.error
           : 'Network Error, Please check Your Network and Try again!!'
+        this.loading = false;
+        return setTimeout(() => { this.errors = ''}, 5000);
       }
       if (!this.errors) {
         this.$router.push('/user/u_dashboard')

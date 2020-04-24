@@ -4,6 +4,7 @@
       <DashboardNav />
       <div class="content">
         <div class="container">
+
           <div class="row mb-5">
             <div class="col-md-3">
               <h2>{{user.name}}</h2>
@@ -18,6 +19,8 @@
               </h4>
             </div>
           </div>
+
+        <Tree/>
         </div>
       </div>
     </section>
@@ -37,12 +40,13 @@
 
 <script>
 import DashboardNav from './../../components/partials/DashboardNavbar'
+import Tree from './../../components/dashboard/tree'
 import { mapGetters } from 'vuex'
 export default {
   middleware: ['redirectIfAuthenticated'],
   layout: 'Udashboard',
   components: {
-    DashboardNav
+    DashboardNav, Tree
   },
   data() {
     return {}

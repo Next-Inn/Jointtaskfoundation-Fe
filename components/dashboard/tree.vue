@@ -1,9 +1,11 @@
 <template>
-  <a-tree :loadData="onLoadData" :treeData="treeData" />
+  <Tree :loadData="onLoadData" :treeData="treeData" />
 </template>
 
 <script>
+import { Tree } from 'ant-design-vue';
 export default {
+  components: { Tree },
   data() {
     return {
       treeData: [

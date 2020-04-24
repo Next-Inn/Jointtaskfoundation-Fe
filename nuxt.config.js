@@ -58,7 +58,7 @@ export default {
     plugins: [
         '~/plugins/vee-validate.js',
         { src: '~/plugins/aos.js', ssr: false },
-        '@/plugins/antd-ui'
+        '~/plugins/antd-ui.js'
     ],
 
     /*

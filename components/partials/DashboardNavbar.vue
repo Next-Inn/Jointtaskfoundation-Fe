@@ -1,7 +1,7 @@
 <template>
 
 <div>
-  <b-navbar class="navbar navbar-sticky-top " toggleable="lg" type="dark" variant="info">
+  <b-navbar class="navbar navbar-sticky-top " toggleable="lg" type="dark" variant="light">
     <ul class="navbar-nav ml-auto hidden-sm">
         <li class="nav-item d-mobile-no">
           <a class="nav-link" href="#">
@@ -41,12 +41,12 @@
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
-    
+
   </b-navbar>
 </div>
 
 
- 
+
 </template>
 
 <script>

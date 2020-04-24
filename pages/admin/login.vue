@@ -79,7 +79,9 @@ export default {
       } catch (e) {
         this.errors = e.response
           ? e.response.data.errors
-          : 'Network Error, Please check and try again'
+          : 'Network Error, Please check and try again';
+        this.loading = false;
+        return setTimeout(() => { this.errors = ''}, 5000);
       }
     }
   }
