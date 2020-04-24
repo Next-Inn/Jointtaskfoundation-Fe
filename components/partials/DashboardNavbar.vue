@@ -1,13 +1,9 @@
 <template>
-  <div>
-    <nav class="navbar navbar-expand shadow navbar-sticky-top">
-      <div class="hidden-lg togle-btn" @click="!open">
-        <span>
-          <i class="fa fa-bars"></i>
-        </span>
-      </div>
-      <ul class="navbar-nav ml-auto hidden-sm">
-        <li class="nav-item">
+
+<div>
+  <b-navbar class="navbar navbar-sticky-top " toggleable="lg" type="dark" variant="info">
+    <ul class="navbar-nav ml-auto hidden-sm">
+        <li class="nav-item d-mobile-no">
           <a class="nav-link" href="#">
             <i class="fa fa-bell"></i>
           </a>
@@ -18,9 +14,8 @@
         </template>
         <template v-else>
           <nuxt-link to="#">Welcome {{ $auth.user.name }}</nuxt-link>
-          <nuxt-link to="#" @click.prevent="logout" variant="danger">Logout</nuxt-link>
+          <nuxt-link to="#" @click.prevent="logout" variant="danger" class="d-mobile-no">Logout</nuxt-link>
         </template>
-        
       </ul>
       <div class="nav-item dropdown">
         <a
@@ -35,31 +30,38 @@
           <img src="https://via.placeholder.com/50" />
         </a>
         <div class="dropdown-menu profile-drop" aria-labelledby="navbarDropdown">
-            <nuxt-link class="dropdown-item profile-drop" to="/user/profile">profile</nuxt-link>
-          
+          <nuxt-link class="dropdown-item profile-drop" to="/user/profile">profile</nuxt-link>
+
           <div class="dropdown-divider"></div>
-          <nuxt-link class="dropdown-item profile-drop" to="#" @click.prevent="logout">logout</nuxt-link>
+          <p class="dropdown-item profile-drop" @click.prevent="logout">logout</p>
           <div class="dropdown-divider"></div>
           <nuxt-link class="dropdown-item profile-drop" to="/edit">edit</nuxt-link>
         </div>
       </div>
-    </nav>
-  </div>
+
+    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+    
+  </b-navbar>
+</div>
+
+
+ 
 </template>
 
 <script>
 export default {
   methods: {
-    async logout() {
+    async logout(res) {
       await this.$auth.logout()
-      this.$router.push('/')
+      return res.redirect('/')
     }
   }
 }
 </script>
 
 <style scoped>
-.navbar {
+/* .navbar {
   border: 0;
   font-size: 1rem;
   border-radius: 0;
@@ -72,6 +74,6 @@ export default {
 
 a {
   margin: 0 10px;
-}
+} */
 
 </style>

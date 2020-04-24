@@ -3,7 +3,9 @@ const state = () => ({
 	users: '',
 	checkUsernames: '',
 	checkEmails: '',
-	email: ''
+	children: '',
+	balance: '',
+	stage: ''
 });
 
 export const mutations = {
@@ -17,8 +19,12 @@ export const mutations = {
 		state.checkUsernames = payload.usernames;
 		state.checkEmails = payload.emails;
 	},
-	SET_EMAIL (state, payload) {
-		state.email = payload;
+	SET_USER_CHILDREN (state, payload) {
+		state.children = payload;
+	},
+	SET_USER_REWARD (state, payload) {
+		state.balance = payload[0];
+		state.stage = payload[1];
 	}
 };
 
@@ -54,8 +60,30 @@ export const actions = {
 		}
 	},
 
-	async setEmail ({ commit }, payload) {
-		commit('SET_EMAIL', payload);
+	async getDownlines ({ commit }) {
+		try {
+			const { data } = await this.$axios.$get('/user/get-down-lines');
+			const children = data.children;
+			commit('SET_USER_CHILDREN', children);
+		} catch (e) {
+			return console.log(e);
+		}
+	},
+
+	async getRewards ({ commit }) {
+		try {
+			let stage;
+			let balance;
+			const { data } = await this.$axios.$get('/user/get-stage-rewards');
+			balance = data.reward.balance;
+			stage = data.stage_completed;
+			commit('SET_USER_REWARD', [
+				balance,
+				stage
+			]);
+		} catch (e) {
+			return console.log(e);
+		}
 	}
 };
 
@@ -64,5 +92,7 @@ export const getters = {
 	getSingleUser: (state) => state.user,
 	getAllUserNames: (state) => state.checkUsernames,
 	getAllEmails: (state) => state.checkEmails,
-	getSingleEmail: (state) => state.email
+	getChildren: (state) => state.children,
+	getBalance: (state) => state.balance,
+	getStage: (state) => state.stage
 };
