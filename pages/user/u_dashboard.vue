@@ -38,7 +38,6 @@
 <script>
 import DashboardNav from './../../components/partials/DashboardNavbar'
 import { mapGetters } from 'vuex'
-
 export default {
   middleware: ['redirectIfAuthenticated'],
   layout: 'Udashboard',
@@ -65,7 +64,6 @@ export default {
   created() {
     this.getReward(), this.getDownlines()
   },
-
   computed: {
     ...mapGetters({
       childrens: 'user/getChildren',
@@ -83,14 +81,12 @@ export default {
   position: relative;
   width:100%;
 }
-
 .main .content {
   padding: 30px 15px;
   min-height: calc(100vh - 160px);
   /* margin-top: 30px; */
   background: #fffbfb;
 }
-
 .pointer {
   width: 4px;
   height: 30px;
@@ -98,15 +94,12 @@ export default {
   margin: 20px auto;
   background: #000;
 }
-
 .small-img {
   height: 30px;
 }
-
 p {
   font-size: 13px;
 }
-
 .card {
   border-radius: 12px;
   box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
@@ -117,36 +110,30 @@ p {
   border: 0 none;
   transition: transform 0.3s cubic-bezier(0.34, 2, 0.6, 1), box-shadow 0.2s ease;
 }
-
 .card-header {
   background: #fff;
   border-radius: 12px;
 }
-
 .card-stats .card-body .numbers .card-category {
   color: #fff;
   font-size: 18px;
   line-height: 1.4em;
   font-weight: 600;
 }
-
 .card-stats .card-body .numbers p {
   margin-bottom: 0;
   text-align: right;
   color: #fff;
   letter-spacing: 2px;
 }
-
 .card-stats .card-body .numbers .balance {
   font-size: 28px;
   font-weight: 900;
 }
-
 .card-stats .icon-big {
   font-size: 3em;
   min-height: 64px;
 }
-
 .main-footer {
   background: rgba(203, 203, 210, 0.15);
   position: relative;

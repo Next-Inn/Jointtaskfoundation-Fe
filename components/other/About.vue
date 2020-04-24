@@ -40,7 +40,7 @@
             <p><i class="fa fa-eye"></i></p>
           </div>
           <div class="flex-body">
-            <h3>Our Vission</h3>
+            <h3>Our Vision</h3>
           <p>To be dream achievers. Search out for 
               innovative ways to build up our organization
               to achieve high quality of life and

@@ -10,31 +10,47 @@
                             <div class="card py-3">
                             <div class="card-body">
                                 <div class="account">
-                                    <p>Account</p>
-                                    <p>Account Name</p>
-                                    <p class="account-details d-flex">007837382827 <span class="balance">N 40,000</span></p>
+                                    <p class="account-details d-flex"><span class="balance" :v-bind="amount">N {{amount}}</span></p>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="">Card Number</label>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Card Number" v-model="number">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label for="">Expiry Month</label>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder=" Eg. 09" v-model="expiry_month">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="">Expiry Year</label>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder=" Eg. 20" v-model="expiry_year">
+                                                    </div>
+                                                </div>
+                                            </div>
+                        
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="number" class="form-control" placeholder="CVV" v-model="cvv">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="password" class="form-control" placeholder="Card Pin" v-model="pin">
+                                            </div>
+                                        </div>
+                                    </div>
+                                     <button class="btn btn-blue pull-right" @click.prevent="makepayment">Pay</button>
                                 </div>
-                                <form action="" class="py-3">
-                                    <div class="form-group">
-                                        <select class="form-control" id="sel1">
-                                            <!-- <option>Access Bank</option>
-                                            <option>UBA</option>
-                                            <option>Zenith Bank</option>
-                                            <option>Sky Bank</option> -->
-                                            
-                                            <option v-for="bank in banks" :value="bank.code" :key="bank.code" >{{ bank.name }}</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Enter an amount">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Narration">
-                                    </div>
-
-                                    <button class="btn btn-blue pull-right" @click.prevent="">Make Payment</button>
-                                    
-                                </form>
+                                
                             </div>
                         </div>
                         </div>
@@ -67,7 +83,14 @@ export default {
     data() {
         return {
             reward: '',
-            banks: []
+            banks: [],
+            detail: {},
+            amount: 4000, 
+            cvv: '', 
+            expiry_month: '', 
+            expiry_year: '', 
+            number: '', 
+            pin: ''
         }
     },
     methods: {
@@ -80,6 +103,26 @@ export default {
         //     const rewards = await this.$axios.$get('/verify-account-number');
         //     console.log(rewards)
         // }
+        makepayment() {
+            const userPayload = {
+            amount: this.amount,
+            cvv: this.cvv,
+            expiry_month: this. expiry_month,
+             expiry_year: this.expiry_year,
+            number: this.number,
+            pin: this.pin
+          }
+            const payment = this.$axios.$post('/initial-pay',userPayload)
+            console.log(payment)
+            payment.then(x => {
+                if (x.data.includes('Please enter OTP')) {
+                    window.prompt(x.data);
+                    // handle sending back otp and reference to the server
+                } else if (x.data.includes('wallet loaded')) {
+                   window.alert(x.data);
+                }
+            }).catch(e => console.log(e));
+        }
     },
     mounted() {
         this.getDownlines()
@@ -119,6 +162,7 @@ export default {
         background: #698edf;
         padding: 10px 30px;
         color: #fff;
+        height: 300px
     }
 
     .account-details {

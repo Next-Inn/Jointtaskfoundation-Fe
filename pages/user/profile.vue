@@ -10,12 +10,9 @@
                             <div class="card my-5">
                             <div class="card-body">
                                 <div class="account">
-                                    <h1 class="text-center">Create a Wallet</h1>
+                                    <h1 class="text-center">Profile</h1>
                                 </div>
                                 <form action>
-                                    <div class="nav mb-4">
-                                        <h3>Profile</h3>
-                                    </div>
                                     <div class="row">
                                         <div class="col-md-3"></div>
                                         <div class="col-md-6 text-center">
