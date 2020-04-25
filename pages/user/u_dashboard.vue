@@ -19,15 +19,15 @@
               </h4>
             </div>
           </div>
-
-        <ul id="demo">
-          <tree
-            class="item"
-            :item="this.treeData"
-            @make-folder="makeFolder"
-            @add-item="addItem"
-          />
-        </ul>
+          <h4>Here are your downlines</h4>
+          <ul id="demo">
+            <tree
+              class="item"
+              :item="this.treeDetails"
+              :user="user"
+              @make-folder="makeFolder"
+            />
+          </ul>
         </div>
       </div>
     </section>
@@ -62,27 +62,9 @@ export default {
       treeChildren: [],
       balance: '',
       stage: '',
-      treeData: {
-        name: "My Tree",
-        children: [
-          { name: "hello" },
-          { name: "wat" },
-          {
-            name: "child folder",
-            children: [
-              {
-                name: "child folder",
-                children: [{ name: "hello" }, { name: "wat" }]
-              },
-              { name: "hello" },
-              { name: "wat" },
-              {
-                name: "child folder",
-                children: [{ name: "hello" }, { name: "wat" }]
-              }
-            ]
-          }
-        ]
+      treeDetails: {
+        name: this.$auth.user.name,
+        children: []
       }
     }
   },
@@ -105,28 +87,19 @@ export default {
     makeFolder: function(item) {
       Vue.set(item, "children", []);
       this.addItem(item);
-    },
-
-    addItem: function(item) {
-      item.children.push({
-        name: "new stuff"
-      });
     }
   },
 
   created() {
     this.getReward();
     this.getDownlines().then(() => {
-      //  if (this.$store.getters['user/loggedInUser']) {
-        this.treeChildren = this.$store.getters['user/getChildren']
-        this.balance = this.$store.getters['user/getBalance']
-      // }
+      this.treeDetails.children = this.$store.getters['user/getChildren']
+      this.balance = this.$store.getters['user/getBalance']
     });
   },
 
   computed: {
     ...mapGetters({
-      // stage: 'user/getStage',
       user: 'loggedInUser'
     })
   }

@@ -3,10 +3,11 @@
     <li>
     <div
       :class="{bold: isFolder}"
+      class="name"
       @click="toggle"
       @dblclick="makeFolder">
       {{ item.name }}
-      <span v-if="isFolder">[{{ isOpen ? '-' : '+' }}]</span>
+      <span v-if="isFolder">[{{ isOpen ? '⬆' : '⬇' }}]</span>
     </div>
     <ul v-show="isOpen" v-if="isFolder">
       <tree
@@ -15,13 +16,9 @@
         :key="index"
         :item="child"
         @make-folder="$emit('make-folder', $event)"
-        @add-item="$emit('add-item', $event)"
       ></tree>
-      <li class="add" @click="$emit('add-item', item)">+</li>
     </ul>
   </li>
-
-
   </div>
 
 </template>
@@ -34,7 +31,8 @@ export default {
   components: { Tree },
 
   props: {
-    item: Object
+    item: Object,
+    user: Object
   },
   data: function() {
     return {
@@ -70,10 +68,14 @@ export default {
 .bold {
   font-weight: bold;
 }
+.name {
+  font-size: 30px;
+}
 ul {
   padding-left: 1em;
-  line-height: 1.5em;
+  line-height: 1.8em;
   list-style-type: dot;
+  font-size: 25px;
 }
 
 </style>
