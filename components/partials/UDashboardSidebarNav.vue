@@ -1,25 +1,27 @@
 <template>
-    <section id="sidebar">
-        <a href="/" class="navbar-brand">JTF</a>
-        <ul class="navbar-nav nav-sidebar text-center" id="">
-            <li class="nav-item" >
-            <nuxt-link to="/user/u_dashboard" class="nav-link activeClass" id="dashboard">
-                <i class="fa fa-home"></i>Home</nuxt-link>
-            </li>
-            <li class="nav-item" >
-            <nuxt-link to="/user/makepayment" class="nav-link" id="userList">
-                <i class="fa fa-money"></i>Payment</nuxt-link>
-            </li>
-            <li class="nav-item" >
-            <nuxt-link to="/user/makereport" class="nav-link" id="userList">
-                <i class="fa fa-microphone"></i>Report</nuxt-link>
-            </li>
-            <li class="nav-item" >
-            <nuxt-link to="#" class="nav-link " id="logOut" @click="logout">
-                <i class="fas fa-sign-out-alt"></i>Log out</nuxt-link>
-            </li>
-        </ul>
-    </section>
+    <b-collapse id="nav-collapse" is-nav>
+        <section id="sidebar">
+            <a href="/" class="navbar-brand">JTF</a>
+            <ul class="navbar-nav nav-sidebar text-center" id="">
+                <li class="nav-item" >
+                <nuxt-link to="/user/u_dashboard" class="nav-link activeClass" id="dashboard">
+                    <i class="fa fa-home"></i>Home</nuxt-link>
+                </li>
+                <li class="nav-item" >
+                <nuxt-link to="/user/makepayment" class="nav-link" id="userList">
+                    <i class="fa fa-money"></i>Payment</nuxt-link>
+                </li>
+                <li class="nav-item" >
+                <nuxt-link to="/user/makereport" class="nav-link" id="userList">
+                    <i class="fa fa-microphone"></i>Report</nuxt-link>
+                </li>
+                <li class="nav-item" >
+                <nuxt-link to="#" class="nav-link " id="logOut" @click="logout">
+                    <i class="fas fa-sign-out-alt"></i>Log out</nuxt-link>
+                </li>
+            </ul>
+        </section>
+    </b-collapse>
 </template>
 
 <script>
@@ -40,7 +42,7 @@ export default {
 </script>
 
 <style scoped>
-    #sidebar {
+     #sidebar {
         width: 100px;
         bottom: 0;
         float: none;

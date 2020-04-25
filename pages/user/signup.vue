@@ -256,8 +256,8 @@
                   <p>
                     Already have an account? Click
                     <nuxt-link to="/user/login">
-                      <strong>Log in</strong>
-                    </nuxt-link>instead
+                      <strong> Log in</strong>
+                    </nuxt-link> instead
                   </p>
                 </div>
               </form>
@@ -392,10 +392,14 @@ export default {
             phone: this.phone,
             refererId: this.sponsorName === '' ? null : referer.id
           }
-          // return console.log(userPayload)
+
           // using nuxt auth system
           await this.$axios.post('/auth/signup', userPayload)
           this.loading = false
+
+          //set signup user for email token
+          await this.$store.dispatch('user/setEmail', this.email)
+
           this.name = this.username = this.email = this.phone = this.address = this.password = this.confirmPassword = this.sponsorName =
             ''
           // router to user dashoard
@@ -408,7 +412,10 @@ export default {
         } catch (e) {
           this.errors = e.response
             ? e.response.data.error
-            : 'Network Error, Please check Your Network and Try again!!'
+            : 'Network Error, Please check Your Network and Try again!!';
+
+          this.loading = false;
+          return setTimeout(() => { this.errors = ''}, 5000);
         }
       })
     }
@@ -429,7 +436,8 @@ export default {
 }
 
 .nav h3 {
-  color: #1655b8;
+  color: #22395d;
+  font-weight: 900;
 }
 
 span {
@@ -441,6 +449,7 @@ span {
 
 .form-container {
   margin: auto;
+
 }
 
 .form-container form {
@@ -449,7 +458,7 @@ span {
 }
 
 .form-container form a {
-  color: #1655b8;
+  color: #22395d;
   text-decoration: none;
 }
 
@@ -462,24 +471,33 @@ span {
 }
 
 .text-container {
-  background: #1655b8;
-  color: #fff;
+  background: #22395d;
+ color: #d8d9d9;
   padding: 6px;
   margin: 20px 0;
 }
 
 .text-container h3 {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 900;
+  color: #d8d9d9;
 }
 
 .btn-blue {
-  border-color: #1655b8;
-  color: #1655b8;
+  border-color: #22395d;
+  color: #22395d;
+  font-size: 20px;
 }
 
 .btn-blue:hover {
-  background-color: #1655b8 !important;
+  background-color: #22395d !important;
   color: white;
+}
+@media(min-width:1200px){
+  .form-container {
+  margin: auto;
+      width: 50rem;
+}
+
 }
 </style>

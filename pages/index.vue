@@ -2,8 +2,9 @@
   <div>
     <slider/>
     <Whysection/>
-    <About/>
-    <How/>
+    <About id="about"/>
+    <How id="how-benefit"/>
+    <Marketplan id="plan"/>
   </div>
 </template>
 
@@ -13,13 +14,15 @@ import Slider from '~/components/other/Slider'
 import Whysection from '~/components/other/Whysection'
 import About from '~/components/other/About'
 import How from '~/components/other/How'
+import Marketplan from '~/components/other/Marketplan'
 
 export default {
   components: {
     Slider,
     Whysection,
     About,
-    How
+    How,
+    Marketplan
   }
 }
 </script>

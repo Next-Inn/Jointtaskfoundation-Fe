@@ -1,7 +1,9 @@
 <template>
-    <section id="sidebar">
+<b-collapse id="nav-collapse" is-nav>
+     <section id="sidebar" >
+        <p v-if="!isHidden">click sh me</p>
         <a href="/" class="navbar-brand">JTF</a>
-        <ul class="navbar-nav nav-sidebar text-center" id="">
+        <ul class="navbar-nav nav-sidebar text-center" id="" >
             <li class="nav-item" >
             <nuxt-link to="/dashboard" class="nav-link activeClass" id="dashboard">
                 <i class="fa fa-home"></i>Home</nuxt-link>
@@ -16,7 +18,14 @@
             </li>
         </ul>
     </section>
+    </b-collapse>
+    
+    
 </template>
+<script>
+export default {
+}
+</script>
 
 <style scoped>
     #sidebar {

@@ -49,7 +49,7 @@
                   Don't have an account? Click
                   <nuxt-link to="/user/signup">
                     <strong>Sign up</strong>
-                  </nuxt-link>to create one
+                  </nuxt-link> to create one
                 </p>
                 <p>
                   Forgot Password, Please
@@ -99,6 +99,8 @@ export default {
         this.errors = e.response
           ? e.response.data.error
           : 'Network Error, Please check Your Network and Try again!!'
+        this.loading = false;
+        return setTimeout(() => { this.errors = ''}, 5000);
       }
       if (!this.errors) {
         this.$router.push('/user/u_dashboard')
@@ -134,7 +136,7 @@ export default {
 }
 
 .nav h3 {
-  color: #1655b8;
+  color: #22395d;
 }
 
 .form-container {
@@ -149,7 +151,7 @@ export default {
 }
 
 .form-container form a {
-  color: #1655b8;
+  color: #22395d;
   text-decoration: none;
 }
 
@@ -158,16 +160,24 @@ export default {
 }
 
 .form-container h3 i {
-  color: #1655b8;
+  color: #22395d;
 }
 
 .btn-blue {
-  border-color: #1655b8;
-  color: #1655b8;
+  border-color: #22395d;
+  color: #22395d;
 }
 
 .btn-blue:hover {
-  background-color: #1655b8 !important;
+  background-color: #22395d !important;
   color: white;
+}
+@media  (max-width:1200px){
+  .form-container form {
+  background: var(--white);
+  padding: 30px;
+  min-width: 100%;
+  width: 100%;
+}
 }
 </style>

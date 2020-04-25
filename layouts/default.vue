@@ -21,13 +21,13 @@ export default {
 <style>
 :root {
   --main-bg-color: #23395d;
-  --main-txt-color: blue;
+  --main-txt-color: #22395d;
   --white: #fff;
   --main-padding: 15px;
 }
 body {
   overflow-x: hidden;
-  font-family: 'Neuton', serif;
+  font-family:'Nunito', sans-serif;
   color: #505962;
 }
 
@@ -54,8 +54,8 @@ p {
 
 .btn-blue {
   background: #fff;
-  color: #000;
-  border: 1px solid #000;
+  color: #23395d;
+  border: 1px solid #23395d;
 }
 
 .btn-blue:hover {
@@ -63,7 +63,29 @@ p {
   color: #fff;
   border: 1px solid var(--main-bg-color);
 }
-
+ .heading h1{
+    border-bottom: 1px solid #cccccc;
+    width: max-content;
+    margin: auto;
+    margin-bottom: 29px;
+    color:#22395d;
+    font-weight:900;
+    } 
+     .headingh1:after{
+      border-bottom:3px solid #22395d;
+      /* height:20px; */
+      width:100px;
+      text-align: center;
+      display:block;
+      padding:5px;
+      content:'';
+      margin:auto;
+    }
+@media(min-width:992px){
+    #nav-collapse{
+        display:block !important;
+    }
+}
 /* gs, */
 
 
