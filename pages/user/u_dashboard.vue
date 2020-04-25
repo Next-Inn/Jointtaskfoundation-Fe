@@ -7,7 +7,7 @@
 
           <div class="row mb-5">
             <div class="col-md-3">
-              <h2>{{user.name}}</h2>
+              <h2>{{ user.name }}</h2>
             </div>
             <div class="col-md-6"></div>
             <div class="col-md-3">
@@ -15,12 +15,12 @@
                 Level
                 <span class="badge badge-info mr-2">{{ user.hierarchyLevel }}</span>
                 Balance
-                <span class="badge badge-success">{{ balance }}</span>
+                <span class="badge badge-info">{{ this.balance }}</span>
               </h4>
             </div>
           </div>
 
-        <Tree/>
+        <Tree :user="user" :childrens="this.childrens" />
         </div>
       </div>
     </section>
@@ -41,20 +41,28 @@
 <script>
 import DashboardNav from './../../components/partials/DashboardNavbar'
 import Tree from './../../components/dashboard/tree'
-import { mapGetters } from 'vuex'
+import { mapGetters } from 'vuex';
+
 export default {
   middleware: ['redirectIfAuthenticated'],
   layout: 'Udashboard',
   components: {
     DashboardNav, Tree
   },
+
   data() {
-    return {}
+    return {
+      childrens: [],
+      balance: '',
+      stage: ''
+    }
   },
+
   methods: {
     async getDownlines() {
       return this.$store.dispatch('user/getDownlines')
     },
+
     async getReward() {
       try {
         return this.$store.dispatch('user/getRewards')
@@ -66,13 +74,19 @@ export default {
     }
   },
   created() {
-    this.getReward(), this.getDownlines()
+    this.getReward();
+    this.getDownlines().then(() => {
+      //  if (this.$store.getters['user/loggedInUser']) {
+        this.childrens = this.$store.getters['user/getChildren']
+        this.balance = this.$store.getters['user/getBalance']
+      // }
+    });
   },
+
+
   computed: {
     ...mapGetters({
-      childrens: 'user/getChildren',
-      balance: 'user/getBalance',
-      stage: 'user/getStage',
+      // stage: 'user/getStage',
       user: 'loggedInUser'
     })
   }

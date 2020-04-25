@@ -33,7 +33,7 @@
           <nuxt-link class="dropdown-item profile-drop" to="/user/profile">profile</nuxt-link>
 
           <div class="dropdown-divider"></div>
-          <p class="dropdown-item profile-drop" @click.prevent="logout">logout</p>
+          <p class="dropdown-item profile-drop" @click.prevent="logout()">logout</p>
           <div class="dropdown-divider"></div>
           <nuxt-link class="dropdown-item profile-drop" to="/edit">edit</nuxt-link>
         </div>

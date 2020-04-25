@@ -33,7 +33,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                        
+
                                         </div>
                                     </div>
                                     <div class="row">
@@ -50,7 +50,7 @@
                                     </div>
                                      <button class="btn btn-blue pull-right" @click.prevent="makepayment">Pay</button>
                                 </div>
-                                
+
                             </div>
                         </div>
                         </div>
@@ -66,10 +66,10 @@
         <div class="pull-right d-none d-sm-inline-block">
             <b>Version</b> 3.0.2
         </div>
-        </footer> 
+        </footer>
     </div>
 </template>
-    
+
 
 <script>
 import DashboardNav from './../../components/partials/DashboardNavbar'
@@ -85,11 +85,11 @@ export default {
             reward: '',
             banks: [],
             detail: {},
-            amount: 4000, 
-            cvv: '', 
-            expiry_month: '', 
-            expiry_year: '', 
-            number: '', 
+            amount: 4000,
+            cvv: '',
+            expiry_month: '',
+            expiry_year: '',
+            number: '',
             pin: ''
         }
     },
@@ -113,7 +113,7 @@ export default {
             pin: this.pin
           }
             const payment = this.$axios.$post('/initial-pay',userPayload)
-            console.log(payment)
+            // console.log(payment)
             payment.then(x => {
                 if (x.data.includes('Please enter OTP')) {
                     window.prompt(x.data);
@@ -182,7 +182,7 @@ export default {
     position: relative;
     border: 0 none;
     transition: transform 0.3s cubic-bezier(0.34, 2, 0.6, 1), box-shadow 0.2s ease;
-    
+
     }
 
     .card-header {
