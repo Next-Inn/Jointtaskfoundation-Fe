@@ -21,7 +21,8 @@
     "bootstrap": "^4.1.3",
     "bootstrap-vue": "^2.0.0",
     "nuxt": "^2.0.0",
-    "vee-validate": "^3.2.5"
+    "vee-validate": "^3.2.5",
+    "vued3tree": "^5.1.0"
   },
   "devDependencies": {
     "@vue/test-utils": "^1.0.0-beta.27",

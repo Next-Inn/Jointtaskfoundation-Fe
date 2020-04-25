@@ -20,7 +20,14 @@
             </div>
           </div>
 
-        <Tree :user="user" :childrens="this.childrens" />
+        <ul id="demo">
+          <tree
+            class="item"
+            :item="this.treeData"
+            @make-folder="makeFolder"
+            @add-item="addItem"
+          />
+        </ul>
         </div>
       </div>
     </section>
@@ -40,21 +47,43 @@
 
 <script>
 import DashboardNav from './../../components/partials/DashboardNavbar'
-import Tree from './../../components/dashboard/tree'
+import tree from './../../components/dashboard/tree'
 import { mapGetters } from 'vuex';
 
 export default {
   middleware: ['redirectIfAuthenticated'],
   layout: 'Udashboard',
   components: {
-    DashboardNav, Tree
+    DashboardNav, tree
   },
 
   data() {
     return {
-      childrens: [],
+      treeChildren: [],
       balance: '',
-      stage: ''
+      stage: '',
+      treeData: {
+        name: "My Tree",
+        children: [
+          { name: "hello" },
+          { name: "wat" },
+          {
+            name: "child folder",
+            children: [
+              {
+                name: "child folder",
+                children: [{ name: "hello" }, { name: "wat" }]
+              },
+              { name: "hello" },
+              { name: "wat" },
+              {
+                name: "child folder",
+                children: [{ name: "hello" }, { name: "wat" }]
+              }
+            ]
+          }
+        ]
+      }
     }
   },
 
@@ -71,18 +100,29 @@ export default {
         alert('Please create a wallet')
         window.location.replace('/user/createWallet')
       }
+    },
+
+    makeFolder: function(item) {
+      Vue.set(item, "children", []);
+      this.addItem(item);
+    },
+
+    addItem: function(item) {
+      item.children.push({
+        name: "new stuff"
+      });
     }
   },
+
   created() {
     this.getReward();
     this.getDownlines().then(() => {
       //  if (this.$store.getters['user/loggedInUser']) {
-        this.childrens = this.$store.getters['user/getChildren']
+        this.treeChildren = this.$store.getters['user/getChildren']
         this.balance = this.$store.getters['user/getBalance']
       // }
     });
   },
-
 
   computed: {
     ...mapGetters({

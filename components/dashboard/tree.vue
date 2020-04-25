@@ -1,63 +1,79 @@
 <template>
-  <Tree :loadData="onLoadData" :treeData="this.treeInfo"/>
+  <div>
+    <li>
+    <div
+      :class="{bold: isFolder}"
+      @click="toggle"
+      @dblclick="makeFolder">
+      {{ item.name }}
+      <span v-if="isFolder">[{{ isOpen ? '-' : '+' }}]</span>
+    </div>
+    <ul v-show="isOpen" v-if="isFolder">
+      <tree
+        class="item"
+        v-for="(child, index) in item.children"
+        :key="index"
+        :item="child"
+        @make-folder="$emit('make-folder', $event)"
+        @add-item="$emit('add-item', $event)"
+      ></tree>
+      <li class="add" @click="$emit('add-item', item)">+</li>
+    </ul>
+  </li>
+
+
+  </div>
+
 </template>
 
 <script>
-import { Tree } from 'ant-design-vue';
+import Tree from './tree'
 export default {
+  name: 'tree',
+
   components: { Tree },
+
   props: {
-    childrens: Array,
-    user: Object
+    item: Object
   },
-  data() {
+  data: function() {
     return {
-      treeData: [
-        { title: 'Expand to load', key: '0' },
-        { title: 'Expand to load', key: '1' },
-        { title: 'Tree Node', key: '2', isLeaf: true }
-      ],
-      treeInfo: ''
+      isOpen: false
+    };
+  },
+  computed: {
+    isFolder: function() {
+      return this.item.children && this.item.children.length;
     }
   },
-
-  created() {
-    this.treeInfo = this.childrens.map((item, i) => ({
-      title: item.name,
-      key: i,
-      // children: item.children
-    }))
-  },
-
-  // mounted() {
-  //   return console.log(this.loadChildren(this.childrens))
-  //  },
-
   methods: {
-    onLoadData(treeNode) {
-      return new Promise(resolve => {
-        if (treeNode.dataRef.children) {
-          resolve()
-          return
-        }
-        setTimeout(() => {
-          // treeNode.dataRef.children = this.loadChildren(this.childrens, treeNode)
-          this.treeInfo = [...this.treeInfo]
-          resolve()
-        }, 1000)
-      })
+    toggle: function() {
+      if (this.isFolder) {
+        this.isOpen = !this.isOpen;
+      }
     },
-
-    loadChildren(user, treeNode) {
-      // console.log(user)
-      const newUser = user.map((item, i) => ({
-        title: item.name,
-        key: `${treeNode.eventKey}-${i}`,
-        // children: item.children
-      }));
-      return newUser
-      // this.loadChildren(newUser.children)
+    makeFolder: function() {
+      if (!this.isFolder) {
+        this.$emit("make-folder", this.item);
+        this.isOpen = true;
+      }
     }
   }
+
 }
 </script>
+
+<style scoped>
+.item {
+  cursor: pointer;
+}
+.bold {
+  font-weight: bold;
+}
+ul {
+  padding-left: 1em;
+  line-height: 1.5em;
+  list-style-type: dot;
+}
+
+</style>

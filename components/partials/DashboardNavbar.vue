@@ -13,7 +13,7 @@
           <nuxt-link to="/user/login">Log in</nuxt-link>
         </template>
         <template v-else>
-          <nuxt-link to="#">Welcome {{ $auth.user.name }}</nuxt-link>
+          <nuxt-link to="/user/u_dashboard">Welcome {{ $auth.user.name }}</nuxt-link>
           <nuxt-link to="#" @click.prevent="logout" variant="danger" class="d-mobile-no">Logout</nuxt-link>
         </template>
       </ul>
