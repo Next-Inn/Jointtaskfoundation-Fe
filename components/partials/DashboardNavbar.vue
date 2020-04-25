@@ -1,7 +1,7 @@
 <template>
 
 <div>
-  <b-navbar class="navbar navbar-sticky-top " toggleable="lg" type="dark" variant="info">
+  <b-navbar class="navbar navbar-sticky-top " toggleable="lg" type="dark" variant="light">
     <ul class="navbar-nav ml-auto hidden-sm">
         <li class="nav-item d-mobile-no">
           <a class="nav-link" href="#">
@@ -13,7 +13,7 @@
           <nuxt-link to="/user/login">Log in</nuxt-link>
         </template>
         <template v-else>
-          <nuxt-link to="#">Welcome {{ $auth.user.name }}</nuxt-link>
+          <nuxt-link to="/user/u_dashboard">Welcome {{ $auth.user.name }}</nuxt-link>
           <nuxt-link to="#" @click.prevent="logout" variant="danger" class="d-mobile-no">Logout</nuxt-link>
         </template>
       </ul>
@@ -33,7 +33,7 @@
           <nuxt-link class="dropdown-item profile-drop" to="/user/profile">profile</nuxt-link>
 
           <div class="dropdown-divider"></div>
-          <p class="dropdown-item profile-drop" @click.prevent="logout">logout</p>
+          <p class="dropdown-item profile-drop" @click.prevent="logout()">logout</p>
           <div class="dropdown-divider"></div>
           <nuxt-link class="dropdown-item profile-drop" to="/edit">edit</nuxt-link>
         </div>
@@ -41,12 +41,12 @@
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
-    
+
   </b-navbar>
 </div>
 
 
- 
+
 </template>
 
 <script>

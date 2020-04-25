@@ -103,7 +103,8 @@ export default {
         this.errors = error.response
           ? error.response.data.error
           : 'Please Check Your Network and Try again!!.'
-        return (this.loading = false)
+        this.loading = false;
+        return setTimeout(() => { this.errors = ''}, 5000);
       }
     }
   }

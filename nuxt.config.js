@@ -56,9 +56,9 @@ export default {
      ** Plugins to load before mounting the App
      */
     plugins: [
-        '~/plugins/vee-validate.js',
+        { src: '~/plugins/vee-validate.js', ssr: false },
         { src: '~/plugins/aos.js', ssr: false },
-        '@/plugins/antd-ui'
+        // { src: '~/plugins/antd-ui.js', ssr: false}
     ],
 
     /*
@@ -154,13 +154,13 @@ export default {
             'vee-validate/dist/rules'
         ],
         extend(config, ctx) {},
-        babel: {
-            plugins: [
-                [
-                    'import',
-                    { libraryName: 'ant-design-vue', style: 'css' }
-                ]
-            ]
-        }
+        // babel: {
+        //     plugins: [
+        //         [
+        //             'import',
+        //             { libraryName: 'ant-design-vue', style: 'css' }
+        //         ]
+        //     ]
+        // }
     }
 };

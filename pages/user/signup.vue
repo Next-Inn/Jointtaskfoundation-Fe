@@ -392,7 +392,7 @@ export default {
             phone: this.phone,
             refererId: this.sponsorName === '' ? null : referer.id
           }
-          // return console.log(userPayload)
+
           // using nuxt auth system
           await this.$axios.post('/auth/signup', userPayload)
           this.loading = false
@@ -412,7 +412,10 @@ export default {
         } catch (e) {
           this.errors = e.response
             ? e.response.data.error
-            : 'Network Error, Please check Your Network and Try again!!'
+            : 'Network Error, Please check Your Network and Try again!!';
+
+          this.loading = false;
+          return setTimeout(() => { this.errors = ''}, 5000);
         }
       })
     }
@@ -446,7 +449,7 @@ span {
 
 .form-container {
   margin: auto;
-  
+
 }
 
 .form-container form {
