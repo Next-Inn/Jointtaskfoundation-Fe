@@ -90,14 +90,28 @@ export default {
             expiry_month: '',
             expiry_year: '',
             number: '',
-            pin: ''
+            pin: '',
+            errors: '',
+            loading: false
         }
     },
     methods: {
         async getDownlines() {
-            const result = await this.$axios.$get('/list-banks')
-           this.banks = result.data;
-            console.log(this.banks)
+            try {
+                this.loading = true;
+                const result = await this.$axios.$get('/list-banks')
+                this.banks = result.data;
+                this.loading = false;
+                await this.$toast.success('Successfully Logged In', 'Success');
+            } catch (e) {
+                this.errors = e.response
+                    ? e.response.data.error
+                    : 'Network Error, Please check Your Network and Try again!!';
+                await this.$toast.error(this.errors, 'Error');
+                this.loading = false;
+                return setTimeout(() => { this.errors = ''}, 5000);
+            }
+
         },
         // async getReward() {
         //     const rewards = await this.$axios.$get('/verify-account-number');
