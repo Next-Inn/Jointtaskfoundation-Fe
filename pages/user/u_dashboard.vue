@@ -90,8 +90,9 @@ export default {
     }
   },
 
-  created() {
+  async created() {
     this.getReward();
+    await this.$toast.info('DownLines Loaded Successfully', 'INFO!!!...');
     this.getDownlines().then(() => {
       this.treeDetails.children = this.$store.getters['user/getChildren']
       this.balance = this.$store.getters['user/getBalance']

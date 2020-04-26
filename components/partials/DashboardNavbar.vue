@@ -2,7 +2,7 @@
 
 <div>
   <b-navbar class="navbar navbar-sticky-top " toggleable="lg" type="dark" variant="light">
-    <ul class="navbar-nav ml-auto hidden-sm">
+    <ul class="navbar-nav ml-auto hidden-sm mr-3">
         <li class="nav-item d-mobile-no">
           <a class="nav-link" href="#">
             <i class="fa fa-bell"></i>
@@ -14,10 +14,10 @@
         </template>
         <template v-else>
           <nuxt-link to="/user/u_dashboard">Welcome {{ $auth.user.name }}</nuxt-link>
-          <nuxt-link to="#" @click.prevent="logout" variant="danger" class="d-mobile-no">Logout</nuxt-link>
+          <!-- <div class="nav-link mx-1" id="login-nav" @click.prevent="logout">Log out</div> -->
         </template>
       </ul>
-      <div class="nav-item dropdown">
+      <div class="nav-item dropdown mr-5">
         <a
           class="nav-link dropdown-toggle color-cc"
           href="#"
@@ -27,13 +27,14 @@
           aria-haspopup="true"
           aria-expanded="false"
         >
-          <img src="https://via.placeholder.com/50" />
+          <img v-if="$auth.user.profile_pic" :src="$auth.user.profile_pic"/>
+          <img v-else src="https://via.placeholder.com/50" />
         </a>
         <div class="dropdown-menu profile-drop" aria-labelledby="navbarDropdown">
           <nuxt-link class="dropdown-item profile-drop" to="/user/profile">profile</nuxt-link>
 
-          <div class="dropdown-divider"></div>
-          <p class="dropdown-item profile-drop" @click.prevent="logout()">logout</p>
+          <!-- <div class="dropdown-divider"></div> -->
+          <!-- <p class="dropdown-item profile-drop" @click.prevent="logout">logout</p> -->
           <div class="dropdown-divider"></div>
           <nuxt-link class="dropdown-item profile-drop" to="/edit">edit</nuxt-link>
         </div>
@@ -52,10 +53,9 @@
 <script>
 export default {
   methods: {
-    async logout(res) {
-      await this.$auth.logout()
-      return res.redirect('/')
-    }
+    async logout() {
+      await this.$auth.logout().then(() => this.$toast.success('Logged Out Successfully'))
+    },
   }
 }
 </script>

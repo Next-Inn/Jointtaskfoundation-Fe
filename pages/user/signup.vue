@@ -3,7 +3,7 @@
     <section id="signUp">
       <div class="container-fluid">
         <div class="row">
-          <Notification v-if="errors" :message="errors" />
+          <!-- <Notification v-if="errors" :message="errors" /> -->
           <div class="col-md-12 col-xs-12 form-container">
             <ValidationObserver ref="form">
               <form action id="regForm shadow" @submit.prevent="onSubmit" role="form">
@@ -272,7 +272,7 @@
 <script>
 import Banner from './../../components/other/Banner'
 import ButtonLoader from './../../components/notification/buttonLoader'
-import Notification from './../../components/notification/Notification'
+// import Notification from './../../components/notification/Notification'
 import {
   ValidationProvider,
   ValidationObserver,
@@ -286,8 +286,7 @@ export default {
     Banner,
     ValidationProvider,
     ValidationObserver,
-    ButtonLoader,
-    Notification
+    ButtonLoader
   },
 
   layout: 'auth',
@@ -404,7 +403,7 @@ export default {
             ''
           // router to user dashoard
           this.$router.push('/verify/verifyUser')
-
+          await this.$toast.info('Sign Up Complete, Please Check Email', 'Success');
           // wait until the models are updated in the UI
           this.$nextTick(() => {
             this.$refs.form.reset()
@@ -413,7 +412,7 @@ export default {
           this.errors = e.response
             ? e.response.data.error
             : 'Network Error, Please check Your Network and Try again!!';
-
+          await this.$toast.error(this.errors, 'Error');
           this.loading = false;
           return setTimeout(() => { this.errors = ''}, 5000);
         }

@@ -2,7 +2,7 @@
   <div class="container">
     <div class="auth-section">
       <div class="row">
-        <Notification v-if="errors" :message="errors" />
+
         <div class="col-md-3"></div>
         <div class="col-md-4 col-8 a_sinup" @submit.prevent="loginAdmin">
           <div class="card">
@@ -50,11 +50,10 @@
 </template>
 
 <script>
-import Notification from './../../components/notification/Notification'
 import ButtonLoader from './../../components/notification/buttonLoader'
 
 export default {
-  components: { Banner, Notification, ButtonLoader },
+  components: { Banner, ButtonLoader },
   layout: 'auth',
   data() {
     return {
@@ -74,12 +73,14 @@ export default {
             email
           }
         })
-        this.loading = false
+        this.loading = false;
+        await this.$toast.success('Successfully Logged In', 'Success');
         return this.$router.push('/dashboard')
       } catch (e) {
         this.errors = e.response
           ? e.response.data.errors
           : 'Network Error, Please check and try again';
+        await this.$toast.error(this.errors, 'Error');
         this.loading = false;
         return setTimeout(() => { this.errors = ''}, 5000);
       }
