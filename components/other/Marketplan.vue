@@ -5,7 +5,7 @@
     </Banner> -->
 
     <section id="intro" data-aos="fade-up" data-aos-duration="4000">
-      <div class="container">
+      <div class="container mb-5 mt-5">
         <div class="row">
           <div class="col-md-12 text-center">
             <div class="heading ">
@@ -38,7 +38,7 @@
                   data-target="#collapseOne"
                   aria-expanded="true"
                   aria-controls="collapseOne"
-                >STAGE1: FOUNDATION/BUILDER</button>
+                >STAGE1: FOUNDATION/ BUILDER</button>
               </h2>
             </div>
 
@@ -363,7 +363,7 @@ export default {
     color: #e4e0e0;
 }
 #plan {
-  margin: 60px 0;
+  margin: 10rem 0;
 }
 
 .card-header {

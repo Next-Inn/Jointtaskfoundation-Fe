@@ -1,5 +1,5 @@
 <template>
-  <div id="about">
+  <div id="about" class="mt-5 pb5">
     <div class="container">
       <div class="row mb-5">
         <div class="col-md-6 about-img" data-aos="fade-up-right" data-aos-duration="2000">
@@ -66,10 +66,10 @@
 
 <style scoped>
 #about {
-  /* margin: 80px 0; */
-  min-height: 75vh;
-  background: #ebf0f4;
-      padding: 9rem 0 12rem;
+      min-height: 75vh;
+    background: #ebf0f4;
+    padding: 10rem 0 12rem;
+    margin-top: 10rem !important;
 }
 
 #about p {
