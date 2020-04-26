@@ -90,12 +90,13 @@ export default {
     }
   },
 
-  created() {
+  async created() {
     this.getReward();
     this.getDownlines().then(() => {
       this.treeDetails.children = this.$store.getters['user/getChildren']
       this.balance = this.$store.getters['user/getBalance']
     });
+    await this.$toast.success('DownLines Loaded Successfully', 'OK')
   },
 
   computed: {
