@@ -15,9 +15,8 @@
                 <nuxt-link to="/user/makereport" class="nav-link" id="userList">
                     <i class="fa fa-microphone"></i>Report</nuxt-link>
                 </li>
-                <li class="nav-item" >
-                <nuxt-link to="#" class="nav-link " id="logOut" @click="logout">
-                    <i class="fas fa-sign-out-alt"></i>Log out</nuxt-link>
+                <li class="nav-link logout"  @click="logout">
+                    <i class="fas fa-sign-out-alt"></i>Log out
                 </li>
             </ul>
         </section>
@@ -32,11 +31,9 @@ export default {
         }
     },
     methods: {
-        async logout() {
-            console.log('ayyyyy')
-            await this.$auth.logout(this.user)
-            this.$router.push('/')
-        }
+          async logout() {
+            await this.$auth.logout().then(() => this.$toast.success('Logged Out Successfully'))
+        },
     }
 }
 </script>
@@ -98,6 +95,10 @@ export default {
         text-align: center;
         text-decoration: none;
         font-size: 24px;
+    }
+
+    .logout{
+        cursor: pointer;
     }
 
 </style>

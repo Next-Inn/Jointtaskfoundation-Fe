@@ -40,7 +40,7 @@
                 <nuxt-link to="/user/u_dashboard" class="nav-link" id="login-nav"> Welcome {{ $auth.user.name }} </nuxt-link>
               </li>
               <li class="nav-item">
-                <nuxt-link to="#" class="nav-link" id="login-nav" @click.prevent="logout">Log out</nuxt-link>
+                <div class="nav-link" id="login-nav" @click.prevent="logout">Log out</div>
               </li>
             </template>
 
@@ -79,11 +79,9 @@ export default {
       }
   },
   methods: {
-    async logout() {
-      alert('aloo')
-      await this.$auth.logout()
-      this.$router.push('/user/login')
-    },
+   async logout() {
+    await this.$auth.logout().then(() => this.$toast.success('Logged Out Successfully'))
+  },
     scrollFunction() {
       if (
         document.body.scrollTop < 0 ||

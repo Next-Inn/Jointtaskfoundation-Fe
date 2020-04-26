@@ -67,6 +67,7 @@ export default {
 }
 .bold {
   font-weight: bold;
+  color: var(--main-bg-color);
 }
 .name {
   font-size: 30px;

@@ -12,15 +12,15 @@
             <nuxt-link to="/admin/userlist" class="nav-link" id="userList">
                 <i class="fa fa-users"></i>Users</nuxt-link>
             </li>
-            <li class="nav-item" >
+            <!-- <li class="nav-item" >
             <nuxt-link to="#" class="nav-link " id="logOut">
                 <i class="fas fa-sign-out-alt"></i>Log out</nuxt-link>
-            </li>
+            </li> -->
         </ul>
     </section>
     </b-collapse>
-    
-    
+
+
 </template>
 <script>
 export default {

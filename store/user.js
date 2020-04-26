@@ -65,6 +65,7 @@ export const actions = {
 		try {
 			const { data } = await this.$axios.$get('/user/get-down-lines');
 			const children = data.children;
+			// if (data) this.$toast.info('DownLines Loaded Successfully', 'INFO!!!...');
 			commit('SET_USER_CHILDREN', children);
 		} catch (e) {
 			return console.log(e);
