@@ -3,7 +3,7 @@
     <div class="container">
       <div class="auth-section">
         <div class="row">
-          <Notification v-if="errors" :message="errors" />
+          <!-- <Notification v-if="errors" :message="errors" /> -->
           <div class="col-md-3"></div>
           <div class="col-md-2 col-4 title">
             <div class="box">
@@ -66,13 +66,12 @@
 </template>
 
 <script>
-import Notification from './../../components/notification/Notification'
+// import Notification from './../../components/notification/Notification'
 import ButtonLoader from './../../components/notification/buttonLoader'
 
 export default {
   layout: 'auth',
   components: {
-    Notification,
     ButtonLoader
   },
   data() {
@@ -98,11 +97,13 @@ export default {
           address: '5, address, Lagos State'
         })
         this.loading = false
-        return this.$router.push('/verify/verifyUser')
+        return this.$router.push('/verify/verifyUser');
+        await this.$toast.success('Successfully Signed Up', 'Success');
       } catch (error) {
         this.errors = error.response
           ? error.response.data.error
-          : 'Please Check Your Network and Try again!!.'
+          : 'Please Check Your Network and Try again!!.';
+         await this.$toast.error(this.errors, 'Error');
         this.loading = false;
         return setTimeout(() => { this.errors = ''}, 5000);
       }

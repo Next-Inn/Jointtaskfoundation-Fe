@@ -4,11 +4,11 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12 col-xs-12 form-container">
-            <Notification v-if="errors" :message="errors" />
+            <!-- <Notification v-if="errors" :message="errors" /> -->
             <form @submit.prevent="onSubmit" role="form">
               <div class="nav mb-2">
                 <nuxt-link to="/" class="navbar-brand">JTF</nuxt-link>
-                <h3>Sign In</h3>
+                <h3>Sign Up</h3>
               </div>
               <div class="form-group">
                 <label>Username or Email</label>
@@ -66,10 +66,10 @@
 
 <script>
 import Banner from './../../components/other/Banner'
-import Notification from './../../components/notification/Notification'
+// import Notification from './../../components/notification/Notification'
 import ButtonLoader from './../../components/notification/buttonLoader'
 export default {
-  components: { Banner, Notification, ButtonLoader },
+  components: { Banner, ButtonLoader },
   layout: 'auth',
   data() {
     return {
@@ -94,11 +94,13 @@ export default {
 
       try {
         await this.$auth.loginWith('local', { data })
+        await this.$toast.success('Successfully Logged In', 'Success');
         this.loading = false
       } catch (e) {
         this.errors = e.response
           ? e.response.data.error
-          : 'Network Error, Please check Your Network and Try again!!'
+          : 'Network Error, Please check Your Network and Try again!!';
+        await this.$toast.error(this.errors, 'Error');
         this.loading = false;
         return setTimeout(() => { this.errors = ''}, 5000);
       }
