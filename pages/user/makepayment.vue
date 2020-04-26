@@ -48,7 +48,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                     <button class="btn btn-blue pull-right" @click.prevent="makepayment">Pay</button>
+                                     <button class="btn btn-blue pull-right" @click.prevent="makepayment">
+                                        Pay
+                                        <ButtonLoader v-if="loading" :loading="loading" />
+                                    </button>
                                 </div>
 
                             </div>
@@ -73,7 +76,7 @@
 
 <script>
 import DashboardNav from './../../components/partials/DashboardNavbar'
-
+import ButtonLoader from './../../components/notification/buttonLoader'
 export default {
      middleware: ['redirectIfAuthenticated'],
     layout: 'Udashboard',
@@ -128,14 +131,22 @@ export default {
           }
             const payment = this.$axios.$post('/initial-pay',userPayload)
             // console.log(payment)
-            payment.then(x => {
+            payment.then(async(x) => {
                 if (x.data.includes('Please enter OTP')) {
                     window.prompt(x.data);
                     // handle sending back otp and reference to the server
                 } else if (x.data.includes('wallet loaded')) {
                    window.alert(x.data);
+                   return this.$toast.success('Wallet Loaded', 'Success')
                 }
-            }).catch(e => console.log(e));
+            }).catch(async(e) => {
+                this.errors = e.response
+                    ? e.response.data.error
+                    : 'Network Error, Please check Your Network and Try again!!';
+                await this.$toast.error(this.errors, 'Error');
+                this.loading = false;
+                return setTimeout(() => { this.errors = ''}, 5000);
+            });
         }
     },
     mounted() {
