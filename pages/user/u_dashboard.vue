@@ -4,9 +4,10 @@
       <DashboardNav />
       <div class="content">
         <div class="container">
+
           <div class="row mb-5">
             <div class="col-md-3">
-              <h2>{{user.name}}</h2>
+              <h2>{{ user.name }}</h2>
             </div>
             <div class="col-md-6"></div>
             <div class="col-md-3">
@@ -14,10 +15,19 @@
                 Level
                 <span class="badge badge-info mr-2">{{ user.hierarchyLevel }}</span>
                 Balance
-                <span class="badge badge-success">{{ balance }}</span>
+                <span class="badge badge-info">{{ this.balance }}</span>
               </h4>
             </div>
           </div>
+          <h4>Here are your downlines</h4>
+          <ul id="demo">
+            <tree
+              class="item"
+              :item="this.treeDetails"
+              :user="user"
+              @make-folder="makeFolder"
+            />
+          </ul>
         </div>
       </div>
     </section>
@@ -37,20 +47,33 @@
 
 <script>
 import DashboardNav from './../../components/partials/DashboardNavbar'
-import { mapGetters } from 'vuex'
+import tree from './../../components/dashboard/tree'
+import { mapGetters } from 'vuex';
+
 export default {
   middleware: ['redirectIfAuthenticated'],
   layout: 'Udashboard',
   components: {
-    DashboardNav
+    DashboardNav, tree
   },
+
   data() {
-    return {}
+    return {
+      treeChildren: [],
+      balance: '',
+      stage: '',
+      treeDetails: {
+        name: this.$auth.user.name,
+        children: []
+      }
+    }
   },
+
   methods: {
     async getDownlines() {
       return this.$store.dispatch('user/getDownlines')
     },
+
     async getReward() {
       try {
         return this.$store.dispatch('user/getRewards')
@@ -59,16 +82,25 @@ export default {
         alert('Please create a wallet')
         window.location.replace('/user/createWallet')
       }
+    },
+
+    makeFolder: function(item) {
+      Vue.set(item, "children", []);
+      this.addItem(item);
     }
   },
-  created() {
-    this.getReward(), this.getDownlines()
+
+  async created() {
+    this.getReward();
+    await this.$toast.info('DownLines Loaded Successfully', 'INFO!!!...');
+    this.getDownlines().then(() => {
+      this.treeDetails.children = this.$store.getters['user/getChildren']
+      this.balance = this.$store.getters['user/getBalance']
+    });
   },
+
   computed: {
     ...mapGetters({
-      childrens: 'user/getChildren',
-      balance: 'user/getBalance',
-      stage: 'user/getStage',
       user: 'loggedInUser'
     })
   }

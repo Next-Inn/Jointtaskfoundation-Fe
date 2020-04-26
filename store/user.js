@@ -20,9 +20,6 @@ export const mutations = {
 		state.checkUsernames = payload.usernames;
 		state.checkEmails = payload.emails;
 	},
-	SET_EMAIL (state, payload) {
-		state.email = payload;
-	},
 	SET_USER_CHILDREN (state, payload) {
 		state.children = payload;
 	},
@@ -64,13 +61,11 @@ export const actions = {
 		}
 	},
 
-	async setEmail ({ commit }, payload) {
-		commit('SET_EMAIL', payload);
-	},	
 	async getDownlines ({ commit }) {
 		try {
 			const { data } = await this.$axios.$get('/user/get-down-lines');
 			const children = data.children;
+			// if (data) this.$toast.info('DownLines Loaded Successfully', 'INFO!!!...');
 			commit('SET_USER_CHILDREN', children);
 		} catch (e) {
 			return console.log(e);

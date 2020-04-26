@@ -33,7 +33,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                        
+
                                         </div>
                                     </div>
                                     <div class="row">
@@ -48,9 +48,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                     <button class="btn btn-blue pull-right" @click.prevent="makepayment">Pay</button>
+                                     <button class="btn btn-blue pull-right" @click.prevent="makepayment">
+                                        Pay
+                                        <ButtonLoader v-if="loading" :loading="loading" />
+                                    </button>
                                 </div>
-                                
+
                             </div>
                         </div>
                         </div>
@@ -66,14 +69,14 @@
         <div class="pull-right d-none d-sm-inline-block">
             <b>Version</b> 3.0.2
         </div>
-        </footer> 
+        </footer>
     </div>
 </template>
-    
+
 
 <script>
 import DashboardNav from './../../components/partials/DashboardNavbar'
-
+import ButtonLoader from './../../components/notification/buttonLoader'
 export default {
      middleware: ['redirectIfAuthenticated'],
     layout: 'Udashboard',
@@ -85,19 +88,33 @@ export default {
             reward: '',
             banks: [],
             detail: {},
-            amount: 4000, 
-            cvv: '', 
-            expiry_month: '', 
-            expiry_year: '', 
-            number: '', 
-            pin: ''
+            amount: 4000,
+            cvv: '',
+            expiry_month: '',
+            expiry_year: '',
+            number: '',
+            pin: '',
+            errors: '',
+            loading: false
         }
     },
     methods: {
         async getDownlines() {
-            const result = await this.$axios.$get('/list-banks')
-           this.banks = result.data;
-            console.log(this.banks)
+            try {
+                this.loading = true;
+                const result = await this.$axios.$get('/list-banks')
+                this.banks = result.data;
+                this.loading = false;
+                await this.$toast.success('Successfully Logged In', 'Success');
+            } catch (e) {
+                this.errors = e.response
+                    ? e.response.data.error
+                    : 'Network Error, Please check Your Network and Try again!!';
+                await this.$toast.error(this.errors, 'Error');
+                this.loading = false;
+                return setTimeout(() => { this.errors = ''}, 5000);
+            }
+
         },
         // async getReward() {
         //     const rewards = await this.$axios.$get('/verify-account-number');
@@ -113,15 +130,23 @@ export default {
             pin: this.pin
           }
             const payment = this.$axios.$post('/initial-pay',userPayload)
-            console.log(payment)
-            payment.then(x => {
-                if (x.data.message.includes('Please enter OTP')) {
-                    window.prompt(x.data.message);
+            // console.log(payment)
+            payment.then(async(x) => {
+                if (x.data.includes('Please enter OTP')) {
+                    window.prompt(x.data);
                     // handle sending back otp and reference to the server
                 } else if (x.data.includes('wallet loaded')) {
                    window.alert(x.data);
+                   return this.$toast.success('Wallet Loaded', 'Success')
                 }
-            }).catch(e => console.log(e));
+            }).catch(async(e) => {
+                this.errors = e.response
+                    ? e.response.data.error
+                    : 'Network Error, Please check Your Network and Try again!!';
+                await this.$toast.error(this.errors, 'Error');
+                this.loading = false;
+                return setTimeout(() => { this.errors = ''}, 5000);
+            });
         }
     },
     mounted() {
@@ -182,7 +207,7 @@ export default {
     position: relative;
     border: 0 none;
     transition: transform 0.3s cubic-bezier(0.34, 2, 0.6, 1), box-shadow 0.2s ease;
-    
+
     }
 
     .card-header {
