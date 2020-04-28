@@ -85,6 +85,30 @@ p {
     #nav-collapse{
         display:block !important;
     }
+
+.mt-5{
+  margin-top:5rem !important;
+}
+.mb-5{
+  margin-bottom:5rem !important;
+}
+.pt-5{
+  padding-top:5rem !important
+}
+.pb-5{
+  padding-bottom:5rem!important
+}
+}
+.btn-contact {
+  background:var(--main-bg-color);
+  color: #ffffff;
+  border: 1px solid #23395d;
+}
+
+.btn-contact:hover {
+  background:  #fff;
+  color: var(--main-bg-color);
+  border: 1px solid var(--main-bg-color);
 }
 /* gs, */
 

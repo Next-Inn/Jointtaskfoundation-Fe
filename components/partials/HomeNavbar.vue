@@ -10,7 +10,7 @@
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
         <b-collapse class="collapse navbar-collapse"  id="nav-collapse" is-nav>
-          <ul class="navbar-nav ml-auto">
+          <ul class="navbar-nav">
             <!-- <li class="nav-item">
               <nuxt-link to="/" class="nav-link" id="home">Home</nuxt-link>
             </li> -->
@@ -150,6 +150,8 @@ background-color:#197a89;
   padding-right: 0.7rem;
       position: relative;
     left: 10rem;
+}.navbar-nav {
+      margin-left: 14rem
 }
 }
 </style>
