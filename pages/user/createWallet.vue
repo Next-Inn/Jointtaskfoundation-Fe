@@ -15,7 +15,7 @@
                                 <form action="" class="py-3">
                                     <div class="form-group">
                                         <select class="form-control" v-model="walletDetail.bank_code">
-                                            <option v-for="bank in banks" :value="bank.code" :key="bank.code" >{{ bank.name }} ----- {{ bank.code}}</option>
+                                            <option v-for="bank in banks" :value="bank.code" :key="bank.code" >{{ bank.name }}</option>
                                         </select>
                                     </div>
                                     <div class="form-group">

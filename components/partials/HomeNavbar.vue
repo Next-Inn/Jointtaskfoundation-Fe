@@ -1,13 +1,13 @@
 <template>
   <div>
     <b-navbar
-      id="navBar" toggleable="lg" 
+      id="navBar" toggleable="lg"
       class="navbar navbar-expand-md navbar-dark fixed-top"
       :class="[scroller ? backgroundColored : backgroundTransparent, isHome ? '' : 'nav-bg-color' ]"
     >
       <div class="container">
         <nuxt-link to="/" class="navbar-brand">JTF</nuxt-link>
-        
+
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
         <b-collapse class="collapse navbar-collapse"  id="nav-collapse" is-nav>
           <ul class="navbar-nav">
@@ -27,7 +27,7 @@
               <nuxt-link to="/contact" class="nav-link" id="contact-nav">Contact</nuxt-link>
             </li>
             <template v-if="!$auth.user">
-             
+
             <li class="nav-item">
               <nuxt-link to="/user/signup" class="nav-link" id="signUp-nav">Sign Up</nuxt-link>
             </li>
@@ -35,15 +35,15 @@
                 <nuxt-link to="/user/login" class="nav-link" id="login-nav">Log in</nuxt-link>
               </li>
             </template>
-            <template v-else>
+            <template v-else class="ml-auto">
               <li class="nav-item">
-                <nuxt-link to="#" class="nav-link" id="login-nav"> Welcome {{ $auth.user.name }} </nuxt-link>
+                <nuxt-link to="/user/u_dashboard" class="nav-link" id="login-nav"> Welcome {{ $auth.user.name }} </nuxt-link>
               </li>
               <li class="nav-item">
-                <nuxt-link to="#" class="nav-link" id="login-nav" @click.prevent="logout">Log out</nuxt-link>
+                <div class="nav-link" id="login-nav" @click.prevent="logout">Log out</div>
               </li>
             </template>
-            
+
           </ul>
         </b-collapse>
       </div>
@@ -79,11 +79,9 @@ export default {
       }
   },
   methods: {
-    async logout() {
-      alert('aloo')
-      await this.$auth.logout()
-      this.$router.push('/user/login')
-    },
+   async logout() {
+    await this.$auth.logout().then(() => this.$toast.success('Logged Out Successfully'))
+  },
     scrollFunction() {
       if (
         document.body.scrollTop < 0 ||
@@ -116,7 +114,7 @@ background-color:#197a89;
 }
 .navbar-nav li {
   padding-right: 0.7rem;
- 
+
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -134,7 +132,7 @@ background-color:#197a89;
   /* background: rgba(0, 0, 0, 0.18) !important; */
   transition: 2s;
   border-bottom: 2px solid;
-  
+
 }
 
 .nav-colored {
