@@ -14,7 +14,7 @@
             <!-- <li class="nav-item">
               <nuxt-link to="/" class="nav-link" id="home">Home</nuxt-link>
             </li> -->
-            <li class="nav-item">
+            <li class="nav-item m-l-auto">
               <nuxt-link to="/#about" class="nav-link" id="about-nav">About</nuxt-link>
             </li>
             <li class="nav-item">
@@ -149,9 +149,9 @@ background-color:#197a89;
   .navbar-nav li {
   padding-right: 0.7rem;
       position: relative;
-    left: 10rem;
-}.navbar-nav {
-      margin-left: 14rem
-}
+    /* left: 10rem; */
+  }
+  .m-l-auto {
+    margin-left:auto;}
 }
 </style>

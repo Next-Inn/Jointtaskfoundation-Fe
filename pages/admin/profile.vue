@@ -103,19 +103,8 @@ export default {
 </script>
 
 <style scoped>
-    .main {
-    background: rgba(203, 203, 210, 0.15);
-    position: relative;
-    float: right;
-    width: calc(100% - 100px);
-    }
+ 
 
-    .main .content {
-    padding: 30px 15px;
-    min-height: calc(100vh - 160px);
-    /* margin-top: 30px; */
-    background: #dddddd;
-    }
 
     .account {
         background: #698edf;
@@ -164,12 +153,5 @@ export default {
 }
 
 
-    .main-footer {
-    background: rgba(203, 203, 210, 0.15);
-    position: relative;
-    float: right;
-    width: calc(100% - 100px);
-    padding: 10px;
-    }
 
 </style>

@@ -2231,12 +2231,16 @@ export default {
   font-size: 3em;
   min-height: 64px;
 }
-
+@media(min-width: 1000px){
 .main-footer {
-  background: rgba(203, 203, 210, 0.15);
-  position: relative;
-  float: right;
-  width: calc(100% - 100px);
-  padding: 10px;
-}
+     background: #fff;
+    position: fixed;
+    /* float: right; */
+    width: calc(100% - 100px);
+    padding: 10px;
+    bottom: 0;
+    width: 100%;
+    /* top: 100%; */
+    text-align: center;
+}}
 </style>
