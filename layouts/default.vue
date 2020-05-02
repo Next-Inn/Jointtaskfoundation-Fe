@@ -113,12 +113,14 @@ p {
 .main-footer{
       padding: 0 98px !important;
 }
-.main .content{position:relative;top:75px;}
+.main .content{
+  position:relative;
+  top:75px;
+  }
 @media(min-width: 1000px){
   .main .content{
     padding: 30px 143px !important;
     min-height: calc(100vh - 160px);
-    /* margin-top: 30px; */
     background: #dddddd;
     position: relative;
     left: 67px;
@@ -157,6 +159,16 @@ p {
     }
 .navbar-collapse {
   transition: 2s;
+}
+.form-group label{
+      font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+}
+.font-bold-blue{
+ color: rgb(34, 57, 93);
+ font-weight:900;
 }
 /* gs, */
 

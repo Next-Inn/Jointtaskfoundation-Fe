@@ -4,12 +4,12 @@
             <DashboardNav/>
             <div class="content">
                 <div class="container">
-                    <div class="account">
+                    <div class="account mb-5">
                         <h2 class="text-left">User Profile</h2>
                     </div>
-                    <div class="row">
+                    <div class="row mt-3">
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12">
-                            <div class="card my-5">
+                            <div class="card ">
                                 <div class="card-body">
                                     <div class="profile-img">
                                         <img v-if="$auth.user.profile_pic" :src="$auth.user.profile_pic"/>
@@ -29,7 +29,7 @@
                             </div>
                         </div>
                         <div class="col-lg-8 col-md-8 col-sm-12 col-12">
-                            <div class="card my-5">
+                            <div class="card ">
                                 <div class="card-body">
                                     <div class="bd-bt profile-details mb-3">
                                         <div class="row ">
@@ -48,24 +48,54 @@
                                     </div>
                                     <div class="mt-3 person-info">
                                         <div class="row ">
-                                            <div class="col-lg-3 col-md-3 col-12">
+                                            <div class="col-lg-4 col-md-4 col-5">
                                                 <div>
                                                     <h5 class="font-bold-h5 ">Full Name:</h5>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-9 col-md-9 col-12">
+                                            <div class="col-lg-8 col-md-8 col-7">
                                                 <div>
                                                     <h5 class="font-bold">{{ $auth.user.name }}</h5>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-3 col-md-3 col-12">
+                                            <div class="col-lg-4 col-md-4 col-5">
                                                 <div>
                                                     <h5 class="font-bold-h5">Email Address:</h5>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-9 col-md-9 col-12">
+                                            <div class="col-lg-8 col-md-8 col-7">
                                                 <div class="">
                                                     <h5 class="font-bold">{{$auth.user.email}}</h5>
+                                                </div>
+                                            </div>
+                                             <div class="col-lg-4 col-md-4 col-5">
+                                                <div>
+                                                    <h5 class="font-bold-h5">Phone Number:</h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-8 col-md-8 col-7">
+                                                <div class="">
+                                                    <h5 class="font-bold">{{$auth.user.phone}}</h5>
+                                                </div>
+                                            </div>
+                                             <div class="col-lg-4 col-md-4 col-5">
+                                                <div>
+                                                    <h5 class="font-bold-h5">User Name:</h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-8 col-md-8 col-7">
+                                                <div class="">
+                                                    <h5 class="font-bold">{{$auth.user.username}}</h5>
+                                                </div>
+                                            </div>
+                                             <div class="col-lg-4 col-md-4 col-5">
+                                                <div>
+                                                    <h5 class="font-bold-h5">Sponsor ID:</h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-8 col-md-8 col-7">
+                                                <div class="">
+                                                    <h5 class="font-bold">{{$auth.user.sponsorName}}</h5>
                                                 </div>
                                             </div>
                                         </div>

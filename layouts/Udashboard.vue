@@ -21,7 +21,7 @@ export default {
         --main-bg-color: #23395d;
         --main-txt-color: blue;
         --white: #fff;
-        --main-padding: 15px;
+        /* --main-padding: 15px; */
     }
 
     body {
@@ -29,12 +29,12 @@ export default {
         padding: 0;
     }
 
-    .main {
+    /* .main {
         background: rgba(203, 203, 210, 0.15);
         position: relative;
         float: right;
         width: calc(100% - 100px);
-    }
+    } */
 
     .navbar {
         border: 0;
@@ -45,14 +45,15 @@ export default {
         background: #fff !important;
         padding-left: 24px;
         padding-right: 24px;
+        transition: 2s;
     }
 
-    .main .content {
+    /* .main .content {
         padding: 30px 15px;
         min-height: calc(100vh - 160px);
         margin-top: 30px;
         background: #f2edf3;
-    }
+    } */
 
 
 

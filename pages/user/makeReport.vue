@@ -8,7 +8,7 @@
                     <div class="row">
                         <div class="col-md-2"></div>
                         <div class="col-md-8 card">
-                            <h4 class="text-center">Lay all your complaints to us here</h4>
+                            <h2 class="text-center font-bold-blue">Lay all your complaints to us here</h2>
                             <form>
                                 <div class="form-group">
                                 <label for="Title">Title</label>
@@ -19,7 +19,7 @@
                                     <textarea class="form-control" id="reportContent" rows="2" placeholder="content"></textarea>
                                 </div>
 
-                                <button type="submit" class="btn btn-danger pull-right" @click.prevent="makeReport">Submit</button>
+                                <button type="submit" class="btn btn-blue  pull-right" @click.prevent="makeReport">Submit</button>
                             </form>
                         </div>
                         <div class="col-md-2"></div>
@@ -55,29 +55,11 @@ export default {
 </script>
 
 <style scoped>
-    .main {
-    background: rgba(203, 203, 210, 0.15);
-    position: relative;
-    float: right;
-    width: calc(100% - 100px);
-    }
-
-    .main .content {
-    padding: 30px 15px;
-    min-height: calc(100vh - 160px);
-    /* margin-top: 30px; */
-    background: #dddddd;
-    }
+   
 
     .card {
         padding: 20px;
     }
 
-    .main-footer {
-    background: rgba(203, 203, 210, 0.15);
-    position: relative;
-    float: right;
-    width: calc(100% - 100px);
-    padding: 10px;
-    }
+ 
 </style>

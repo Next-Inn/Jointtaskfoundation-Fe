@@ -7,9 +7,9 @@
                     <div class="account">
                         <h2 class="text-left">Edit Profile</h2>
                     </div>
-                        <div class="row">
+                        <div class="row mt-5">
                             <div class="col-lg-4 col-md-4 col-sm-12 col-12">
-                                <div class="card my-5">
+                                <div class="card ">
                                     <div class="card-body">
                                         <div class="profile-img">
                                             <img v-if="$auth.user.profile_pic" :src="$auth.user.profile_pic"/>
@@ -30,7 +30,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-8 col-md-8 col-sm-12 col-12">
-                                <div class="card my-5">
+                                <div class="card">
                                     <div class="card-body">
                                         <form action>
                                             <div class="bd-bt profile-details mb-3 mt-6">
@@ -39,11 +39,13 @@
                                             <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
+                                                    <label>Full Name:</label>
                                                 <input type="text" placeholder="Full Name" class="form-control" />
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
+                                                    <label for="email">Email Address:</label>
                                                 <input type="email" placeholder="Email" class="form-control" />
                                                 </div>
                                             </div>
@@ -51,11 +53,13 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
+                                                        <label>Phone Number:</label>
                                                     <input type="tel" placeholder="Phone" class="form-control" />
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
+                                                        <label>User Name:</label>
                                                     <input type="text" placeholder="User Name" class="form-control" />
                                                     </div>
                                                 </div>
@@ -63,39 +67,14 @@
                                              <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
+                                                    <label>Sponsor Name:</label>
                                                     <input type="tel" placeholder="Sponsor Name" class="form-control" disabled/>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
+                                                    <label>Full Address:</label>
                                                     <input type="text" placeholder="Full Aaddress" class="form-control" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="bd-bt profile-details mb-3 mt-6">
-                                                <h5 class=" mb-2 "><i class="fa fa-user ft-16"></i> Personal Information</h5>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                    <input type="text" placeholder="Username" class="form-control" />
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                    <input type="email" placeholder="Email" class="form-control" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                    <input type="tel" placeholder="Phone" class="form-control" />
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                    <input type="text" placeholder="State" class="form-control" />
                                                     </div>
                                                 </div>
                                             </div>

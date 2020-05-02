@@ -29,12 +29,12 @@ body {
   padding: 0;
 }
 
-.main {
+/* .main {
   background: rgba(7, 7, 14, 0.15);
   position: relative;
   float: right;
   width: calc(100% - 100px);
-}
+} */
 
 .navbar {
   border: 0;
@@ -45,12 +45,13 @@ body {
   background: #fff !important;
   padding-left: 24px;
   padding-right: 24px;
+  transition: 2s;
 }
 
-.main .content {
+/* .main .content {
   padding: 30px 15px;
   min-height: calc(100vh - 160px);
   margin-top: 30px;
   background: #f2edf3;
-}
+} */
 </style>
