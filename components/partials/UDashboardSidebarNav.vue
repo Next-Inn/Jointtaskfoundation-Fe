@@ -1,7 +1,20 @@
 <template>
     <b-collapse id="nav-collapse" is-nav>
         <section id="sidebar">
-            <a href="/" class="navbar-brand">JTF</a>
+            <!-- <a href="/" class="navbar-brand">JTF</a> -->
+             <div class="nav-item dropdown hide-desktop">
+                <ul class="mobile-profile-thumnail">
+                    <li> 
+                        <nuxt-link to="/profile" class="ul-li-a">
+                                <img v-if="$auth.user.profile_pic" :src="$auth.user.profile_pic"/>
+                                <img v-else src="https://via.placeholder.com/50" />
+                            </nuxt-link>
+                        </li>
+                        <li>
+                            <nuxt-link to="/user/u_dashboard" class="ul-li-a">Welcome {{ $auth.user.name }}</nuxt-link>
+                        </li>
+                    </ul>
+                </div>
             <ul class="navbar-nav nav-sidebar text-center" id="">
                 <li class="nav-item" >
                 <nuxt-link to="/user/u_dashboard" class="nav-link activeClass" id="dashboard">
@@ -39,24 +52,7 @@ export default {
 </script>
 
 <style scoped>
-     #sidebar {
-        width: 100px;
-        bottom: 0;
-        float: none;
-        height: 100vh;
-        left: 0;
-        position: fixed;
-        top: 0;
-        background: var(--main-bg-color);
-        color: var(--white);
-        padding: 8px 0px;
-        text-align: center;
-        display: block;
-        z-index: 1;
-        color: #fff;
-        font-weight: 600;
-    }
-
+ 
     #sidebar .navbar-brand {
         font-size: 30px;
     }
@@ -100,5 +96,25 @@ export default {
     .logout{
         cursor: pointer;
     }
-
+    .mobile-profile-thumnail{
+    list-style-type:none;
+    padding: 0;
+    border-bottom:2px solid;
+}
+.mobile-profile-thumnail .ul-li-a:hover{
+    border:none;
+}
+    @media(min-width: 1000px){
+        .hide-desktop{
+            display: none;
+        }
+    }
+    @media(max-width:1000px){
+    .navbar-brand{
+        left: 0px !important;
+    }
+    #sidebar {
+        top:74px;    
+    border-top: 9px solid #a20a11;}
+    }
 </style>

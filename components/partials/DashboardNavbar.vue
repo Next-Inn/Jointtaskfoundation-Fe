@@ -1,23 +1,30 @@
 <template>
 
 <div>
-  <b-navbar class="navbar navbar-sticky-top " toggleable="lg" type="dark" variant="light">
-    <ul class="navbar-nav ml-auto hidden-sm mr-3">
-        <li class="nav-item d-mobile-no">
+  <b-navbar class="navbar navbar-sticky-top fixed-top" toggleable="lg" type="dark" variant="light">
+    <a href="/" class="navbar-brand">JTF</a>
+    <ul class="navbar-nav ml-auto  mr-3">
+        <li class="nav-item hidden-sm">
           <a class="nav-link" href="#">
             <i class="fa fa-bell"></i>
           </a>
         </li>
-        <template v-if="!$auth.user">
-          <nuxt-link to="/user/signup">Sign Up</nuxt-link>
-          <nuxt-link to="/user/login">Log in</nuxt-link>
-        </template>
-        <template v-else>
-          <nuxt-link to="/user/u_dashboard">Welcome {{ $auth.user.name }}</nuxt-link>
-          <!-- <div class="nav-link mx-1" id="login-nav" @click.prevent="logout">Log out</div> -->
-        </template>
+        
+          <template v-if="!$auth.user" >
+            <li class="nav-item">
+              <nuxt-link to="/user/signup" class="nav-link">Sign Up</nuxt-link>
+            </li>
+            <li class="nav-item ">
+              <nuxt-link to="/user/login" class="nav-link">Log in</nuxt-link>
+            </li>
+          </template>
+          <template v-else >
+            <li class="nav-item">
+              <nuxt-link to="/user/u_dashboard" class=" nav-link ">Welcome {{ $auth.user.name }}</nuxt-link>
+            </li><!-- <div class="nav-link mx-1" id="login-nav" @click.prevent="logout">Log out</div> -->
+          </template>
       </ul>
-      <div class="nav-item dropdown mr-5">
+      <div class="nav-item dropdown hidden-sm mr-5">
         <a
           class="nav-link dropdown-toggle color-cc"
           href="#"
@@ -27,8 +34,8 @@
           aria-haspopup="true"
           aria-expanded="false"
         >
-          <img v-if="$auth.user.profile_pic" :src="$auth.user.profile_pic"/>
-          <img v-else src="https://via.placeholder.com/50" />
+          <img v-if="$auth.user.profile_pic" :src="$auth.user.profile_pic"  class="radius-50"/>
+          <img v-else src="https://via.placeholder.com/50"  class="radius-50"/>
         </a>
         <div class="dropdown-menu profile-drop" aria-labelledby="navbarDropdown">
           <nuxt-link class="dropdown-item profile-drop" to="/user/profile">profile</nuxt-link>
@@ -39,9 +46,7 @@
           <nuxt-link class="dropdown-item profile-drop" to="/edit">edit</nuxt-link>
         </div>
       </div>
-
-    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-
+ <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
   </b-navbar>
 </div>
@@ -61,6 +66,36 @@ export default {
 </script>
 
 <style scoped>
+ .navbar-dark .navbar-toggler{
+    color: rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 0.1);
+    position: relative;
+    background: #000;
+    right: 0;
+    /* margin-left: auto; */
+}
+.nav-item i{
+  color:#22395d;
+}
+@media(max-width:1000px){
+  .hidden-sm{
+    display:none;
+  }
+}
+.navbar-dark .navbar-nav .nav-link{
+    color: #22395d;
+    font-weight: 900;
+}
+ .radius-50{
+   border-radius:50px;
+ }
+.navbar-brand{
+  color: #000;
+    left: 34px;
+    position: relative;
+    font-weight: 900;
+    font-size: 34px;
+}
 /* .navbar {
   border: 0;
   font-size: 1rem;
