@@ -4,7 +4,7 @@
             <!-- <a href="/" class="navbar-brand">JTF</a> -->
              <div class="nav-item dropdown hide-desktop">
                 <ul class="mobile-profile-thumnail">
-                    <li> 
+                    <li > 
                         <nuxt-link to="/profile" class="ul-li-a">
                                 <img v-if="$auth.user.profile_pic" :src="$auth.user.profile_pic"/>
                                 <img v-else src="https://via.placeholder.com/50" />
@@ -101,8 +101,8 @@ export default {
     padding: 0;
     border-bottom:2px solid;
 }
-.mobile-profile-thumnail .ul-li-a:hover{
-    border:none;
+.ul-li-a:hover{
+    border-left:none !important;
 }
     @media(min-width: 1000px){
         .hide-desktop{
