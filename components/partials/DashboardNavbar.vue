@@ -43,7 +43,7 @@
           <!-- <div class="dropdown-divider"></div> -->
           <!-- <p class="dropdown-item profile-drop" @click.prevent="logout">logout</p> -->
           <div class="dropdown-divider"></div>
-          <nuxt-link class="dropdown-item profile-drop" to="/edit">edit</nuxt-link>
+          <nuxt-link class="dropdown-item profile-drop" to="/user/editProfile">edit</nuxt-link>
         </div>
       </div>
  <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>

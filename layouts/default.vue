@@ -125,7 +125,7 @@ p {
     position: relative;
     left: 67px;
 }
-
+.card{margin-bottom:42px;}
 }
 .main-footer {
     background: #fff;
@@ -171,6 +171,10 @@ p {
  color: rgb(34, 57, 93);
  font-weight:900;
 }
+label{
+  font-weight:900;
+}
+
 /* gs, */
 
 

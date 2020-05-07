@@ -6,10 +6,10 @@
         <div class="container">
 
           <div class="row mb-5">
-            <div class="col-md-3">
-              <h2>{{ user.name }}</h2>
+            <div class="col-md-4">
+              <h2 class="bold">{{ user.name }}</h2>
             </div>
-            <div class="col-md-6"></div>
+            <div class="col-md-5"></div>
             <div class="col-md-3">
               <h4>
                 Level
@@ -131,6 +131,9 @@ export default {
 }
 p {
   font-size: 13px;
+}
+.bold{
+  font-weight:700;
 }
 .card {
   border-radius: 12px;

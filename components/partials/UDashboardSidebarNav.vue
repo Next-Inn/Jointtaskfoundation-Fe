@@ -21,6 +21,14 @@
                     <i class="fa fa-home"></i>Home</nuxt-link>
                 </li>
                 <li class="nav-item" >
+                <nuxt-link to="/user/withdrawal" class="nav-link" id="userList">
+                    <i class="fa fa-money"></i>Widthdraw</nuxt-link>
+                </li>
+                <li class="nav-item" >
+                <nuxt-link to="/user/requestLoan" class="nav-link" id="userList">
+                    <i class="fa fa-coins"></i>Get Loan</nuxt-link>
+                </li>
+                <li class="nav-item" >
                 <nuxt-link to="/user/makepayment" class="nav-link" id="userList">
                     <i class="fa fa-money"></i>Payment</nuxt-link>
                 </li>
@@ -59,7 +67,7 @@ export default {
 
     #sidebar ul {
         list-style: none;
-        margin: 40px 0;
+        /* margin: 40px 0; */
         /* padding: 3px; */
     }
 
@@ -90,7 +98,7 @@ export default {
         color: white;
         text-align: center;
         text-decoration: none;
-        font-size: 24px;
+        font-size: 20px;
     }
 
     .logout{

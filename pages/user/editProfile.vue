@@ -7,7 +7,7 @@
                     <div class="account">
                         <h2 class="text-left">Edit Profile</h2>
                     </div>
-                        <div class="row mt-5">
+                        <div class="row mt-3">
                             <div class="col-lg-4 col-md-4 col-sm-12 col-12">
                                 <div class="card ">
                                     <div class="card-body">
@@ -33,7 +33,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <form action>
-                                            <div class="bd-bt profile-details mb-3 mt-6">
+                                            <div class="bd-bt profile-details mb-3 ">
                                                 <h5 class=" mb-2 "><i class="fa fa-user ft-16"></i> Personal Information</h5>
                                             </div>
                                             <div class="row">
