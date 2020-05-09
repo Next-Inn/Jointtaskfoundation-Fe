@@ -6,10 +6,10 @@
         <div class="container">
 
           <div class="row mb-5">
-            <div class="col-md-3">
-              <h2>{{ user.name }}</h2>
+            <div class="col-md-4">
+              <h2 class="bold">{{ user.name }}</h2>
             </div>
-            <div class="col-md-6"></div>
+            <div class="col-md-5"></div>
             <div class="col-md-3">
               <h4>
                 Level
@@ -108,7 +108,7 @@ export default {
 </script>
 
 <style scoped>
-.main {
+/* .main {
   background: rgba(203, 203, 210, 0.15);
   position: relative;
   width:100%;
@@ -116,9 +116,9 @@ export default {
 .main .content {
   padding: 30px 15px;
   min-height: calc(100vh - 160px);
-  /* margin-top: 30px; */
+  margin-top: 30px;
   background: #fffbfb;
-}
+} */
 .pointer {
   width: 4px;
   height: 30px;
@@ -131,6 +131,9 @@ export default {
 }
 p {
   font-size: 13px;
+}
+.bold{
+  font-weight:700;
 }
 .card {
   border-radius: 12px;
@@ -166,11 +169,11 @@ p {
   font-size: 3em;
   min-height: 64px;
 }
-.main-footer {
-  background: rgba(203, 203, 210, 0.15);
+/* .main-footer { */
+  /* background: rgba(203, 203, 210, 0.15);
   position: relative;
   float: right;
   width: calc(100% - 100px);
   padding: 10px;
-}
+} */
 </style>
