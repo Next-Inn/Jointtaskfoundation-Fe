@@ -86,6 +86,14 @@ export const actions = {
 		} catch (e) {
 			return console.log(e);
 		}
+	},
+
+	async updateUser (payload) {
+		try {
+			await this.$axios.$patch('/auth/updateprofile', payload);
+		} catch (err) {
+			return console.log(err);
+		}
 	}
 };
 
