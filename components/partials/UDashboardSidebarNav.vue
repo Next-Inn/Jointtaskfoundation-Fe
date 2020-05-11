@@ -2,9 +2,9 @@
     <b-collapse id="nav-collapse" is-nav>
         <section id="sidebar">
             <!-- <a href="/" class="navbar-brand">JTF</a> -->
-             <div class="nav-item dropdown hide-desktop">
+             <template class="nav-item dropdown hide-desktop" v-if="$auth.user">
                 <ul class="mobile-profile-thumnail">
-                    <li > 
+                    <li >
                         <nuxt-link to="/profile" class="ul-li-a">
                                 <img v-if="$auth.user.profile_pic" :src="$auth.user.profile_pic"/>
                                 <img v-else src="https://via.placeholder.com/50" />
@@ -14,7 +14,8 @@
                             <nuxt-link to="/user/u_dashboard" class="ul-li-a">Welcome {{ $auth.user.name }}</nuxt-link>
                         </li>
                     </ul>
-                </div>
+                </template>
+                <template v-else> Name</template>
             <ul class="navbar-nav nav-sidebar text-center" id="">
                 <li class="nav-item" >
                 <nuxt-link to="/user/u_dashboard" class="nav-link activeClass" id="dashboard">
@@ -60,7 +61,7 @@ export default {
 </script>
 
 <style scoped>
- 
+
     #sidebar .navbar-brand {
         font-size: 30px;
     }
@@ -122,7 +123,7 @@ export default {
         left: 0px !important;
     }
     #sidebar {
-        top:74px;    
+        top:74px;
     border-top: 9px solid #a20a11;}
     }
 </style>

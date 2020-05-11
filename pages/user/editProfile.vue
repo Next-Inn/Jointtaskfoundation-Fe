@@ -7,7 +7,8 @@
                     <div class="account">
                         <h2 class="text-left">Edit Profile</h2>
                     </div>
-                        <div class="row mt-3">
+
+                        <template class="row mt-3 d-flex" v-if="user">
                             <div class="col-lg-4 col-md-4 col-sm-12 col-12">
                                 <div class="card ">
                                     <div class="card-body">
@@ -17,7 +18,7 @@
                                             alt/>
                                             <div class="file btn btn-lg btn-primary">
                                                 Change Photo
-                                                <input type="file" name="file"/>
+                                                <input type="file" name="file" />
                                             </div>
 
                                         </div>
@@ -92,7 +93,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </template>
+
+                        <template v-else>
+                            <p>This is no Profile to Edit</p>
+                        </template>
                     </div>
                 </div>
 
@@ -133,18 +138,19 @@ export default {
                  this.loading = true;
                 const userDetails = {
                     name: this.name,
-                    phone: this.phone,
+                    phone: "this.phone",
                     address: this.address
                 }
 
-                await this.$store.dispatch('user/updateUser', userDetails);
+               const res = await this.$axios.patch('/auth/updateProfile', userDetails);
                 this.loading = false;
-                await this.$toast.sucess('Updated User Successfully', 'Success');
+                await this.$toast.success('Updated User Successfully', 'Success');
+                setTimeout(() => window.location.reload(), 3000)
             } catch (e) {
-                 this.errors = e.response
-                    ? e.response.data.error
-                    : 'Network Error, Please check Your Network and Try again!!';
-                await this.$toast.error(this.errors, 'Error');
+                this.errors = e.response
+					? e.response.data.error
+					: 'Network Error, Please check Your Network and Try again!!';
+			    await this.$toast.error(this.errors, 'Error');
                 this.loading = false;
             }
         }
