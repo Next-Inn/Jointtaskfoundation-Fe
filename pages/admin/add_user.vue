@@ -64,19 +64,6 @@ export default {
     
 /* userlist */
 
-     .main {
-        background: rgba(203, 203, 210, 0.15);
-        position: relative;
-        float: right;
-        width: calc(100% - 100px);
-    }
-
-    .main .content {
-        padding: 30px 15px;
-        min-height: calc(100vh - 160px);
-        margin-top: 30px;
-        background: #f2edf3;
-    }
 
     .page-header {
         margin: 0 0 1.5rem 0;
@@ -99,11 +86,5 @@ export default {
         border-spacing: 0;
     }
 
-    .main-footer {
-    background: rgba(203, 203, 210, 0.15);
-    position: relative;
-    float: right;
-    width: calc(100% - 100px);
-    padding: 10px;
-    }
+   
 </style>

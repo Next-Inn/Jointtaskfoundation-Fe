@@ -48,7 +48,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                     <button class="btn btn-blue pull-right" @click.prevent="makepayment">
+                                     <button class="btn btn-blue ml-auto" @click.prevent="makepayment">
                                         Pay
                                         <ButtonLoader v-if="loading" :loading="loading" />
                                     </button>
@@ -156,19 +156,7 @@ export default {
 </script>
 
 <style scoped>
-    .main {
-    background: rgba(203, 203, 210, 0.15);
-    position: relative;
-    float: right;
-    width: calc(100% - 100px);
-    }
 
-    .main .content {
-    padding: 30px 15px;
-    min-height: calc(100vh - 160px);
-    /* margin-top: 30px; */
-    background: #dddddd;
-    }
 
     .pointer {
         width: 4px;
@@ -178,16 +166,24 @@ export default {
         background: #000;
 
     }
-
+   .btn-blue {
+        position: relative;
+    width: 100%;
+    font-weight: 900;
+    font-size: 17px;
+    }
+.btn-blue:hover{
+color:#e0dddd;
+ border: 1px solid #e0dddd;
+}
     .small-img {
         height: 50px;
     }
 
     .account {
-        background: #698edf;
+        background:#22395d;
         padding: 10px 30px;
         color: #fff;
-        height: 300px
     }
 
     .account-details {
@@ -240,12 +236,5 @@ export default {
     }
 
 
-    .main-footer {
-    background: rgba(203, 203, 210, 0.15);
-    position: relative;
-    float: right;
-    width: calc(100% - 100px);
-    padding: 10px;
-    }
 
 </style>

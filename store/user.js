@@ -1,3 +1,5 @@
+// import toast from 'vue-izitoast';
+
 const state = () => ({
 	user: '',
 	users: '',
@@ -85,6 +87,23 @@ export const actions = {
 			]);
 		} catch (e) {
 			return console.log(e);
+		}
+	},
+
+	async updateUser (payload) {
+		let errors = '';
+		return console.log(payload)
+		try {
+			const res = await this.$axios.$patch('/auth/updateProfile', payload);
+			return console.log(res);
+			// await toast.success('Updated User Successfully', 'Success');
+		} catch (e) {
+
+			errors = e.response
+					? e.response.data.error
+					: 'Network Error, Please check Your Network and Try again!!';
+			// await toast.error(errors, 'Error');
+			return console.error(errors)
 		}
 	}
 };

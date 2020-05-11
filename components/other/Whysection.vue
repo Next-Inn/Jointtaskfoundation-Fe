@@ -1,6 +1,6 @@
 <template>
     <div id="why-section">
-        <div class="container">
+        <div class="container mt-5 mb-5">
           <div class="heading text-center my-5" data-aos="fade-down" data-aos-duration="2000">
             <h1 class="headingh1">Our Services</h1>
             <p>As an organization, our partners enjoys the full benefits of a life-changing opportunities and service support </p>
