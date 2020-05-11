@@ -4,7 +4,7 @@
             <DashboardNav/>
             <div class="content">
                 <div class="container">
-                    <div class="account mb-5">
+                    <div class="account mb-3">
                         <h2 class="text-left">User Profile</h2>
                     </div>
                     <div class="row mt-3">
@@ -15,10 +15,6 @@
                                         <img v-if="$auth.user.profile_pic" :src="$auth.user.profile_pic"/>
                                         <img v-else src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
                                         alt/>
-                                        <div class="file btn btn-lg btn-primary">
-                                            Change Photo
-                                            <input type="file" name="file" />
-                                        </div>
                                     </div>
                                     <div class="text-center">
                                         <h3 class="font-bold m-0">{{ $auth.user.name }}</h3>

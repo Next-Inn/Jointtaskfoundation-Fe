@@ -43,7 +43,7 @@
           <!-- <div class="dropdown-divider"></div> -->
           <!-- <p class="dropdown-item profile-drop" @click.prevent="logout">logout</p> -->
           <div class="dropdown-divider"></div>
-          <nuxt-link class="dropdown-item profile-drop" to="/edit">edit</nuxt-link>
+          <nuxt-link class="dropdown-item profile-drop" to="/user/editProfile">edit</nuxt-link>
         </div>
       </div>
  <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -77,11 +77,7 @@ export default {
 .nav-item i{
   color:#22395d;
 }
-@media(max-width:1000px){
-  .hidden-sm{
-    display:none;
-  }
-}
+
 .navbar-dark .navbar-nav .nav-link{
     color: #22395d;
     font-weight: 900;
@@ -110,5 +106,12 @@ export default {
 a {
   margin: 0 10px;
 } */
-
+@media(max-width:1000px){
+  .hidden-sm{
+    display:none;
+  }
+  .navbar-brand{
+    left:0;
+  }
+}
 </style>

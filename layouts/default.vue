@@ -111,7 +111,7 @@ p {
   border: 1px solid var(--main-bg-color);
 }
 .main-footer{
-      padding: 0 98px !important;
+      padding: 0;
 }
 .main .content{
   position:relative;
@@ -125,6 +125,8 @@ p {
     position: relative;
     left: 67px;
 }
+.card{margin-bottom:42px;}
+}
 .main-footer {
     background: #fff;
     position: fixed;
@@ -135,7 +137,6 @@ p {
     width: 100%;
     /* top: 100%; */
     text-align: center;
-}
 }
 #sidebar {
         width: 150px;
@@ -164,12 +165,16 @@ p {
       font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    color: #495057;
+    color: #030507;
 }
 .font-bold-blue{
  color: rgb(34, 57, 93);
  font-weight:900;
 }
+label{
+  font-weight:900;
+}
+
 /* gs, */
 
 

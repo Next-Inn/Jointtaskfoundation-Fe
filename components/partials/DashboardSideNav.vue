@@ -12,7 +12,7 @@
                     </nuxt-link>
                 </div>
                 <div>
-                    <nuxt-link to="/user/u_dashboard">Welcome {{ $auth.user.name }}</nuxt-link>
+                    <nuxt-link to="/user/profile">Welcome {{ $auth.user.name }}</nuxt-link>
                 </div>
             </div>
         </div>

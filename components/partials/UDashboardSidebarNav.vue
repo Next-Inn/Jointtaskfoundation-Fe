@@ -4,7 +4,7 @@
             <!-- <a href="/" class="navbar-brand">JTF</a> -->
              <div class="nav-item dropdown hide-desktop">
                 <ul class="mobile-profile-thumnail">
-                    <li> 
+                    <li > 
                         <nuxt-link to="/profile" class="ul-li-a">
                                 <img v-if="$auth.user.profile_pic" :src="$auth.user.profile_pic"/>
                                 <img v-else src="https://via.placeholder.com/50" />
@@ -19,6 +19,14 @@
                 <li class="nav-item" >
                 <nuxt-link to="/user/u_dashboard" class="nav-link activeClass" id="dashboard">
                     <i class="fa fa-home"></i>Home</nuxt-link>
+                </li>
+                <li class="nav-item" >
+                <nuxt-link to="/user/withdrawal" class="nav-link" id="userList">
+                    <i class="fa fa-money"></i>Widthdraw</nuxt-link>
+                </li>
+                <li class="nav-item" >
+                <nuxt-link to="/user/requestLoan" class="nav-link" id="userList">
+                    <i class="fa fa-coins"></i>Get Loan</nuxt-link>
                 </li>
                 <li class="nav-item" >
                 <nuxt-link to="/user/makepayment" class="nav-link" id="userList">
@@ -59,7 +67,7 @@ export default {
 
     #sidebar ul {
         list-style: none;
-        margin: 40px 0;
+        /* margin: 40px 0; */
         /* padding: 3px; */
     }
 
@@ -90,7 +98,7 @@ export default {
         color: white;
         text-align: center;
         text-decoration: none;
-        font-size: 24px;
+        font-size: 20px;
     }
 
     .logout{
@@ -101,8 +109,8 @@ export default {
     padding: 0;
     border-bottom:2px solid;
 }
-.mobile-profile-thumnail .ul-li-a:hover{
-    border:none;
+.ul-li-a:hover{
+    border-left:none !important;
 }
     @media(min-width: 1000px){
         .hide-desktop{
