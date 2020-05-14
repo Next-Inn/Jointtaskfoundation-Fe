@@ -7,24 +7,25 @@
                     <div class="account">
                         <h2 class="text-left">Edit Profile</h2>
                     </div>
-                        <div class="row mt-3">
+
+                        <template class="row mt-3 d-flex" v-if="user">
                             <div class="col-lg-4 col-md-4 col-sm-12 col-12">
                                 <div class="card ">
                                     <div class="card-body">
                                         <div class="profile-img">
-                                            <img v-if="$auth.user.profile_pic" :src="$auth.user.profile_pic"/>
+                                            <img v-if="user.profile_pic" :src="user.profile_pic"/>
                                             <img v-else src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
                                             alt/>
                                             <div class="file btn btn-lg btn-primary">
                                                 Change Photo
                                                 <input type="file" name="file" />
                                             </div>
-                                            
+
                                         </div>
                                         <div class="text-center">
-                                            <h3 class="font-bold m-0">{{ $auth.user.name }}</h3>
+                                            <h3 class="font-bold m-0">{{ user.name }}</h3>
                                             <p class="font-bold-h5 m-0">Welcome to Jointtask.com</p>
-                                            <p class="font-bold-h5">Stage: 2</p>
+                                            <p class="font-bold-h5">Stage: {{ user.stage_completed }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -40,13 +41,13 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Full Name:</label>
-                                                <input type="text" placeholder="Full Name" class="form-control" />
+                                                <input type="text" placeholder="Full Name" class="form-control" v-model="name"/>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="email">Email Address:</label>
-                                                <input type="email" placeholder="Email" class="form-control" />
+                                                <input type="email" placeholder="Email" class="form-control"  :value="user.email" disabled/>
                                                 </div>
                                             </div>
                                             </div>
@@ -54,13 +55,13 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Phone Number:</label>
-                                                    <input type="tel" placeholder="Phone" class="form-control" />
+                                                    <input type="tel" placeholder="Phone" class="form-control"  v-model="phone"/>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>User Name:</label>
-                                                    <input type="text" placeholder="User Name" class="form-control" />
+                                                    <input type="text" placeholder="User Name" class="form-control"  :value="user.username" disabled/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -68,24 +69,35 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                     <label>Sponsor Name:</label>
-                                                    <input type="tel" placeholder="Sponsor Name" class="form-control" disabled/>
+                                                    <input type="tel" placeholder="Sponsor Name" class="form-control"  :value="user.sponsorName" disabled/>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                     <label>Full Address:</label>
-                                                    <input type="text" placeholder="Full Aaddress" class="form-control" />
+                                                    <input type="text" placeholder="Full Aaddress" class="form-control" v-model="address"/>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="update-profile mt-2">
-                                                <button class="btn btn-blue btn-block">Update profile</button>
+                                                <button
+                                                    class="btn btn-blue btn-block"
+                                                    @click.prevent="submitProfile"
+                                                    style="display:flex; justify-content: center; align-items: center;"
+                                                >
+                                                    Update profile
+                                                     <ButtonLoader v-if="loading" :loading="loading" />
+                                                </button>
                                             </div>
                                         </form>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </template>
+
+                        <template v-else>
+                            <p>This is no Profile to Edit</p>
+                        </template>
                     </div>
                 </div>
 
@@ -96,30 +108,55 @@
                 <div class="pull-right d-none d-sm-inline-block">
                     <b>Version</b> 3.0.2
                 </div>
-            </footer> 
+            </footer>
         </div>
     </template>
-    
+
 
 <script>
 import DashboardNav from './../../components/partials/DashboardNavbar'
-
+import ButtonLoader from './../../components/notification/buttonLoader'
 export default {
-     middleware: ['redirectIfAuthenticated'],
+    middleware: ['redirectIfAuthenticated'],
     layout: 'Udashboard',
     components: {
-        DashboardNav
+        DashboardNav, ButtonLoader
     },
     data() {
         return {
-            
+            user: this.$auth.user,
+            name: this.$auth.user.name,
+            phone: this.$auth.user.phone,
+            address: this.$auth.user.address,
+            loading: false,
+            errors: ''
         }
     },
     methods: {
-        
+        async submitProfile() {
+            try{
+                 this.loading = true;
+                const userDetails = {
+                    name: this.name,
+                    phone: "this.phone",
+                    address: this.address
+                }
+
+               const res = await this.$axios.patch('/auth/updateProfile', userDetails);
+                this.loading = false;
+                await this.$toast.success('Updated User Successfully', 'Success');
+                setTimeout(() => window.location.reload(), 3000)
+            } catch (e) {
+                this.errors = e.response
+					? e.response.data.error
+					: 'Network Error, Please check Your Network and Try again!!';
+			    await this.$toast.error(this.errors, 'Error');
+                this.loading = false;
+            }
+        }
     },
     mounted() {
-        
+
     }
 }
 </script>
@@ -157,7 +194,7 @@ font-weight: 900;
     position: relative;
     border: 0 none;
     transition: transform 0.3s cubic-bezier(0.34, 2, 0.6, 1), box-shadow 0.2s ease;
-    
+
     }
 .font-bold{
     color:#22395d;
@@ -166,7 +203,7 @@ font-weight: 900;
 .update-profile button{
     width:10rem;
     margin-left: auto;
-    
+
 }
     .card-header {
     background: #fff;
@@ -176,8 +213,8 @@ font-weight: 900;
     .profile-img {
   width:10rem;
   margin: auto;
-  
-  
+
+
 }
 .profile-details h5{
     margin:0;
@@ -185,7 +222,7 @@ font-weight: 900;
 }
 .profile-img img {
   width: 100%;
-  
+
 }
 .person-info h5{
     line-height:2;

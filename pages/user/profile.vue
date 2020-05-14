@@ -12,14 +12,14 @@
                             <div class="card ">
                                 <div class="card-body">
                                     <div class="profile-img">
-                                        <img v-if="$auth.user.profile_pic" :src="$auth.user.profile_pic"/>
+                                        <img v-if="user.profile_pic" :src="user.profile_pic"/>
                                         <img v-else src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
                                         alt/>
                                     </div>
                                     <div class="text-center">
-                                        <h3 class="font-bold m-0">{{ $auth.user.name }}</h3>
+                                        <h3 class="font-bold m-0">{{ user.name }}</h3>
                                         <p class="font-bold-h5 m-0">Welcome to Jointtask.com</p>
-                                        <p class="font-bold-h5">Stage: 2</p>
+                                        <p class="font-bold-h5">Stage: {{user.stage_completed}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -51,7 +51,7 @@
                                             </div>
                                             <div class="col-lg-8 col-md-8 col-7">
                                                 <div>
-                                                    <h5 class="font-bold">{{ $auth.user.name }}</h5>
+                                                    <h5 class="font-bold">{{ user.name }}</h5>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-5">
@@ -61,7 +61,7 @@
                                             </div>
                                             <div class="col-lg-8 col-md-8 col-7">
                                                 <div class="">
-                                                    <h5 class="font-bold">{{$auth.user.email}}</h5>
+                                                    <h5 class="font-bold">{{user.email}}</h5>
                                                 </div>
                                             </div>
                                              <div class="col-lg-4 col-md-4 col-5">
@@ -71,7 +71,7 @@
                                             </div>
                                             <div class="col-lg-8 col-md-8 col-7">
                                                 <div class="">
-                                                    <h5 class="font-bold">{{$auth.user.phone}}</h5>
+                                                    <h5 class="font-bold">{{user.phone}}</h5>
                                                 </div>
                                             </div>
                                              <div class="col-lg-4 col-md-4 col-5">
@@ -81,7 +81,7 @@
                                             </div>
                                             <div class="col-lg-8 col-md-8 col-7">
                                                 <div class="">
-                                                    <h5 class="font-bold">{{$auth.user.username}}</h5>
+                                                    <h5 class="font-bold">{{user.username}}</h5>
                                                 </div>
                                             </div>
                                              <div class="col-lg-4 col-md-4 col-5">
@@ -91,7 +91,7 @@
                                             </div>
                                             <div class="col-lg-8 col-md-8 col-7">
                                                 <div class="">
-                                                    <h5 class="font-bold">{{$auth.user.sponsorName}}</h5>
+                                                    <h5 class="font-bold">{{user.sponsorName}}</h5>
                                                 </div>
                                             </div>
                                         </div>
@@ -109,10 +109,10 @@
         <div class="pull-right d-none d-sm-inline-block">
             <b>Version</b> 3.0.2
         </div>
-        </footer> 
+        </footer>
     </div>
 </template>
-    
+
 
 <script>
 import DashboardNav from './../../components/partials/DashboardNavbar'
@@ -123,16 +123,10 @@ export default {
     components: {
         DashboardNav
     },
-    data() {
+   data() {
         return {
-            
+        user: this.$auth.user
         }
-    },
-    methods: {
-        
-    },
-    mounted() {
-        
     }
 }
 </script>
@@ -170,7 +164,7 @@ font-weight: 900;
     position: relative;
     border: 0 none;
     transition: transform 0.3s cubic-bezier(0.34, 2, 0.6, 1), box-shadow 0.2s ease;
-    
+
     }
 .font-bold{
     color:#22395d;
@@ -185,8 +179,8 @@ font-weight: 900;
     .profile-img {
   width:10rem;
   margin: auto;
-  
-  
+
+
 }
 .profile-details h5{
     margin:0;
@@ -194,7 +188,7 @@ font-weight: 900;
 }
 .profile-img img {
   width: 100%;
-  
+
 }
 .person-info h5{
     line-height:2;
