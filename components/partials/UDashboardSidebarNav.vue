@@ -5,17 +5,16 @@
              <template class="nav-item dropdown hide-desktop" v-if="$auth.user">
                 <ul class="mobile-profile-thumnail">
                     <li >
-                        <nuxt-link to="/profile" class="ul-li-a">
-                                <img v-if="$auth.user.profile_pic" :src="$auth.user.profile_pic"/>
-                                <img v-else src="https://via.placeholder.com/50" />
-                            </nuxt-link>
-                        </li>
-                        <li>
-                            <nuxt-link to="/user/u_dashboard" class="ul-li-a">Welcome {{ $auth.user.name }}</nuxt-link>
-                        </li>
-                    </ul>
-                </template>
-                <template v-else> Name</template>
+                        <img v-if="$auth.user.profile_pic" :src="$auth.user.profile_pic"/>
+                        <img v-else src="https://via.placeholder.com/50" />
+                    </li>
+                    <li>
+                        <nuxt-link to="/user/profile" class="ul-li-a">Welcome {{ $auth.user.name }}</nuxt-link>
+                    </li>
+                </ul>
+            </template>
+            
+            <template v-else> Name</template>
             <ul class="navbar-nav nav-sidebar text-center" id="">
                 <li class="nav-item" >
                 <nuxt-link to="/user/u_dashboard" class="nav-link activeClass" id="dashboard">

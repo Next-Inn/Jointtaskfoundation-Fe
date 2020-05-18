@@ -8,96 +8,105 @@
                         <h2 class="text-left">Edit Profile</h2>
                     </div>
 
-                        <template class="row mt-3 d-flex" v-if="user">
-                            <div class="col-lg-4 col-md-4 col-sm-12 col-12">
-                                <div class="card ">
-                                    <div class="card-body">
-                                        <div class="profile-img">
-                                            <img v-if="user.profile_pic" :src="user.profile_pic"/>
-                                            <img v-else src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
-                                            alt/>
-                                            <div class="file btn btn-lg btn-primary">
-                                                Change Photo
-                                                <input type="file" name="file" />
-                                            </div>
+                        <div class="d-flex row mt-3" style="margin-top: 100px;">
+                             <template v-if="user">
+                                <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="profile-img">
+                                                <img v-if="user.profile_pic" :src="user.profile_pic"/>
+                                                <img v-else src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
+                                                alt/>
+                                                <div class="file btn btn-lg btn-primary">
+                                                    Change Photo
+                                                    <form enctype="multipart/form-data">
+                                                        <input
+                                                            type="file"
+                                                            ref="file"
+                                                            :name="file"
+                                                            single
+                                                            accept="image/*"
+                                                            class="input-file"
+                                                            @change="uploadFile"
+                                                        />
+                                                    </form>
 
-                                        </div>
-                                        <div class="text-center">
-                                            <h3 class="font-bold m-0">{{ user.name }}</h3>
-                                            <p class="font-bold-h5 m-0">Welcome to Jointtask.com</p>
-                                            <p class="font-bold-h5">Stage: {{ user.stage_completed }}</p>
+                                                </div>
+
+                                            </div>
+                                            <div class="text-center">
+                                                <h3 class="font-bold m-0">{{ user.name }}</h3>
+                                                <p class="font-bold-h5 m-0">Welcome to Jointtask.com</p>
+                                                <p class="font-bold-h5">Leve: {{ user.hierarchyLevel }}</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-8 col-md-8 col-sm-12 col-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <form action>
-                                            <div class="bd-bt profile-details mb-3 ">
-                                                <h5 class=" mb-2 "><i class="fa fa-user ft-16"></i> Personal Information</h5>
-                                            </div>
-                                            <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Full Name:</label>
-                                                <input type="text" placeholder="Full Name" class="form-control" v-model="name"/>
+
+                                <div class="col-lg-8 col-md-8 col-sm-12 col-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <form action>
+                                                <div class="bd-bt profile-details mb-3 ">
+                                                    <h5 class=" mb-2 "><i class="fa fa-user ft-16"></i> Personal Information</h5>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="email">Email Address:</label>
-                                                <input type="email" placeholder="Email" class="form-control"  :value="user.email" disabled/>
-                                                </div>
-                                            </div>
-                                            </div>
-                                            <div class="row">
+                                                <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label>Phone Number:</label>
-                                                    <input type="tel" placeholder="Phone" class="form-control"  v-model="phone"/>
+                                                        <label>Full Name:</label>
+                                                    <input type="text" placeholder="Full Name" class="form-control" v-model="name"/>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label>User Name:</label>
-                                                    <input type="text" placeholder="User Name" class="form-control"  :value="user.username" disabled/>
+                                                        <label for="email">Email Address:</label>
+                                                    <input type="email" placeholder="Email" class="form-control"  :value="user.email" disabled/>
                                                     </div>
                                                 </div>
-                                            </div>
-                                             <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                    <label>Sponsor Name:</label>
-                                                    <input type="tel" placeholder="Sponsor Name" class="form-control"  :value="user.sponsorName" disabled/>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label>Phone Number:</label>
+                                                        <input type="tel" placeholder="Phone" class="form-control"  v-model="phone"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label>User Name:</label>
+                                                        <input type="text" placeholder="User Name" class="form-control"  :value="user.username" disabled/>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                    <label>Full Address:</label>
-                                                    <input type="text" placeholder="Full Aaddress" class="form-control" v-model="address"/>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                        <label>Full Address:</label>
+                                                        <input type="text" placeholder="Full Aaddress" class="form-control" v-model="address"/>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="update-profile mt-2">
-                                                <button
-                                                    class="btn btn-blue btn-block"
-                                                    @click.prevent="submitProfile"
-                                                    style="display:flex; justify-content: center; align-items: center;"
-                                                >
-                                                    Update profile
-                                                     <ButtonLoader v-if="loading" :loading="loading" />
-                                                </button>
-                                            </div>
-                                        </form>
+                                                <div class="update-profile mt-2">
+                                                    <button
+                                                        class="btn btn-blue btn-block"
+                                                        @click.prevent="submitProfile"
+                                                        style="display:flex; justify-content: center; align-items: center;"
+                                                    >
+                                                        Update profile
+                                                        <ButtonLoader v-if="loading" :loading="loading" />
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </template>
+                            </template>
 
-                        <template v-else>
-                            <p>This is no Profile to Edit</p>
-                        </template>
+                            <template v-else>
+                                <p>This is no Profile to Edit</p>
+                            </template>
+                        </div>
+
                     </div>
                 </div>
 
@@ -128,18 +137,24 @@ export default {
             name: this.$auth.user.name,
             phone: this.$auth.user.phone,
             address: this.$auth.user.address,
+            file: '',
             loading: false,
             errors: ''
         }
     },
     methods: {
+        uploadFile() {
+            const file = this.$refs.file.files[0];
+            this.file = file;
+        },
         async submitProfile() {
             try{
                  this.loading = true;
                 const userDetails = {
                     name: this.name,
-                    phone: "this.phone",
-                    address: this.address
+                    phone: 'this.phone',
+                    address: this.address,
+                    file: this.file
                 }
 
                const res = await this.$axios.patch('/auth/updateProfile', userDetails);

@@ -7,7 +7,7 @@
                     <div class="account mb-3">
                         <h2 class="text-left">User Profile</h2>
                     </div>
-                    <div class="row mt-3">
+                    <div class="row" style="margin-top: 100px;">
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12">
                             <div class="card ">
                                 <div class="card-body">
@@ -19,7 +19,7 @@
                                     <div class="text-center">
                                         <h3 class="font-bold m-0">{{ user.name }}</h3>
                                         <p class="font-bold-h5 m-0">Welcome to Jointtask.com</p>
-                                        <p class="font-bold-h5">Stage: {{user.stage_completed}}</p>
+                                        <p class="font-bold-h5">Level: {{ user.hierarchyLevel }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -82,16 +82,6 @@
                                             <div class="col-lg-8 col-md-8 col-7">
                                                 <div class="">
                                                     <h5 class="font-bold">{{user.username}}</h5>
-                                                </div>
-                                            </div>
-                                             <div class="col-lg-4 col-md-4 col-5">
-                                                <div>
-                                                    <h5 class="font-bold-h5">Sponsor ID:</h5>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-8 col-md-8 col-7">
-                                                <div class="">
-                                                    <h5 class="font-bold">{{user.sponsorName}}</h5>
                                                 </div>
                                             </div>
                                         </div>
