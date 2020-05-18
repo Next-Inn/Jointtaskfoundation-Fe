@@ -5,7 +5,7 @@
              <template class="nav-item dropdown hide-desktop" v-if="$auth.user">
                 <ul class="mobile-profile-thumnail">
                     <li >
-                        <img v-if="$auth.user.profile_pic" :src="$auth.user.profile_pic"/>
+                        <img v-if="$auth.user.profile_pic" class="image" :src="$auth.user.profile_pic"/>
                         <img v-else src="https://via.placeholder.com/50" />
                     </li>
                     <li>
@@ -13,7 +13,7 @@
                     </li>
                 </ul>
             </template>
-            
+
             <template v-else> Name</template>
             <ul class="navbar-nav nav-sidebar text-center" id="">
                 <li class="nav-item" >
@@ -125,4 +125,10 @@ export default {
         top:74px;
     border-top: 9px solid #a20a11;}
     }
+
+    .image {
+    width: 100px;
+    height: 80px;
+}
+
 </style>

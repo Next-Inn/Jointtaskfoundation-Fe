@@ -14,8 +14,8 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="profile-img">
-                                                <img v-if="user.profile_pic" :src="user.profile_pic"/>
-                                                <img v-else src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
+                                                <img v-if="user.profile_pic" class="image" :src="user.profile_pic"/>
+                                                <img v-else  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
                                                 alt/>
                                                 <div class="file btn btn-lg btn-primary">
                                                     Change Photo
@@ -119,8 +119,7 @@
                 </div>
             </footer>
         </div>
-    </template>
-
+</template>
 
 <script>
 import DashboardNav from './../../components/partials/DashboardNavbar'
@@ -149,15 +148,15 @@ export default {
         },
         async submitProfile() {
             try{
-                 this.loading = true;
+                this.loading = true;
                 const userDetails = {
                     name: this.name,
                     phone: 'this.phone',
                     address: this.address,
                     file: this.file
                 }
-
-               const res = await this.$axios.patch('/auth/updateProfile', userDetails);
+    
+                const res = await this.$axios.patch('/auth/updateProfile', userDetails);
                 this.loading = false;
                 await this.$toast.success('Updated User Successfully', 'Success');
                 setTimeout(() => window.location.reload(), 3000)
@@ -259,7 +258,10 @@ font-weight: 900;
   top: 0;
 }
 
-
+.image {
+    width: 120px;
+    height: 150px;
+}
 
 
 </style>
