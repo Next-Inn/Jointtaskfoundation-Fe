@@ -94,7 +94,8 @@ export default {
             'ButtonPlugin',
             'AlertPlugin',
             'CarouselPlugin',
-            'CollapsePlugin'
+            'CollapsePlugin',
+            'TablePlugin'
         ]
     },
     /*

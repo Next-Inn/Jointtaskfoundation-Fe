@@ -5,13 +5,13 @@
              <div class="nav-item dropdown hide-desktop">
                 <ul class="mobile-profile-thumnail">
                     <li > 
-                        <nuxt-link to="/profile" class="ul-li-a">
+                        <nuxt-link to="/user/profile" class="ul-li-a profile-pic-nav">
                                 <img v-if="$auth.user.profile_pic" :src="$auth.user.profile_pic"/>
                                 <img v-else src="https://via.placeholder.com/50" />
                             </nuxt-link>
                         </li>
                         <li>
-                            <nuxt-link to="/user/u_dashboard" class="ul-li-a">Welcome {{ $auth.user.name }}</nuxt-link>
+                            <nuxt-link to="/user/profile" class="ul-li-a">Welcome {{ $auth.user.name }}</nuxt-link>
                         </li>
                     </ul>
                 </div>
@@ -124,5 +124,11 @@ export default {
     #sidebar {
         top:74px;    
     border-top: 9px solid #a20a11;}
+    }
+    .profile-pic-nav{
+        width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50px;
     }
 </style>

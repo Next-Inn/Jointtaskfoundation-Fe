@@ -84,6 +84,9 @@ export default {
 }
  .radius-50{
    border-radius:50px;
+       width: 50px;
+    height: 50px;
+    object-fit: cover;
  }
 .navbar-brand{
   color: #000;

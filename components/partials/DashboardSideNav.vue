@@ -6,7 +6,7 @@
         <div class="nav-item dropdown hide-desktop">
            <div class="mobile-profile-thumnail">
                <div> 
-                <nuxt-link to="/profile">
+                <nuxt-link to="/profile" class="profile-pic-nav">
                         <img v-if="$auth.user.profile_pic" :src="$auth.user.profile_pic"/>
                         <img v-else src="https://via.placeholder.com/50" />
                     </nuxt-link>

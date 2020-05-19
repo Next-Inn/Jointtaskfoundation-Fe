@@ -125,8 +125,15 @@ p {
     position: relative;
     left: 67px;
 }
-.card{margin-bottom:42px;}
 }
+@media(max-width: 1000px){
+table {
+  display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}}
+.card{margin-bottom:42px;}
+
 .main-footer {
     background: #fff;
     position: fixed;
@@ -174,6 +181,12 @@ p {
 label{
   font-weight:900;
 }
+.profile-pic-nav img{
+        width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50px;
+    }
 
 /* gs, */
 
