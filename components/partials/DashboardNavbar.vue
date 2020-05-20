@@ -9,7 +9,7 @@
             <i class="fa fa-bell"></i>
           </a>
         </li>
-        
+
           <template v-if="!$auth.user" >
             <li class="nav-item">
               <nuxt-link to="/user/signup" class="nav-link">Sign Up</nuxt-link>
@@ -84,6 +84,8 @@ export default {
 }
  .radius-50{
    border-radius:50px;
+   width: 50px;
+   height: 50px;
  }
 .navbar-brand{
   color: #000;
