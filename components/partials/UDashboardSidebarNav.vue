@@ -29,8 +29,8 @@
                     <i class="fa fa-coins"></i>Get Loan</nuxt-link>
                 </li>
                 <li class="nav-item" >
-                <nuxt-link to="/user/makepayment" class="nav-link" id="userList">
-                    <i class="fa fa-money"></i>Payment</nuxt-link>
+                <a href="#" class="nav-link" id="userList"  @click.prevent="payWithPaystack()">
+                    <i class="fa fa-money"></i>Payment</a>
                 </li>
                 <li class="nav-item" >
                 <nuxt-link to="/user/makereport" class="nav-link" id="userList">
@@ -45,15 +45,62 @@
 </template>
 
 <script>
+import store from '@/store';
 export default {
-    computed: {
-        user(){
-            return this.$store.getters.loggedInUser
+    head() {
+        return {
+             script: [{
+                src: 'https://js.paystack.co/v1/inline.js',
+                type: 'text/javascript'
+            }]
         }
     },
+
+    data() {
+        return {
+            user: null
+        }
+    },
+
+    mounted() {
+        this.user = this.$store.getters['loggedInUser'];
+    },
+
     methods: {
           async logout() {
             await this.$auth.logout().then(() => this.$toast.success('Logged Out Successfully'))
+        },
+
+         async payWithPaystack(store) {
+            let payload = null;
+            const paystackKey = process.env.PAYSTACK_TEST_KEY;
+            const handler = PaystackPop.setup({
+                key: 'pk_test_33364b8f7b0c494b6fa9002781f332ea2f60326c',
+                email: this.user.email,
+                amount: 400000,
+                metadata: {
+                    custom_fields: [
+                        {
+                            display_name: this.user.name,
+                            variable_name: this.user.name,
+                            value: this.user.phone
+                        }
+                    ]
+                },
+                callback: async function({ reference, transaction, status}) {
+                    try {
+                        payload = { reference, transaction, status };
+                        await window.$nuxt.$store.dispatch('user/makePayment', payload);
+                        window.$nuxt.$toast.success('Transacton Successfully');
+                    } catch (error) {
+                      window.$nuxt.$toast.error('Transacton Unsuccessfully, Please Try Again Later');
+                    }
+                },
+                onClose: function () {
+                    window.$nuxt.$toast.error('Transacton Unsuccessfully');
+                }
+            });
+            await handler.openIframe();
         },
     }
 }

@@ -8,7 +8,7 @@ const state = () => ({
 	email: '',
 	children: '',
 	balance: '',
-	stage: ''
+	stage: '',
 });
 
 export const mutations = {
@@ -28,7 +28,7 @@ export const mutations = {
 	SET_USER_REWARD (state, payload) {
 		state.balance = payload[0];
 		state.stage = payload[1];
-	}
+	},
 };
 
 export const actions = {
@@ -67,8 +67,17 @@ export const actions = {
 		try {
 			const { data } = await this.$axios.$get('/user/get-down-lines');
 			const children = data.children;
-			// if (data) this.$toast.info('DownLines Loaded Successfully', 'INFO!!!...');
 			commit('SET_USER_CHILDREN', children);
+		} catch (e) {
+			return console.log(e);
+		}
+	},
+
+	async makePayment ({ commit }, payload) {
+		try {
+			console.log(payload)
+			const { data } = await this.$axios.post('/payment/reference', payload);
+			return console.log(data)
 		} catch (e) {
 			return console.log(e);
 		}
@@ -92,9 +101,10 @@ export const actions = {
 
 	async updateUser (payload) {
 		let errors = '';
-		return console.log(payload)
+
 		try {
 			const res = await this.$axios.$patch('/auth/updateProfile', payload);
+			return console.log()
 			return console.log(res);
 			// await toast.success('Updated User Successfully', 'Success');
 		} catch (e) {
