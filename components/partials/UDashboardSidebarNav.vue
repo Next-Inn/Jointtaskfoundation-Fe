@@ -45,6 +45,7 @@
 </template>
 
 <script>
+import store from '@/store';
 export default {
     head() {
         return {
@@ -69,8 +70,10 @@ export default {
           async logout() {
             await this.$auth.logout().then(() => this.$toast.success('Logged Out Successfully'))
         },
-          async payWithPaystack() {
-              const paystackKey = process.env.PAYSTACK_TEST_KEY;
+
+         async payWithPaystack(store) {
+            let payload = null;
+            const paystackKey = process.env.PAYSTACK_TEST_KEY;
             const handler = PaystackPop.setup({
                 key: 'pk_test_33364b8f7b0c494b6fa9002781f332ea2f60326c',
                 email: this.user.email,
@@ -84,16 +87,20 @@ export default {
                         }
                     ]
                 },
-                callback: function({ reference, transaction, status}) {
-                    const payload = { reference, transaction, status };
-                    console.log(payload);
-                    this.$toast.success('Transacton Successfully');
+                callback: async function({ reference, transaction, status}) {
+                    try {
+                        payload = { reference, transaction, status };
+                        await window.$nuxt.$store.dispatch('user/makePayment', payload);
+                        window.$nuxt.$toast.success('Transacton Successfully');
+                    } catch (error) {
+                      window.$nuxt.$toast.error('Transacton Unsuccessfully, Please Try Again Later');
+                    }
                 },
                 onClose: function () {
-                    this.$toast.error('Error in Transaction')
+                    window.$nuxt.$toast.error('Transacton Unsuccessfully');
                 }
             });
-            handler.openIframe();
+            await handler.openIframe();
         },
     }
 }
