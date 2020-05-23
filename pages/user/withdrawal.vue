@@ -91,7 +91,7 @@ export default {
                 };
                 // return console.log(payload)
 
-                const res = await this.$axios.post('/request-loan', payload)
+                const res = await this.$axios.post('/request-withdrawal', payload)
                 this.loading = false
                 console.log(res)
 
