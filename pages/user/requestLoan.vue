@@ -215,7 +215,6 @@ export default {
             email: this.email,
             amount: this.amount
           }
-          // return console.log(payload)
 
           const res = await this.$axios.post('/request-loan', payload)
           this.loading = false
