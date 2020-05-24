@@ -14,7 +14,7 @@
                   <form @submit.prevent="requestLoan()">
                     <div class="form-group">
                       <ValidationProvider
-                        name="name"
+                        name="Amount"
                         rules="min:3|required|alpha_num"
                         :bails="false"
                         v-slot="{ errors, classes }"
@@ -65,14 +65,13 @@
                         v-slot="{ errors, classes }"
                         :bails="false"
                       >
-                        <label for="bank-account">Bank Account</label>
+                        <label for="bank-account">Bank</label>
                         <input
                           type="text"
                           :class="classes"
                           name="bank"
                           v-model="bank"
                           class="form-control"
-                          id
                           aria-describedby="Widthdraw"
                           placeholder="Enter Your Bank"
                         />
@@ -84,7 +83,7 @@
                     <div class="form-group">
                       <ValidationProvider
                         name="accountName"
-                        rules="required|alpha"
+                        rules="required|alpha_spaces"
                         v-slot="{ errors, classes }"
                         :bails="false"
                       >
@@ -95,7 +94,6 @@
                           name="accountName"
                           v-model="accountName"
                           class="form-control"
-                          id
                           aria-describedby="Widthdraw"
                           placeholder="Enter Your Account Name"
                         />
@@ -106,7 +104,7 @@
 
                     <div class="form-group">
                       <ValidationProvider
-                        name="phone"
+                        name="Account Number"
                         rules="required|digits:10"
                         v-slot="{ errors, classes }"
                       >
@@ -117,7 +115,6 @@
                           name="accountNumber"
                           v-model="accountNumber"
                           class="form-control"
-                          id
                           aria-describedby="Widthdraw"
                           placeholder="Enter Your Account Number"
                         />
@@ -218,7 +215,6 @@ export default {
             email: this.email,
             amount: this.amount
           }
-          // return console.log(payload)
 
           const res = await this.$axios.post('/request-loan', payload)
           this.loading = false
@@ -246,6 +242,13 @@ export default {
 </script>
 
 <style scoped>
+span {
+  color: red;
+  font-size: 12px;
+  font-style: italic;
+  margin-top: 5px;
+}
+
 .card {
   padding: 20px;
 }
