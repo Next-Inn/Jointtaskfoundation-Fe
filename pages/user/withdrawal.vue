@@ -89,14 +89,12 @@ export default {
                     email: this.userDetails.email,
                     amount: this.userDetails.amount
                 };
-                // return console.log(payload)
 
                 const res = await this.$axios.post('/request-withdrawal', payload)
                 this.loading = false
                 console.log(res)
 
                 if (res.status === 200) await this.$toast.info(res.data.data, 'Success');
-                // wait until the models are updated in the UI
                 this.$nextTick(() => {
                     this.userDetails = {}
                 })
