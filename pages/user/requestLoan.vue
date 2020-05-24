@@ -61,7 +61,7 @@
                     <div class="form-group">
                       <ValidationProvider
                         name="bank"
-                        rules="required|alpha_spaces"
+                        rules="required|alpha_spaces|bankInNigeria"
                         v-slot="{ errors, classes }"
                         :bails="false"
                       >
@@ -183,9 +183,27 @@ export default {
       amount: '',
       accountNumber: '',
       loading: false,
-      errors: ''
+      errors: '',
+      banks: null
     }
   },
+  created() {
+      this.$axios.get('https://api.paystack.co/bank').then((data) => {
+          return this.banks = data.data.data.map((item) => item.name )
+      });
+  },
+
+  mounted() {
+    extend('bankInNigeria', {
+      message:
+        'This {_field_} 😤 is not a bank in Nigeria',
+      validate: value => {
+        if (this.banks.includes(value) === true) return true
+        return false
+      }
+    })
+  },
+
   methods: {
     async requestLoan() {
       this.$refs.form.validate().then(async success => {
