@@ -45,6 +45,7 @@
 .baloon img{
   position:absolute;
   left:0;
+  width:inherit;
 }
     .why_section_details {
         margin: 100px 0;

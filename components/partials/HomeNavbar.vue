@@ -6,7 +6,7 @@
       :class="[scroller ? backgroundColored : backgroundTransparent, isHome ? '' : 'nav-bg-color' ]"
     >
       <div class="container">
-        <nuxt-link to="/" class="navbar-brand dashboard-brand">JTF</nuxt-link>
+        <nuxt-link to="/" class="navbar-brand  color-whitedashboard-brand">JTF</nuxt-link>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
         <b-collapse class="collapse navbar-collapse"  id="nav-collapse" is-nav>
@@ -155,5 +155,8 @@ background-color:#22395d;
   }
   .m-l-auto {
     margin-left:auto;}
+}
+.navbar-brand:hover{
+  color:#fff;
 }
 </style>

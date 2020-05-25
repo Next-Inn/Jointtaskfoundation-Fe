@@ -19,6 +19,26 @@ export default {
 </script>
 
 <style>
+::-webkit-scrollbar {
+  width: 10px;
+  height:100%;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
 :root {
   --main-bg-color: #23395d;
   --main-txt-color: #22395d;
@@ -145,6 +165,7 @@ table {
     /* top: 100%; */
     text-align: center;
 }
+img{width:100%;}
 #sidebar {
         width: 150px;
         bottom: 0;
@@ -187,7 +208,11 @@ label{
     object-fit: cover;
     border-radius: 50px;
     }
-
+.scroll-nav{
+  display:block;
+  overflow-y:scroll;
+  height:100%;
+}
 /* gs, */
 
 

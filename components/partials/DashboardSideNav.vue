@@ -16,7 +16,7 @@
                 </div>
             </div>
         </div>
-        <ul class="navbar-nav nav-sidebar text-center" id="" >
+        <ul class="navbar-nav scroll-nav nav-sidebar text-center" id="" >
             <li class="nav-item" >
             <nuxt-link to="/dashboard" class="nav-link activeClass" id="dashboard">
                 <i class="fa fa-home"></i>Home</nuxt-link>

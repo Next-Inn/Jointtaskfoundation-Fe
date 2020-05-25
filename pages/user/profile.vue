@@ -146,11 +146,7 @@ export default {
         padding: 0px;
         color: #fff;
     }
-.account h2:before{
-    border:2px solid #a22826;
-    content:'';
-    width: 20px;
-}
+
 .account h2{
     color:#22395d;
     font-weight: 900;

@@ -123,5 +123,10 @@ export default {
   color: #22395d;
 
 }
+@media(max-width:1000px){
+  .p-abs{
+    display:none;
+  }
+}
 .cont-header h1{    border-bottom: 3px solid #cccccc; }
 </style>
