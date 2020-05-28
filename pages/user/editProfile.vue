@@ -4,48 +4,48 @@
       <DashboardNav />
       <div class="content">
         <div class="container">
-          <div class="account">
+          <div class="account mt-3">
             <h2 class="text-left">Edit Profile</h2>
           </div>
 
-          <div class="d-flex row mt-3" style="margin-top: 100px;">
-            <template v-if="user">
-              <div class="col-lg-4 col-md-4 col-sm-12 col-12">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="profile-img">
-                      <img v-if="user.profile_pic" class="image" :src="user.profile_pic" />
-                      <img
-                        v-else
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
-                        alt
-                      />
-                      <div class="file btn btn-lg btn-primary">
-                        Change Photo
-                        <input
-                          type="file"
-                          ref="avatar"
-                          :name="file"
-                          single
-                          accept="image/*"
-                          class="input-file"
-                          @change="uploadFile"
+          <div style="margin-top: 100px;">
+            <template class="row " v-if="user">
+              <form action class="d-flex row" enctype="multipart/form-data" @submit.prevent="submitProfile">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="profile-img">
+                        <img v-if="user.profile_pic" class="image" :src="user.profile_pic" />
+                        <img
+                          v-else
+                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
+                          alt
                         />
+                        <div class="file btn btn-lg btn-primary">
+                          Change Photo
+                          <input
+                            type="file"
+                            ref="avatar"
+                            :name="file"
+                            single
+                            accept="image/*"
+                            class="input-file"
+                            @change="uploadFile"
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <div class="text-center">
-                      <h3 class="font-bold m-0">{{ user.name }}</h3>
-                      <p class="font-bold-h5 m-0">Welcome to Jointtask.com</p>
-                      <p class="font-bold-h5">Level: {{ user.hierarchyLevel }}</p>
+                      <div class="text-center">
+                        <h3 class="font-bold m-0">{{ user.name }}</h3>
+                        <p class="font-bold-h5 m-0">Welcome to Jointtask.com</p>
+                        <p class="font-bold-h5">Stage: {{ user.stage_completed }}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="col-lg-8 col-md-8 col-sm-12 col-12">
-                <div class="card">
-                  <div class="card-body">
-                    <form action>
+                <div class="col-lg-8 col-md-8 col-sm-12 col-12">
+                  <div class="card">
+                    <div class="card-body">
                       <div class="bd-bt profile-details mb-3">
                         <h5 class="mb-2">
                           <i class="fa fa-user ft-16"></i> Personal Information
@@ -117,17 +117,16 @@
                       <div class="update-profile mt-2">
                         <button
                           class="btn btn-blue btn-block"
-                          @click.prevent="submitProfile"
                           style="display:flex; justify-content: center; align-items: center;"
                         >
                           Update profile
                           <ButtonLoader v-if="loading" :loading="loading" />
                         </button>
                       </div>
-                    </form>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </form>
             </template>
 
             <template v-else>
@@ -155,16 +154,20 @@ import DashboardNav from './../../components/partials/DashboardNavbar'
 import ButtonLoader from './../../components/notification/buttonLoader'
 
 export default {
-//   head() {
-//     return {
-//       script: [{ src: 'https://widget.cloudinary.com/v2.0/global/all.js' }]
-//     }
-//   },
+  //   head() {
+  //     return {
+  //       script: [{ src: 'https://widget.cloudinary.com/v2.0/global/all.js' }]
+  //     }
+  //   },
   middleware: ['redirectIfAuthenticated'],
   layout: 'Udashboard',
   components: {
     DashboardNav,
     ButtonLoader
+  },
+
+  mounted() {
+    console.log(this.$auth.user)
   },
 
   data() {
@@ -187,22 +190,13 @@ export default {
 
     async submitProfile() {
       try {
-        let formData
         this.loading = true
-
-        if (this.file !== null) {
-          formData = new FormData()
-          formData.append('file', this.file, this.file.name)
-          formData.append('name', this.name)
-          formData.append('phone', this.phone)
-          formData.append('name', this.address)
-        } else {
-          formData = {
-            name: this.name,
-            phone: this.phone,
-            address: this.address
-          }
-        }
+        
+        const formData = new FormData();
+        formData.append('name', this.name)
+        formData.append('phone', this.phone)
+        formData.append('address', this.address)
+        this.file ? formData.append('file', this.file) : '';
 
         // return console.log(formData);
         const res = await this.$axios.patch('/auth/updateProfile', formData)
@@ -210,13 +204,14 @@ export default {
         await this.$toast.success('Update Succefull', 'Success')
         setTimeout(() => window.location.reload(), 3000)
       } catch (e) {
+        console.error(e)
         this.errors = e.response
           ? e.response.data.error
           : 'Network Error, Please check Your Network and Try again!!'
         await this.$toast.error(this.errors, 'Error')
         this.loading = false
       }
-    },
+    }
 
     // async createCloudinaryWidget(file) {
     //   return console.log(file)

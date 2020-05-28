@@ -19,7 +19,7 @@
                                     <div class="text-center">
                                         <h3 class="font-bold m-0">{{ user.name }}</h3>
                                         <p class="font-bold-h5 m-0">Welcome to Jointtask.com</p>
-                                        <p class="font-bold-h5">Level: {{ user.hierarchyLevel }}</p>
+                                        <p class="font-bold-h5">Stage: {{ user.stage_completed }}</p>
                                     </div>
                                 </div>
                             </div>
