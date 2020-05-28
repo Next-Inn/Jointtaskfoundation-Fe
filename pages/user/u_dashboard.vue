@@ -12,8 +12,8 @@
             <div class="col-md-5"></div>
             <div class="col-md-3">
               <h4>
-                Level
-                <span class="badge badge-info mr-2">{{ user.hierarchyLevel }}</span>
+                Stage
+                <span class="badge badge-info mr-2">{{ user.stage_completed }}</span>
                 Balance
                 <span class="badge badge-info">{{ this.balance }}</span>
               </h4>
