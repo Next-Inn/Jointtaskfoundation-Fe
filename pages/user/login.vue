@@ -17,7 +17,7 @@
                   placeholder
                   class="form-control"
                   v-model="usernameEmail"
-                  name="usernameEmail"
+                  name="email"
                   onfocus="this.placeholder=''"
                   onblur="this.placeholder='Enter your username or email'"
                 />

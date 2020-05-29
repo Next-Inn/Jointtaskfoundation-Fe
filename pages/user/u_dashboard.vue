@@ -92,11 +92,11 @@ export default {
 
   async created() {
     this.getReward();
-    await this.$toast.info('DownLines Loaded Successfully', 'INFO!!!...');
     this.getDownlines().then(() => {
       this.treeDetails.children = this.$store.getters['user/getChildren']
       this.balance = this.$store.getters['user/getBalance']
     });
+    return this.$toast.info('DownLines Loaded Successfully', 'INFO!!!...');
   },
 
   computed: {
@@ -118,6 +118,9 @@ export default {
   min-height: calc(100vh - 160px);
   margin-top: 30px;
   background: #fffbfb;
+} */
+/* .item{
+  width: 80%
 } */
 .pointer {
   width: 4px;

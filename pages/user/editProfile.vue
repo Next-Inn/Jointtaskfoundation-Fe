@@ -191,14 +191,13 @@ export default {
     async submitProfile() {
       try {
         this.loading = true
-        
+
         const formData = new FormData();
         formData.append('name', this.name)
         formData.append('phone', this.phone)
         formData.append('address', this.address)
         this.file ? formData.append('file', this.file) : '';
 
-        // return console.log(formData);
         const res = await this.$axios.patch('/auth/updateProfile', formData)
         this.loading = false
         await this.$toast.success('Update Succefull', 'Success')
