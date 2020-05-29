@@ -88,6 +88,7 @@ export const actions = {
 			let stage;
 			let balance;
 			const { data } = await this.$axios.$get('/user/get-stage-rewards');
+			// return console.log(data)
 			balance = data.reward.balance;
 			stage = data.stage_completed;
 			commit('SET_USER_REWARD', [

@@ -97,6 +97,7 @@ export default {
       this.treeDetails.children = this.$store.getters['user/getChildren']
       this.balance = this.$store.getters['user/getBalance']
     });
+    return console.log(this.$auth.user)
   },
 
   computed: {
@@ -118,6 +119,9 @@ export default {
   min-height: calc(100vh - 160px);
   margin-top: 30px;
   background: #fffbfb;
+} */
+/* .item{
+  width: 80%
 } */
 .pointer {
   width: 4px;
