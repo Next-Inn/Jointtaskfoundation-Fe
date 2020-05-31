@@ -63,7 +63,7 @@ export default {
       balance: '',
       stage: '',
       treeDetails: {
-        name: this.$auth.user.name,
+        ...this.$auth.user,
         children: []
       }
     }
@@ -108,20 +108,6 @@ export default {
 </script>
 
 <style scoped>
-/* .main {
-  background: rgba(203, 203, 210, 0.15);
-  position: relative;
-  width:100%;
-}
-.main .content {
-  padding: 30px 15px;
-  min-height: calc(100vh - 160px);
-  margin-top: 30px;
-  background: #fffbfb;
-} */
-/* .item{
-  width: 80%
-} */
 .pointer {
   width: 4px;
   height: 30px;
@@ -172,11 +158,4 @@ p {
   font-size: 3em;
   min-height: 64px;
 }
-/* .main-footer { */
-  /* background: rgba(203, 203, 210, 0.15);
-  position: relative;
-  float: right;
-  width: calc(100% - 100px);
-  padding: 10px;
-} */
 </style>
