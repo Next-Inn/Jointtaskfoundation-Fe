@@ -221,10 +221,11 @@ export default {
           console.log(res)
 
           if (res.status === 200)
-            await this.$toast.info(res.data.data, 'Success')
+            await this.$toast.success(res.data.data, 'Success')
           this.$nextTick(() => {
             this.userDetails = {}
           })
+           return this.$router.push('/user/u_dashboard');
         } catch (error) {
           this.errors = e.response
             ? e.response.data.error

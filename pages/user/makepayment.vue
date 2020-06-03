@@ -105,7 +105,13 @@ export default {
                 const result = await this.$axios.$get('/list-banks')
                 this.banks = result.data;
                 this.loading = false;
-                await this.$toast.success('Successfully Logged In', 'Success');
+
+                if (res.status === 200)
+                    await this.$toast.success(res.data.data, 'Success')
+                    this.$nextTick(() => {
+                    this.userDetails = {}
+                })
+                 return this.$router.push('/user/u_dashboard');
             } catch (e) {
                 this.errors = e.response
                     ? e.response.data.error

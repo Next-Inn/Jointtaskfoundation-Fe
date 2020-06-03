@@ -212,13 +212,12 @@ export default {
 
           const res = await this.$axios.post('/request-withdrawal', payload)
           this.loading = false
-          console.log(res)
-
           if (res.status === 200)
-            await this.$toast.info(res.data.data, 'Success')
-          this.$nextTick(() => {
+            await this.$toast.success(res.data.data, 'Success')
+            this.$nextTick(() => {
             this.userDetails = {}
           })
+           return this.$router.push('/user/u_dashboard');
         } catch (e) {
           this.errors = e.response
             ? e.response.data.error
