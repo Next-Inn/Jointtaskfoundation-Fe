@@ -2,20 +2,20 @@
     <b-collapse id="nav-collapse" is-nav>
         <section id="sidebar">
             <!-- <a href="/" class="navbar-brand">JTF</a> -->
-             <div class="nav-item dropdown hide-desktop">
+             <template class="nav-item dropdown hide-desktop" v-if="$auth.user">
                 <ul class="mobile-profile-thumnail">
-                    <li > 
-                        <nuxt-link to="/user/profile" class="ul-li-a profile-pic-nav">
-                                <img v-if="$auth.user.profile_pic" :src="$auth.user.profile_pic"/>
-                                <img v-else src="https://via.placeholder.com/50" />
-                            </nuxt-link>
-                        </li>
-                        <li>
-                            <nuxt-link to="/user/profile" class="ul-li-a">Welcome {{ $auth.user.name }}</nuxt-link>
-                        </li>
-                    </ul>
-                </div>
-            <ul class="navbar-nav nav-sidebar scroll-nav text-center" id="">
+                    <li >
+                        <img v-if="$auth.user.profile_pic" class="image" :src="$auth.user.profile_pic"/>
+                        <img v-else src="https://via.placeholder.com/50" />
+                    </li>
+                    <li>
+                        <nuxt-link to="/user/profile" class="ul-li-a">Welcome {{ $auth.user.name }}</nuxt-link>
+                    </li>
+                </ul>
+            </template>
+
+            <template v-else> Name</template>
+            <ul class="navbar-nav nav-sidebar text-center" id="">
                 <li class="nav-item" >
                 <nuxt-link to="/user/u_dashboard" class="nav-link activeClass" id="dashboard">
                     <i class="fa fa-home"></i>Home</nuxt-link>
@@ -29,8 +29,8 @@
                     <i class="fa fa-coins"></i>Get Loan</nuxt-link>
                 </li>
                 <li class="nav-item" >
-                <nuxt-link to="/user/makepayment" class="nav-link" id="userList">
-                    <i class="fa fa-money"></i>Payment</nuxt-link>
+                <a href="#" class="nav-link" id="userList"  @click.prevent="payWithPaystack()">
+                    <i class="fa fa-money"></i>Payment</a>
                 </li>
                 <li class="nav-item" >
                 <nuxt-link to="/user/makereport" class="nav-link" id="userList">
@@ -45,22 +45,69 @@
 </template>
 
 <script>
+import store from '@/store';
 export default {
-    computed: {
-        user(){
-            return this.$store.getters.loggedInUser
+    head() {
+        return {
+             script: [{
+                src: 'https://js.paystack.co/v1/inline.js',
+                type: 'text/javascript'
+            }]
         }
     },
+
+    data() {
+        return {
+            user: null
+        }
+    },
+
+    mounted() {
+        this.user = this.$store.getters['loggedInUser'];
+    },
+
     methods: {
           async logout() {
             await this.$auth.logout().then(() => this.$toast.success('Logged Out Successfully'))
+        },
+
+         async payWithPaystack(store) {
+            let payload = null;
+            const paystackKey = process.env.PAYSTACK_TEST_KEY;
+            const handler = PaystackPop.setup({
+                key: 'pk_test_33364b8f7b0c494b6fa9002781f332ea2f60326c',
+                email: this.user.email,
+                amount: 400000,
+                metadata: {
+                    custom_fields: [
+                        {
+                            display_name: this.user.name,
+                            variable_name: this.user.name,
+                            value: this.user.phone
+                        }
+                    ]
+                },
+                callback: async function({ reference, transaction, status}) {
+                    try {
+                        payload = { reference, transaction, status };
+                        await window.$nuxt.$store.dispatch('user/makePayment', payload);
+                        window.$nuxt.$toast.success('Transacton Successfully');
+                    } catch (error) {
+                      window.$nuxt.$toast.error('Transacton Unsuccessfully, Please Try Again Later');
+                    }
+                },
+                onClose: function () {
+                    window.$nuxt.$toast.error('Transacton Unsuccessfully');
+                }
+            });
+            await handler.openIframe();
         },
     }
 }
 </script>
 
 <style scoped>
- 
+
     #sidebar .navbar-brand {
         font-size: 30px;
     }
@@ -122,13 +169,22 @@ export default {
         left: 0px !important;
     }
     #sidebar {
-        top:74px;    
+        top:74px;
     border-top: 9px solid #a20a11;}
     }
+<<<<<<< HEAD
     .profile-pic-nav{
         width: 50px;
     height: 50px;
     object-fit: cover;
     border-radius: 50px;
     }
+=======
+
+    .image {
+    width: 100px;
+    height: 80px;
+}
+
+>>>>>>> 33fcd93cc113166cdff4cefab04a19955966fe4d
 </style>

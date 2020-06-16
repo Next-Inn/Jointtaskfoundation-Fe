@@ -2,12 +2,15 @@
   <div>
     <li>
     <div
-      :class="{bold: isFolder}"
+      :class="[item.payed ? 'green' : 'danger', {bold: isFolder}]"
       class="name"
       @click="toggle"
       @dblclick="makeFolder">
-      {{ item.name }}
-      <span v-if="isFolder">[{{ isOpen ? '⬆' : '⬇' }}]</span>
+      <span>
+        {{ item.name }}
+        <span v-if="isFolder">[{{ isOpen ? '⬆' : '⬇' }}]</span>
+      </span>
+      <span>{{ item.payed ? 'Payed' : 'Not Payed'}}</span>
     </div>
     <ul v-show="isOpen" v-if="isFolder">
       <tree
@@ -64,19 +67,31 @@ export default {
 <style scoped>
 .item {
   cursor: pointer;
+  margin: 5px 0;
 }
 .bold {
   font-weight: bold;
-  color: var(--main-bg-color);
 }
 .name {
-  font-size: 30px;
+  font-size: 25px;
+  display: flex;
+  justify-content: space-between;
 }
 ul {
   padding-left: 1em;
   line-height: 1.8em;
   list-style-type: dot;
-  font-size: 25px;
+  font-size: 20px;
 }
 
+.green {
+  background: rgb(19, 211, 169);
+  color: #fff;
+  padding: 5px 13px;
+}
+.danger {
+  background: rgb(255, 96, 91);
+  color: #fff;
+  padding: 3px 20px;
+}
 </style>
