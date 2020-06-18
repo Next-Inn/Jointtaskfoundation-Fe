@@ -8,7 +8,7 @@
             <h2 class="text-left">Edit Profile</h2>
           </div>
 
-          <div style="margin-top: 100px;">
+          <div style="margin-top: 47px;">
             <template class="row " v-if="user">
               <form action class="d-flex row" enctype="multipart/form-data" @submit.prevent="submitProfile">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-12">
@@ -250,11 +250,7 @@ export default {
   padding: 0px;
   color: #fff;
 }
-.account h2:before {
-  border: 2px solid #a22826;
-  content: '';
-  width: 20px;
-}
+
 .account h2 {
   color: #22395d;
   font-weight: 900;

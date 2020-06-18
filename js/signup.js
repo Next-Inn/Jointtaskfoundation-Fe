@@ -30,4 +30,5 @@ async function signUpUser(e) {
         ui.printMessage('Thank You for Your Info, Processing!', 'alert-success');
         
         // Get user details
+    }
 }

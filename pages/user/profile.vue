@@ -7,7 +7,7 @@
                     <div class="account mb-3">
                         <h2 class="text-left">User Profile</h2>
                     </div>
-                    <div class="row" style="margin-top: 100px;">
+                    <div class="row" style="margin-top: 47px;">
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12">
                             <div class="card ">
                                 <div class="card-body">

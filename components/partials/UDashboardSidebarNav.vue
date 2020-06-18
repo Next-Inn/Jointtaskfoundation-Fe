@@ -15,7 +15,7 @@
             </template>
 
             <template v-else> Name</template>
-            <ul class="navbar-nav nav-sidebar text-center" id="">
+            <ul class="navbar-nav nav-sidebar flow-y text-center" id="">
                 <li class="nav-item" >
                 <nuxt-link to="/user/u_dashboard" class="nav-link activeClass" id="dashboard">
                     <i class="fa fa-home"></i>Home</nuxt-link>
@@ -172,19 +172,19 @@ export default {
         top:74px;
     border-top: 9px solid #a20a11;}
     }
-<<<<<<< HEAD
     .profile-pic-nav{
         width: 50px;
     height: 50px;
     object-fit: cover;
     border-radius: 50px;
     }
-=======
 
     .image {
     width: 100px;
     height: 80px;
 }
-
->>>>>>> 33fcd93cc113166cdff4cefab04a19955966fe4d
+.flow-y{
+    overflow-y:scroll;
+    max-height:390px;
+}
 </style>
