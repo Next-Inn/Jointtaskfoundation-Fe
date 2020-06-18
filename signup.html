@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NANO</title>
+    <!-- Bootstrap core CSS -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Nunito&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet"> -->
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/font-awesome.css" rel="stylesheet">
+
+    <!-- <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
+
+    <link href="css/owl.carousel.min.css" rel="stylesheet">
+    <link href="css/owl.theme.default.min.css" rel="stylesheet">
+
+  </head>
+
+  <body class="authPage">
+    <div id="header"></div>
+    <!-- end of nav -->
+
+   <section id="login">
+       <div class="container">
+           <div class="row">
+               <div class="col-md-2"></div>
+               <div class="col-md-8 form-container">
+                <form action="" id="regForm">
+                  <h3 class="text-center">Create Your Account</h3>
+                  <div class="tab">
+                    <div class="text-container">
+                      <h3>Personal Information</h3>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <input type="text" placeholder="First Name" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <input type="text" placeholder="Last Name" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <input type="Email" placeholder="Email" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <input type="tel" placeholder="Mobile Number" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-container">
+                    <h3>User Information</h3>
+                </div>
+                <div class="form-group">
+                  <input type="text" placeholder="Username" class="form-control">
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input type="password" placeholder="Password" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input type="password" placeholder="Confirm password" class="form-control">
+                    </div>
+                  </div>
+                </div>
+                  </div>
+                  <div class="tab">
+                    <div class="text-container">
+                        <h3>Sponsor Information</h3>
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="form-group">
+                          <input type="text" placeholder="Sponsor ID" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-container">
+                        <h3>Package and Payment Information</h3>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <select class="form-control" id="selPackage">
+                            <option>Joining package</option>
+                            <option>adjoining</option>
+                            <option>me</option>
+                            <option>thwem</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <select class="form-control" id="selPayMode">
+                            <option>E-Wallet</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <input type="password" placeholder="password" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <input type="text" placeholder="E-Wallet ID" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <input type="password" placeholder="E-Wallet Password" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                   
+                  </div>
+                  <div class="tab">
+                    <div class="text-container">
+                        <h3>Security Question & Answer</h3>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <select class="form-control" id="securityQuestion">
+                            <option>What is the name of your first School?</option>
+                            <option>What is your mother's maiden name?</option>
+                            <option>Whats your secret?</option>
+                            <option>What's your first pet's name</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <input type="text" placeholder="Your Answer" class="form-control" id="secretAnswer">
+                        </div>
+                      </div>
+                    </div>
+                    <button class="btn btn-blue btn-block">Log In</button>
+                  </div>
+                    <div style="overflow:auto;">
+                      <div style="float:right;" class="my-3">
+                        <button class="btn btn-success" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                        <button class="btn btn-blue" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                      </div>
+                      <p>Already have an account? Click <a href="login.html"><strong>Log in</strong></a> instead</p>
+                    </div>
+
+                    <!-- Circles which indicates the steps of the form: -->
+                    <div style="text-align:center;margin-top:40px;">
+                      <span class="step"></span>
+                      <span class="step"></span>
+                    </div>
+                 </form>
+               </div>
+               <div class="col-md-2"></div>
+           </div>
+       </div>
+   </section>
+
+   <div id="footer"></div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/owlss.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
