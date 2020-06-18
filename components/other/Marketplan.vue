@@ -367,7 +367,7 @@ export default {
 }
 
 .card-header {
-    padding: 0.75rem 1.25rem;
+    padding: 0.1rem 1.25rem;
     margin-bottom: 0;
     background-color: rgb(34, 57, 93);
     border-bottom: 0 solid rgba(172, 14, 14, 0.99);

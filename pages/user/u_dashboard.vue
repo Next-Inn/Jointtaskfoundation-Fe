@@ -12,8 +12,8 @@
             <div class="col-md-5"></div>
             <div class="col-md-3">
               <h4>
-                Level
-                <span class="badge badge-info mr-2">{{ user.hierarchyLevel }}</span>
+                Stage
+                <span class="badge badge-info mr-2">{{ user.stage_completed }}</span>
                 Balance
                 <span class="badge badge-info">{{ this.balance }}</span>
               </h4>
@@ -63,7 +63,7 @@ export default {
       balance: '',
       stage: '',
       treeDetails: {
-        name: this.$auth.user.name,
+        ...this.$auth.user,
         children: []
       }
     }
@@ -92,11 +92,11 @@ export default {
 
   async created() {
     this.getReward();
-    await this.$toast.info('DownLines Loaded Successfully', 'INFO!!!...');
     this.getDownlines().then(() => {
       this.treeDetails.children = this.$store.getters['user/getChildren']
       this.balance = this.$store.getters['user/getBalance']
     });
+    return this.$toast.info('DownLines Loaded Successfully', 'INFO!!!...');
   },
 
   computed: {
@@ -108,17 +108,6 @@ export default {
 </script>
 
 <style scoped>
-/* .main {
-  background: rgba(203, 203, 210, 0.15);
-  position: relative;
-  width:100%;
-}
-.main .content {
-  padding: 30px 15px;
-  min-height: calc(100vh - 160px);
-  margin-top: 30px;
-  background: #fffbfb;
-} */
 .pointer {
   width: 4px;
   height: 30px;
@@ -169,11 +158,4 @@ p {
   font-size: 3em;
   min-height: 64px;
 }
-/* .main-footer { */
-  /* background: rgba(203, 203, 210, 0.15);
-  position: relative;
-  float: right;
-  width: calc(100% - 100px);
-  padding: 10px;
-} */
 </style>

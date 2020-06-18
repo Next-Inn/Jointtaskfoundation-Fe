@@ -340,7 +340,7 @@ export default {
       message:
         'This {_field_} does Not Exist 😤, Please Check Spelling And Try Again!!',
       validate: value => {
-        if (this.checkUsernames.includes(value) === false) return false
+        if (this.checkUsernames.includes(value) === false) return true
         return true
       }
     })

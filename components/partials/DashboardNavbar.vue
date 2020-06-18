@@ -9,7 +9,7 @@
             <i class="fa fa-bell"></i>
           </a>
         </li>
-        
+
           <template v-if="!$auth.user" >
             <li class="nav-item">
               <nuxt-link to="/user/signup" class="nav-link">Sign Up</nuxt-link>

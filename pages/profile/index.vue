@@ -107,12 +107,24 @@
 </template>
 
 <script>
-import DashboardNav from './../../components/partials/DashboardNavbar'
+import DashboardNav from './../../components/partials/DashboardNavbar';
+import { mapGetters } from 'vuex';
+
 export default {
-  //  middleware: ['redirectIfAuthenticated'],
+  data() {
+    return {
+      user: this.$auth.user
+    }
+  },
   layout: 'dashboard',
   components: {
     DashboardNav
+  },
+
+  computed: {
+    ...mapGetters({
+      user: 'loggedInUser'
+    })
   }
 }
 </script>
