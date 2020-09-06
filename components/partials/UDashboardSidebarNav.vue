@@ -1,25 +1,33 @@
 <template>
-    <section id="sidebar">
-        <a href="/" class="navbar-brand">JTF</a>
-        <ul class="navbar-nav nav-sidebar text-center" id="">
-            <li class="nav-item" >
-            <nuxt-link to="/user/u_dashboard" class="nav-link activeClass" id="dashboard">
-                <i class="fa fa-home"></i>Home</nuxt-link>
-            </li>
-            <li class="nav-item" >
-            <nuxt-link to="/user/makepayment" class="nav-link" id="userList">
-                <i class="fa fa-money"></i>Payment</nuxt-link>
-            </li>
-            <li class="nav-item" >
-            <nuxt-link to="/user/makereport" class="nav-link" id="userList">
-                <i class="fa fa-microphone"></i>Report</nuxt-link>
-            </li>
-            <li class="nav-item" >
-            <nuxt-link to="#" class="nav-link " id="logOut" @click="logout">
-                <i class="fas fa-sign-out-alt"></i>Log out</nuxt-link>
-            </li>
-        </ul>
-    </section>
+    <div class="sidenav-container">
+        
+        <div v-if="toggleSidebar" class="backdrop" @click="$store.dispatch('nav/toggleSidebar')"></div>
+
+         <transition name="slide-side">
+            <section id="sidebar" v-if="toggleSidebar" class="sidenav">
+                <a href="/" class="navbar-brand">JTF</a>
+                <ul class="navbar-nav nav-sidebar text-center" id="">
+                    <li class="nav-item" >
+                    <nuxt-link to="/user/u_dashboard" class="nav-link activeClass" id="dashboard">
+                        <i class="fa fa-home"></i>Home</nuxt-link>
+                    </li>
+                    <li class="nav-item" >
+                    <nuxt-link to="/user/makepayment" class="nav-link" id="userList">
+                        <i class="fa fa-money"></i>Payment</nuxt-link>
+                    </li>
+                    <li class="nav-item" >
+                    <nuxt-link to="/user/makereport" class="nav-link" id="userList">
+                        <i class="fa fa-microphone"></i>Report</nuxt-link>
+                    </li>
+                    <li class="nav-item" >
+                    <nuxt-link to="#" class="nav-link " id="logOut" @click="logout">
+                        <i class="fas fa-sign-out-alt"></i>Log out</nuxt-link>
+                    </li>
+                </ul>
+            </section>
+         </transition>
+    </div>
+    
 </template>
 
 <script>
@@ -27,6 +35,9 @@ export default {
     computed: {
         user(){
             return this.$store.getters.loggedInUser
+        },
+        toggleSidebar() {
+            return this.$store.getters['nav/toggleSidebar']
         }
     },
     methods: {
@@ -96,6 +107,25 @@ export default {
         text-align: center;
         text-decoration: none;
         font-size: 24px;
+    }
+
+    .backdrop {
+        width: 100px;
+        background-color: var(--main-bg-color);
+        z-index: 1000;
+        position: fixed;
+        top: 0;
+        left: 0;
+        color: #fff;
+    }
+
+    .slide-side-enter-active,
+    .slide-side-leave-active {
+        transition: all 0.3s ease-out;
+    }
+    .slide-side-enter,
+    .slide-side-leave-to {
+        transform: translateX(-100%);
     }
 
 </style>

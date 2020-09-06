@@ -1,27 +1,72 @@
 <template>
   <div>
+    
+<transition name="slide-side">
     <section class="main">
-      <DashboardNav />
+      
+         <DashboardNav />
+     
+     
       <div class="content">
         <div class="container">
           <div class="row mb-5">
             <div class="col-md-3">
-              <h2>{{user.name}}</h2>
+              <h4>{{user.name}}</h4>
             </div>
-            <div class="col-md-6"></div>
+            <div class="col-md-4"></div>
+            
             <div class="col-md-3">
-              <h4>
+              <h5>
                 Level
                 <span class="badge badge-info mr-2">{{ user.hierarchyLevel }}</span>
                 Balance
                 <span class="badge badge-success">{{ balance }}</span>
-              </h4>
+              </h5>
+            </div>
+            <div class="col-md-2">
+              <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Reward
+            </button>
             </div>
           </div>
+                        
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Reward</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                  <div class="reward-container">
+                    <div class="row text-center">
+                      <div class="col-md-6">
+                        <h3><i class="fa fa-diamond"></i> Reward</h3>
+                      </div>
+                      <div class="col-md-6">
+                        <h3>{{ reward }}</h3>
+                      </div>
+                    </div>
+                  </div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+                </div>
+            </div>
+            </div>
+                    
         </div>
       </div>
     </section>
-
+ </transition>
     <footer class="main-footer">
       <strong>
         Copyright &copy; 2020
@@ -32,7 +77,9 @@
         <b>Version</b> 3.0.2
       </div>
     </footer>
+     
   </div>
+
 </template>
 
 <script>
@@ -54,6 +101,7 @@ export default {
     async getReward() {
       try {
         return this.$store.dispatch('user/getRewards')
+        console.log()
       } catch (e) {
         console.log(`this is ${e}`)
         alert('Please create a wallet')
@@ -70,7 +118,13 @@ export default {
       balance: 'user/getBalance',
       stage: 'user/getStage',
       user: 'loggedInUser'
-    })
+    }),
+    toggleSidebar() {
+        return this.$store.getters['nav/toggleSidebar']
+    },
+    toggleHeader() {
+        return this.$store.getters['nav/toggleHeader']
+    }
   }
 }
 </script>
@@ -81,6 +135,11 @@ export default {
   position: relative;
   float: right;
   width: calc(100% - 100px);
+}
+.main-1 {
+  width: 100%;
+  background: antiquewhite;
+  height: 100vh;
 }
 .main .content {
   padding: 30px 15px;
@@ -135,6 +194,15 @@ p {
   font-size: 3em;
   min-height: 64px;
 }
+
+.reward-container {
+  background: var(--main-bg-color);
+  padding: 20px 10px;
+}
+
+.reward-container h3 {
+  color: #fff;
+}
 .main-footer {
   background: rgba(203, 203, 210, 0.15);
   position: relative;
@@ -142,4 +210,13 @@ p {
   width: calc(100% - 100px);
   padding: 10px;
 }
+
+.slide-side-enter-active,
+    .slide-side-leave-active {
+        transition: all 0.3s ease-out;
+    }
+    .slide-side-enter,
+    .slide-side-leave-to {
+        transform: translateX(-100%);
+    }
 </style>

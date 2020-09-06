@@ -107,7 +107,7 @@ export default {
             const userPayload = {
             amount: this.amount,
             cvv: this.cvv,
-            expiry_month: this. expiry_month,
+            expiry_month: this.expiry_month,
              expiry_year: this.expiry_year,
             number: this.number,
             pin: this.pin
