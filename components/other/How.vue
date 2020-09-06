@@ -1,8 +1,8 @@
 <template>
   <div>
-  <section id="how">
+  <section id="how" class="mb-5 ">
     <div class="container mt-3">
-      <div class="heading"  data-aos="fade-down" data-aos-duration="2000">
+      <div class="heading pt-5"  data-aos="fade-down" data-aos-duration="2000">
         <h1>Benefits</h1>
         <p>As a partner, you get to enjoy all these benefits</p>
       </div>
@@ -44,7 +44,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4 ">
+            <div class="col-md-4 col-6">
               <div class="benefit-box  mb-5" data-aos="fade-up" data-aos-duration="4000">
                 <div class="benefit-text">
                  <div class="screw-icon"><p>5</p></div>

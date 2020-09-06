@@ -57,12 +57,12 @@
 
 <script>
 export default {
-    
+
 }
 </script>
 
 <style scoped>
-    
+
 /* footer */
 
 footer {
@@ -101,7 +101,7 @@ footer hr {
 	flex-flow: wrap column;
 	align-items: space-between;
   justify-content: space-between;
-  
+
 }
 
 .contact-info i {

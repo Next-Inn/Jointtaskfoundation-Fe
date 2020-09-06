@@ -33,7 +33,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                        
+
                                         </div>
                                     </div>
                                     <div class="row">
@@ -48,9 +48,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                     <button class="btn btn-blue pull-right" @click.prevent="makepayment">Pay</button>
+                                     <button class="btn btn-blue ml-auto" @click.prevent="makepayment">
+                                        Pay
+                                        <ButtonLoader v-if="loading" :loading="loading" />
+                                    </button>
                                 </div>
-                                
+
                             </div>
                         </div>
                         </div>
@@ -66,14 +69,14 @@
         <div class="pull-right d-none d-sm-inline-block">
             <b>Version</b> 3.0.2
         </div>
-        </footer> 
+        </footer>
     </div>
 </template>
-    
+
 
 <script>
 import DashboardNav from './../../components/partials/DashboardNavbar'
-
+import ButtonLoader from './../../components/notification/buttonLoader'
 export default {
      middleware: ['redirectIfAuthenticated'],
     layout: 'Udashboard',
@@ -85,19 +88,39 @@ export default {
             reward: '',
             banks: [],
             detail: {},
-            amount: 4000, 
-            cvv: '', 
-            expiry_month: '', 
-            expiry_year: '', 
-            number: '', 
-            pin: ''
+            amount: 4000,
+            cvv: '',
+            expiry_month: '',
+            expiry_year: '',
+            number: '',
+            pin: '',
+            errors: '',
+            loading: false
         }
     },
     methods: {
         async getDownlines() {
-            const result = await this.$axios.$get('/list-banks')
-           this.banks = result.data;
-            console.log(this.banks)
+            try {
+                this.loading = true;
+                const result = await this.$axios.$get('/list-banks')
+                this.banks = result.data;
+                this.loading = false;
+
+                if (res.status === 200)
+                    await this.$toast.success(res.data.data, 'Success')
+                    this.$nextTick(() => {
+                    this.userDetails = {}
+                })
+                 return this.$router.push('/user/u_dashboard');
+            } catch (e) {
+                this.errors = e.response
+                    ? e.response.data.error
+                    : 'Network Error, Please check Your Network and Try again!!';
+                await this.$toast.error(this.errors, 'Error');
+                this.loading = false;
+                return setTimeout(() => { this.errors = ''}, 5000);
+            }
+
         },
         // async getReward() {
         //     const rewards = await this.$axios.$get('/verify-account-number');
@@ -113,15 +136,23 @@ export default {
             pin: this.pin
           }
             const payment = this.$axios.$post('/initial-pay',userPayload)
-            console.log(payment)
-            payment.then(x => {
+            // console.log(payment)
+            payment.then(async(x) => {
                 if (x.data.includes('Please enter OTP')) {
                     window.prompt(x.data);
                     // handle sending back otp and reference to the server
                 } else if (x.data.includes('wallet loaded')) {
                    window.alert(x.data);
+                   return this.$toast.success('Wallet Loaded', 'Success')
                 }
-            }).catch(e => console.log(e));
+            }).catch(async(e) => {
+                this.errors = e.response
+                    ? e.response.data.error
+                    : 'Network Error, Please check Your Network and Try again!!';
+                await this.$toast.error(this.errors, 'Error');
+                this.loading = false;
+                return setTimeout(() => { this.errors = ''}, 5000);
+            });
         }
     },
     mounted() {
@@ -131,19 +162,7 @@ export default {
 </script>
 
 <style scoped>
-    .main {
-    background: rgba(203, 203, 210, 0.15);
-    position: relative;
-    float: right;
-    width: calc(100% - 100px);
-    }
 
-    .main .content {
-    padding: 30px 15px;
-    min-height: calc(100vh - 160px);
-    /* margin-top: 30px; */
-    background: #dddddd;
-    }
 
     .pointer {
         width: 4px;
@@ -153,16 +172,24 @@ export default {
         background: #000;
 
     }
-
+   .btn-blue {
+        position: relative;
+    width: 100%;
+    font-weight: 900;
+    font-size: 17px;
+    }
+.btn-blue:hover{
+color:#e0dddd;
+ border: 1px solid #e0dddd;
+}
     .small-img {
         height: 50px;
     }
 
     .account {
-        background: #698edf;
+        background:#22395d;
         padding: 10px 30px;
         color: #fff;
-        height: 300px
     }
 
     .account-details {
@@ -182,7 +209,7 @@ export default {
     position: relative;
     border: 0 none;
     transition: transform 0.3s cubic-bezier(0.34, 2, 0.6, 1), box-shadow 0.2s ease;
-    
+
     }
 
     .card-header {
@@ -215,12 +242,5 @@ export default {
     }
 
 
-    .main-footer {
-    background: rgba(203, 203, 210, 0.15);
-    position: relative;
-    float: right;
-    width: calc(100% - 100px);
-    padding: 10px;
-    }
 
 </style>

@@ -1,83 +1,155 @@
 <template>
-    <div>
-        <section class="report-section">
-            <section class="main">
-            <DashboardNav/>
-            <div class="content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-2"></div>
-                        <div class="col-md-8 card">
-                            <h4 class="text-center">Lay all your complaints to us here</h4>
-                            <form>
-                                <div class="form-group">
-                                <label for="Title">Title</label>
-                                <input type="text" class="form-control" id="reportTitle" aria-describedby="Report" placeholder="Enter Your Title" >
-                                </div>
-                                <div class="form-group">
-                                    <label for="Message">Your Report</label>
-                                    <textarea class="form-control" id="reportContent" rows="2" placeholder="content"></textarea>
-                                </div>
-
-                                <button type="submit" class="btn btn-danger pull-right" @click.prevent="makeReport">Submit</button>
-                            </form>
-                        </div>
-                        <div class="col-md-2"></div>
+  <div>
+    <section class="report-section">
+      <section class="main">
+        <DashboardNav />
+        <div class="content">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-8 card">
+                <h2 class="text-center font-bold-blue">Lay all your complaints to us here</h2>
+                <ValidationObserver ref="form" role="form">
+                  <form @submit.prevent="makeReport()">
+                    <div class="form-group">
+                      <ValidationProvider
+                        name="title"
+                        rules="min:3|required|alpha_spaces"
+                        :bails="false"
+                        v-slot="{ errors, classes }"
+                      >
+                        <label for="Title">Title</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="reportTitle"
+                          :class="classes"
+                          name="title"
+                          v-model="title"
+                          aria-describedby="Report"
+                          placeholder="Enter Your Title"
+                        />
+                        <i v-show="errors[0]" class="fa fa-warning"></i>
+                        <span>{{ errors[0] }}</span>
+                      </ValidationProvider>
                     </div>
-                </div>
-            </div>
+                    <div class="form-group">
+                      <ValidationProvider
+                        name="messages"
+                        rules="min:3|required|alpha_spaces"
+                        :bails="false"
+                        v-slot="{ errors, classes }"
+                      >
+                        <label for="Message">Your Report</label>
+                        <textarea
+                          class="form-control"
+                          id="reportContent"
+                          name="message"
+                          :class="classes"
+                          v-model="message"
+                          rows="5"
+                          placeholder="content"
+                        ></textarea>
+                        <i v-show="errors[0]" class="fa fa-warning"></i>
+                        <span>{{ errors[0] }}</span>
+                      </ValidationProvider>
+                    </div>
 
-        </section>
-        <footer class="main-footer">
-        <strong>Copyright &copy; 2020 <a href="#">HackTeam</a>.</strong>
+                    <button
+                      class="btn btn-blue btn-block bold pull-right"
+                      style="display:flex; justify-content: center; align-items: center;"
+                      type="submit"
+                      id="nextBtn"
+                    >
+                      Submit
+                      <ButtonLoader v-if="loading" :loading="loading" />
+                    </button>
+                  </form>
+                </ValidationObserver>
+              </div>
+              <div class="col-md-2"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="main-footer">
+        <strong>
+          Copyright &copy; 2020
+          <a href="#">HackTeam</a>.
+        </strong>
         All rights reserved.
         <div class="pull-right d-none d-sm-inline-block">
-            <b>Version</b> 3.0.2
+          <b>Version</b> 3.0.2
         </div>
-        </footer>
-            
-        </section>
-    </div>
+      </footer>
+    </section>
+  </div>
 </template>
 
 <script>
 import DashboardNav from './../../components/partials/DashboardNavbar'
-
+import ButtonLoader from './../../components/notification/buttonLoader'
+import {
+  ValidationProvider,
+  ValidationObserver,
+  extend,
+  validate
+} from 'vee-validate'
 export default {
-    layout: 'Udashboard',
-    components: {
-        DashboardNav
-    },
-    methods() {
-        
+  layout: 'Udashboard',
+  components: {
+    DashboardNav,
+    ButtonLoader,
+    ValidationProvider,
+    ValidationObserver
+  },
+
+  data() {
+    return {
+      title: '',
+      message: '',
+      loading: false,
+      errors: '',
+      banks: null
     }
+  },
+  methods: {
+    async makeReport() {
+      this.$refs.form.validate().then(async success => {
+        if (!success) return
+        try {
+            this.loading = true
+
+            const payload = {
+                title: this.title,
+                message: this.message,
+            }
+
+            const res = await this.$axios.post('/submit-report', payload)
+            this.loading = false
+             if (res.status === 200) await this.$toast.success(res.data.data, 'Success')
+                this.$nextTick(() => {
+                this.userDetails = {}
+            })
+            return this.$router.push('/user/u_dashboard');
+        } catch (e) {
+          this.errors = e.response
+            ? e.response.data.error
+            : 'Network Error, Please check Your Network and Try again!!'
+          await this.$toast.error(this.errors, 'Error')
+          this.loading = false
+          return setTimeout(() => {
+            this.errors = ''
+          }, 5000)
+        }
+      })
+    }
+  }
 }
 </script>
 
 <style scoped>
-    .main {
-    background: rgba(203, 203, 210, 0.15);
-    position: relative;
-    float: right;
-    width: calc(100% - 100px);
-    }
-
-    .main .content {
-    padding: 30px 15px;
-    min-height: calc(100vh - 160px);
-    /* margin-top: 30px; */
-    background: #dddddd;
-    }
-
-    .card {
-        padding: 20px;
-    }
-
-    .main-footer {
-    background: rgba(203, 203, 210, 0.15);
-    position: relative;
-    float: right;
-    width: calc(100% - 100px);
-    padding: 10px;
-    }
+.card {
+  padding: 20px;
+}
 </style>

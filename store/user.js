@@ -1,3 +1,5 @@
+// import toast from 'vue-izitoast';
+
 const state = () => ({
 	user: '',
 	users: '',
@@ -6,7 +8,7 @@ const state = () => ({
 	email: '',
 	children: '',
 	balance: '',
-	stage: ''
+	stage: '',
 });
 
 export const mutations = {
@@ -20,16 +22,13 @@ export const mutations = {
 		state.checkUsernames = payload.usernames;
 		state.checkEmails = payload.emails;
 	},
-	SET_EMAIL (state, payload) {
-		state.email = payload;
-	},
 	SET_USER_CHILDREN (state, payload) {
 		state.children = payload;
 	},
 	SET_USER_REWARD (state, payload) {
 		state.balance = payload[0];
 		state.stage = payload[1];
-	}
+	},
 };
 
 export const actions = {
@@ -64,9 +63,6 @@ export const actions = {
 		}
 	},
 
-	async setEmail ({ commit }, payload) {
-		commit('SET_EMAIL', payload);
-	},	
 	async getDownlines ({ commit }) {
 		try {
 			const { data } = await this.$axios.$get('/user/get-down-lines');
@@ -77,11 +73,22 @@ export const actions = {
 		}
 	},
 
+	async makePayment ({ commit }, payload) {
+		try {
+			console.log(payload)
+			const { data } = await this.$axios.post('/payment/reference', payload);
+			return console.log(data)
+		} catch (e) {
+			return console.log(e);
+		}
+	},
+
 	async getRewards ({ commit }) {
 		try {
 			let stage;
 			let balance;
 			const { data } = await this.$axios.$get('/user/get-stage-rewards');
+			// return console.log(data)
 			balance = data.reward.balance;
 			stage = data.stage_completed;
 			commit('SET_USER_REWARD', [
@@ -90,6 +97,24 @@ export const actions = {
 			]);
 		} catch (e) {
 			return console.log(e);
+		}
+	},
+
+	async updateUser (payload) {
+		let errors = '';
+
+		try {
+			const res = await this.$axios.$patch('/auth/updateProfile', payload);
+			return console.log()
+			return console.log(res);
+			// await toast.success('Updated User Successfully', 'Success');
+		} catch (e) {
+
+			errors = e.response
+					? e.response.data.error
+					: 'Network Error, Please check Your Network and Try again!!';
+			// await toast.error(errors, 'Error');
+			return console.error(errors)
 		}
 	}
 };

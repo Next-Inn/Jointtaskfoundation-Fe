@@ -195,7 +195,7 @@
                     <div class="col-md-6 ml-auto mr-auto">
                       <div id="worldMap" style="height: 300px;">
                         <div class="jvectormap-container" style="background-color: transparent;">
-                          <svg width="441.5" height="300">
+                          <svg width="100%" height="300">
                             <defs />
                             <g
                               transform="scale(0.4905555555555556) translate(0, 14.235638393441363)"
@@ -2185,7 +2185,7 @@ export default {
   background: rgba(203, 203, 210, 0.15);
   position: relative;
   float: right;
-  width: calc(100% - 100px);
+  width:100%;
 }
 
 .main .content {
@@ -2231,12 +2231,16 @@ export default {
   font-size: 3em;
   min-height: 64px;
 }
-
+@media(min-width: 1000px){
 .main-footer {
-  background: rgba(203, 203, 210, 0.15);
-  position: relative;
-  float: right;
-  width: calc(100% - 100px);
-  padding: 10px;
-}
+     background: #fff;
+    position: fixed;
+    /* float: right; */
+    width: calc(100% - 100px);
+    padding: 10px;
+    bottom: 0;
+    width: 100%;
+    /* top: 100%; */
+    text-align: center;
+}}
 </style>

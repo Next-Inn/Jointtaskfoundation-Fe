@@ -112,6 +112,9 @@
       color: #fff;
       
     }
+    .carousel-control-prev, .carousel-control-next{
+      width:25%; 
+    }
     /* .overlay-after {
     position: absolute;
     top: 0;
@@ -122,5 +125,15 @@
      display: block;
     background: rgba(0, 0, 0, .6);
 } */
-    
+    @media (max-width:1200px){
+      .carousel {
+      height: 60vh;
+    }
+    .carousel img {
+      height: 60vh;
+      width: 100%;
+      object-fit :cover;
+      filter: brightness(30%);
+    }
+    }
 </style>

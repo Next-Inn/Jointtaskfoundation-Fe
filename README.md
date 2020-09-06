@@ -1,4 +1,4 @@
-=======
+[![Netlify Status](https://api.netlify.com/api/v1/badges/cb686c7a-ce34-40d4-8cfe-6378820f6ecf/deploy-status)](https://app.netlify.com/sites/flamboyant-ardinghelli-9c97d6/deploys)
 
 # jointtask
 

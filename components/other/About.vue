@@ -1,9 +1,9 @@
 <template>
-  <div id="about">
+  <div id="about" class="mt-5 pb5">
     <div class="container">
       <div class="row mb-5">
         <div class="col-md-6 about-img" data-aos="fade-up-right" data-aos-duration="2000">
-          <img src="../../assets/img/bitcoin2.jpg" alt="about-image" class="img-fluid d-sm-none hidden-sm" />
+          <img src="../../assets/img/bitcoin2.jpg" alt="about-image" class="img-fluid d-xs-none " />
         </div>
         <div class="col-md-6" data-aos="fade-down" data-aos-duration="2000">
           <div class="heading" >
@@ -26,7 +26,7 @@
         <div class="col-md-6">
           <div class="flex-container">
             <div class="flex-body">
-              <p><i class="fa fa-eye"></i></p>
+              <p><i class="fa fa-rocket"></i></p>
             </div>
             <div class="flex-body">
               <h3>Our Mission</h3>
@@ -66,10 +66,10 @@
 
 <style scoped>
 #about {
-  /* margin: 80px 0; */
-  min-height: 75vh;
-  background: #ebf0f4;
-      padding: 9rem 0 12rem;
+      min-height: 75vh;
+    background: #ebf0f4;
+    padding: 10rem 0 12rem;
+    margin-top: 10rem !important;
 }
 
 #about p {
