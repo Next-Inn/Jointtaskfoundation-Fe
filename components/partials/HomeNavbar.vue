@@ -125,7 +125,8 @@ background-color:#22395d;
 
 .navbar-dark .navbar-nav .nav-link.active,
 .navbar-dark .navbar-nav .nav-link:hover {
-  color: #22395d;
+  color: black;
+  /* background: #fff; */
 }
 .dashboard-brand:hover{
  color:#22395d;

@@ -21,7 +21,77 @@
     <section id="plan">
       <div class="container">
         <div class="accordion" id="accordionExample">
-          <div class="card" data-aos="fade-up" data-aos-duration="4000">
+          <div class="card">
+            <div
+              class="card-header"
+              id="headingZero"
+              data-toggle="collapse"
+              data-target="#collapseZero"
+              aria-expanded="true"
+              aria-controls="collapseZero"
+            >
+              <h2 class="mb-0" >
+                <button
+                  class="btn head3"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#collapseZero"
+                  aria-expanded="true"
+                  aria-controls="collapseZero"
+                >STAGE 0: FOUNDATION (FEEDER)</button>
+              </h2>
+            </div>
+
+            <div
+              id="collapseZero"
+              class="collapse show"
+              aria-labelledby="headingOne"
+              data-parent="#accordionExample">
+              <div class="card-body" >
+               <div class="row">
+                 <div class="col-md-8">
+                   <p>Basic Registration is N 2,500</p>
+                    <p>Introduce only 2 persons plus your account</p>
+                    <table class="table table-striped table-responsive">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">FOUNDATION/BUILDER</th>
+                          <th scope="col">NO OF PEOPLE</th>
+                          <th scope="col">BALANCE</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Level 0 (feeder)</td>
+                          <td>2</td>
+                          <td>&#8358;5,000</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Your account</td>
+                          <td>1</td>
+                          <td>&#8358;2,500</td>
+                        </tr>
+                        <tr>
+                          <th scope="row"></th>
+                          <th>Total</th>
+                          <th>3</th>
+                          <th>&#8358;7500</th>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <p>You get <strong>&#8358;1,500</strong> as benefit.</p>
+                 </div>
+                <div class="col-md-4">
+                  <img src="../../assets/img/2-2-plan.png" class="img-fluid" alt="">
+                </div>
+              </div>
+               </div>
+            </div>
+          </div>
+          <div class="card">
             <div
               class="card-header"
               id="headingOne"
@@ -38,7 +108,7 @@
                   data-target="#collapseOne"
                   aria-expanded="true"
                   aria-controls="collapseOne"
-                >STAGE1: FOUNDATION/ BUILDER</button>
+                >STAGE 1: FOUNDATION/ BUILDER</button>
               </h2>
             </div>
 
@@ -47,11 +117,11 @@
               class="collapse show"
               aria-labelledby="headingOne"
               data-parent="#accordionExample">
-              <div class="card-body" data-aos="fade-up" data-aos-duration="4000">
+              <div class="card-body" >
                <div class="row">
                  <div class="col-md-8">
-                    <p>Introduce only 2 persons and they introduce theirs making a total of 6 persons.</p>
-                    <table class="table table-striped">
+                    <p>6 persons that have completed Feeder Stage</p>
+                    <table class="table table-striped table-responsive">
                       <thead>
                         <tr>
                           <th scope="col">#</th>
@@ -64,8 +134,8 @@
                         <tr>
                           <th scope="row">1</th>
                           <td>Level 1</td>
-                          <td>2</td>
-                          <td>3</td>
+                          <td>6</td>
+                          <td></td>
                         </tr>
                         <tr>
                           <th scope="row">2</th>
@@ -81,17 +151,18 @@
                         </tr>
                       </tbody>
                     </table>
+                    <p>Benefit: &#8358; 5,000 </p>
                  </div>
                 <div class="col-md-4">
-                  <img src="../../assets/img/2-2-plan.png" alt="">
+                  <img src="../../assets/img/2-2-plan.png"  class="img-fluid" alt="">
                 </div>
               </div>
                </div>
             </div>
           </div>
-          <div class="card" data-aos="fade-up" data-aos-duration="4000">
+          <div class="card">
             <div class="card-header" id="headingTwo">
-              <h2 class="mb-0" data-aos="fade-up" data-aos-duration="4000">
+              <h2 class="mb-0">
                 <button
                   class="btn btn-link  head3 collapsed"
                   type="button"
@@ -108,11 +179,11 @@
               aria-labelledby="headingTwo"
               data-parent="#accordionExample"
             >
-              <div class="card-body" data-aos="fade-up" data-aos-duration="4000">
+              <div class="card-body">
                 <div class="row">
                   <div class="col-md-8">
                     <p>12 Persons who have Completed Stage1</p>
-                    <table class="table table-striped">
+                    <table class="table table-striped table-responsive">
                       <thead>
                         <tr>
                           <th scope="col">#</th>
@@ -136,15 +207,16 @@
                         </tr>
                       </tbody>
                     </table>
+                     <p>Benefit: &#8358; 15,000 plus Food Voucher of &#8358;10,000 </p>
                   </div>
                 <div class="col-md-4">
-                  <img src="../../assets/img/2-3-plan.png"  class=" img-fluid" alt="">
+                  <img src="../../assets/img/2-3-plan.png"  class="img-fluid" alt="">
                 </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="card" data-aos="fade-up" data-aos-duration="4000">
+          <div class="card">
             <div class="card-header" id="headingThree">
               <h2 class="mb-0" >
                 <button
@@ -163,11 +235,13 @@
               aria-labelledby="headingThree"
               data-parent="#accordionExample"
             >
-              <div class="card-body" data-aos="fade-up" data-aos-duration="4000">
+              <div class="card-body">
                  <div class="row">
                 <div class="col-md-8">
-                  <p>14 Persons who have Completed Stage2 (168 accounts/persons to complete and move)</p>
-                  <table class="table table-striped">
+                  <p>6 Persons who have Completed Stage 2 
+                    <!-- (168 accounts/persons to complete and move) -->
+                    </p>
+                  <table class="table table-striped table-responsive">
                   <thead>
                     <tr>
                       <th scope="col">#</th>
@@ -191,15 +265,16 @@
                     </tr>
                   </tbody>
                 </table>
+                <p><b>Benefit:</b>&#8358; 50,000 + Food Voucher of &#8358;50,000 + Business Funds of #100,000 </p>
                 </div>
                 <div class="col-md-4">
-                    <img src="../../assets/img/2-3-plan.png"  class=" img-fluid" alt="">
+                    <img src="../../assets/img/2-3-plan.png"  class="img-fluid" alt="">
                 </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="card" data-aos="fade-up" data-aos-duration="4000">
+          <div class="card">
             <div class="card-header" id="headingFour">
               <h2 class="mb-0" >
                 <button
@@ -218,13 +293,14 @@
               aria-labelledby="headingFour"
               data-parent="#accordionExample"
             >
-              <div class="card-body" data-aos="fade-up" data-aos-duration="4000">
+              <div class="card-body">
                  <div class="row">
                 <div class="col-md-8">
-                  <p>14 Persons who have Completed Stage 3 (900 accounts/Persons to complete)
+                  <p>6 Persons who have Completed Stage 3 
+                    <!-- (900 accounts/Persons to complete) -->
                     </p>
                 
-                  <table class="table table-striped">
+                  <table class="table table-striped table-responsive">
                     <thead>
                       <tr>
                         <th scope="col">#</th>
@@ -248,16 +324,16 @@
                       </tr>
                     </tbody>
                 </table>
-                <p><b>BALANCE:</b> Business Support of #200,000 + Electronic Gadgets </p>
+                <p><b>Benefit:</b>&#8358; 200,000 + Food Voucher of 100,000 + Business Funds of #200,000 + Mini SUV</p>
                 </div>
                 <div class="col-md-4">
-                    <img src="../../assets/img/2-3-plan.png"  class=" img-fluid" alt="">
+                    <img src="../../assets/img/2-3-plan.png"  class="img-fluid" alt="">
                 </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="card" data-aos="fade-up" data-aos-duration="4000">
+          <div class="card">
             <div class="card-header" id="headingFive">
               <h2 class="mb-0" >
                 <button
@@ -276,10 +352,10 @@
               aria-labelledby="headingFive"
               data-parent="#accordionExample"
             >
-              <div class="card-body" data-aos="fade-up" data-aos-duration="4000">
+              <div class="card-body">
                  <div class="row">
                 <div class="col-md-8">
-                  <p>14 Persons who have Completed Stage 4 (5,000 Accounts/Persons to Reach Here)</p>
+                  <p>6 Persons who have Completed Stage 4</p>
                   <table class="table table-striped">
                   <thead>
                     <tr>
@@ -304,17 +380,16 @@
                     </tr>
                   </tbody>
                 </table>
-                <p><b>Balance:</b>   #500,000 + Business Startup of 
-                  #500,000 + Electronic Gadgets + Int'l Trip to Dubai + Brand New SUV Car Worth 5million</p>
+                <p><b>Benefit:</b>&#8358;1,000,000 + SUV Jeep + International Trip  + Food Voucher of 250,000 + Business Funds of 500,000 + House Funding of 5,000,000</p>
                 </div>
                 <div class="col-md-4">
-                    <img src="../../assets/img/2-3-plan.png"  class=" img-fluid" alt="">
+                    <img src="../../assets/img/2-3-plan.png"  class="img-fluid" alt="">
                 </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="card" data-aos="fade-up" data-aos-duration="4000">
+          <div class="card">
             <div class="card-header" id="headingSix">
               <h2 class="mb-0" >
                 <button
@@ -334,9 +409,8 @@
               data-parent="#accordionExample"
             >
               <div class="card-body text-center" data-aos="fade-up" data-aos-duration="4000">
-                <h3><b>32,767 Accounts/persons to reach here</b></h3>
-                <h4><b>Balance: </b>Cash Drops of 7Million
-+ Brand New SUV Car Worth 5mil + Int'l Trip to a Country of Choice + Business Startup of 1million</h4>
+                <h3><b>6 persons that have completed stage 5</b></h3>
+                <h4><b>Benefit: </b>10,000,000</h4>
               </div>
             </div>
           </div>
