@@ -88,7 +88,7 @@ export default {
             reward: '',
             banks: [],
             detail: {},
-            amount: 4000,
+            amount: 2500,
             cvv: '',
             expiry_month: '',
             expiry_year: '',

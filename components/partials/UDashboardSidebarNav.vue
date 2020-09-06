@@ -77,7 +77,7 @@ export default {
             const handler = PaystackPop.setup({
                 key: 'pk_test_33364b8f7b0c494b6fa9002781f332ea2f60326c',
                 email: this.user.email,
-                amount: 400000,
+                amount: 250000,
                 metadata: {
                     custom_fields: [
                         {
