@@ -38,7 +38,7 @@
                   data-target="#collapseZero"
                   aria-expanded="true"
                   aria-controls="collapseZero"
-                >STAGE 0: FOUNDATION (FEEDER)</button>
+                >STAGE 0: FEEDER</button>
               </h2>
             </div>
 
@@ -85,7 +85,7 @@
                     <p>You get <strong>&#8358;1,500</strong> as benefit.</p>
                  </div>
                 <div class="col-md-4">
-                  <img src="../../assets/img/2-2-plan.png" class="img-fluid" alt="">
+                  <img src="../../assets/img/stage-1.png" class="img-fluid" alt="">
                 </div>
               </div>
                </div>
@@ -108,7 +108,7 @@
                   data-target="#collapseOne"
                   aria-expanded="true"
                   aria-controls="collapseOne"
-                >STAGE 1: FOUNDATION/ BUILDER</button>
+                >STAGE 1: SAPPHIRE</button>
               </h2>
             </div>
 
@@ -460,5 +460,10 @@ export default {
 }
 .card-body{
     border: 2px solid #5f98ae;
+}
+@media (max-width: 768px) {
+  .card-header button{
+   font-size: 20px;
+  }
 }
 </style>
