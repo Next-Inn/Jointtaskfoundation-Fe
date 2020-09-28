@@ -52,11 +52,11 @@
                  <div class="col-md-8">
                    <p>Basic Registration is N 2,500</p>
                     <p>Introduce only 2 persons plus your account</p>
-                    <table class="table table-striped table-responsive">
+                    <table class="table table-striped">
                       <thead>
                         <tr>
                           <th scope="col">#</th>
-                          <th scope="col">FOUNDATION/BUILDER</th>
+                          <th scope="col">STAGE</th>
                           <th scope="col">NO OF PEOPLE</th>
                           <th scope="col">BALANCE</th>
                         </tr>
@@ -85,7 +85,7 @@
                     <p>You get <strong>&#8358;1,500</strong> as benefit.</p>
                  </div>
                 <div class="col-md-4">
-                  <img src="../../assets/img/stage-1.png" class="img-fluid" alt="">
+                  <img src="../../assets/img/feeder.jpeg" class="img-fluid" alt="">
                 </div>
               </div>
                </div>
@@ -121,11 +121,11 @@
                <div class="row">
                  <div class="col-md-8">
                     <p>6 persons that have completed Feeder Stage</p>
-                    <table class="table table-striped table-responsive">
+                    <table class="table table-striped">
                       <thead>
                         <tr>
                           <th scope="col">#</th>
-                          <th scope="col">FOUNDATION/BUILDER</th>
+                          <th scope="col">STAGE</th>
                           <th scope="col">NO OF PEOPLE</th>
                           <th scope="col">BALANCE</th>
                         </tr>
@@ -133,28 +133,28 @@
                       <tbody>
                         <tr>
                           <th scope="row">1</th>
-                          <td>Level 1</td>
-                          <td>6</td>
-                          <td></td>
+                          <td>Level 0 (feeder stage)</td>
+                          <td>12</td>
+                          <td>30000</td>
                         </tr>
                         <tr>
                           <th scope="row">2</th>
                           <td>Level 2</td>
-                          <td>4</td>
-                          <td></td>
+                          <td>6</td>
+                          <td>-</td>
                         </tr>
                         <tr>
                           <th scope="row"></th>
                           <th>Total</th>
-                          <th>6</th>
-                          <th>&#8358;3000</th>
+                          <th>18</th>
+                          <th>&#8358;30000</th>
                         </tr>
                       </tbody>
                     </table>
                     <p>Benefit: &#8358; 5,000 </p>
                  </div>
                 <div class="col-md-4">
-                  <img src="../../assets/img/2-2-plan.png"  class="img-fluid" alt="">
+                  <img src="../../assets/img/other.jpeg"  class="img-fluid" alt="">
                 </div>
               </div>
                </div>
@@ -182,35 +182,47 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col-md-8">
-                    <p>12 Persons who have Completed Stage1</p>
-                    <table class="table table-striped table-responsive">
+                    <p>6 Persons who have Completed Stage 1</p>
+                    <table class="table table-striped">
                       <thead>
                         <tr>
                           <th scope="col">#</th>
-                          <th scope="col">RUBY</th>
+                          <th scope="col">STAGE</th>
                           <th scope="col">NO OF PEOPLE</th>
                           <th scope="col">BALANCE</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
+                          <th scope="row">1</th>
+                          <td>Level 0 (Feeder)</td>
+                          <td>24</td>
+                          <td>60,000</td>
+                        </tr>
+                        <tr>
                           <th scope="row">2</th>
                           <td>Level 1</td>
                           <td>12</td>
-                          <td>12</td>
+                          <td>-</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td>Level 2</td>
+                          <td>6</td>
+                          <td>-</td>
                         </tr>
                         <tr>
                           <th scope="row"></th>
                           <th>Total</th>
-                          <th>&#8358;12,000</th>
-                          <th>&#8358;12,000</th>
+                          <th>42</th>
+                          <th>&#8358;60,000</th>
                         </tr>
                       </tbody>
                     </table>
                      <p>Benefit: &#8358; 15,000 plus Food Voucher of &#8358;10,000 </p>
                   </div>
                 <div class="col-md-4">
-                  <img src="../../assets/img/2-3-plan.png"  class="img-fluid" alt="">
+                  <img src="../../assets/img/other.jpeg"  class="img-fluid" alt="">
                 </div>
                 </div>
               </div>
@@ -241,11 +253,11 @@
                   <p>6 Persons who have Completed Stage 2 
                     <!-- (168 accounts/persons to complete and move) -->
                     </p>
-                  <table class="table table-striped table-responsive">
+                  <table class="table table-striped">
                   <thead>
                     <tr>
                       <th scope="col">#</th>
-                      <th scope="col">GOLD EXECUTION</th>
+                      <th scope="col">STAGE</th>
                       <th scope="col">No of Persons</th>
                       <th scope="col">Amount</th>
                     </tr>
@@ -253,22 +265,40 @@
                   <tbody>
                     <tr>
                       <th scope="row">1</th>
+                      <td>Stage 0 (feeder)</td>
+                      <td>48</td>
+                      <td>&#8358; 120,000</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
                       <td>Level 1</td>
-                      <td>14</td>
-                      <td>&#8358; 35,000</td>
+                      <td>24</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>Stage 2</td>
+                      <td>12</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>Stage 3</td>
+                      <td>6</td>
+                      <td>-</td>
                     </tr>
                     <tr>
                       <th scope="row">3</th>
                       <th>TOTAL</th>
                       <td>14</td>
-                      <th>&#8358; 35,000</th>
+                      <th>&#8358; 120,000</th>
                     </tr>
                   </tbody>
                 </table>
                 <p><b>Benefit:</b>&#8358; 50,000 + Food Voucher of &#8358;50,000 + Business Funds of #100,000 </p>
                 </div>
                 <div class="col-md-4">
-                    <img src="../../assets/img/2-3-plan.png"  class="img-fluid" alt="">
+                    <img src="../../assets/img/other.jpeg"  class="img-fluid" alt="">
                 </div>
                 </div>
               </div>
@@ -300,11 +330,11 @@
                     <!-- (900 accounts/Persons to complete) -->
                     </p>
                 
-                  <table class="table table-striped table-responsive">
+                  <table class="table table-striped">
                     <thead>
                       <tr>
                         <th scope="col">#</th>
-                        <th scope="col">GOLD EXECUTION</th>
+                        <th scope="col">STAGE</th>
                         <th scope="col">No of Persons</th>
                         <th scope="col">Amount</th>
                       </tr>
@@ -312,22 +342,46 @@
                     <tbody>
                       <tr>
                         <th scope="row">1</th>
+                        <td>Level 0 (feeder)</td>
+                        <td>96</td>
+                        <td>&#8358;240,000</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
                         <td>Level 1</td>
-                        <td>14</td>
-                        <td></td>
+                        <td>48</td>
+                        <td>-</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>Level 2</td>
+                        <td>24</td>
+                        <td>-</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">4</th>
+                        <td>Level 3</td>
+                        <td>12</td>
+                        <td>-</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">5</th>
+                        <td>Level 4</td>
+                        <td>6</td>
+                        <td>-</td>
                       </tr>
                       <tr>
                         <th scope="row">3</th>
                         <th>TOTAL</th>
-                        <td>14</td>
-                        <th>&#8358; 150,000 </th>
+                        <td>88</td>
+                        <th>&#8358; 240,000 </th>
                       </tr>
                     </tbody>
                 </table>
                 <p><b>Benefit:</b>&#8358; 200,000 + Food Voucher of 100,000 + Business Funds of #200,000 + Mini SUV</p>
                 </div>
                 <div class="col-md-4">
-                    <img src="../../assets/img/2-3-plan.png"  class="img-fluid" alt="">
+                    <img src="../../assets/img/other.jpeg"  class="img-fluid" alt="">
                 </div>
                 </div>
               </div>
@@ -360,7 +414,7 @@
                   <thead>
                     <tr>
                       <th scope="col">#</th>
-                      <th scope="col">GRAND AMBASSADOR</th>
+                      <th scope="col">STAGE</th>
                       <th scope="col">No of Persons</th>
                       <th scope="col">Amount</th>
                     </tr>
@@ -368,22 +422,28 @@
                   <tbody>
                     <tr>
                       <th scope="row">1</th>
-                      <td>Level 1</td>
-                      <td>14</td>
-                      <td>&#8358; 35,000</td>
+                      <td>Level 0</td>
+                      <td>192</td>
+                      <td>&#8358; 480,000</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Level 5</td>
+                      <td>6</td>
+                      <td>-</td>
                     </tr>
                     <tr>
                       <th scope="row">3</th>
                       <th>TOTAL</th>
-                      <td>14</td>
-                      <th>&#8358; 500,000</th>
+                      <td></td>
+                      <th>&#8358; 480,000</th>
                     </tr>
                   </tbody>
                 </table>
                 <p><b>Benefit:</b>&#8358;1,000,000 + SUV Jeep + International Trip  + Food Voucher of 250,000 + Business Funds of 500,000 + House Funding of 5,000,000</p>
                 </div>
                 <div class="col-md-4">
-                    <img src="../../assets/img/2-3-plan.png"  class="img-fluid" alt="">
+                    <img src="../../assets/img/other.jpeg"  class="img-fluid" alt="">
                 </div>
                 </div>
               </div>
